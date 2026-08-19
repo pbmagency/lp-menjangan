@@ -5,7 +5,13 @@ use App\Http\Controllers\LabsController;
 use Illuminate\Support\Facades\Route;
 
 // ── Public landing page ───────────────────────────────────────────────────────
-// (Landing page routes have been removed)
+Route::get('/', function () {
+    return response(file_get_contents(public_path('Menjangan Landing.dc.html')))
+        ->header('Content-Type', 'text/html; charset=utf-8');
+})->name('home')->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class)
+  ->withoutMiddleware(\App\Http\Middleware\CacheLandingPage::class)
+  ->withoutMiddleware(\App\Http\Middleware\HandleInertiaRequests::class)
+  ->withoutMiddleware(\Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class);
 
 
 // ── Analytics tracking endpoint (public, uses session CSRF) ──────────────────

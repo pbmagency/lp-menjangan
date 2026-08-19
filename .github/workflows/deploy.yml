@@ -1,4 +1,4 @@
-name: Deploy to CyberPanel VPS
+name: Deploy to CyberPanel VPS (Sub4)
 
 on:
   push:
@@ -41,29 +41,25 @@ jobs:
 
       - name: Deploy files with rsync
         run: |
-          # Mengirim semua file (kecuali file git & env) ke sub2_laravel
-          rsync -avz --exclude='.git' --exclude='.github' --exclude='.env' ./ root@72.61.142.238:/home/pbmagency.id/sub2_laravel/
+          # Mengirim semua file langsung ke folder laravel-sub4
+          rsync -avz --exclude='.git' --exclude='.github' --exclude='.env' ./ root@72.61.142.238:/home/pbmagency.id/laravel-sub4/
 
-      - name: Fix Permissions, Move Public, & Auto-Edit index.php
+      - name: Fix Permissions & Clear Cache
         run: |
           ssh root@72.61.142.238 << 'EOF'
-            # 1. Pindahkan isi folder public ke etalase (sub2)
-            cp -r /home/pbmagency.id/sub2_laravel/public/* /home/pbmagency.id/sub2/
-            
-            # 2. Auto-edit file index.php agar mengarah ke gudang sub2_laravel
-            sed -i "s|__DIR__.'/../storage|__DIR__.'/../sub2_laravel/storage|g" /home/pbmagency.id/sub2/index.php
-            sed -i "s|__DIR__.'/../vendor|__DIR__.'/../sub2_laravel/vendor|g" /home/pbmagency.id/sub2/index.php
-            sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/../sub2_laravel/bootstrap|g" /home/pbmagency.id/sub2/index.php
-            
-            # 3. Cari tahu siapa user/karyawan CyberPanel asli di server ini
+            # 1. Cari tahu siapa user/karyawan CyberPanel asli di server ini
             CYBER_USER=$(stat -c '%U' /home/pbmagency.id/public_html)
             CYBER_GROUP=$(stat -c '%G' /home/pbmagency.id/public_html)
             
-            # 4. Copot gembok root! Ubah kepemilikan menjadi milik CyberPanel
-            chown -R $CYBER_USER:$CYBER_GROUP /home/pbmagency.id/sub2_laravel
-            chown -R $CYBER_USER:$CYBER_GROUP /home/pbmagency.id/sub2
+            # 2. Copot gembok root! Ubah kepemilikan menjadi milik CyberPanel
+            chown -R $CYBER_USER:$CYBER_GROUP /home/pbmagency.id/laravel-sub4
             
-            # 5. Beri izin jalan untuk folder cache & storage Laravel
-            chmod -R 775 /home/pbmagency.id/sub2_laravel/storage
-            chmod -R 775 /home/pbmagency.id/sub2_laravel/bootstrap/cache
+            # 3. Beri izin jalan untuk folder cache & storage Laravel
+            chmod -R 775 /home/pbmagency.id/laravel-sub4/storage
+            chmod -R 775 /home/pbmagency.id/laravel-sub4/bootstrap/cache
+
+            # 4. Pembersihan Cache (Sesuai Guidebook)
+            # Diberi tanda '#' sementara agar tidak error saat deploy tanpa file .env
+            # cd /home/pbmagency.id/laravel-sub4
+            # php artisan optimize:clear
           EOF

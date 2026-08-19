@@ -211,6 +211,84 @@ register.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     register.form = registerForm
 /**
+* @see \Illuminate\Routing\ViewController::__invoke
+ * @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+ * @route '/'
+ */
+export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: home.url(options),
+    method: 'get',
+})
+
+home.definition = {
+    methods: ["get","head"],
+    url: '/',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+ * @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+ * @route '/'
+ */
+home.url = (options?: RouteQueryOptions) => {
+    return home.definition.url + queryParams(options)
+}
+
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+ * @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+ * @route '/'
+ */
+home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: home.url(options),
+    method: 'get',
+})
+/**
+* @see \Illuminate\Routing\ViewController::__invoke
+ * @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+ * @route '/'
+ */
+home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: home.url(options),
+    method: 'head',
+})
+
+    /**
+* @see \Illuminate\Routing\ViewController::__invoke
+ * @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+ * @route '/'
+ */
+    const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: home.url(options),
+        method: 'get',
+    })
+
+            /**
+* @see \Illuminate\Routing\ViewController::__invoke
+ * @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+ * @route '/'
+ */
+        homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: home.url(options),
+            method: 'get',
+        })
+            /**
+* @see \Illuminate\Routing\ViewController::__invoke
+ * @see vendor/laravel/framework/src/Illuminate/Routing/ViewController.php:32
+ * @route '/'
+ */
+        homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: home.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    home.form = homeForm
+/**
 * @see \Inertia\Controller::__invoke
  * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
