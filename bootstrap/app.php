@@ -34,11 +34,16 @@ return Application::configure(basePath: dirname(__DIR__))
         // PostHog is optional here — PostHogService no-ops when unconfigured,
         // so this is safe to leave in place even if POSTHOG_PROJECT_TOKEN is empty.
         $exceptions->report(function (Throwable $exception): void {
-            $userId = auth()->id();
+            try {
+                // Cek dulu apakah sistem auth udah siap, kalau belum lewati aja biar gak meledak
+                $userId = app()->bound('auth') ? auth()->id() : null;
 
-            app(PostHogService::class)->captureException(
-                $exception,
-                $userId !== null ? (string) $userId : null,
-            );
+                app(PostHogService::class)->captureException(
+                    $exception,
+                    $userId !== null ? (string) $userId : null,
+                );
+            } catch (\Throwable $e) {
+                // Abaikan jika service belum siap dipanggil di awal proses
+            }
         });
     })->create();
