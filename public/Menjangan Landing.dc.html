@@ -1273,5 +1273,21 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script>
+  window.addEventListener('load', () => {
+    fetch('/analytics/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        event_type: 'visit',
+        event_data: {
+          page: window.location.pathname,
+          is_initial: true,
+          landing_source: document.referrer || null
+        }
+      })
+    }).catch(e => console.error(e));
+  });
+</script>
 </body>
 </html>
