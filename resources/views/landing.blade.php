@@ -152,7 +152,7 @@ summary { list-style: none; }
     </div>
   </header>
   <section id="top" style="position: relative; min-height: min(78vh, 680px); display: grid; align-items: center; overflow: hidden">
-    <img src="hero-snorkeling.png" alt="Menjangan Island and its reef from the air" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img src="hero-snorkeling.webp" alt="Menjangan Island and its reef from the air" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent-900) 62%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 34%, transparent) 34%, color-mix(in srgb, var(--color-accent-900) 82%, transparent) 68%, color-mix(in srgb, var(--color-accent-900) 94%, transparent) 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 84px 24px 56px; color: var(--color-bg)">
       <div style="display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; border-width: 1px; border-style: solid; border-color: var(--color-bg)">
