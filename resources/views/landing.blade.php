@@ -1100,7 +1100,7 @@ summary { list-style: none; }
       <img fetchpriority="high" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Wild-Deers-at-Menjangan-Island.jpg" alt="Wild deer on the island" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
       <img fetchpriority="high" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Scuba-Diving-Menjangan-4.jpg" alt="Sea fans on the wall" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
       <img fetchpriority="high" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-3.jpg" alt="Snorkeling the shallows" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img fetchpriority="high" src="_2172056_11zon.webp" alt="Menjangan Island scenery" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img fetchpriority="high" src="{{ asset('_2172056_11zon.webp') }}" alt="Menjangan Island scenery" decoding="async" style="grid-column: span 3; width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
     </div>
   </section>
 
