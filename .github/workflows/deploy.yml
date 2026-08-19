@@ -1,9 +1,9 @@
-name: Deploy to CyberPanel VPS (Sub1)
+name: Deploy to Production (LP Menjangan)
 
 on:
   push:
     branches:
-      - main # Pastikan ini nama branch lu yang bener
+      - main # Pastikan ini nama branch lu
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3' # Menggunakan PHP 8.3 sesuai server
+          php-version: '8.3' # Sesuai versi PHP di server
 
       - name: Install Composer Dependencies
         run: composer install --no-dev --optimize-autoloader
@@ -36,23 +36,27 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY_VPS2 }}
 
-      - name: Add Server to Known Hosts
-        run: ssh-keyscan -H 72.61.142.238 >> ~/.ssh/known_hosts
+      - name: Disable Strict Host Key Checking
+        run: |
+          mkdir -p ~/.ssh
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Deploy files with rsync
         run: |
-          # Mengirim file ke Sub1, mengabaikan .git, .github, dan .env
-          rsync -avz --exclude='.git' --exclude='.github' --exclude='.env' ./ root@72.61.142.238:/home/pbmagency.id/laravel-sub1/
+          # Mengirim file ke folder web production, mengabaikan .git, .github, dan .env
+          rsync -avz --exclude='.git' --exclude='.github' --exclude='.env' ./ root@72.61.142.238:/home/lp.menjanganislandtrip.com/public_html/
 
       - name: Execute Server Commands & Fix Permissions
         run: |
           ssh root@72.61.142.238 << 'EOF'
-            cd /home/pbmagency.id/laravel-sub1
+            cd /home/lp.menjanganislandtrip.com/public_html
             
-            # 1. Bikin Symlink Storage (Biar gambar ke-load)
+            # 1. Bikin tabel dan isi data awal (Seeder)
+            php artisan migrate --force
+            php artisan db:seed --force
+            
+            # 2. Bikin Symlink Storage & Publish Aset Bagisto
             php artisan storage:link --force
-            
-            # 2. Publish Aset Bagisto (Biar CSS/JS bawaan Bagisto aman)
             php artisan bagisto:publish --force
             
             # 3. Bersihkan semua memori ingatan (Cache) Laravel
@@ -62,9 +66,9 @@ jobs:
             php artisan optimize:clear
             
             # 4. Benerin kepemilikan dan izin akses file server
-            CYBER_USER=$(stat -c '%U' /home/pbmagency.id/public_html)
-            CYBER_GROUP=$(stat -c '%G' /home/pbmagency.id/public_html)
-            chown -R $CYBER_USER:$CYBER_GROUP /home/pbmagency.id/laravel-sub1
-            chmod -R 775 /home/pbmagency.id/laravel-sub1/storage
-            chmod -R 775 /home/pbmagency.id/laravel-sub1/bootstrap/cache
+            CYBER_USER=$(stat -c '%U' /home/lp.menjanganislandtrip.com/public_html)
+            CYBER_GROUP=$(stat -c '%G' /home/lp.menjanganislandtrip.com/public_html)
+            chown -R $CYBER_USER:$CYBER_GROUP /home/lp.menjanganislandtrip.com/public_html
+            chmod -R 775 /home/lp.menjanganislandtrip.com/public_html/storage
+            chmod -R 775 /home/lp.menjanganislandtrip.com/public_html/bootstrap/cache
           EOF
