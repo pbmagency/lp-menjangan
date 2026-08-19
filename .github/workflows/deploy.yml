@@ -1,9 +1,9 @@
-name: Deploy to CyberPanel VPS (Sub4)
+name: Deploy to CyberPanel VPS (Sub1)
 
 on:
   push:
     branches:
-      - main
+      - main # (Bisa lu ganti kalau branch buat sub1 beda)
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3' # Sesuaikan jika pakai PHP 8.1 atau 8.3
+          php-version: '8.3' # Tetap pakai PHP 8.3
 
       - name: Install Composer Dependencies
         run: composer install --no-dev --optimize-autoloader
@@ -41,36 +41,17 @@ jobs:
 
       - name: Deploy files with rsync
         run: |
-          # Mengirim semua file (kecuali file git & env) ke sub4_laravel
-          rsync -avz --exclude='.git' --exclude='.github' --exclude='.env' ./ root@72.61.142.238:/home/pbmagency.id/sub4_laravel/
+          # Mengirim semua file ke folder laravel-sub1
+          rsync -avz --exclude='.git' --exclude='.github' --exclude='.env' ./ root@72.61.142.238:/home/pbmagency.id/laravel-sub1/
 
-      - name: Fix Permissions, Move Public, & Auto-Edit index.php
+      - name: Fix Permissions
         run: |
           ssh root@72.61.142.238 << 'EOF'
-            # 1. Pindahkan isi folder public ke etalase (sub4)
-            cp -r /home/pbmagency.id/sub4_laravel/public/* /home/pbmagency.id/sub4/
-            
-            # 2. Auto-edit file index.php agar mengarah ke gudang sub4_laravel
-            sed -i "s|__DIR__.'/../storage|__DIR__.'/../sub4_laravel/storage|g" /home/pbmagency.id/sub4/index.php
-            sed -i "s|__DIR__.'/../vendor|__DIR__.'/../sub4_laravel/vendor|g" /home/pbmagency.id/sub4/index.php
-            sed -i "s|__DIR__.'/../bootstrap|__DIR__.'/../sub4_laravel/bootstrap|g" /home/pbmagency.id/sub4/index.php
-            
-            # 3. Cari tahu siapa user/karyawan CyberPanel asli di server ini
             CYBER_USER=$(stat -c '%U' /home/pbmagency.id/public_html)
             CYBER_GROUP=$(stat -c '%G' /home/pbmagency.id/public_html)
             
-            # 4. Copot gembok root! Ubah kepemilikan menjadi milik CyberPanel
-            chown -R $CYBER_USER:$CYBER_GROUP /home/pbmagency.id/sub4_laravel
-            chown -R $CYBER_USER:$CYBER_GROUP /home/pbmagency.id/sub4
-            
-            # 5. Beri izin jalan untuk folder cache & storage Laravel
-            chmod -R 775 /home/pbmagency.id/sub4_laravel/storage
-            chmod -R 775 /home/pbmagency.id/sub4_laravel/bootstrap/cache
-
-            # 6. Pembersihan Cache & Publish Bagisto
-            # Diberi tanda '#' sementara agar tidak error saat deploy tanpa file .env
-            # cd /home/pbmagency.id/sub4_laravel
-            # php artisan optimize:clear
-            # php artisan view:clear
-            # php artisan bagisto:publish --force
+            # Ubah kepemilikan dan izin folder untuk Sub1
+            chown -R $CYBER_USER:$CYBER_GROUP /home/pbmagency.id/laravel-sub1
+            chmod -R 775 /home/pbmagency.id/laravel-sub1/storage
+            chmod -R 775 /home/pbmagency.id/laravel-sub1/bootstrap/cache
           EOF
