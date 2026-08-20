@@ -28,6 +28,11 @@ class CacheLandingPage
             return $next($request);
         }
 
+        // Bypass cache during local development
+        if (app()->environment('local')) {
+            return $next($request);
+        }
+
         $cacheKey = 'landing_page_html_v2:'.self::manifestVersion();
 
         if (Cache::has($cacheKey)) {

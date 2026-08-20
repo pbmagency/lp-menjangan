@@ -9,8 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://menjanganislandtrip.com">
 <link rel="preconnect" href="https://cdn.trustindex.io">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/industry.css">
+<link rel="preload" as="image" href="{{ asset('hero-snorkeling.webp') }}" type="image/webp" fetchpriority="high">
+<link rel="preload" as="style" href="{{ asset('industry.css') }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ asset('industry.css') }}"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"></noscript>
 <style>
 :root {
   --font-heading: "Montserrat", system-ui, sans-serif;
@@ -147,7 +150,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
   <header style="position: sticky; top: 0; z-index: 70; background: #FFFFFF; border-bottom: 1px solid var(--color-divider); box-shadow: 0 1px 6px rgba(15, 26, 48, 0.07)">
     <div style="max-width: 1160px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; gap: 14px; flex-wrap: nowrap">
       <a href="#top" style="margin-right: auto; display: flex; align-items: center; text-decoration: none">
-        <img src="logo-menjangan.webp" alt="Menjangan Snorkeling Trip &amp; Diving" style="height: 52px; width: auto; flex: none">
+        <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="200" height="200" style="height: 52px; width: auto; flex: none">
       </a>
       <div style="display: flex; align-items: center; border: 1px solid var(--color-divider)">
         <button type="button" class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
@@ -160,7 +163,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
     </div>
   </header>
   <section id="top" style="position: relative; min-height: min(78vh, 680px); display: grid; align-items: center; overflow: hidden">
-    <img fetchpriority="high" src="hero-snorkeling.webp" alt="Menjangan Island and its reef from the air" width="1600" height="900" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img fetchpriority="high" src="{{ asset('hero-snorkeling.webp') }}" alt="Menjangan Island and its reef from the air" width="1600" height="900" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent-900) 62%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 34%, transparent) 34%, color-mix(in srgb, var(--color-accent-900) 82%, transparent) 68%, color-mix(in srgb, var(--color-accent-900) 94%, transparent) 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 84px 24px 56px; color: var(--color-bg)">
       <div style="display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; border-width: 1px; border-style: solid; border-color: var(--color-bg)">
@@ -209,7 +212,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; background: var(--color-neutral-300)">
     <a href="#snorkeling" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/533928995_769016889423175_941965882769240051_n.jpg" alt="Snorkeling above the reef at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GOPR9548-scaled-1.jpg" alt="Diver along the Menjangan wall" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">01</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Snorkeling</div>
@@ -217,7 +220,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
       </div>
     </a>
     <a href="#scuba-diving" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GOPR9548-scaled-1.jpg" alt="Diver along the Menjangan wall" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/scuba/new_scuba.webp') }}" alt="Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">02</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Scuba Diving</div>
@@ -225,7 +228,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
       </div>
     </a>
     <a href="#try-scuba" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GOPR9465-scaled-1.jpg" alt="First-time divers at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/try_scuba/new_try_scuba.webp') }}" alt="Try Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">03</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Try Scuba Diving</div>
@@ -316,7 +319,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
 
     <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="/uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp" alt="Coral garden in clear shallow water" loading="lazy" width="800" height="600" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp') }}" alt="Coral garden in clear shallow water" loading="lazy" width="800" height="600" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Coral garden · inside the national park</span><span data-l="id">Coral garden · di dalam taman nasional</span></div>
     </div>
       <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
@@ -516,7 +519,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
       <a href="#try-scuba" style="font-size: 14px; color: var(--color-accent-700)"><span data-l="en">New to diving? Try it risk-free first →</span><span data-l="id">Belum pernah diving? Coba dulu tanpa risiko →</span></a>
         </div>
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="/uploads/scuba/_2111638.webp" alt="Diver along the reef wall at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/scuba/_2111638.webp') }}" alt="Diver along the reef wall at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Wall dive · 3–25 m · gentle current</span><span data-l="id">Wall dive · 3–25 m · arus tenang</span></div>
     </div>
   </section>
@@ -555,7 +558,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
 
     <section id="try-scuba" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="/uploads/try_scuba/_1310850.webp" alt="Shallow reef in clear water" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/try_scuba/_1310850.webp') }}" alt="Shallow reef in clear water" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Beginner dives · 3–5 m · instructor beside you</span><span data-l="id">Dive pemula · 3–5 m · instruktur mendampingi</span></div>
     </div>
      <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
@@ -1153,7 +1156,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
       <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Wild-Deers-at-Menjangan-Island.jpg" alt="Wild deer on the island" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
       <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Scuba-Diving-Menjangan-4.jpg" alt="Sea fans on the wall" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
       <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-3.jpg" alt="Snorkeling the shallows" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img loading="lazy" src="_2172056_11zon.webp" alt="Menjangan Island scenery" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('_2172056_11zon.webp') }}" alt="Menjangan Island scenery" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
     </div>
   </section>
 
@@ -1187,7 +1190,7 @@ function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('d
   <footer style="padding: 60px 24px 96px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
       <div>
-        <img src="logo-menjangan.webp" alt="Menjangan Snorkeling Trip &amp; Diving" style="height: 88px; width: auto; margin-bottom: 14px">
+        <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="200" height="200" style="height: 88px; width: auto; margin-bottom: 14px">
         <div style="font-family: var(--font-heading); font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-accent-700)">Menjangan Snorkeling Trip &amp; Diving</div>
         <p style="margin: 8px 0 16px; font-size: 14px; color: var(--color-neutral-700)">Jl. Banyuwedang, Banjar Dinas Batu Ampar, Pejarakan, Gerokgak, Buleleng, Bali 81155</p>
         <div style="display: grid; gap: 6px; font-size: 14px">
@@ -1264,4 +1267,5 @@ fetch('/analytics/track', {
 </script>
 </body>
 </html>
+
 
