@@ -61,7 +61,8 @@ class SecurityHeaders
         //
         // NOTE: Third-party analytics domains are allow-listed because
         // removing them would break tracking. Tighten further as needed.
-        $csp = $this->buildCspPolicy();
+        $nonce = $request->attributes->get('csp_nonce', '');
+        $csp = $this->buildCspPolicy($nonce);
         $response->headers->set('Content-Security-Policy', $csp);
 
         return $response;
@@ -76,23 +77,26 @@ class SecurityHeaders
      *    — once that file is removed or rewritten, drop 'unsafe-eval'
      *  - connect-src lists the analytics endpoints
      */
-    private function buildCspPolicy(): string
+    private function buildCspPolicy(string $nonce = ''): string
     {
+        // Build script-src: prefer nonce when available, fall back to unsafe-inline
+        $scriptSrc = $nonce !== ''
+            ? "script-src 'self' 'nonce-{$nonce}' 'unsafe-inline'"
+            : "script-src 'self' 'unsafe-inline'";
+
         $directives = [
             // Default: fall back to self
             "default-src 'self'",
 
-            // Scripts: self + trusted third-party analytics
-            // 'unsafe-inline' needed for gtag/clarity/meta pixel inline snippets
-            // NOTE: 'unsafe-eval' intentionally omitted — support.js (dc-runtime) is dead code
-            "script-src 'self' 'unsafe-inline'"
+            // Scripts: nonce-based + trusted third-party analytics
+            // 'unsafe-inline' kept as fallback for nonces (e.g. Vite HMR, SSR)
+            $scriptSrc
                 . ' https://www.googletagmanager.com'
                 . ' https://www.google-analytics.com'
                 . ' https://www.clarity.ms'
-                . ' https://connect.facebook.net'
-                . ' https://a.plerdy.com',
+                . ' https://connect.facebook.net',
 
-            // Styles: self + inline (Tailwind generates inline styles)
+            // Styles: self + inline (Tailwind generates inline styles via Radix)
             "style-src 'self' 'unsafe-inline'"
                 . ' https://fonts.googleapis.com',
 
@@ -101,11 +105,10 @@ class SecurityHeaders
                 . ' https://www.google-analytics.com'
                 . ' https://www.facebook.com'
                 . ' https://connect.facebook.net'
-                . ' https://a.plerdy.com'
                 . ' https://cdn.trustindex.io'
                 . ' https://lh3.googleusercontent.com',
 
-            // Fonts: self + Bunny CDN (via Vite) + Google Fonts
+            // Fonts: self + Google Fonts
             "font-src 'self'"
                 . ' https://fonts.gstatic.com'
                 . ' https://fonts.googleapis.com',
@@ -115,7 +118,6 @@ class SecurityHeaders
                 . ' https://www.google-analytics.com'
                 . ' https://analytics.google.com'
                 . ' https://www.clarity.ms'
-                . ' https://a.plerdy.com'
                 . ' https://us.i.posthog.com'
                 . ' https://*.posthog.com',
 

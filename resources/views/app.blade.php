@@ -4,7 +4,7 @@
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJG744VCZF"></script>
-    <script>
+    <script nonce="{{ $cspNonce }}">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -21,10 +21,10 @@
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
-    <link rel="preconnect" href="https://a.plerdy.com" crossorigin>
+
 
     @if(request()->path() !== '/')
-    <script>
+    <script nonce="{{ $cspNonce }}">
         (function() {
             const appearance = '{{ $appearance ?? 'system' }}';
             if (appearance === 'system') {
@@ -64,7 +64,7 @@
     <x-inertia::app />
 
     <!-- Microsoft Clarity -->
-    <script>
+    <script nonce="{{ $cspNonce }}">
         window.addEventListener('load', function() {
             (function(c, l, a, r, i, t, y) {
                 c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
@@ -77,7 +77,7 @@
     </script>
 
     <!-- Meta Pixel -->
-    <script>
+    <script nonce="{{ $cspNonce }}">
         window.addEventListener('load', function() {
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -92,31 +92,13 @@
                 ? crypto.randomUUID()
                 : Date.now() + '-' + Math.random().toString(36).substring(2, 11);
             fbq('track', 'PageView', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
-            //THIS IS THE NEW LINE YOU NEED TO ADD
             fbq('track', 'ViewContent', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
         });
     </script>
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id={{ config('services.meta.pixel_id', 'YOUR_PIXEL_ID') }}&ev=PageView&noscript=1" /></noscript>
 
-    <!-- BEGIN PLERDY CODE (deferred to after page load) -->
-    <script>
-    window.addEventListener('load', function() {
-        (function(w,d){
-            if(w.__plerdyCode)return;
-            w.__plerdyCode=1;
-            w._protocol=w.location.protocol=="https:"?"https://":"http://";
-            w._site_hash_code="e5ad2bad413372216eb0cbf6646f35c3";
-            w._suid=79951;
-            var s=d.createElement("script");
-            s.async=true;
-            s.referrerPolicy="strict-origin-when-cross-origin";
-            s.src="https://a.plerdy.com/public/js/click/main.js?v="+Math.random();
-            d.head.appendChild(s);
-        })(window,document);
-    });
-    </script>
-    <!-- END PLERDY CODE -->
+
 </body>
 
 </html>

@@ -3,6 +3,7 @@
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\CacheLandingPage;
 use App\Http\Middleware\HandleAppearance;
+use App\Http\Middleware\CspNonce;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\SecurityHeaders;
 use Illuminate\Foundation\Application;
@@ -22,7 +23,9 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->web(append: [
             SecurityHeaders::class,
-            CacheLandingPage::class,
+            CspNonce::class,
+            // CacheLandingPage removed: conflicts with CSP nonce (cached HTML has stale nonce)
+            // The landing page is already fast without server-side HTML caching
             HandleAppearance::class,
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,
