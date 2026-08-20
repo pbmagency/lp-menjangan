@@ -16,6 +16,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Preconnect to third-party domains for faster loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
+    <link rel="preconnect" href="https://a.plerdy.com" crossorigin>
+
     @if(request()->path() !== '/')
     <script>
         (function() {
@@ -41,7 +48,7 @@
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="preload" href="/logo/Primary%20Logo.webp" as="image" fetchpriority="high">
@@ -92,20 +99,22 @@
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id={{ config('services.meta.pixel_id', 'YOUR_PIXEL_ID') }}&ev=PageView&noscript=1" /></noscript>
 
-    <!-- BEGIN PLERDY CODE -->
-    <script data-plerdy_code='1'>
-    (function(w,d){
-        if(w.__plerdyCode)return;
-        w.__plerdyCode=1;
-        w._protocol=w.location.protocol=="https:"?"https://":"http://";
-        w._site_hash_code="e5ad2bad413372216eb0cbf6646f35c3";
-        w._suid=79951;
-        var s=d.createElement("script");
-        s.async=true;
-        s.referrerPolicy="strict-origin-when-cross-origin";
-        s.src="https://a.plerdy.com/public/js/click/main.js?v="+Math.random();
-        d.head.appendChild(s);
-    })(window,document);
+    <!-- BEGIN PLERDY CODE (deferred to after page load) -->
+    <script>
+    window.addEventListener('load', function() {
+        (function(w,d){
+            if(w.__plerdyCode)return;
+            w.__plerdyCode=1;
+            w._protocol=w.location.protocol=="https:"?"https://":"http://";
+            w._site_hash_code="e5ad2bad413372216eb0cbf6646f35c3";
+            w._suid=79951;
+            var s=d.createElement("script");
+            s.async=true;
+            s.referrerPolicy="strict-origin-when-cross-origin";
+            s.src="https://a.plerdy.com/public/js/click/main.js?v="+Math.random();
+            d.head.appendChild(s);
+        })(window,document);
+    });
     </script>
     <!-- END PLERDY CODE -->
 </body>

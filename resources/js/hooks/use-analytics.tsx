@@ -126,17 +126,11 @@ export function useAnalytics() {
                 });
 
                 if (!response.ok) {
-                    console.debug(
-                        `Analytics tracking rejected (${response.status})`,
-                    );
-
                     return false;
                 }
 
                 return true;
-            } catch (error) {
-                console.debug('Analytics tracking failed:', error);
-
+            } catch {
                 return false;
             }
         },
