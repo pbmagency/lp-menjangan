@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 // ── Public landing page ───────────────────────────────────────────────────────
 Route::get('/', function () {
-    return response(file_get_contents(public_path('Menjangan Landing.dc.html')))
-        ->header('Content-Type', 'text/html; charset=utf-8');
+    return view('landing');
 })->name('home')->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class)
   ->withoutMiddleware(\App\Http\Middleware\CacheLandingPage::class)
   ->withoutMiddleware(\App\Http\Middleware\HandleInertiaRequests::class)
