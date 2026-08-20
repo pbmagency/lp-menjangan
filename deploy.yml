@@ -89,7 +89,10 @@ jobs:
             ln -sfn ../laravel/storage/app/public storage
 
             cd ${{ env.TARGET_DIR_LARAVEL }}
-            php artisan optimize:clear
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan event:cache
             php artisan migrate --force
 
             chown -R pbmag2242:pbmag2242 ${{ env.TARGET_DIR_LARAVEL }}

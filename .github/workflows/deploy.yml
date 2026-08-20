@@ -59,11 +59,11 @@ jobs:
             php artisan storage:link --force
             php artisan bagisto:publish --force
             
-            # 3. Bersihkan semua memori ingatan (Cache) Laravel
-            php artisan view:clear
-            php artisan cache:clear
-            php artisan config:clear
-            php artisan optimize:clear
+            # 3. Rebuild semua cache Laravel
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan event:cache
             
             # 4. Benerin kepemilikan dan izin akses file server
             CYBER_USER=$(stat -c '%U' /home/lp.menjanganislandtrip.com/public_html)
