@@ -5,15 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Menjangan Island Snorkeling & Diving Trips</title>
 <meta name="description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips.">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="stylesheet" href="industry.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://menjanganislandtrip.com">
+<link rel="preconnect" href="https://cdn.trustindex.io">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/industry.css">
 <style>
 :root {
   --font-heading: "Montserrat", system-ui, sans-serif;
@@ -136,8 +133,15 @@ a:hover { color: var(--color-accent-700); }
 summary::-webkit-details-marker { display: none; }
 summary { list-style: none; }
 .corner-light > .corner { color: color-mix(in srgb, #f2f2f3 75%, transparent); }
+.lang-btn { cursor:pointer; border:0; padding:8px 12px; font-size:13px; letter-spacing:0.06em; font-family:var(--font-heading); font-weight:600; }
+.lang-btn.active { background:var(--color-accent); color:var(--color-bg); }
+.lang-btn:not(.active) { background:transparent; color:var(--color-neutral-700, #555); }
 </style>
-</helmet>
+<script>
+function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('data-lg',l);document.querySelectorAll('.lang-btn').forEach(function(b){b.getAttribute('data-lang')===l?b.classList.add('active'):b.classList.remove('active');});}
+</script>
+</head>
+<body>
 <div id="page" data-lg="en" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body)">
 
   <header style="position: sticky; top: 0; z-index: 70; background: #FFFFFF; border-bottom: 1px solid var(--color-divider); box-shadow: 0 1px 6px rgba(15, 26, 48, 0.07)">
@@ -146,8 +150,8 @@ summary { list-style: none; }
         <img src="logo-menjangan.webp" alt="Menjangan Snorkeling Trip &amp; Diving" style="height: 52px; width: auto; flex: none">
       </a>
       <div style="display: flex; align-items: center; border: 1px solid var(--color-divider)">
-        <button type="button" onClick="{{ setEn }}" style="{{ enStyle }}">EN</button>
-        <button type="button" onClick="{{ setId }}" style="{{ idStyle }}">ID</button>
+        <button type="button" class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button type="button" class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
       </div>
       <a class="btn btn-primary" href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island." target="_blank" rel="noopener" style="font-size: 14px; padding: 9px 16px; white-space: nowrap">
           <svg viewBox="0 0 24 24" fill="#ffffff" style="width: 32px; height: 32px" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.33-1.59-1.48-1.89-.15-.3-.02-.46.13-.61.15-.15.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.34 5.08 4.56.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"></path><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21z"></path></svg>
@@ -156,7 +160,7 @@ summary { list-style: none; }
     </div>
   </header>
   <section id="top" style="position: relative; min-height: min(78vh, 680px); display: grid; align-items: center; overflow: hidden">
-    <img fetchpriority="high" src="hero-snorkeling.webp" alt="Menjangan Island and its reef from the air" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img fetchpriority="high" src="hero-snorkeling.webp" alt="Menjangan Island and its reef from the air" width="1600" height="900" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent-900) 62%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 34%, transparent) 34%, color-mix(in srgb, var(--color-accent-900) 82%, transparent) 68%, color-mix(in srgb, var(--color-accent-900) 94%, transparent) 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 84px 24px 56px; color: var(--color-bg)">
       <div style="display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; border-width: 1px; border-style: solid; border-color: var(--color-bg)">
@@ -312,7 +316,7 @@ summary { list-style: none; }
 
     <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="53EB5B71-90A5-4B43-B247-FCF43536ABBD.jpg.jpeg" alt="Coral garden in clear shallow water" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="/uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp" alt="Coral garden in clear shallow water" loading="lazy" width="800" height="600" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Coral garden · inside the national park</span><span data-l="id">Coral garden · di dalam taman nasional</span></div>
     </div>
       <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
@@ -1205,91 +1209,59 @@ summary { list-style: none; }
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 40px; height: 40px; flex: none; fill: var(--color-bg)"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
   </a>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLanguage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;id&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;'en' | 'id'&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
-class Component extends DCLogic {
-  state = { lang: "en" };
 
-  componentDidMount() {
-    const keys = [["trustindex-widget-4", "10ccabb799ef438be446ad7f85b"], ["trustindex-widget-3", "e73019379de3438f5c363b89767"]];
-    const TAG = "scr" + "ipt";
-    keys.forEach(([id, key]) => {
-      const box = document.getElementById(id);
-      if (!box || box.dataset.loaded) return;
-      box.dataset.loaded = "1";
-      box.innerHTML = "";
-      const frame = document.createElement("iframe");
-      frame.title = "Guest reviews";
-      frame.setAttribute("scrolling", "no");
-      frame.style.cssText = "width:100%;border:0;display:block;height:0;overflow:hidden";
-      box.appendChild(frame);
-      const doc = frame.contentDocument;
-      const inner = "<" + TAG + ' defer src="https://cdn.trustindex.io/loader.js?' + key + '"></' + TAG + ">";
-      doc.open();
-      doc.write('<!DOCTYPE html><html><head><base target="_blank"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body style="margin:0;font-family:Montserrat,sans-serif">' + inner + "</body></html>");
-      doc.close();
-      const fit = () => {
-        const b = frame.contentDocument && frame.contentDocument.body;
-        if (!b) return;
-        const h = Math.max(b.scrollHeight, Math.round(b.getBoundingClientRect().height));
-        if (h > 8) frame.style.height = h + "px";
-      };
-      const iv = setInterval(fit, 400);
-      setTimeout(() => clearInterval(iv), 12000);
-    });
-    setTimeout(() => {
-      const any = keys.some(([id]) => {
-        const b = document.getElementById(id);
-        return b && b.getBoundingClientRect().height > 40;
-      });
-      const fb = document.getElementById("reviews-fallback");
-      if (any && fb) fb.style.display = "none";
-    }, 4000);
-    const lang = this.props.defaultLanguage === "id" ? "id" : "en";
-    if (lang !== this.state.lang) this.setLang(lang);
-  }
-
-  setLang = (l) => {
-    const page = document.getElementById("page");
-    if (page) page.setAttribute("data-lg", l);
-    this.setState({ lang: l });
-  };
-
-  tabStyle(active) {
-    return [
-      "cursor:pointer", "border:0", "padding:8px 12px", "font-size:13px",
-      "letter-spacing:0.06em", "font-family:var(--font-heading)", "font-weight:600",
-      active ? "background:var(--color-accent)" : "background:transparent",
-      active ? "color:var(--color-bg)" : "color:var(--color-neutral-700)"
-    ].join(";");
-  }
-
-  renderVals() {
-    const en = this.state.lang === "en";
-    return {
-      setEn: () => this.setLang("en"),
-      setId: () => this.setLang("id"),
-      enStyle: this.tabStyle(en),
-      idStyle: this.tabStyle(!en)
+<script defer>
+/* ── Trustindex Widget Loader ── */
+(function() {
+  var keys = [["trustindex-widget-4", "10ccabb799ef438be446ad7f85b"], ["trustindex-widget-3", "e73019379de3438f5c363b89767"]];
+  keys.forEach(function(pair) {
+    var id = pair[0], key = pair[1];
+    var box = document.getElementById(id);
+    if (!box || box.dataset.loaded) return;
+    box.dataset.loaded = "1";
+    box.innerHTML = "";
+    var frame = document.createElement("iframe");
+    frame.title = "Guest reviews";
+    frame.setAttribute("scrolling", "no");
+    frame.style.cssText = "width:100%;border:0;display:block;height:0;overflow:hidden";
+    box.appendChild(frame);
+    var doc = frame.contentDocument;
+    doc.open();
+    doc.write('<!DOCTYPE html><html><head><base target="_blank"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body style="margin:0;font-family:Montserrat,sans-serif"><script defer src="https://cdn.trustindex.io/loader.js?' + key + '"><\/script></body></html>');
+    doc.close();
+    var fit = function() {
+      var b = frame.contentDocument && frame.contentDocument.body;
+      if (!b) return;
+      var h = Math.max(b.scrollHeight, Math.round(b.getBoundingClientRect().height));
+      if (h > 8) frame.style.height = h + "px";
     };
-  }
-}
-</script>
-<script>
-  window.addEventListener('load', () => {
-    fetch('/analytics/track', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        event_type: 'visit',
-        event_data: {
-          page: window.location.pathname,
-          is_initial: true,
-          landing_source: document.referrer || null
-        }
-      })
-    }).catch(e => console.error(e));
+    var iv = setInterval(fit, 400);
+    setTimeout(function() { clearInterval(iv); }, 12000);
   });
+  setTimeout(function() {
+    var any = keys.some(function(pair) {
+      var b = document.getElementById(pair[0]);
+      return b && b.getBoundingClientRect().height > 40;
+    });
+    var fb = document.getElementById("reviews-fallback");
+    if (any && fb) fb.style.display = "none";
+  }, 4000);
+})();
+
+/* ── Analytics ── */
+fetch('/analytics/track', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    event_type: 'visit',
+    event_data: {
+      page: window.location.pathname,
+      is_initial: true,
+      landing_source: document.referrer || null
+    }
+  })
+}).catch(function(e) { console.error(e); });
 </script>
 </body>
 </html>
+

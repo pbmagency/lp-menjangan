@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing');
 })->name('home')->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class)
-  ->withoutMiddleware(\App\Http\Middleware\CacheLandingPage::class)
   ->withoutMiddleware(\App\Http\Middleware\HandleInertiaRequests::class)
   ->withoutMiddleware(\Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class);
 
