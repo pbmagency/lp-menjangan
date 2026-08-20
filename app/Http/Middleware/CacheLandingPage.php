@@ -22,6 +22,14 @@ class CacheLandingPage
     // It is safe because the cache key updates automatically on deployment.
     private const TTL_SECONDS = 604800;
 
+    private const PUBLIC_CACHE_HEADERS = [
+        'Cache-Control' => 'public, max-age=300, s-maxage=86400, stale-while-revalidate=604800',
+        'Vary' => 'Accept-Encoding',
+        'X-Content-Type-Options' => 'nosniff',
+        'Referrer-Policy' => 'strict-origin-when-cross-origin',
+        'Permissions-Policy' => 'camera=(), microphone=(), geolocation=()',
+    ];
+
     public function handle(Request $request, Closure $next): Response
     {
         if (! $request->isMethod('GET') || $request->user() || ! $request->is('/')) {
@@ -42,7 +50,7 @@ class CacheLandingPage
             return response(
                 str_replace(self::CSRF_PLACEHOLDER, csrf_token(), $html),
                 200,
-                ['Content-Type' => 'text/html; charset=UTF-8'],
+                array_merge(['Content-Type' => 'text/html; charset=UTF-8'], self::PUBLIC_CACHE_HEADERS),
             );
         }
 
@@ -57,6 +65,10 @@ class CacheLandingPage
             );
 
             Cache::put($cacheKey, $cacheableHtml, self::TTL_SECONDS);
+
+            foreach (self::PUBLIC_CACHE_HEADERS as $name => $value) {
+                $response->headers->set($name, $value);
+            }
         }
 
         return $response;

@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N2KG2WKZ');</script>
-<!-- End Google Tag Manager -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#273B6A">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Menjangan Island Snorkeling & Diving Trips</title>
 <meta name="description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://cdn.trustindex.io">
 <link rel="preload" as="image" href="{{ asset('hero-snorkeling.webp') }}" type="image/webp" fetchpriority="high">
 <link rel="preload" as="style" href="{{ asset('industry.css') }}" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ asset('industry.css') }}"></noscript>
@@ -41,6 +34,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --color-neutral-100: #FFFFFF;
 }
 body { background: #FFFFFF; }
+#page > section:not(#top), #page > footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
 #page > header { position: sticky !important; top: 0 !important; z-index: 70 !important; }
 @media (max-width: 900px) {
   #page > header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 90 !important; }
@@ -1224,11 +1225,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 </div>
 
-<script defer>
+<script>
+/* Load non-critical third-party code only after the page is interactive. */
+function whenIdle(callback) {
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(callback, { timeout: 2500 });
+  } else {
+    window.setTimeout(callback, 1);
+  }
+}
+
+window.addEventListener('load', function() {
+  whenIdle(function() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N2KG2WKZ';
+    document.head.appendChild(script);
+  });
+}, { once: true });
+
 /* ── Trustindex Widget Loader ── */
 (function() {
   var keys = [["trustindex-widget-4", "10ccabb799ef438be446ad7f85b"], ["trustindex-widget-3", "e73019379de3438f5c363b89767"]];
-  keys.forEach(function(pair) {
+  function loadWidget(pair) {
     var id = pair[0], key = pair[1];
     var box = document.getElementById(id);
     if (!box || box.dataset.loaded) return;
@@ -1239,10 +1260,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     frame.setAttribute("scrolling", "no");
     frame.style.cssText = "width:100%;border:0;display:block;height:0;overflow:hidden";
     box.appendChild(frame);
-    var doc = frame.contentDocument;
-    doc.open();
-    doc.write('<!DOCTYPE html><html><head><base target="_blank"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body style="margin:0;font-family:Montserrat,sans-serif"><script defer src="https://cdn.trustindex.io/loader.js?' + key + '"><\/script></body></html>');
-    doc.close();
+    frame.srcdoc = '<!DOCTYPE html><html><head><base target="_blank"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body style="margin:0;font-family:Montserrat,sans-serif"><script defer src="https://cdn.trustindex.io/loader.js?' + key + '"><\/script></body></html>';
     var fit = function() {
       var b = frame.contentDocument && frame.contentDocument.body;
       if (!b) return;
@@ -1251,6 +1269,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     };
     var iv = setInterval(fit, 400);
     setTimeout(function() { clearInterval(iv); }, 12000);
+  }
+
+  var observer = 'IntersectionObserver' in window ? new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var pair = keys.find(function(item) { return item[0] === entry.target.id; });
+      if (pair) loadWidget(pair);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '300px 0px' }) : null;
+
+  keys.forEach(function(pair) {
+    var box = document.getElementById(pair[0]);
+    if (!box) return;
+    if (observer) observer.observe(box); else whenIdle(function() { loadWidget(pair); });
   });
   setTimeout(function() {
     var any = keys.some(function(pair) {
@@ -1263,18 +1296,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 
 /* ── Analytics ── */
-fetch('/analytics/track', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
+window.addEventListener('load', function() {
+  var payload = JSON.stringify({
     event_type: 'visit',
     event_data: {
       page: window.location.pathname,
       is_initial: true,
       landing_source: document.referrer || null
     }
-  })
-}).catch(function(e) { console.error(e); });
+  });
+
+  whenIdle(function() {
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/analytics/track', new Blob([payload], { type: 'application/json' }));
+      return;
+    }
+    fetch('/analytics/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload,
+      keepalive: true
+    }).catch(function() {});
+  });
+}, { once: true });
 </script>
 </body>
 </html>
