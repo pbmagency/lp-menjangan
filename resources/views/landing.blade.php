@@ -14,7 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://menjanganislandtrip.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://cdn.trustindex.io">
 <link rel="preload" as="image" href="{{ asset('hero-snorkeling.webp') }}" type="image/webp" fetchpriority="high">
 <link rel="preload" as="style" href="{{ asset('industry.css') }}" onload="this.onload=null;this.rel='stylesheet'">
@@ -223,7 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; background: var(--color-neutral-300)">
     <a href="#snorkeling" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GOPR9548-scaled-1.jpg" alt="Diver along the Menjangan wall" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the Menjangan wall" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">01</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Snorkeling</div>
@@ -320,10 +320,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 26px"><span data-l="en">Where travellers find us first.</span><span data-l="id">Tempat wisatawan menemukan kami lebih dulu.</span></p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 26px 44px">
         <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
-        <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/Bali-Untold-Logo-Final-1-300x90-1.webp" alt="Bali Untold" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
-        <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/images__2_-removebg-preview.png" alt="TRAppe" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
-        <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GetYourGuide_Logo.svg_.webp" alt="GetYourGuide" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
-        <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/yandexmaps-removebg-previewnorm.png" alt="Yandex Maps" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
+        <img src="{{ asset('uploads/wp/Bali-Untold-Logo-Final-1-300x90-1.webp') }}" alt="Bali Untold" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
+        <img src="{{ asset('uploads/wp/images__2_-removebg-preview.webp') }}" alt="TRAppe" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
+        <img src="{{ asset('uploads/wp/GetYourGuide_Logo.svg_.webp') }}" alt="GetYourGuide" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
+        <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6">
       </div>
     </div>
   </section>
@@ -408,37 +408,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Anemone-fish-Menjangan-Island-350x350.jpg" alt="Anemone fish, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island-350x350.webp') }}" alt="Anemone fish, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Anemone fish</span><span data-l="id">Anemone fish</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Colorful-coral-Menjangan-Island-350x350.jpg" alt="Colorful coral, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island-350x350.webp') }}" alt="Colorful coral, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Colourful coral</span><span data-l="id">Coral berwarna</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Tons-of-fishes-At-Menjangan-Island-350x350.jpg" alt="Tons of fishes at Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island-350x350.webp') }}" alt="Tons of fishes at Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Schools of fish</span><span data-l="id">Ribuan ikan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Turtles-Menjangan-Island-350x350.jpg" alt="Turtles, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtles, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Turtles</span><span data-l="id">Penyu</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Wild-Deers-at-Menjangan-Island-350x350.jpg" alt="Wild deer on the island during the lunch break" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island-350x350.webp') }}" alt="Wild deer on the island during the lunch break" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Wild deer on the island</span><span data-l="id">Rusa liar di pulau</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-4.jpg" alt="Snorkeling with the guide in the water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Snorkeling with the guide in the water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Guide in the water</span><span data-l="id">Guide di air</span></figcaption>
         </figure>
@@ -509,7 +509,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="tag tag-neutral">Eel Garden</span>
         </div>
         <figure style="margin: 16px 0 0">
-          <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Menjangan-Island-West-Bali-National-park.jpg" alt="Map of the dive sites around Menjangan Island, West Bali National Park" loading="lazy" style="width: 100%; height: auto; border: 1px solid var(--color-divider); border-radius: 8px">
+          <img src="{{ asset('uploads/wp/Menjangan-Island-West-Bali-National-park.webp') }}" alt="Map of the dive sites around Menjangan Island, West Bali National Park" loading="lazy" style="width: 100%; height: auto; border: 1px solid var(--color-divider); border-radius: 8px">
           <figcaption style="margin-top: 8px; font-size: 13px; color: var(--color-neutral-700)"><span data-l="en">Dive site map, Menjangan Island, West Bali National Park</span><span data-l="id">Peta dive site, Pulau Menjangan, Taman Nasional Bali Barat</span></figcaption>
         </figure>
         <p data-l="en" style="margin: 12px 0 0; font-size: 14px; color: var(--color-neutral-700)">Visibility reaches 30 metres and the current stays calm, unlike the stronger sites in the south, this is a reef beginners and photographers can both work in.</p>
@@ -541,25 +541,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Scuba-Diving-Menjangan-7.jpg" alt="Wall dive along the reef edge" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-7.webp') }}" alt="Wall dive along the reef edge" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Wall dive</span><span data-l="id">Wall dive</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Scuba-Diving-Menjangan-4.jpg" alt="Sea fans and soft coral" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Sea fans and soft coral" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Sea fans</span><span data-l="id">Sea fan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Scuba-Diving-Menjangan-5.jpg" alt="Visibility up to 30 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-5.webp') }}" alt="Visibility up to 30 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Visibility 30 m</span><span data-l="id">Visibility 30 m</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Scuba-Diving-Menjangan-3.jpg" alt="Two divers per guide" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-3.webp') }}" alt="Two divers per guide" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Two per guide</span><span data-l="id">Dua per guide</span></figcaption>
         </figure>
@@ -645,37 +645,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-1.jpg" alt="First breaths in shallow water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-1.webp') }}" alt="First breaths in shallow water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First breaths</span><span data-l="id">Napas pertama</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Desain-tanpa-judul-350x350.jpg" alt="Instructor beside you the whole dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Desain-tanpa-judul-350x350.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Instructor beside you</span><span data-l="id">Instruktur mendampingi</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-2.jpg" alt="Reef at 3–5 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-2.webp') }}" alt="Reef at 3–5 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Reef at 3–5 m</span><span data-l="id">Reef 3–5 m</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-3.jpg" alt="Gear fitted before you get in" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-3.webp') }}" alt="Gear fitted before you get in" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Gear fitted for you</span><span data-l="id">Alat disesuaikan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-5.jpg" alt="Calm, clear water all year" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-5.webp') }}" alt="Calm, clear water all year" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Calm water all year</span><span data-l="id">Air tenang sepanjang tahun</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-4.jpg" alt="Guests on their first dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
+            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Guests on their first dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First dive</span><span data-l="id">Dive pertama</span></figcaption>
         </figure>
@@ -863,7 +863,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 460px; display: grid; place-items: center; padding: 36px; background: radial-gradient(circle at 50% 45%, var(--color-accent-100) 0%, #ffffff 72%)">
-      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/diving-menjangan-island1.png" alt="Diver at Menjangan Island" loading="lazy" style="width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 40px rgba(15, 26, 48, 0.22))">
+      <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" style="width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 40px rgba(15, 26, 48, 0.22))">
     </div>
     <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 18px">
       <div>
@@ -882,7 +882,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
     <section style="position: relative; min-height: 460px; display: grid; align-items: center; overflow: hidden; border-top: 1px solid var(--color-divider)">
-    <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/518408166_741022225555975_840694571809901799_n.jpg" alt="Boat on calm water at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img src="{{ asset('uploads/wp/518408166_741022225555975_840694571809901799_n.webp') }}" alt="Boat on calm water at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent-900) 88%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 55%, transparent) 60%, transparent 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 60px 24px; color: var(--color-bg)">
       <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; margin-bottom: 12px"><span data-l="en">Boat capacity</span><span data-l="id">Kapasitas boat</span></div>
@@ -1158,21 +1158,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p data-l="id" style="max-width: 64ch; font-size: 16px; color: var(--color-neutral-800); margin: 0">Tiga puluh menit dari Pelabuhan Banyuwedang: pulau kecil di dalam taman nasional, dikelilingi dinding reef yang mulai hanya beberapa meter dari boat.</p>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); grid-auto-rows: 210px; gap: 2px; background: var(--color-neutral-300); background: var(--color-accent-100)">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/518311948_739445245713673_2929780841752963449_n.jpg" alt="Our boat on the way to Menjangan Island" decoding="async" style="grid-column: span 2; grid-row: span 2; width: 100%; height: 100%; object-fit: cover; min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/519396628_743465071978357_2561587557975164201_n.jpg" alt="Guests in the water with the guide" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Anemone-fish-Menjangan-Island.jpg" alt="Anemone fish" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Colorful-coral-Menjangan-Island.jpg" alt="Colourful coral" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Turtles-Menjangan-Island.jpg" alt="Turtle over the reef" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Tons-of-fishes-At-Menjangan-Island.jpg" alt="Schools of fish" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Wild-Deers-at-Menjangan-Island.jpg" alt="Wild deer on the island" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Scuba-Diving-Menjangan-4.jpg" alt="Sea fans on the wall" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
-      <img loading="lazy" src="https://menjanganislandtrip.com/wp-content/uploads/2024/02/Snorkeling-Menjangan-Island-3.jpg" alt="Snorkeling the shallows" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/518311948_739445245713673_2929780841752963449_n.webp') }}" alt="Our boat on the way to Menjangan Island" decoding="async" style="grid-column: span 2; grid-row: span 2; width: 100%; height: 100%; object-fit: cover; min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/519396628_743465071978357_2561587557975164201_n.webp') }}" alt="Guests in the water with the guide" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island.webp') }}" alt="Anemone fish" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island.webp') }}" alt="Colourful coral" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/Turtles-Menjangan-Island.webp') }}" alt="Turtle over the reef" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island.webp') }}" alt="Schools of fish" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island.webp') }}" alt="Wild deer on the island" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Sea fans on the wall" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
+      <img loading="lazy" src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-3.webp') }}" alt="Snorkeling the shallows" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
       <img loading="lazy" src="{{ asset('_2172056_11zon.webp') }}" alt="Menjangan Island scenery" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0">
     </div>
   </section>
 
     <section style="position: relative; overflow: hidden; border-top: 1px solid var(--color-divider)">
-    <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GOPR9465-scaled-1.jpg" alt="Diver over the reef at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Diver over the reef at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: color-mix(in srgb, var(--color-accent-900) 78%, transparent)"></div>
     <div style="position: relative; max-width: 1160px; margin: 0 auto; padding: 92px 24px; text-align: center; color: var(--color-bg)">
       <h2 style="font-size: clamp(30px, 4vw, 52px); text-transform: uppercase; color: var(--color-bg); margin: 0 auto 14px; max-width: 24ch"><span data-l="en">Book Your Trip to Menjangan Island</span><span data-l="id">Booking Trip Anda ke Pulau Menjangan</span></h2>
@@ -1278,6 +1278,7 @@ fetch('/analytics/track', {
 </script>
 </body>
 </html>
+
 
 
 
