@@ -151,6 +151,13 @@ summary { list-style: none; }
 <script>
 function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('data-lg',l);document.querySelectorAll('.lang-btn').forEach(function(b){b.getAttribute('data-lang')===l?b.classList.add('active'):b.classList.remove('active');});}
 </script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y5mhtiav9f");
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
