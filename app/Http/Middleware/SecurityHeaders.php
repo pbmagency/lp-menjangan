@@ -73,8 +73,6 @@ class SecurityHeaders
      *
      * The policy is deliberately practical:
      *  - 'unsafe-inline' for styles is required by Tailwind / Radix / third-party widgets
-     *  - script-src uses 'unsafe-eval' ONLY because dc-runtime (support.js) uses new Function()
-     *    — once that file is removed or rewritten, drop 'unsafe-eval'
      *  - connect-src lists the analytics endpoints
      */
     private function buildCspPolicy(string $nonce = ''): string
