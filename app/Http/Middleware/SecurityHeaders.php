@@ -93,6 +93,13 @@ class SecurityHeaders
                 . ' https://www.google-analytics.com'
                 . ' https://www.clarity.ms'
                 . ' https://connect.facebook.net',
+                
+            "script-src-elem 'self' 'unsafe-inline'"
+                . ' https://www.googletagmanager.com'
+                . ' https://www.google-analytics.com'
+                . ' https://www.clarity.ms'
+                . ' https://connect.facebook.net'
+                . ' https://cdn.trustindex.io',
 
             // Styles: self + inline (Tailwind generates inline styles via Radix)
             "style-src 'self' 'unsafe-inline'"
@@ -101,6 +108,7 @@ class SecurityHeaders
             // Images: self + data: URIs + third-party avatars/logos
             "img-src 'self' data: blob:"
                 . ' https://www.google-analytics.com'
+                . ' https://www.googletagmanager.com'
                 . ' https://www.facebook.com'
                 . ' https://connect.facebook.net'
                 . ' https://cdn.trustindex.io'
@@ -115,6 +123,7 @@ class SecurityHeaders
             "connect-src 'self'"
                 . ' https://www.google-analytics.com'
                 . ' https://analytics.google.com'
+                . ' https://www.googletagmanager.com'
                 . ' https://www.clarity.ms'
                 . ' https://us.i.posthog.com'
                 . ' https://*.posthog.com',
