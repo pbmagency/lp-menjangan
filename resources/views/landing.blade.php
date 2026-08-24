@@ -13,8 +13,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
 <link rel="preload" as="image" href="{{ asset('hero-snorkeling.webp') }}" type="image/webp" fetchpriority="high">
-<link rel="preload" as="style" href="{{ asset('industry.css') }}" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ asset('industry.css') }}"></noscript>
+<link rel="stylesheet" href="{{ asset('industry.css') }}">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"></noscript>
 <style>
@@ -37,10 +36,6 @@
   --color-neutral-100: #FFFFFF;
 }
 body { background: #FFFFFF; }
-#page > section:not(#top), #page > footer {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 700px;
-}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
@@ -133,7 +128,7 @@ h4 { font-size: 17px !important; text-transform: none !important; letter-spacing
 section > div > div[style*="letter-spacing: 0.14em"] { font-size: 11px; }
 .btn-primary { box-shadow: 0 8px 20px rgba(112, 206, 116, 0.35); }
 .btn-primary:hover { box-shadow: 0 12px 26px rgba(112, 206, 116, 0.45); transform: translateY(-1px); }
-.btn { transition: background 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease; }
+.btn { display: inline-flex; align-items: center; text-decoration: none; transition: background 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease; }
 figure > div[style*="overflow: hidden"] { box-shadow: 0 16px 38px rgba(15, 26, 48, 0.12); }
 @media (min-width: 900px) {
   section[style*="padding: 76px 24px"] { padding-top: 108px !important; padding-bottom: 108px !important; }

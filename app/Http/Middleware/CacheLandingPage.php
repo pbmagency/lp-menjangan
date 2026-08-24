@@ -77,11 +77,13 @@ class CacheLandingPage
     private static function manifestVersion(): string
     {
         $manifest = public_path('build/manifest.json');
+        $landingView = resource_path('views/landing.blade.php');
 
-        if (file_exists($manifest)) {
-            return (string) filemtime($manifest);
-        }
+        $timestamps = array_filter([
+            file_exists($manifest) ? filemtime($manifest) : null,
+            file_exists($landingView) ? filemtime($landingView) : null,
+        ]);
 
-        return 'dev';
+        return $timestamps === [] ? 'dev' : (string) max($timestamps);
     }
 }
