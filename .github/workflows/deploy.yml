@@ -1,9 +1,13 @@
-name: Deploy to Production (LP Menjangan)
+name: Deploy to Production (Menjangan Main Domain)
 
 on:
   push:
     branches:
-      - main # Pastikan ini nama branch lu
+      - main
+
+concurrency:
+  group: production-menjangan
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -11,24 +15,32 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3' # Sesuai versi PHP di server
+          php-version: "8.3"
+          tools: composer:v2
+          coverage: none
 
       - name: Install Composer Dependencies
-        run: composer install --no-dev --optimize-autoloader
+        run: |
+          composer install \
+            --no-dev \
+            --no-interaction \
+            --prefer-dist \
+            --optimize-autoloader
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: "22"
+          cache: npm
 
-      - name: Install NPM & Build Assets
+      - name: Install NPM Dependencies and Build Assets
         run: |
-          npm install
+          npm ci
           npm run build
 
       - name: Setup SSH Key
@@ -36,39 +48,75 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY_VPS2 }}
 
-      - name: Disable Strict Host Key Checking
+      - name: Add VPS to Known Hosts
         run: |
           mkdir -p ~/.ssh
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+          chmod 700 ~/.ssh
+          ssh-keyscan -H 72.61.142.238 >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
 
-      - name: Deploy files with rsync
+      - name: Verify Target Directory
         run: |
-          # Mengirim file ke folder web production, mengabaikan .git, .github, dan .env
-          rsync -avz --exclude='.git' --exclude='.github' --exclude='.env' ./ root@72.61.142.238:/home/lp.menjanganislandtrip.com/public_html/
+          ssh root@72.61.142.238 \
+            "test -d /home/menjanganislandtrip.com/public_html"
 
-      - name: Execute Server Commands & Fix Permissions
+      - name: Deploy Files with Rsync
+        run: |
+          rsync -avz \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.env' \
+            --exclude='storage/logs/*' \
+            --exclude='storage/framework/cache/*' \
+            --exclude='storage/framework/sessions/*' \
+            --exclude='storage/framework/views/*' \
+            ./ root@72.61.142.238:/home/menjanganislandtrip.com/public_html/
+
+      - name: Execute Laravel Production Commands
         run: |
           ssh root@72.61.142.238 << 'EOF'
-            cd /home/lp.menjanganislandtrip.com/public_html
-            
-            # 1. Bikin tabel dan isi data awal (Seeder)
+            set -e
+
+            TARGET_DIR="/home/menjanganislandtrip.com/public_html"
+
+            cd "$TARGET_DIR"
+
+            if [ ! -f ".env" ]; then
+              echo "ERROR: File .env belum tersedia di $TARGET_DIR"
+              exit 1
+            fi
+
+            if [ ! -f "artisan" ]; then
+              echo "ERROR: File artisan tidak ditemukan di $TARGET_DIR"
+              exit 1
+            fi
+
+            CYBER_USER=$(stat -c '%U' "$TARGET_DIR")
+            CYBER_GROUP=$(stat -c '%G' "$TARGET_DIR")
+
+            mkdir -p storage/framework/cache
+            mkdir -p storage/framework/sessions
+            mkdir -p storage/framework/views
+            mkdir -p storage/logs
+            mkdir -p bootstrap/cache
+
+            chown -R "$CYBER_USER:$CYBER_GROUP" "$TARGET_DIR"
+            chmod -R 775 storage
+            chmod -R 775 bootstrap/cache
+
+            php artisan optimize:clear
             php artisan migrate --force
-            php artisan db:seed --force
-            
-            # 2. Bikin Symlink Storage & Publish Aset Bagisto
             php artisan storage:link --force
             php artisan bagisto:publish --force
-            
-            # 3. Rebuild semua cache Laravel
+
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
             php artisan event:cache
-            
-            # 4. Benerin kepemilikan dan izin akses file server
-            CYBER_USER=$(stat -c '%U' /home/lp.menjanganislandtrip.com/public_html)
-            CYBER_GROUP=$(stat -c '%G' /home/lp.menjanganislandtrip.com/public_html)
-            chown -R $CYBER_USER:$CYBER_GROUP /home/lp.menjanganislandtrip.com/public_html
-            chmod -R 775 /home/lp.menjanganislandtrip.com/public_html/storage
-            chmod -R 775 /home/lp.menjanganislandtrip.com/public_html/bootstrap/cache
+
+            chown -R "$CYBER_USER:$CYBER_GROUP" "$TARGET_DIR"
+            chmod -R 775 storage
+            chmod -R 775 bootstrap/cache
+
+            echo "Deployment ke menjanganislandtrip.com selesai."
           EOF
