@@ -1218,9 +1218,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-700)"><span data-l="en">Departures from Banyuwedang Harbour · 09:00 shared boat daily · private trips 07:00–15:00</span><span data-l="id">Keberangkatan dari Pelabuhan Banyuwedang · share boat 09.00 setiap hari · trip privat 07.00–15.00</span></p>
         
       </div>
-      <figure class="blueprint" style="position: relative; min-height: 280px">
+      <figure class="blueprint" style="position: relative; min-height: 280px; margin: 0">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <iframe title="Map, Menjangan Snorkeling Trip &amp; Diving" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7899.2736786193855!2d114.5633388!3d-8.1384031!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd16953a2c836a7%3A0xcc76350305365688!2sMenjangan%20Snorkeling%20Trip%20%26%20Diving!5e0!3m2!1sen!2sid!4v1787021088694!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="width: 100%; height: 100%; min-height: 280px; border: 0; display: block"></iframe>
+        <div role="group" aria-label="Menjangan Snorkeling Trip &amp; Diving location" style="min-height: 280px; padding: 32px; display: grid; place-content: center; justify-items: center; gap: 14px; text-align: center; background: linear-gradient(145deg, #eef1f8, #ffffff)">
+          <span aria-hidden="true" style="width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--color-accent); color: #ffffff; box-shadow: 0 8px 20px rgba(39, 59, 106, 0.2)">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+          </span>
+          <strong style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-800)">Menjangan Snorkeling Trip &amp; Diving</strong>
+          <span style="max-width: 38ch; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700)">Jl. Banyuwedang, Pejarakan, Gerokgak, Buleleng, Bali 81155</span>
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Menjangan%20Snorkeling%20Trip%20%26%20Diving" target="_blank" rel="noopener noreferrer" style="padding: 12px 18px; font-size: 14px">
+            <span data-l="en">Open in Google Maps</span><span data-l="id">Buka di Google Maps</span>
+          </a>
+        </div>
       </figure>
     </div>
   </footer>
