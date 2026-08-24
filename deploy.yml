@@ -75,7 +75,7 @@ jobs:
       # ---------------------------------------------------------
       # POST-DEPLOYMENT
       # ---------------------------------------------------------
-      - name: Run Artisan & Move Manifest
+      - name: Run Artisan & Sync Build
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ env.SERVER_IP }}
@@ -83,7 +83,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             mkdir -p ${{ env.TARGET_DIR_LARAVEL }}/public/build
-            cp ${{ env.TARGET_DIR_PUBLIC }}/build/manifest.json ${{ env.TARGET_DIR_LARAVEL }}/public/build/manifest.json
+            rsync -a --delete \
+              ${{ env.TARGET_DIR_PUBLIC }}/build/ \
+              ${{ env.TARGET_DIR_LARAVEL }}/public/build/
 
             cd ${{ env.TARGET_DIR_PUBLIC }}
             ln -sfn ../laravel/storage/app/public storage
