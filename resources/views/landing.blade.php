@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N2KG2WKZ');</script>
+<!-- End Google Tag Manager -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#273B6A">
@@ -1249,18 +1256,7 @@ function whenIdle(callback) {
   }
 }
 
-window.addEventListener('load', function() {
-  whenIdle(function() {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N2KG2WKZ';
-    document.head.appendChild(script);
-  });
-}, { once: true });
-
-/* ── Trustindex Widget Loader ── */
+/* -- Trustindex Widget Loader -- */
 (function() {
   var keys = [["trustindex-widget-4", "10ccabb799ef438be446ad7f85b"], ["trustindex-widget-3", "e73019379de3438f5c363b89767"]];
   function loadWidget(pair) {
@@ -1309,7 +1305,7 @@ window.addEventListener('load', function() {
   }, 4000);
 })();
 
-/* ── Analytics ── */
+/* -- Analytics -- */
 window.addEventListener('load', function() {
   var payload = JSON.stringify({
     event_type: 'visit',
@@ -1334,11 +1330,9 @@ window.addEventListener('load', function() {
   });
 }, { once: true });
 </script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2KG2WKZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
-
-
-
-
-
-
