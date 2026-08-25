@@ -261,7 +261,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
   </div>
 
-    <section style="padding: 26px 24px; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); background: var(--color-accent-100)">
+    <section id="trust-bar" style="padding: 26px 24px; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); background: var(--color-accent-100)">
     <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 28px">
       <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-accent-800)">
         <span style="color: #70CE74; font-weight: 800; font-size: 17px">✓</span>
@@ -282,7 +282,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="padding: 56px 24px 60px">
+    <section id="review-summary" style="padding: 56px 24px 60px">
     <div style="max-width: 1160px; margin: 0 auto">
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 22px">
         <span style="color: #FFC107; font-size: 20px; letter-spacing: 2px">★★★★★</span>
@@ -327,7 +327,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section style="padding: 56px 24px; border-top: 1px solid var(--color-divider)">
+  <section id="trusted-platforms" style="padding: 56px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto; text-align: center">
       <h2 style="font-size: clamp(24px, 2.8vw, 34px); text-transform: uppercase; margin: 0 0 8px"><span data-l="en">As Featured On and Trusted By</span><span data-l="id">Terdaftar dan Dipercaya Oleh</span></h2>
       <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 26px"><span data-l="en">Where travellers find us first.</span><span data-l="id">Tempat wisatawan menemukan kami lebih dulu.</span></p>
@@ -415,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
   </section>
 
-    <section style="padding: 52px 24px 60px">
+    <section id="snorkeling-gallery" style="padding: 52px 24px 60px">
     <div style="max-width: 1160px; margin: 0 auto">
       <h3 style="font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 20px"><span data-l="en">Snorkeling: what you will see</span><span data-l="id">Snorkeling: yang akan Anda lihat</span></h3>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
@@ -548,7 +548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="padding: 52px 24px 60px">
+    <section id="scuba-gallery" style="padding: 52px 24px 60px">
     <div style="max-width: 1160px; margin: 0 auto">
       <h3 style="font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 20px"><span data-l="en">Scuba diving at Menjangan</span><span data-l="id">Scuba diving di Menjangan</span></h3>
        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
@@ -652,7 +652,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
   </section>
 
-    <section style="padding: 52px 24px 60px">
+    <section id="try-scuba-gallery" style="padding: 52px 24px 60px">
     <div style="max-width: 1160px; margin: 0 auto">
       <h3 style="font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 20px"><span data-l="en">Try Scuba Diving: first-timers</span><span data-l="id">Try Scuba Diving: pemula</span></h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
@@ -696,7 +696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
+    <section id="itinerary" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 44px">
       <div>
         <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">How the day runs</span><span data-l="id">Alur hari trip</span></div>
@@ -729,7 +729,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-        <section style="padding: 78px 24px; border-top: 1px solid var(--color-divider); background: var(--color-neutral-100)">
+        <section id="why-us" style="padding: 78px 24px; border-top: 1px solid var(--color-divider); background: var(--color-neutral-100)">
     <div style="max-width: 1160px; margin: 0 auto">
       <div style="text-align: center; margin-bottom: 34px">
         <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 12px"><span data-l="en">Why us</span><span data-l="id">Kenapa kami</span></div>
@@ -766,7 +766,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     
 
-    <section style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
+    <section id="comparison" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto">
       <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Compare</span><span data-l="id">Perbandingan</span></div>
       <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 24ch; margin: 0 0 8px"><span data-l="en">What You Actually Get for the Price</span><span data-l="id">Apa yang Sebenarnya Anda Dapat</span></h2>
@@ -874,7 +874,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     
 
-    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); border-top: 1px solid var(--color-divider)">
+    <section id="about-us" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 460px; display: grid; place-items: center; padding: 36px; background: radial-gradient(circle at 50% 45%, var(--color-accent-100) 0%, #ffffff 72%)">
       <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" style="width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 40px rgba(15, 26, 48, 0.22))" width="884" height="640">
     </div>
@@ -894,7 +894,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="position: relative; min-height: 460px; display: grid; align-items: center; overflow: hidden; border-top: 1px solid var(--color-divider)">
+    <section id="availability" style="position: relative; min-height: 460px; display: grid; align-items: center; overflow: hidden; border-top: 1px solid var(--color-divider)">
     <img src="{{ asset('uploads/wp/518408166_741022225555975_840694571809901799_n.webp') }}" alt="Boat on calm water at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1536" height="2048">
     <div style="position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent-900) 88%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 55%, transparent) 60%, transparent 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 60px 24px; color: var(--color-bg)">
@@ -1017,7 +1017,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
   </section>
 
-    <section style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
+    <section id="booking-steps" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto">
       <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Booking</span><span data-l="id">Cara booking</span></div>
       <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 24ch; margin: 0 0 6px"><span data-l="en">How to Book Your Menjangan Island Tour</span><span data-l="id">Cara Booking Trip Pulau Menjangan</span></h2>
@@ -1055,7 +1055,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
+    <section id="faq" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 900px; margin: 0 auto">
       <div style="text-align: center; margin-bottom: 30px">
         <h2 style="font-size: clamp(28px, 3.4vw, 42px); text-transform: uppercase; margin: 0 0 8px"><span data-l="en">Frequently Asked Questions</span><span data-l="id">Pertanyaan yang Sering Diajukan</span></h2>
@@ -1132,7 +1132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
+    <section id="location" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto">
       <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Getting here</span><span data-l="id">Cara ke lokasi</span></div>
       <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 26ch; margin: 0 0 6px"><span data-l="en">How Far Is Menjangan From You?</span><span data-l="id">Seberapa Jauh Menjangan dari Anda?</span></h2>
@@ -1163,7 +1163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="border-top: 1px solid var(--color-divider); padding: 72px 0 0">
+    <section id="island-gallery" style="border-top: 1px solid var(--color-divider); padding: 72px 0 0">
     <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px 30px">
       <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">The island</span><span data-l="id">Pulaunya</span></div>
       <h2 style="font-size: clamp(30px, 3.4vw, 46px); text-transform: uppercase; max-width: 26ch; margin: 0 0 12px"><span data-l="en">Menjangan Island, Above and Below the Surface</span><span data-l="id">Pulau Menjangan, di Atas dan di Bawah Permukaan</span></h2>
@@ -1184,7 +1184,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-    <section style="position: relative; overflow: hidden; border-top: 1px solid var(--color-divider)">
+    <section id="final-cta" style="position: relative; overflow: hidden; border-top: 1px solid var(--color-divider)">
     <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Diver over the reef at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1600" height="1829">
     <div style="position: absolute; inset: 0; background: color-mix(in srgb, var(--color-accent-900) 78%, transparent)"></div>
     <div style="position: relative; max-width: 1160px; margin: 0 auto; padding: 92px 24px; text-align: center; color: var(--color-bg)">
@@ -1306,29 +1306,223 @@ function whenIdle(callback) {
 })();
 
 /* -- Analytics -- */
-window.addEventListener('load', function() {
-  var payload = JSON.stringify({
-    event_type: 'visit',
-    event_data: {
-      page: window.location.pathname,
+(function() {
+  'use strict';
+
+  var page = window.location.pathname;
+  var params = new URLSearchParams(window.location.search);
+  var landingKey = 'landing_source';
+  var referralKey = 'referral_source';
+  var milestones = [25, 50, 75, 90];
+
+  function storageGet(key) {
+    try { return sessionStorage.getItem(key); } catch (error) { return null; }
+  }
+
+  function storageSet(key, value) {
+    try { sessionStorage.setItem(key, value); } catch (error) {}
+  }
+
+  function eventId(prefix) {
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+      return prefix + '-' + window.crypto.randomUUID();
+    }
+    return prefix + '-' + Date.now() + '-' + Math.random().toString(36).slice(2, 11);
+  }
+
+  function cookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+
+  if (!storageGet(landingKey)) storageSet(landingKey, page);
+
+  if (!storageGet(referralKey)) {
+    var referral = params.get('ref') || 'direct';
+    if (document.referrer) {
+      try {
+        if (new URL(document.referrer).hostname !== window.location.hostname) referral = document.referrer;
+      } catch (error) {}
+    }
+    storageSet(referralKey, referral);
+  }
+
+  function track(type, data, useBeacon) {
+    var payload = JSON.stringify({
+      event_type: type,
+      event_data: Object.assign({
+        landing_source: storageGet(landingKey) || page,
+        page: page,
+        timestamp: new Date().toISOString()
+      }, data || {}),
+      referral_source: storageGet(referralKey) || 'direct',
+      utm_source: params.get('utm_source'),
+      utm_medium: params.get('utm_medium'),
+      utm_campaign: params.get('utm_campaign'),
+      utm_content: params.get('utm_content'),
+      utm_term: params.get('utm_term')
+    });
+
+    if (useBeacon && navigator.sendBeacon) {
+      return navigator.sendBeacon('/analytics/track', new Blob([payload], { type: 'application/json' }));
+    }
+
+    fetch('/analytics/track', {
+      method: 'POST',
+      credentials: 'same-origin',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json' },
+      body: payload
+    }).catch(function() {});
+    return true;
+  }
+
+  function trackVisit() {
+    var key = 'analytics_visit_tracked:' + (storageGet(landingKey) || page);
+    if (storageGet(key)) return;
+
+    var id = eventId('page-view');
+    if (track('visit', {
+      event_id: id,
       is_initial: true,
-      landing_source: document.referrer || null
+      _fbp: cookie('_fbp'),
+      _fbc: cookie('_fbc')
+    }, true)) storageSet(key, '1');
+  }
+
+  function trackScroll() {
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (maxScroll <= 0) return;
+    var depth = Math.round((window.scrollY / maxScroll) * 100);
+
+    milestones.forEach(function(milestone) {
+      var key = 'analytics_scroll:' + page + ':' + milestone;
+      if (depth >= milestone && !storageGet(key)) {
+        storageSet(key, '1');
+        track('scroll', { depth: milestone });
+      }
+    });
+  }
+
+  function trackDwell() {
+    var activeMs = 0;
+    var initialSent = false;
+    var sincePing = 0;
+
+    window.setInterval(function() {
+      if (document.hidden) return;
+      activeMs += 1000;
+
+      if (!initialSent && activeMs >= 15000) {
+        initialSent = true;
+        sincePing = 0;
+        track('engagement', { type: 'dwell_ping', duration: 15000, is_initial: true });
+        return;
+      }
+
+      if (initialSent && ++sincePing >= 30) {
+        sincePing = 0;
+        track('engagement', { type: 'dwell_ping', duration: 30000, is_initial: false });
+      }
+    }, 1000);
+  }
+
+  function trackSections() {
+    if (!('IntersectionObserver' in window)) return;
+    var timers = new Map();
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var section = entry.target;
+        var key = 'section_seen_v2_' + page + ':' + section.id;
+
+        if (!entry.isIntersecting) {
+          if (timers.has(section.id)) window.clearTimeout(timers.get(section.id));
+          timers.delete(section.id);
+          return;
+        }
+
+        if (storageGet(key) || timers.has(section.id)) return;
+        timers.set(section.id, window.setTimeout(function() {
+          timers.delete(section.id);
+          if (storageGet(key)) return;
+          storageSet(key, '1');
+          track('section_view', { section: section.id });
+          observer.unobserve(section);
+        }, 500));
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('section[id]').forEach(function(section) { observer.observe(section); });
+  }
+
+  function whatsappDetails(link) {
+    var href = link.href;
+    var decoded = decodeURIComponent(href.replace(/\+/g, ' ')).toLowerCase();
+    var section = link.closest('section[id]');
+    var location = link.getAttribute('aria-label') === 'WhatsApp'
+      ? 'floating_whatsapp'
+      : (section ? section.id : (link.closest('header') ? 'header' : 'footer'));
+    var packageName = null;
+
+    if (decoded.indexOf('try scuba') !== -1) packageName = 'Try Scuba Diving';
+    else if (decoded.indexOf('snorkeling') !== -1) packageName = 'Snorkeling';
+    else if (decoded.indexOf('scuba diving') !== -1) packageName = 'Scuba Diving';
+
+    return { href: href, location: location, packageName: packageName };
+  }
+
+  document.addEventListener('click', function(event) {
+    var link = event.target.closest('a');
+    if (!link) return;
+
+    var text = (link.textContent || link.getAttribute('aria-label') || 'CTA').replace(/\s+/g, ' ').trim().slice(0, 255);
+    if (link.href.indexOf('wa.me/') !== -1) {
+      var details = whatsappDetails(link);
+      var conversionId = eventId('wa');
+      var conversionType = details.packageName ? 'wa_registration' : 'wa_inquiry';
+      var common = {
+        location: details.location,
+        text: text,
+        destination: details.href,
+        package: details.packageName,
+        _fbp: cookie('_fbp'),
+        _fbc: cookie('_fbc')
+      };
+
+      track('cta_click', Object.assign({ event_id: eventId('cta') }, common), true);
+      track('conversion', Object.assign({ event_id: conversionId, type: conversionType, meta_event: 'Search' }, common), true);
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Search', { content_category: conversionType, content_name: details.packageName || 'WhatsApp inquiry' }, { eventID: conversionId });
+      }
+      return;
+    }
+
+    if (link.classList.contains('btn')) {
+      track('cta_click', {
+        location: (link.closest('section[id]') || {}).id || 'navigation',
+        text: text,
+        destination: link.href
+      }, true);
     }
   });
 
-  whenIdle(function() {
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon('/analytics/track', new Blob([payload], { type: 'application/json' }));
-      return;
-    }
-    fetch('/analytics/track', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: payload,
-      keepalive: true
-    }).catch(function() {});
-  });
-}, { once: true });
+  window.addEventListener('load', function() {
+    whenIdle(trackVisit);
+    trackScroll();
+    trackDwell();
+    trackSections();
+  }, { once: true });
+
+  var scrollTicking = false;
+  window.addEventListener('scroll', function() {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(function() {
+      trackScroll();
+      scrollTicking = false;
+    });
+  }, { passive: true });
+})();
 </script>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2KG2WKZ"

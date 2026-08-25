@@ -10,6 +10,22 @@ class AnalyticsTrackingTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_landing_page_contains_ctwa_analytics_instrumentation(): void
+    {
+        $response = $this->get(route('home'));
+
+        $response->assertOk()
+            ->assertSee("track('visit'", false)
+            ->assertSee("track('scroll'", false)
+            ->assertSee("track('engagement'", false)
+            ->assertSee("track('section_view'", false)
+            ->assertSee("track('cta_click'", false)
+            ->assertSee("track('conversion'", false)
+            ->assertSee('wa_registration', false)
+            ->assertSee('wa_inquiry', false)
+            ->assertSee('section id="faq"', false);
+    }
+
     public function test_unknown_event_type_is_rejected(): void
     {
         $this->postJson(route('analytics.track'), [

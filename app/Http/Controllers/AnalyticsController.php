@@ -115,6 +115,13 @@ class AnalyticsController extends Controller
             if ($validated['event_type'] === 'initiate_checkout') {
                 $metaService->sendAddToCart($request, $eventId, $eventData);
             }
+
+            if (
+                $validated['event_type'] === 'conversion'
+                && in_array($eventData['type'] ?? null, ['wa_inquiry', 'wa_registration'], true)
+            ) {
+                $metaService->sendWhatsAppLead($request, $eventId, $eventData);
+            }
         }
 
         return response()->json(['success' => true]);

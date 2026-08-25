@@ -331,17 +331,27 @@ class AbTestingService
     {
         // Human-readable labels for known sections (fallback to raw ID for unknowns)
         $labels = [
-            'hero' => 'Hero',
-            'success-story' => 'Success Story',
-            'solusi' => 'Solution',
-            'problem' => 'Problem',
-            'benefits' => 'Benefits',
-            'testimoni' => 'Testimonials',
-            'pengajar' => 'Instructor',
-            'media-features' => 'Media Features',
-            'curriculum' => 'Curriculum',
-            'harga' => 'Pricing',
+            'top' => 'Hero',
+            'trust-bar' => 'Trust Signals',
+            'review-summary' => 'Review Summary',
+            'trusted-platforms' => 'Trusted Platforms',
+            'snorkeling' => 'Snorkeling Package',
+            'snorkeling-gallery' => 'Snorkeling Gallery',
+            'scuba-diving' => 'Scuba Diving Package',
+            'scuba-gallery' => 'Scuba Gallery',
+            'try-scuba' => 'Try Scuba Package',
+            'try-scuba-gallery' => 'Try Scuba Gallery',
+            'itinerary' => 'Itinerary',
+            'why-us' => 'Why Us',
+            'comparison' => 'Package Comparison',
+            'about-us' => 'About Us',
+            'availability' => 'Availability CTA',
+            'reviews' => 'Guest Reviews',
+            'booking-steps' => 'Booking Steps',
             'faq' => 'FAQ',
+            'location' => 'Location',
+            'island-gallery' => 'Island Gallery',
+            'final-cta' => 'Final CTA',
         ];
 
         // Query: aggregate views per section AND capture earliest first_seen
