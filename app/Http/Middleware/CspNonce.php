@@ -43,12 +43,12 @@ class CspNonce
         // SecurityHeaders middleware must run first to set the base CSP
         $existingCsp = $response->headers->get('Content-Security-Policy', '');
         if ($existingCsp !== '' && ! str_contains($existingCsp, "nonce-")) {
-            // Add nonce to script-src: change 'unsafe-inline' to nonce-XXX
-            // We keep 'unsafe-inline' as a fallback but add the nonce so
-            // browsers with nonce support will prefer it
+            // Add nonce to script-src (without 'unsafe-inline')
+            // The SecurityHeaders middleware already sets 'self' as the base;
+            // we replace just that with 'self' + nonce.
             $newCsp = preg_replace(
-                "/script-src\s+'unsafe-inline'/",
-                "script-src 'nonce-{$nonce}' 'unsafe-inline'",
+                "/script-src\s+'self'/",
+                "script-src 'self' 'nonce-{$nonce}",
                 $existingCsp,
                 1,
             );

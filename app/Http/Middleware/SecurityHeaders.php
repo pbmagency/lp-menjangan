@@ -77,9 +77,9 @@ class SecurityHeaders
      */
     private function buildCspPolicy(string $nonce = ''): string
     {
-        // Build script-src: prefer nonce when available, fall back to unsafe-inline
+        // Build script-src: nonce-only (no 'unsafe-inline')
         $scriptSrc = $nonce !== ''
-            ? "script-src 'self' 'nonce-{$nonce}' 'unsafe-inline'"
+            ? "script-src 'self' 'nonce-{$nonce}"
             : "script-src 'self' 'unsafe-inline'";
 
         $directives = [
@@ -87,12 +87,13 @@ class SecurityHeaders
             "default-src 'self'",
 
             // Scripts: nonce-based + trusted third-party analytics
-            // 'unsafe-inline' kept as fallback for nonces (e.g. Vite HMR, SSR)
+            // 'unsafe-inline' removed — Lighthouse Best Practices flags it
             $scriptSrc
                 . ' https://www.googletagmanager.com'
                 . ' https://www.google-analytics.com'
                 . ' https://www.clarity.ms'
-                . ' https://connect.facebook.net',
+                . ' https://connect.facebook.net'
+                . ' https://cdn.trustindex.io',
                 
             "script-src-elem 'self' 'unsafe-inline'"
                 . ' https://www.googletagmanager.com'
@@ -112,7 +113,8 @@ class SecurityHeaders
                 . ' https://www.facebook.com'
                 . ' https://connect.facebook.net'
                 . ' https://cdn.trustindex.io'
-                . ' https://lh3.googleusercontent.com',
+                . ' https://lh3.googleusercontent.com'
+                . ' https://ui-avatars.com',
 
             // Fonts: self + Google Fonts
             "font-src 'self'"
