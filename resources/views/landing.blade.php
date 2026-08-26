@@ -658,37 +658,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-1.webp') }}" alt="First breaths in shallow water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-1.webp') }}" alt="First breaths in shallow water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First breaths</span><span data-l="id">Napas pertama</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Desain-tanpa-judul-350x350.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-2.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Instructor beside you</span><span data-l="id">Instruktur mendampingi</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-2.webp') }}" alt="Reef at 3–5 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-3.webp') }}" alt="Reef at 3–5 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Reef at 3–5 m</span><span data-l="id">Reef 3–5 m</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-3.webp') }}" alt="Gear fitted before you get in" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-4.webp') }}" alt="Gear fitted before you get in" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Gear fitted for you</span><span data-l="id">Alat disesuaikan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-5.webp') }}" alt="Calm, clear water all year" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-5.webp') }}" alt="Calm, clear water all year" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Calm water all year</span><span data-l="id">Air tenang sepanjang tahun</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Guests on their first dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-6.webp') }}" alt="Guests on their first dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First dive</span><span data-l="id">Dive pertama</span></figcaption>
         </figure>
@@ -1233,7 +1233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </span>
           <strong style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-800)">Menjangan Snorkeling Trip &amp; Diving</strong>
           <span style="max-width: 38ch; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700)">Jl. Banyuwedang, Pejarakan, Gerokgak, Buleleng, Bali 81155</span>
-          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Menjangan%20Snorkeling%20Trip%20%26%20Diving" target="_blank" rel="noopener noreferrer" style="padding: 12px 18px; font-size: 14px">
+          <a class="btn btn-primary" href="https://maps.app.goo.gl/bF5n9eEmeC8aTKMCA" target="_blank" rel="noopener noreferrer" style="padding: 12px 18px; font-size: 14px">
             <span data-l="en">Open in Google Maps</span><span data-l="id">Buka di Google Maps</span>
           </a>
         </div>
