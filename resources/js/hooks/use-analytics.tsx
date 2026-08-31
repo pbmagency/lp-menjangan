@@ -26,12 +26,64 @@ interface AnalyticsEvent {
     utm_term?: string;
 }
 
+type GoogleTagManagerEvent = Record<string, unknown> & {
+    event: string;
+    event_id: string;
+};
+
 export function generateEventId(): string {
     if (typeof crypto !== 'undefined' && crypto.randomUUID) {
         return crypto.randomUUID();
     }
 
     return `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+}
+
+/**
+ * Push a custom event to Google Tag Manager. The dataLayer exists before the
+ * GTM script finishes loading, so early interactions are queued safely.
+ */
+export function pushGoogleTagManagerEvent(
+    event: string,
+    parameters: Record<string, unknown> = {},
+): string {
+    const eventId =
+        typeof parameters.event_id === 'string'
+            ? parameters.event_id
+            : generateEventId();
+
+    if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event,
+            ...parameters,
+            event_id: eventId,
+        } satisfies GoogleTagManagerEvent);
+    }
+
+    return eventId;
+}
+
+function numericValue(value: unknown, fallback: unknown = 0): number {
+    const parsed = Number(value ?? fallback);
+
+    return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function googleItem(data: Record<string, unknown> = {}) {
+    const packageName = String(
+        data.package ?? data.level ?? 'TOEFL Full Bright',
+    );
+
+    return {
+        item_id: String(
+            data.item_id ?? packageName.toLowerCase().replace(/\s+/g, '-'),
+        ),
+        item_name: packageName,
+        item_category: 'TOEFL Course',
+        price: numericValue(data.price ?? data.amount),
+        quantity: 1,
+    };
 }
 
 function getCookieValue(name: string): string | null {
@@ -154,6 +206,17 @@ export function useAnalytics() {
             ((window as unknown as Record<string, unknown>)
                 .__META_PAGE_VIEW_EVENT_ID as string) || generateEventId();
 
+        // Google equivalent of Meta ViewContent. Google page_view is already
+        // emitted by the installed Google tag, so it is not pushed again here.
+        pushGoogleTagManagerEvent('view_item', {
+            event_id: eventId,
+            page_path: window.location.pathname,
+            ecommerce: {
+                currency: 'IDR',
+                items: [googleItem()],
+            },
+        });
+
         void track({
             event_type: 'visit',
             event_data: {
@@ -228,6 +291,20 @@ export function useAnalytics() {
             data?: Record<string, unknown>,
             eventId = generateEventId(),
         ) => {
+            const eventData = data ?? {};
+            const value = numericValue(eventData.price, coursePrice);
+
+            // Google equivalent of the Meta AddToCart browser/CAPI event.
+            pushGoogleTagManagerEvent('add_to_cart', {
+                event_id: eventId,
+                cta_location: location,
+                ecommerce: {
+                    currency: String(eventData.currency ?? 'IDR'),
+                    value,
+                    items: [googleItem({ ...eventData, price: value })],
+                },
+            });
+
             void track({
                 event_type: 'initiate_checkout',
                 event_data: {
@@ -242,11 +319,26 @@ export function useAnalytics() {
                 },
             });
         },
-        [track],
+        [coursePrice, track],
     );
 
     const trackConversion = useCallback(
         (type: string, data?: Record<string, unknown>) => {
+            const eventData = data ?? {};
+
+            if (type === 'wa_inquiry' || type === 'wa_registration') {
+                const value = numericValue(eventData.price, coursePrice);
+
+                // Google equivalent of the Meta Search/WhatsApp lead event.
+                pushGoogleTagManagerEvent('generate_lead', {
+                    lead_type: type,
+                    cta_location: eventData.location ?? 'unknown',
+                    currency: String(eventData.currency ?? 'IDR'),
+                    value,
+                    item_name: googleItem(eventData).item_name,
+                });
+            }
+
             void track({
                 event_type: 'conversion',
                 event_data: {
@@ -257,11 +349,33 @@ export function useAnalytics() {
                 },
             });
         },
-        [track],
+        [coursePrice, track],
     );
 
     const trackPayment = useCallback(
         (status: string, data?: Record<string, unknown>) => {
+            const eventData = data ?? {};
+            const normalizedStatus = status.toLowerCase();
+
+            if (['success', 'paid', 'completed'].includes(normalizedStatus)) {
+                const value = numericValue(eventData.amount, coursePrice);
+
+                pushGoogleTagManagerEvent('purchase', {
+                    event_id:
+                        typeof eventData.event_id === 'string'
+                            ? eventData.event_id
+                            : generateEventId(),
+                    ecommerce: {
+                        transaction_id: String(
+                            eventData.order_id ?? generateEventId(),
+                        ),
+                        currency: String(eventData.currency ?? 'IDR'),
+                        value,
+                        items: [googleItem({ ...eventData, price: value })],
+                    },
+                });
+            }
+
             void track({
                 event_type: 'payment',
                 event_data: {

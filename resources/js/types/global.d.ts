@@ -1,5 +1,11 @@
 import type { Auth } from '@/types/auth';
 
+declare global {
+    interface Window {
+        dataLayer: Array<Record<string, unknown>>;
+    }
+}
+
 declare module 'react' {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface InputHTMLAttributes<T> {
