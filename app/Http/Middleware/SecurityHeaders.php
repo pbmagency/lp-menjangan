@@ -123,9 +123,13 @@ class SecurityHeaders
 
             // Connections: analytics endpoints
             "connect-src 'self'"
-                . ' https://www.google-analytics.com'
-                . ' https://analytics.google.com'
-                . ' https://www.googletagmanager.com'
+                . ' https://www.google.com'
+                . ' https://*.google-analytics.com'
+                . ' https://*.analytics.google.com'
+                . ' https://*.googletagmanager.com'
+                . ' https://ad.doubleclick.net'
+                . ' https://*.googleadservices.com'
+                . ' https://*.google.co.id'
                 . ' https://www.clarity.ms'
                 . ' https://us.i.posthog.com'
                 . ' https://*.posthog.com',
