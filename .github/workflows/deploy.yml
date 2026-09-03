@@ -1,119 +1,22 @@
-name: Deploy to Production (Menjangan Subdomain)
+name: Deploy to cPanel
 
 on:
   push:
     branches:
-      - main
-
-concurrency:
-  group: production-menjangan
-  cancel-in-progress: false
+      - main # Ubah ke 'master' jika nama branch utama kamu 'master'
 
 jobs:
-  deploy:
+  web-deploy:
+    name: Deploy Website
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Sync Files via FTP
+        uses: SamKirsch/ftp-deploy-action@v4.3.5
         with:
-          php-version: "8.3"
-          tools: composer:v2
-          coverage: none
-
-      - name: Install Composer Dependencies
-        run: |
-          composer install \
-            --no-dev \
-            --no-interaction \
-            --prefer-dist \
-            --optimize-autoloader
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-
-      - name: Install NPM Dependencies and Build Assets
-        run: |
-          npm install
-          npm run build
-
-      - name: Setup SSH Key
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.DEPLOY_KEY_VPS2 }}
-
-      - name: Add VPS to Known Hosts
-        run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          ssh-keyscan -H 72.61.142.238 >> ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/known_hosts
-
-      - name: Verify Target Directory
-        run: |
-          ssh root@72.61.142.238 \
-            "test -d /home/pbmagency.id/menjangan"
-
-      - name: Deploy Files with Rsync
-        run: |
-          rsync -avz \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='.env' \
-            --exclude='storage/logs/*' \
-            --exclude='storage/framework/cache/*' \
-            --exclude='storage/framework/sessions/*' \
-            --exclude='storage/framework/views/*' \
-            ./ root@72.61.142.238:/home/pbmagency.id/menjangan/
-
-      - name: Execute Laravel Production Commands
-        run: |
-          ssh root@72.61.142.238 << 'EOF'
-            set -e
-
-            TARGET_DIR="/home/pbmagency.id/menjangan"
-            cd "$TARGET_DIR"
-
-            if [ ! -f ".env" ]; then
-              echo "ERROR: File .env belum tersedia di $TARGET_DIR"
-              exit 1
-            fi
-
-            if [ ! -f "artisan" ]; then
-              echo "ERROR: File artisan tidak ditemukan di $TARGET_DIR"
-              exit 1
-            fi
-
-            CYBER_USER=$(stat -c '%U' "$TARGET_DIR")
-            CYBER_GROUP=$(stat -c '%G' "$TARGET_DIR")
-
-            mkdir -p storage/framework/cache
-            mkdir -p storage/framework/sessions
-            mkdir -p storage/framework/views
-            mkdir -p storage/logs
-            mkdir -p bootstrap/cache
-
-            chown -R "$CYBER_USER:$CYBER_GROUP" "$TARGET_DIR"
-            chmod -R 775 storage
-            chmod -R 775 bootstrap/cache
-
-            php artisan optimize:clear
-            php artisan migrate --force
-            php artisan storage:link --force
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-            php artisan event:cache
-
-            chown -R "$CYBER_USER:$CYBER_GROUP" "$TARGET_DIR"
-            chmod -R 775 storage
-            chmod -R 775 bootstrap/cache
-
-            echo "Deployment ke menjangan.pbmagency.id selesai."
-          EOF
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
