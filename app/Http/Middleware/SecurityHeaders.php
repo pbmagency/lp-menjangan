@@ -95,7 +95,10 @@ class SecurityHeaders
                 .' https://scripts.clarity.ms'
                 .' https://*.doubleclick.net'
                 .' https://connect.facebook.net'
-                .' https://cdn.trustindex.io',
+                .' https://cdn.trustindex.io'
+                // Cloudflare Web Analytics injects its beacon script into HTML at the edge;
+                // without this host Lighthouse flags console errors (best-practices audit).
+                .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
 
             "script-src-elem 'self' 'unsafe-inline'"
                 .' https://www.googletagmanager.com'
@@ -104,7 +107,9 @@ class SecurityHeaders
                 .' https://scripts.clarity.ms'
                 .' https://*.doubleclick.net'
                 .' https://connect.facebook.net'
-                .' https://cdn.trustindex.io',
+                .' https://cdn.trustindex.io'
+                // Cloudflare Web Analytics beacon host (see script-src above)
+                .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
 
             // Styles: self + inline (Tailwind generates inline styles via Radix)
             "style-src 'self' 'unsafe-inline'",
@@ -142,7 +147,9 @@ class SecurityHeaders
                 .' https://*.clarity.ms'
                 .' https://*.doubleclick.net'
                 .' https://us.i.posthog.com'
-                .' https://*.posthog.com',
+                .' https://*.posthog.com'
+                // Cloudflare Web Analytics beacon sends data via connect-src
+                .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
 
             // Frames: only Facebook pixel noscript fallback
             "frame-src 'self'"
