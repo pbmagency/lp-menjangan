@@ -79,7 +79,7 @@ class SecurityHeaders
     {
         // Build script-src: nonce-only (no 'unsafe-inline')
         $scriptSrc = $nonce !== ''
-            ? "script-src 'self' 'nonce-{$nonce}"
+            ? "script-src 'self' 'nonce-{$nonce}'"
             : "script-src 'self' 'unsafe-inline'";
 
         $directives = [
@@ -89,55 +89,65 @@ class SecurityHeaders
             // Scripts: nonce-based + trusted third-party analytics
             // 'unsafe-inline' removed — Lighthouse Best Practices flags it
             $scriptSrc
-                . ' https://www.googletagmanager.com'
-                . ' https://www.google-analytics.com'
-                . ' https://www.clarity.ms'
-                . ' https://connect.facebook.net'
-                . ' https://cdn.trustindex.io',
-                
+                .' https://www.googletagmanager.com'
+                .' https://www.google-analytics.com'
+                .' https://www.clarity.ms'
+                .' https://scripts.clarity.ms'
+                .' https://*.doubleclick.net'
+                .' https://connect.facebook.net'
+                .' https://cdn.trustindex.io',
+
             "script-src-elem 'self' 'unsafe-inline'"
-                . ' https://www.googletagmanager.com'
-                . ' https://www.google-analytics.com'
-                . ' https://www.clarity.ms'
-                . ' https://connect.facebook.net'
-                . ' https://cdn.trustindex.io',
+                .' https://www.googletagmanager.com'
+                .' https://www.google-analytics.com'
+                .' https://www.clarity.ms'
+                .' https://scripts.clarity.ms'
+                .' https://*.doubleclick.net'
+                .' https://connect.facebook.net'
+                .' https://cdn.trustindex.io',
 
             // Styles: self + inline (Tailwind generates inline styles via Radix)
-            "style-src 'self' 'unsafe-inline'"
-                . ' https://fonts.googleapis.com',
+            "style-src 'self' 'unsafe-inline'",
 
-            // Images: self + data: URIs + third-party avatars/logos
+            // Images: self + data: URIs + third-party avatars/logos/pixels
+            // (Clarity beacons may redirect via c.bing.com; Google Ads user-list
+            //  pixels load from google.com / google.co.id)
             "img-src 'self' data: blob:"
-                . ' https://www.google-analytics.com'
-                . ' https://www.googletagmanager.com'
-                . ' https://www.facebook.com'
-                . ' https://connect.facebook.net'
-                . ' https://cdn.trustindex.io'
-                . ' https://lh3.googleusercontent.com'
-                . ' https://ui-avatars.com',
+                .' https://www.google-analytics.com'
+                .' https://www.googletagmanager.com'
+                .' https://*.clarity.ms'
+                .' https://*.bing.com'
+                .' https://*.doubleclick.net'
+                .' https://*.google.com'
+                .' https://*.google.co.id'
+                .' https://www.facebook.com'
+                .' https://connect.facebook.net'
+                .' https://cdn.trustindex.io'
+                .' https://lh3.googleusercontent.com'
+                .' https://ui-avatars.com',
 
-            // Fonts: self + Google Fonts
-            "font-src 'self'"
-                . ' https://fonts.gstatic.com'
-                . ' https://fonts.googleapis.com',
+            // Fonts: self-hosted Montserrat (no external font requests)
+            "font-src 'self'",
 
             // Connections: analytics endpoints
             "connect-src 'self'"
-                . ' https://www.google.com'
-                . ' https://*.google-analytics.com'
-                . ' https://*.analytics.google.com'
-                . ' https://*.googletagmanager.com'
-                . ' https://ad.doubleclick.net'
-                . ' https://*.googleadservices.com'
-                . ' https://*.google.co.id'
-                . ' https://www.clarity.ms'
-                . ' https://us.i.posthog.com'
-                . ' https://*.posthog.com',
+                .' https://www.google.com'
+                .' https://*.google-analytics.com'
+                .' https://*.analytics.google.com'
+                .' https://*.googletagmanager.com'
+                .' https://ad.doubleclick.net'
+                .' https://*.googleadservices.com'
+                .' https://*.google.co.id'
+                .' https://www.clarity.ms'
+                .' https://*.clarity.ms'
+                .' https://*.doubleclick.net'
+                .' https://us.i.posthog.com'
+                .' https://*.posthog.com',
 
             // Frames: only Facebook pixel noscript fallback
             "frame-src 'self'"
-                . ' https://www.facebook.com'
-                . ' https://www.googletagmanager.com',
+                .' https://www.facebook.com'
+                .' https://www.googletagmanager.com',
 
             // No base-uri hijacking
             "base-uri 'self'",

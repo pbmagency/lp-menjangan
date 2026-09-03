@@ -1,28 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script nonce="{{ $cspNonce }}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N2KG2WKZ');</script>
-<!-- End Google Tag Manager -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#273B6A">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Menjangan Island Snorkeling & Diving Trips</title>
 <meta name="description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
-<link rel="preload" as="image" href="{{ asset('hero-snorkeling.webp') }}" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="{{ asset('industry.css') }}">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"></noscript>
+<style>
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url({{ asset('fonts/montserrat-latin.woff2') }}) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<link rel="preload" href="{{ asset('fonts/montserrat-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="{{ asset('hero-snorkeling-800.webp') }}" type="image/webp" fetchpriority="high">
+<style>
+/* Industry — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+
+:root {
+  --color-bg: #f2f2f3;
+  --color-surface: #e9e9ea;
+  --color-text: #1d1f20;
+  --color-accent: #5980a6;
+  --color-accent-2: #728fab;
+  --color-divider: color-mix(in srgb, #1d1f20 16%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f5f5f8;
+  --color-neutral-200: #e7e7ea;
+  --color-neutral-300: #d4d4d7;
+  --color-neutral-400: #b7b7ba;
+  --color-neutral-500: #98989b;
+  --color-neutral-600: #7a7a7d;
+  --color-neutral-700: #5d5d60;
+  --color-neutral-800: #424244;
+  --color-neutral-900: #2b2b2d;
+
+  --color-accent-100: #eef6ff;
+  --color-accent-200: #d6ebff;
+  --color-accent-300: #b5d9fd;
+  --color-accent-400: #94bce3;
+  --color-accent-500: #749dc4;
+  --color-accent-600: #597ea3;
+  --color-accent-700: #416180;
+  --color-accent-800: #2c455d;
+  --color-accent-900: #1d2d3d;
+
+  --color-accent-2-100: #eef6ff;
+  --color-accent-2-200: #d6ebff;
+  --color-accent-2-300: #bdd8f2;
+  --color-accent-2-400: #9ebbd8;
+  --color-accent-2-500: #7e9cb8;
+  --color-accent-2-600: #627d98;
+  --color-accent-2-700: #486077;
+  --color-accent-2-800: #314457;
+  --color-accent-2-900: #1f2d3a;
+
+  --font-heading: "Barlow Condensed", system-ui, sans-serif;
+  --font-heading-weight: 600;
+  --font-body: "Barlow", system-ui, sans-serif;
+
+  --space-1: 3.4px;
+  --space-2: 6.8px;
+  --space-3: 10.2px;
+  --space-4: 13.6px;
+  --space-6: 20.4px;
+  --space-8: 27.2px;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 7px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2b2b2d 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2b2b2d 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2b2b2d 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.blueprint {
+  position: relative;
+  border: 1px solid var(--color-divider);
+  border-radius: 0;
+}
+/* The overlay image treatments (halftone, duotone) clip their overlay
+   (overflow:hidden); a blueprint wrapper draws its registration marks
+   outside the box, so when both classes share a wrapper the frame must
+   win. */
+.blueprint.halftone, .blueprint.plate, .blueprint.duotone { overflow: visible; }
+.blueprint > .corner {
+  position: absolute; width: 11px; height: 11px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.blueprint > .corner::before, .blueprint > .corner::after {
+  content: ""; position: absolute; background: currentColor;
+}
+.blueprint > .corner::before { left: 5px; top: 0; width: 1px; height: 100%; }
+.blueprint > .corner::after  { top: 5px; left: 0; width: 100%; height: 1px; }
+.blueprint > .corner.tl { top: -6px; left: -6px; }
+.blueprint > .corner.tr { top: -6px; right: -6px; }
+.blueprint > .corner.bl { bottom: -6px; left: -6px; }
+.blueprint > .corner.br { bottom: -6px; right: -6px; }
+
+.duotone{position:relative;overflow:hidden}
+.duotone::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--color-accent);mix-blend-mode:color}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 1px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 1px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+
+/* — blueprint frame: components are wireframe objects (see .blueprint
+     and .corner above) — square, transparent, hairline-bordered — */
+.card, .btn, .input, .tag, .seg, .dialog { border-radius: 0; }
+.card, .dialog { background: transparent; border: 1px solid var(--color-divider); }
+.btn { border: 1px solid var(--color-divider); }
+.btn-primary { border-color: var(--color-accent); }
+.btn-ghost { border-color: transparent; }
+
+
+</style>
 <style>
 :root {
   --font-heading: "Montserrat", system-ui, sans-serif;
@@ -152,33 +439,83 @@ summary { list-style: none; }
 .lang-btn { cursor:pointer; border:0; padding:8px 12px; font-size:13px; letter-spacing:0.06em; font-family:var(--font-heading); font-weight:600; }
 .lang-btn.active { background:var(--color-accent); color:var(--color-bg); }
 .lang-btn:not(.active) { background:transparent; color:var(--color-neutral-700, #555); }
+/* Skip layout/paint for below-the-fold blocks until they scroll into view -
+   cuts initial layout cost dramatically on long landing pages. */
+#page > :not(header):not(section#top):not(a#whatsapp-button) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
 </style>
 <script nonce="{{ $cspNonce }}">
 function setLang(l){var p=document.getElementById('page');if(p)p.setAttribute('data-lg',l);document.querySelectorAll('.lang-btn').forEach(function(b){b.getAttribute('data-lang')===l?b.classList.add('active'):b.classList.remove('active');});}
-</script>
-<script type="text/javascript" nonce="{{ $cspNonce }}">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y5mhtiav9f");
+window.__langBtnBound = false;
+function bindLangButtons() {
+  if (window.__langBtnBound) return;
+  window.__langBtnBound = true;
+  var btnEn = document.getElementById('btn-lang-en');
+  var btnId = document.getElementById('btn-lang-id');
+  if (btnEn) btnEn.addEventListener('click', function() { setLang('en'); btnEn.setAttribute('aria-pressed','true'); if (btnId) btnId.setAttribute('aria-pressed','false'); });
+  if (btnId) btnId.addEventListener('click', function() { setLang('id'); btnId.setAttribute('aria-pressed','true'); if (btnEn) btnEn.setAttribute('aria-pressed','false'); });
+}
+var CONSENT_KEY = 'menjangan_consent';
+function getConsent() { try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; } }
+function setConsent(value) {
+  try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+  var banner = document.getElementById('cookie-consent');
+  if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
+  var wa = document.getElementById('whatsapp-button');
+  if (wa) wa.style.bottom = '';
+  if (value === 'granted') loadMarketingScripts();
+}
+function loadMarketingScripts() {
+  if (window.__marketingLoaded) return;
+  window.__marketingLoaded = true;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N2KG2WKZ');
+  (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','y5mhtiav9f');
+}
+function showConsentBanner() {
+  if (getConsent()) return;
+  var wrap = document.createElement('div');
+  wrap.id = 'cookie-consent';
+  wrap.setAttribute('role', 'dialog');
+  wrap.setAttribute('aria-label', 'Cookie consent');
+  wrap.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:999;display:flex;justify-content:center;padding:12px 16px 18px;pointer-events:none';
+  var card = document.createElement('div');
+  card.style.cssText = 'pointer-events:auto;max-width:640px;width:100%;background:#ffffff;border:1px solid rgba(15,26,48,0.12);border-radius:10px;box-shadow:0 12px 32px rgba(15,26,48,0.18);padding:16px 18px;font-size:13px;line-height:1.5;color:#2b2b2d';
+  card.innerHTML = '<div style="margin-bottom:10px"><span data-l="en"><strong>We value your privacy.</strong> Marketing cookies from our partners (Google, Meta, Clarity) are only set if you accept.</span><span data-l="id"><strong>Kami menghargai privasi Anda.</strong> Cookie pemasaran dari mitra kami (Google, Meta, Clarity) hanya dipasang jika Anda menyetujui.</span></div>';
+  card.innerHTML += '<div style="display:flex;flex-wrap:wrap;gap:8px">' +
+    '<button type="button" id="consent-accept" class="btn btn-primary" style="flex:1;min-width:130px;padding:10px 14px;font-size:13px"><span data-l="en">Accept all</span><span data-l="id">Terima semua</span></button>' +
+    '<button type="button" id="consent-decline" class="btn btn-secondary" style="flex:1;min-width:130px;padding:10px 14px;font-size:13px"><span data-l="en">Decline</span><span data-l="id">Tolak</span></button></div>';
+  wrap.appendChild(card);
+  document.body.appendChild(wrap);
+  document.getElementById('consent-accept').addEventListener('click', function() { setConsent('granted'); });
+  document.getElementById('consent-decline').addEventListener('click', function() { setConsent('declined'); });
+  var wa = document.getElementById('whatsapp-button');
+  if (wa) wa.style.bottom = '150px';
+}
+function initPageScripts() {
+  bindLangButtons();
+  if (getConsent() === 'granted') { loadMarketingScripts(); return; }
+  showConsentBanner();
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPageScripts);
+} else {
+  initPageScripts();
+}
 </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2KG2WKZ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <div id="page" data-lg="en" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body)">
 
   <header style="position: sticky; top: 0; z-index: 70; background: #FFFFFF; border-bottom: 1px solid var(--color-divider); box-shadow: 0 1px 6px rgba(15, 26, 48, 0.07)">
     <div style="max-width: 1160px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; gap: 14px; flex-wrap: nowrap">
       <a href="#top" style="margin-right: auto; display: flex; align-items: center; text-decoration: none">
-        <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="200" height="200" style="height: 52px; width: auto; flex: none">
+        <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="128" height="128" style="height: 52px; width: auto; flex: none">
       </a>
       <div style="display: flex; align-items: center; border: 1px solid var(--color-divider)">
-        <button id="btn-lang-en" type="button" class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-        <button id="btn-lang-id" type="button" class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
+        <button id="btn-lang-en" type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <button id="btn-lang-id" type="button" class="lang-btn" data-lang="id" aria-pressed="false">ID</button>
       </div>
       <a id="btn-hero-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island." target="_blank" rel="noopener noreferrer" style="font-size: 14px; padding: 9px 16px; white-space: nowrap">
           <svg viewBox="0 0 24 24" fill="#ffffff" style="width: 32px; height: 32px" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.33-1.59-1.48-1.89-.15-.3-.02-.46.13-.61.15-.15.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.34 5.08 4.56.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"></path><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21z"></path></svg>
@@ -187,16 +524,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
   <section id="top" style="position: relative; min-height: min(78vh, 680px); display: grid; align-items: center; overflow: hidden">
-    <img fetchpriority="high" src="{{ asset('hero-snorkeling.webp') }}" alt="Menjangan Island and its reef from the air" width="1600" height="900" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img fetchpriority="high" src="{{ asset('hero-snorkeling.webp') }}" srcset="{{ asset('hero-snorkeling-480.webp') }} 480w, {{ asset('hero-snorkeling-800.webp') }} 800w, {{ asset('hero-snorkeling.webp') }} 1200w" sizes="100vw" alt="Menjangan Island and its reef from the air" width="1200" height="799" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent-900) 62%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 34%, transparent) 34%, color-mix(in srgb, var(--color-accent-900) 82%, transparent) 68%, color-mix(in srgb, var(--color-accent-900) 94%, transparent) 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 84px 24px 56px; color: var(--color-bg)">
       <div style="display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; border-width: 1px; border-style: solid; border-color: var(--color-bg)">
         <span style="color: #FFC107; font-size: 13px; letter-spacing: 1px">★★★★★</span>
         <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #17233f"><span data-l="en" style="color: var(--color-bg)">1.150+ five-star reviews</span><span data-l="id" style="color: var(--color-bg)">1.150+ ulasan bintang 5</span></span>
         <span style="display: flex; align-items: center">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none" width="24" height="24">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
+          <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w40-h40-c-rp-mo-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none" width="24" height="24">
+          <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w40-h40-c-rp-mo-ba12-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
+          <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w40-h40-c-rp-mo-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
         </span>
       </div>
        <h1 style="font-size: clamp(32px, 4.6vw, 60px); line-height: 1.02; text-transform: uppercase; color: #ffffff; max-width: 22ch; margin: 0 0 16px; text-shadow: 0 2px 18px rgba(15, 26, 48, 0.55)">
@@ -236,7 +573,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; background: var(--color-neutral-300)">
     <a href="#snorkeling" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the Menjangan wall" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="1600" height="1829">
+      <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the Menjangan wall" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="480" height="548">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">01</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Snorkeling</div>
@@ -244,7 +581,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </a>
     <a href="#scuba-diving" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/scuba/new_scuba.webp') }}" alt="Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
+      <img src="{{ asset('uploads/scuba/new_scuba.webp') }}" alt="Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="500" height="334">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">02</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Scuba Diving</div>
@@ -252,7 +589,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </a>
     <a href="#try-scuba" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/try_scuba/new_try_scuba.webp') }}" alt="Try Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
+      <img src="{{ asset('uploads/try_scuba/new_try_scuba.webp') }}" alt="Try Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="480" height="549">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">03</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Try Scuba Diving</div>
@@ -333,17 +670,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 26px"><span data-l="en">Where travellers find us first.</span><span data-l="id">Tempat wisatawan menemukan kami lebih dulu.</span></p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 26px 44px">
         <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="190" height="30">
-        <img src="{{ asset('uploads/wp/Bali-Untold-Logo-Final-1-300x90-1.webp') }}" alt="Bali Untold" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="300" height="90">
-        <img src="{{ asset('uploads/wp/images__2_-removebg-preview.webp') }}" alt="TRAppe" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="299" height="168">
-        <img src="{{ asset('uploads/wp/GetYourGuide_Logo.svg_.webp') }}" alt="GetYourGuide" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="1280" height="1092">
-        <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="310" height="163">
+        <img src="{{ asset('uploads/wp/Bali-Untold-Logo-Final-1-300x90-1.webp') }}" alt="Bali Untold" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="45">
+        <img src="{{ asset('uploads/wp/images__2_-removebg-preview.webp') }}" alt="TRAppe" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="84">
+        <img src="{{ asset('uploads/wp/GetYourGuide_Logo.svg_.webp') }}" alt="GetYourGuide" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="200" height="171">
+        <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="160" height="84">
       </div>
     </div>
   </section>
 
     <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="{{ asset('uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp') }}" alt="Coral garden in clear shallow water" loading="lazy" width="800" height="600" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp') }}" alt="Coral garden in clear shallow water" loading="lazy" width="500" height="500" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Coral garden · inside the national park</span><span data-l="id">Coral garden · di dalam taman nasional</span></div>
     </div>
       <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
@@ -658,37 +995,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-1.webp') }}" alt="First breaths in shallow water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-1.webp') }}" alt="First breaths in shallow water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First breaths</span><span data-l="id">Napas pertama</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-2.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-2.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Instructor beside you</span><span data-l="id">Instruktur mendampingi</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-3.webp') }}" alt="Reef at 3–5 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-3.webp') }}" alt="Reef at 3–5 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Reef at 3–5 m</span><span data-l="id">Reef 3–5 m</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-4.webp') }}" alt="Gear fitted before you get in" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-4.webp') }}" alt="Gear fitted before you get in" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Gear fitted for you</span><span data-l="id">Alat disesuaikan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-5.webp') }}" alt="Calm, clear water all year" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-5.webp') }}" alt="Calm, clear water all year" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Calm water all year</span><span data-l="id">Air tenang sepanjang tahun</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-6.webp') }}" alt="Guests on their first dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="800">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-6.webp') }}" alt="Guests on their first dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First dive</span><span data-l="id">Dive pertama</span></figcaption>
         </figure>
@@ -1214,7 +1551,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <footer style="padding: 60px 24px 96px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
       <div>
-        <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="200" height="200" style="height: 88px; width: auto; margin-bottom: 14px">
+        <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="128" height="128" style="height: 88px; width: auto; margin-bottom: 14px">
         <div style="font-family: var(--font-heading); font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-accent-700)">Menjangan Snorkeling Trip &amp; Diving</div>
         <p style="margin: 8px 0 16px; font-size: 14px; color: var(--color-neutral-700)">Jl. Banyuwedang, Banjar Dinas Batu Ampar, Pejarakan, Gerokgak, Buleleng, Bali 81155</p>
         <div style="display: grid; gap: 6px; font-size: 14px">
