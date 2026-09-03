@@ -43,10 +43,14 @@ class CacheLandingPage
 
         $cacheKey = 'landing_page_html_v2:'.self::manifestVersion();
 
-        if (Cache::has($cacheKey)) {
-            /** @var string $html */
-            $html = Cache::get($cacheKey);
+        // Single Cache::get: with the database cache store a has()+get() pair
+        // would cost two queries per hit, and the value is a large blob.
+        $html = Cache::get($cacheKey);
 
+        if ($html !== null) {
+            // The stored markup keeps its original CSP nonce (the one written
+            // when it was rendered); SecurityHeaders picks it up from the body
+            // so the CSP header always matches the cached HTML.
             return response(
                 str_replace(self::CSRF_PLACEHOLDER, csrf_token(), $html),
                 200,

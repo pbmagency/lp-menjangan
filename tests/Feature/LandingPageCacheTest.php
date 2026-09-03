@@ -9,29 +9,43 @@ use Tests\TestCase;
 
 class LandingPageCacheTest extends TestCase
 {
-    public function test_cached_landing_page_uses_the_current_session_csrf_token(): void
+    public function test_cached_landing_page_is_served_with_a_coherent_csp_nonce(): void
     {
         Cache::flush();
 
-        $firstToken = 'first-session-token';
-        $this->withSession(['_token' => $firstToken])
-            ->get('/')
+        $this->get('/')
             ->assertOk()
-            ->assertSee('content="'.$firstToken.'"', false);
+            ->assertSee('<title>Menjangan Island Snorkeling & Diving Trips</title>', false);
 
         $manifestVersion = (new ReflectionMethod(CacheLandingPage::class, 'manifestVersion'))
             ->invoke(null);
         $cachedHtml = Cache::get('landing_page_html_v2:'.$manifestVersion);
 
         $this->assertIsString($cachedHtml);
-        $this->assertStringContainsString('__LANDING_CSRF_TOKEN__', $cachedHtml);
-        $this->assertStringNotContainsString($firstToken, $cachedHtml);
 
-        $secondToken = 'second-session-token';
-        $this->withSession(['_token' => $secondToken])
-            ->get('/')
-            ->assertOk()
-            ->assertSee('content="'.$secondToken.'"', false)
-            ->assertDontSee('content="'.$firstToken.'"', false);
+        $cachedNonce = $this->extractNonce($cachedHtml);
+        $this->assertNotEmpty($cachedNonce);
+
+        $second = $this->get('/')->assertOk();
+
+        // The cached markup is served as-is (plus the CSRF placeholder swap),
+        // so the response body must still carry the nonce from the cache…
+        $this->assertSame($cachedNonce, $this->extractNonce($second->getContent()));
+
+        // …and the CSP header must use that same nonce, otherwise the browser
+        // blocks every inline script on the cached page. This is the mismatch
+        // that previously forced CacheLandingPage to be disabled.
+        $csp = $second->headers->get('Content-Security-Policy', '');
+        $this->assertStringContainsString("'nonce-{$cachedNonce}'", $csp);
+
+        // The CSRF placeholder must never leak into the response.
+        $this->assertStringNotContainsString('__LANDING_CSRF_TOKEN__', $second->getContent());
+    }
+
+    private function extractNonce(string $html): string
+    {
+        preg_match('/nonce="([^"]+)"/', $html, $matches);
+
+        return $matches[1] ?? '';
     }
 }

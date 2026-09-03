@@ -61,7 +61,17 @@ class SecurityHeaders
         //
         // NOTE: Third-party analytics domains are allow-listed because
         // removing them would break tracking. Tighten further as needed.
+        //
+        // Prefer the nonce embedded in the response body. This keeps the CSP
+        // header coherent whether the page was freshly rendered (the nonce
+        // shared via CspNonce) or served from the server-side HTML cache
+        // (CacheLandingPage), where the cached markup carries the nonce from
+        // when it was originally rendered. Using a mismatched nonce here is
+        // what forced CacheLandingPage to be disabled.
         $nonce = $request->attributes->get('csp_nonce', '');
+        if (preg_match('/nonce="([^"]+)"/', (string) $response->getContent(), $matches)) {
+            $nonce = $matches[1];
+        }
         $csp = $this->buildCspPolicy($nonce);
         $response->headers->set('Content-Security-Policy', $csp);
 

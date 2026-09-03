@@ -24,8 +24,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             SecurityHeaders::class,
             CspNonce::class,
-            // CacheLandingPage removed: conflicts with CSP nonce (cached HTML has stale nonce)
-            // The landing page is already fast without server-side HTML caching
+            // Serves anonymous "/" requests from the server-side HTML cache.
+            // SecurityHeaders now derives the CSP nonce from the response body,
+            // so the cached markup's original nonce stays coherent with the header.
+            CacheLandingPage::class,
             HandleAppearance::class,
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,
