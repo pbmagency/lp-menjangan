@@ -18,9 +18,12 @@ use Symfony\Component\HttpFoundation\Response;
  *   <script nonce="{{ $cspNonce }}">...</script>
  *
  * Usage with Vite (CSP-friendly):
+ *
  *   @php
  *       $useCspNonce = true;
+ *
  *   @endphp
+ *
  *   @vite(['resources/css/app.css', 'resources/js/app.tsx'], nonce: $cspNonce)
  */
 class CspNonce
@@ -42,13 +45,13 @@ class CspNonce
         // Append nonce to existing CSP script-src directive
         // SecurityHeaders middleware must run first to set the base CSP
         $existingCsp = $response->headers->get('Content-Security-Policy', '');
-        if ($existingCsp !== '' && ! str_contains($existingCsp, "nonce-")) {
+        if ($existingCsp !== '' && ! str_contains($existingCsp, 'nonce-')) {
             // Add nonce to script-src (without 'unsafe-inline')
             // The SecurityHeaders middleware already sets 'self' as the base;
             // we replace just that with 'self' + nonce.
             $newCsp = preg_replace(
                 "/script-src\s+'self'/",
-                "script-src 'self' 'nonce-{$nonce}",
+                "script-src 'self' 'nonce-{$nonce}'",
                 $existingCsp,
                 1,
             );
