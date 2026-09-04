@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script nonce="{{ $cspNonce }}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PP3LHJ7F');</script>
+<!-- End Google Tag Manager -->
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#273B6A">
@@ -470,7 +478,6 @@ function setConsent(value) {
 function loadMarketingScripts() {
   if (window.__marketingLoaded) return;
   window.__marketingLoaded = true;
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N2KG2WKZ');
   (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','y5mhtiav9f');
 }
 function showConsentBanner() {
@@ -506,6 +513,11 @@ if (document.readyState === 'loading') {
 </script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PP3LHJ7F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <div id="page" data-lg="en" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body)">
 
   <header style="position: sticky; top: 0; z-index: 70; background: #FFFFFF; border-bottom: 1px solid var(--color-divider); box-shadow: 0 1px 6px rgba(15, 26, 48, 0.07)">
