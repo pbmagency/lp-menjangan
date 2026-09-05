@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "22"
 
       - name: Install Dependencies & Build Vite Assets
         run: |
@@ -31,3 +31,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           server-dir: /public_html/
+          exclude: |
+            **/node_modules/**
+            **/.git*/**
