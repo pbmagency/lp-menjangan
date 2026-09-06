@@ -31,3 +31,5 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.'
 });
 
 require __DIR__ . '/settings.php';
+
+Route::get('/c1-lp', function () { return view('c1-lp'); });
