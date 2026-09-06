@@ -465,45 +465,18 @@ function bindLangButtons() {
   if (btnEn) btnEn.addEventListener('click', function() { setLang('en'); btnEn.setAttribute('aria-pressed','true'); if (btnId) btnId.setAttribute('aria-pressed','false'); });
   if (btnId) btnId.addEventListener('click', function() { setLang('id'); btnId.setAttribute('aria-pressed','true'); if (btnEn) btnEn.setAttribute('aria-pressed','false'); });
 }
-var CONSENT_KEY = 'menjangan_consent';
-function getConsent() { try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; } }
-function setConsent(value) {
-  try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
-  var banner = document.getElementById('cookie-consent');
-  if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
-  var wa = document.getElementById('whatsapp-button');
-  if (wa) wa.style.bottom = '';
-  if (value === 'granted') loadMarketingScripts();
-}
 function loadMarketingScripts() {
   if (window.__marketingLoaded) return;
   window.__marketingLoaded = true;
   (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script','y5mhtiav9f');
-}
-function showConsentBanner() {
-  if (getConsent()) return;
-  var wrap = document.createElement('div');
-  wrap.id = 'cookie-consent';
-  wrap.setAttribute('role', 'dialog');
-  wrap.setAttribute('aria-label', 'Cookie consent');
-  wrap.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:999;display:flex;justify-content:center;padding:12px 16px 18px;pointer-events:none';
-  var card = document.createElement('div');
-  card.style.cssText = 'pointer-events:auto;max-width:640px;width:100%;background:#ffffff;border:1px solid rgba(15,26,48,0.12);border-radius:10px;box-shadow:0 12px 32px rgba(15,26,48,0.18);padding:16px 18px;font-size:13px;line-height:1.5;color:#2b2b2d';
-  card.innerHTML = '<div style="margin-bottom:10px"><span data-l="en"><strong>We value your privacy.</strong> Marketing cookies from our partners (Google, Meta, Clarity) are only set if you accept.</span><span data-l="id"><strong>Kami menghargai privasi Anda.</strong> Cookie pemasaran dari mitra kami (Google, Meta, Clarity) hanya dipasang jika Anda menyetujui.</span></div>';
-  card.innerHTML += '<div style="display:flex;flex-wrap:wrap;gap:8px">' +
-    '<button type="button" id="consent-accept" class="btn btn-primary" style="flex:1;min-width:130px;padding:10px 14px;font-size:13px"><span data-l="en">Accept all</span><span data-l="id">Terima semua</span></button>' +
-    '<button type="button" id="consent-decline" class="btn btn-secondary" style="flex:1;min-width:130px;padding:10px 14px;font-size:13px"><span data-l="en">Decline</span><span data-l="id">Tolak</span></button></div>';
-  wrap.appendChild(card);
-  document.body.appendChild(wrap);
-  document.getElementById('consent-accept').addEventListener('click', function() { setConsent('granted'); });
-  document.getElementById('consent-decline').addEventListener('click', function() { setConsent('declined'); });
-  var wa = document.getElementById('whatsapp-button');
-  if (wa) wa.style.bottom = '150px';
+  window.clarity('consentv2', {
+    ad_Storage: 'granted',
+    analytics_Storage: 'granted'
+  });
 }
 function initPageScripts() {
   bindLangButtons();
-  if (getConsent() === 'granted') { loadMarketingScripts(); return; }
-  showConsentBanner();
+  loadMarketingScripts();
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initPageScripts);

@@ -215,7 +215,7 @@ details[open] .plus { transform: rotate(45deg); }
         </div>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
-        <img src="{{ asset('uploads/wp/GOPR7894-scaled-1.webp') }}" alt="Coral garden at Menjangan Island" loading="lazy" style="width: 100%; height: 100%; min-height: 180px; object-fit: cover; border-radius: 12px; grid-column: span 2">
+        <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Coral garden at Menjangan Island" loading="lazy" style="width: 100%; height: 100%; min-height: 180px; object-fit: cover; border-radius: 12px; grid-column: span 2">
         <img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtle at Menjangan Island" loading="lazy" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px">
         <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the reef wall" loading="lazy" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px">
       </div>
@@ -320,7 +320,7 @@ details[open] .plus { transform: rotate(45deg); }
         <figure style="margin: 0"><img src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island-350x350.webp') }}" alt="Schools of fish at Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Schools of fish</span><span data-l="id">Ribuan ikan</span></figcaption></figure>
         <figure style="margin: 0"><img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtle at Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Turtles</span><span data-l="id">Penyu</span></figcaption></figure>
         <figure style="margin: 0"><img src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island-350x350.webp') }}" alt="Wild deer on Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Wild deer</span><span data-l="id">Rusa liar</span></figcaption></figure>
-        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4-350x350.webp') }}" alt="Snorkeling with the guide" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Guide in the water</span><span data-l="id">Guide di air</span></figcaption></figure>
+        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Snorkeling with the guide" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Guide in the water</span><span data-l="id">Guide di air</span></figcaption></figure>
       </div>
       <div style="display: grid; justify-items: start; gap: 10px">
         <a class="cta" href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20the%20Snorkeling%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener">
@@ -933,7 +933,7 @@ details[open] .plus { transform: rotate(45deg); }
   </section>
 
   <section style="position: relative; overflow: hidden; border-top: 1px solid var(--line)">
-    <img src="{{ asset('uploads/wp/GOPR7894-scaled-1.webp') }}" alt="Reef at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Reef at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: rgba(15, 26, 48, 0.86)"></div>
     <div class="wrap" style="position: relative; padding: 84px 24px; text-align: center; color: #FFFFFF">
       <h2 style="font-size: clamp(28px, 3.8vw, 48px); color: #FFFFFF; max-width: 24ch; margin: 0 auto 14px"><span data-l="en">Book Your Trip to Menjangan Island</span><span data-l="id">Booking Trip Anda ke Pulau Menjangan</span></h2>
@@ -969,7 +969,7 @@ details[open] .plus { transform: rotate(45deg); }
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 30px; height: 30px"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
   </a>
 </div>
-</div>
+</x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;defaultLanguage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;id&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;'en' | 'id'&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
 class Component extends DCLogic {
   state = { lang: "en" };

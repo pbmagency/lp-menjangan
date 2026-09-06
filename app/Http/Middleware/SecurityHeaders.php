@@ -89,7 +89,7 @@ class SecurityHeaders
     {
         // Build script-src: nonce-only (no 'unsafe-inline')
         $scriptSrc = $nonce !== ''
-            ? "script-src 'self' 'nonce-{$nonce}'"
+            ? "script-src 'self' 'nonce-{$nonce}' 'unsafe-eval'"
             : "script-src 'self' 'unsafe-inline'";
 
         $directives = [
@@ -108,9 +108,11 @@ class SecurityHeaders
                 .' https://cdn.trustindex.io'
                 // Cloudflare Web Analytics injects its beacon script into HTML at the edge;
                 // without this host Lighthouse flags console errors (best-practices audit).
-                .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
+                .' https://static.cloudflareinsights.com https://cloudflareinsights.com'
+                .' https://unpkg.com',
 
-            "script-src-elem 'self' 'unsafe-inline'"
+            "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval'"
+                .' https://unpkg.com'
                 .' https://www.googletagmanager.com'
                 .' https://www.google-analytics.com'
                 .' https://www.clarity.ms'
@@ -122,12 +124,13 @@ class SecurityHeaders
                 .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
 
             // Styles: self + inline (Tailwind generates inline styles via Radix)
-            "style-src 'self' 'unsafe-inline'",
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
 
             // Images: self + data: URIs + third-party avatars/logos/pixels
             // (Clarity beacons may redirect via c.bing.com; Google Ads user-list
             //  pixels load from google.com / google.co.id)
             "img-src 'self' data: blob:"
+                .' https://menjanganislandtrip.com'
                 .' https://www.google-analytics.com'
                 .' https://www.googletagmanager.com'
                 .' https://*.clarity.ms'
@@ -142,7 +145,7 @@ class SecurityHeaders
                 .' https://ui-avatars.com',
 
             // Fonts: self-hosted Montserrat (no external font requests)
-            "font-src 'self'",
+            "font-src 'self' https://fonts.gstatic.com",
 
             // Connections: analytics endpoints
             "connect-src 'self'"
