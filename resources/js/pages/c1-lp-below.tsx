@@ -769,7 +769,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                 decoding="async"
                                 style={{
                                     width: '100%',
-                                    height: '200px',
+                                    aspectRatio: '3/2',
                                     objectFit: 'cover',
                                 }}
                             />
@@ -872,7 +872,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                 decoding="async"
                                 style={{
                                     width: '100%',
-                                    height: '200px',
+                                    aspectRatio: '3/2',
                                     objectFit: 'cover',
                                 }}
                             />
@@ -993,7 +993,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                 decoding="async"
                                 style={{
                                     width: '100%',
-                                    height: '200px',
+                                    aspectRatio: '3/2',
                                     objectFit: 'cover',
                                 }}
                             />
@@ -1411,6 +1411,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                         </div>
                     </div>
                     <div
+                        className="photo-grid"
                         style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -1956,6 +1957,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                         </figcaption>
                     </figure>
                     <div
+                        className="photo-grid"
                         style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(4, 1fr)',
@@ -2434,6 +2436,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                         </div>
                     </div>
                     <div
+                        className="photo-grid"
                         style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(3, 1fr)',

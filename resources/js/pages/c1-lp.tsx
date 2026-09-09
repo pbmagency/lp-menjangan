@@ -24,6 +24,18 @@ const pageStyles = String.raw`:root {
 html { scroll-behavior: smooth; scroll-padding-top: 86px; }
 body { margin: 0; background: #FFFFFF; font-family: "Montserrat", system-ui, sans-serif; color: var(--ink); }
 img { display: block; max-width: 100%; }
+.hero-review-avatars { flex: none; min-width: 56px; }
+.hero-review-avatar {
+  width: 24px !important;
+  min-width: 24px !important;
+  max-width: 24px !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  flex: none;
+}
 a { color: var(--brand); }
 a:hover { color: var(--brand-700); }
 h1, h2, h3, h4 { font-family: "Montserrat", system-ui, sans-serif; font-weight: 800; line-height: 1.14; margin: 0; letter-spacing: -0.01em; }
@@ -51,6 +63,7 @@ details[open] .plus { transform: rotate(45deg); }
   .rev-grid[data-collapsed="1"] > figure:nth-child(n + 4) { display: none !important; }
   .rev-more { display: flex !important; }
 }
+.photo-grid img { height: auto !important; }
 @media (max-width: 900px) {
   .sec { padding: 56px 18px; }
   #page > header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 90 !important; }
@@ -71,6 +84,7 @@ details[open] .plus { transform: rotate(45deg); }
   #page section .cta, #page footer .cta { width: 100% !important; }
   .micro { font-size: 11px !important; }
   .cmp th, .cmp td { padding: 10px 8px !important; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }`;
 
 const languageButtonStyle = (active: boolean): CSSProperties => ({
@@ -552,12 +566,14 @@ export default function C1LandingPage() {
                                 <span data-l="id">1.150+ ulasan bintang 5</span>
                             </span>
                             <span
+                                className="hero-review-avatars"
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
                                 }}
                             >
                                 <img
+                                    className="hero-review-avatar"
                                     src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100"
                                     alt=""
                                     width={24}
@@ -573,6 +589,7 @@ export default function C1LandingPage() {
                                     }}
                                 />
                                 <img
+                                    className="hero-review-avatar"
                                     src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100"
                                     alt=""
                                     width={24}
@@ -589,6 +606,7 @@ export default function C1LandingPage() {
                                     }}
                                 />
                                 <img
+                                    className="hero-review-avatar"
                                     src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100"
                                     alt=""
                                     width={24}
