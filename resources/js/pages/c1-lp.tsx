@@ -131,6 +131,189 @@ export default function C1LandingPage() {
         };
     }, []);
 
+    // ── Analytics + A/B Testing ───────────────────────────────────────────────
+    useEffect(() => {
+        const page = window.location.pathname;
+        const params = new URLSearchParams(window.location.search);
+        const LANDING_KEY = 'landing_source';
+        const REFERRAL_KEY = 'referral_source';
+        const MILESTONES = [25, 50, 75, 90];
+
+        const get = (k: string) => { try { return sessionStorage.getItem(k); } catch { return null; } };
+        const set = (k: string, v: string) => { try { sessionStorage.setItem(k, v); } catch {} };
+
+        // Session init
+        if (!get(LANDING_KEY)) set(LANDING_KEY, page);
+        if (!get(REFERRAL_KEY)) {
+            let ref = params.get('ref') || 'direct';
+            if (document.referrer) {
+                try { if (new URL(document.referrer).hostname !== window.location.hostname) ref = document.referrer; } catch {}
+            }
+            set(REFERRAL_KEY, ref);
+        }
+
+        // A/B variant — assign once per session, expose on window for GTM / custom triggers
+        const AB_KEY = 'ab_variant_c1lp';
+        if (!get(AB_KEY)) set(AB_KEY, Math.random() < 0.5 ? 'A' : 'B');
+        (window as any).__abVariant = get(AB_KEY);
+
+        // Helpers
+        const eventId = (prefix: string) =>
+            prefix + '-' + (crypto.randomUUID?.() ?? (Date.now() + '-' + Math.random().toString(36).slice(2, 11)));
+
+        const cookie = (name: string) => {
+            const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+            return m ? decodeURIComponent(m[1]) : null;
+        };
+
+        const track = (type: string, data: Record<string, unknown> = {}, useBeacon = false) => {
+            const csrf = document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')?.content;
+            const payload = JSON.stringify({
+                event_type: type,
+                event_data: Object.assign(
+                    { landing_source: get(LANDING_KEY) || page, page, timestamp: new Date().toISOString() },
+                    data,
+                ),
+                referral_source: get(REFERRAL_KEY) || 'direct',
+                utm_source:   params.get('utm_source'),
+                utm_medium:   params.get('utm_medium'),
+                utm_campaign: params.get('utm_campaign'),
+                utm_content:  params.get('utm_content'),
+                utm_term:     params.get('utm_term'),
+            });
+            if (useBeacon && navigator.sendBeacon)
+                return navigator.sendBeacon('/analytics/track', new Blob([payload], { type: 'application/json' }));
+            fetch('/analytics/track', {
+                method: 'POST', credentials: 'same-origin', keepalive: true,
+                headers: { 'Content-Type': 'application/json', ...(csrf ? { 'X-CSRF-TOKEN': csrf } : {}) },
+                body: payload,
+            }).catch(() => {});
+            return true;
+        };
+
+        // Visit tracking (once per session)
+        const trackVisit = () => {
+            const key = 'analytics_visit_tracked:' + (get(LANDING_KEY) || page);
+            if (get(key)) return;
+            const id = eventId('page-view');
+            if (track('visit', { event_id: id, is_initial: true, _fbp: cookie('_fbp'), _fbc: cookie('_fbc'), ab_variant: get(AB_KEY) }, true))
+                set(key, '1');
+        };
+
+        // Scroll depth milestones (25 / 50 / 75 / 90 %)
+        const trackScroll = () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            if (max <= 0) return;
+            const depth = Math.round((window.scrollY / max) * 100);
+            MILESTONES.forEach((m) => {
+                const key = 'analytics_scroll:' + page + ':' + m;
+                if (depth >= m && !get(key)) { set(key, '1'); track('scroll', { depth: m }); }
+            });
+        };
+
+        // Dwell pings (15 s initial, then every 30 s)
+        const trackDwell = () => {
+            let activeMs = 0, initialSent = false, sincePing = 0;
+            return window.setInterval(() => {
+                if (document.hidden) return;
+                activeMs += 1000;
+                if (!initialSent && activeMs >= 15000) {
+                    initialSent = true; sincePing = 0;
+                    track('engagement', { type: 'dwell_ping', duration: 15000, is_initial: true });
+                    return;
+                }
+                if (initialSent && ++sincePing >= 30) {
+                    sincePing = 0;
+                    track('engagement', { type: 'dwell_ping', duration: 30000, is_initial: false });
+                }
+            }, 1000);
+        };
+
+        // Section view (IntersectionObserver, 500 ms dwell at 20 % threshold)
+        let sectionObs: IntersectionObserver | null = null;
+        const trackSections = () => {
+            if (!('IntersectionObserver' in window)) return;
+            const timers = new Map<string, number>();
+            sectionObs = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const sec = entry.target as HTMLElement;
+                    const key = 'section_seen_v2_' + page + ':' + sec.id;
+                    if (!entry.isIntersecting) {
+                        if (timers.has(sec.id)) window.clearTimeout(timers.get(sec.id)!);
+                        timers.delete(sec.id);
+                        return;
+                    }
+                    if (get(key) || timers.has(sec.id)) return;
+                    timers.set(sec.id, window.setTimeout(() => {
+                        timers.delete(sec.id);
+                        if (get(key)) return;
+                        set(key, '1');
+                        track('section_view', { section: sec.id });
+                        sectionObs?.unobserve(sec);
+                    }, 500));
+                });
+            }, { threshold: 0.2 });
+            document.querySelectorAll('section[id]').forEach((s) => sectionObs!.observe(s));
+        };
+
+        // WhatsApp + CTA click tracking
+        const handleClick = (e: MouseEvent) => {
+            const link = (e.target as Element).closest('a');
+            if (!link) return;
+            const text = (link.textContent || link.getAttribute('aria-label') || 'CTA').replace(/\s+/g, ' ').trim().slice(0, 255);
+
+            if (link.href.includes('wa.me/')) {
+                const href = link.href;
+                const decoded = decodeURIComponent(href.replace(/\+/g, ' ')).toLowerCase();
+                const closestSection = link.closest('section[id]');
+                const location =
+                    link.getAttribute('aria-label') === 'Chat on WhatsApp' ? 'floating_whatsapp'
+                    : closestSection ? (closestSection as HTMLElement).id
+                    : link.closest('header') ? 'header' : 'footer';
+
+                let packageName: string | null = null;
+                if (decoded.includes('try scuba'))    packageName = 'Try Scuba Diving';
+                else if (decoded.includes('scuba'))   packageName = 'Scuba Diving';
+                else if (decoded.includes('snorkel')) packageName = 'Snorkeling';
+
+                const conversionId = eventId('wa');
+                const conversionType = packageName ? 'wa_registration' : 'wa_inquiry';
+                const common = { location, text, destination: href, package: packageName, _fbp: cookie('_fbp'), _fbc: cookie('_fbc'), ab_variant: get(AB_KEY) };
+
+                track('cta_click',  { event_id: eventId('cta'), ...common }, true);
+                track('conversion', { event_id: conversionId, type: conversionType, meta_event: 'Search', ...common }, true);
+
+                // Mirror to Meta Pixel if loaded
+                if (typeof (window as any).fbq === 'function')
+                    (window as any).fbq('track', 'Search', { content_category: conversionType, content_name: packageName || 'WhatsApp inquiry' }, { eventID: conversionId });
+            }
+        };
+        document.addEventListener('click', handleClick);
+
+        // Boot everything on load
+        const whenIdle = (fn: () => void) => {
+            if ('requestIdleCallback' in window) window.requestIdleCallback(fn, { timeout: 3000 });
+            else window.setTimeout(fn, 1500);
+        };
+
+        let dwellInterval: number | undefined;
+        const onLoad = () => { whenIdle(trackVisit); trackScroll(); dwellInterval = trackDwell(); trackSections(); };
+
+        if (document.readyState === 'complete') onLoad();
+        else window.addEventListener('load', onLoad, { once: true });
+
+        const onScroll = () => trackScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        return () => {
+            document.removeEventListener('click', handleClick);
+            window.removeEventListener('scroll', onScroll);
+            if (dwellInterval !== undefined) window.clearInterval(dwellInterval);
+            sectionObs?.disconnect();
+        };
+    }, []);
+    // ── End Analytics + A/B Testing ───────────────────────────────────────────
+
     const showMoreReviews = (event: MouseEvent<HTMLButtonElement>) => {
         const gridId = event.currentTarget.dataset.more;
 
