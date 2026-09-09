@@ -11,9 +11,14 @@
     <!-- End Google Tag Manager -->
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    {{-- Public landing pages: allow indexing. App/admin pages: block. --}}
+    @if(request()->is('c1-lp') || request()->is('/') || request()->is('lp*'))
+    <meta name="robots" content="index, follow">
+    @else
     <meta name="description" content="{{ config('app.name') }} — Manage your account, dashboard, and settings.">
     <meta name="robots" content="noindex, nofollow">
+    @endif
 
     <!-- Preconnect to third-party domains for faster loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
@@ -22,6 +27,40 @@
     <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
 
 
+    @if(request()->is('c1-lp'))
+    {{-- c1-lp: lean entry (no Tailwind, no admin layouts, no dark-mode) --}}
+
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300 800;
+            font-display: swap;
+            src: url('/fonts/montserrat-latin.woff2') format('woff2');
+        }
+        html, body, #app { min-height: 100%; }
+        body, #app { min-height: 100svh; }
+    </style>
+
+    {{-- Preconnects for c1-lp third-party resources --}}
+    <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+    <link rel="preconnect" href="https://dynamic-media-cdn.tripadvisor.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.trustindex.io" crossorigin>
+
+    {{-- LCP hero image preload --}}
+    <link rel="preload" as="image"
+          href="/c1/hero-reef-diver-800.avif"
+          type="image/avif"
+          imagesrcset="/c1/hero-reef-diver-480.avif 480w, /c1/hero-reef-diver-800.avif 800w, /c1/hero-reef-diver-1400.avif 1400w"
+          imagesizes="100vw"
+          fetchpriority="high">
+    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    {{-- Non-blocking Google Fonts (native HTML onload — not React JSX) --}}
+
+    @viteReactRefresh
+    @vite(['resources/js/lp-app.tsx'])
+    @else
     @if(request()->path() !== '/')
     <script nonce="{{ $cspNonce }}">
         (function() {
@@ -45,13 +84,15 @@
     </style>
     @endif
 
+    @viteReactRefresh
+    @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+    @endif
+
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @viteReactRefresh
-    @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
     <x-inertia::head>
         <title>{{ config('app.name') }}</title>
     </x-inertia::head>
@@ -60,7 +101,7 @@
 <body class="font-sans antialiased" @if(request()->path() === '/') style="background-color: oklch(0.97 0.015 85) !important;" @endif>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PP3LHJ7F"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <x-inertia::app />

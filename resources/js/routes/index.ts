@@ -359,3 +359,81 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
     
     dashboard.form = dashboardForm
+/**
+* @see \Inertia\Controller::__invoke
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @route '/c1-lp'
+ */
+export const c1Lp = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: c1Lp.url(options),
+    method: 'get',
+})
+
+c1Lp.definition = {
+    methods: ["get","head"],
+    url: '/c1-lp',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \Inertia\Controller::__invoke
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @route '/c1-lp'
+ */
+c1Lp.url = (options?: RouteQueryOptions) => {
+    return c1Lp.definition.url + queryParams(options)
+}
+
+/**
+* @see \Inertia\Controller::__invoke
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @route '/c1-lp'
+ */
+c1Lp.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: c1Lp.url(options),
+    method: 'get',
+})
+/**
+* @see \Inertia\Controller::__invoke
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @route '/c1-lp'
+ */
+c1Lp.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: c1Lp.url(options),
+    method: 'head',
+})
+
+    /**
+* @see \Inertia\Controller::__invoke
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @route '/c1-lp'
+ */
+    const c1LpForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: c1Lp.url(options),
+        method: 'get',
+    })
+
+            /**
+* @see \Inertia\Controller::__invoke
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @route '/c1-lp'
+ */
+        c1LpForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: c1Lp.url(options),
+            method: 'get',
+        })
+            /**
+* @see \Inertia\Controller::__invoke
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @route '/c1-lp'
+ */
+        c1LpForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: c1Lp.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    c1Lp.form = c1LpForm

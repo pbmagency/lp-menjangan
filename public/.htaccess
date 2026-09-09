@@ -9,6 +9,15 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+    # Serve the pre-compressed Vite assets generated during the production build.
+    RewriteCond %{HTTP:Accept-Encoding} br
+    RewriteCond %{REQUEST_FILENAME}.br -f
+    RewriteRule ^(.+)\.(js|css)$ $1.$2.br [L]
+
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}.gz -f
+    RewriteRule ^(.+)\.(js|css)$ $1.$2.gz [L]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
@@ -31,6 +40,26 @@
 </IfModule>
 
 <IfModule mod_headers.c>
+    <FilesMatch "\.js\.br$">
+        Header set Content-Type "application/javascript; charset=utf-8"
+        Header set Content-Encoding br
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.css\.br$">
+        Header set Content-Type "text/css; charset=utf-8"
+        Header set Content-Encoding br
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.js\.gz$">
+        Header set Content-Type "application/javascript; charset=utf-8"
+        Header set Content-Encoding gzip
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.css\.gz$">
+        Header set Content-Type "text/css; charset=utf-8"
+        Header set Content-Encoding gzip
+        Header append Vary Accept-Encoding
+    </FilesMatch>
     <FilesMatch "\.(?:avif|webp|svg)$">
         Header set Cache-Control "public, max-age=604800, stale-while-revalidate=86400"
     </FilesMatch>

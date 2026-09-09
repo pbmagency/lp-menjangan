@@ -32,4 +32,4 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.'
 
 require __DIR__ . '/settings.php';
 
-Route::get('/c1-lp', function () { return view('c1-lp'); });
+Route::inertia('/c1-lp', 'c1-lp')->name('c1-lp');

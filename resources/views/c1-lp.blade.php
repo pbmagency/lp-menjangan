@@ -3,13 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="{{ asset('c1/support.js') }}"></script>
+<title>Menjangan Island Snorkeling & Diving Trips | Book Now</title>
+<meta name="description" content="Snorkeling and scuba diving trips at Menjangan Island, Bali. Crystal-clear water, vibrant coral reefs, guide in the water, everything included. Book via WhatsApp.">
+<meta property="og:title" content="Menjangan Island Snorkeling & Diving Trips">
+<meta property="og:description" content="Snorkeling and scuba diving trips at Menjangan Island, Bali. Crystal-clear water, vibrant coral reefs, guide in the water, everything included.">
+<meta property="og:type" content="website">
+<script src="{{ asset('c1/support.js') }}" async></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link rel="preconnect" href="https://dynamic-media-cdn.tripadvisor.com" crossorigin>
+<link rel="preconnect" href="https://cdn.trustindex.io" crossorigin>
+<link rel="preconnect" href="https://menjanganislandtrip.com" crossorigin>
+<link rel="preconnect" href="https://menjangan.pbmagency.id" crossorigin>
+<link rel="preload" as="image" href="{{ asset('c1/hero-reef-diver.webp') }}" type="image/webp" fetchpriority="high">
 </head>
 <body>
 <x-dc>
 <helmet>
 <link rel="stylesheet" href="{{ asset('c1/industry.css') }}">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"></noscript>
 <style>
 :root {
   --brand: #273B6A;
@@ -80,7 +94,7 @@ details[open] .plus { transform: rotate(45deg); }
 
   <header style="background: #FFFFFF; border-bottom: 1px solid var(--line); box-shadow: 0 1px 6px rgba(23, 35, 63, 0.07)">
     <div style="max-width: 1160px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; gap: 14px; flex-wrap: nowrap">
-      <img src="{{ asset('c1/logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip and Diving" style="height: 52px; width: auto; flex: none; margin-right: auto">
+      <img src="{{ asset('c1/logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip and Diving" width="140" height="52" style="height: 52px; width: auto; flex: none; margin-right: auto">
       <div style="display: flex; align-items: center; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; flex: none">
         <button type="button" onClick="@{{ setEn }}" style="@{{ enStyle }}">EN</button>
         <button type="button" onClick="@{{ setId }}" style="@{{ idStyle }}">ID</button>
@@ -93,7 +107,7 @@ details[open] .plus { transform: rotate(45deg); }
   </header>
 
   <section id="top" style="position: relative; min-height: min(74vh, 620px); display: grid; align-items: center; overflow: hidden">
-    <img id="hero-img" src="{{ asset('c1/hero-reef-diver.png') }}" alt="Snorkeler gliding over coral and sea fans at Menjangan Island" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 42%">
+    <img id="hero-img" src="{{ asset('c1/hero-reef-diver.webp') }}" width="1400" height="933" fetchpriority="high" alt="Snorkeler gliding over coral and sea fans at Menjangan Island" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 42%">
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 26, 48, 0.52) 0%, rgba(15, 26, 48, 0.18) 34%, rgba(15, 26, 48, 0.74) 74%, rgba(15, 26, 48, 0.92) 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 60px 24px 40px; color: #FFFFFF">
       <div style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 999px; padding: 5px 12px; margin-bottom: 14px">
@@ -135,10 +149,10 @@ details[open] .plus { transform: rotate(45deg); }
   <div style="border-bottom: 1px solid var(--line); background: var(--wash); padding: 22px 24px">
     <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 34px">
       <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--body)"><span data-l="en">Trusted by</span><span data-l="id">Dipercaya oleh</span></span>
-      <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" style="height: 26px; width: auto; opacity: 0.75">
-      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GetYourGuide_Logo.svg_.webp" alt="GetYourGuide" loading="lazy" style="height: 28px; width: auto; opacity: 0.75">
-      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/Bali-Untold-Logo-Final-1-300x90-1.webp" alt="Bali Untold" loading="lazy" style="height: 30px; width: auto; opacity: 0.75">
-      <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" style="height: 26px; width: auto; opacity: 0.75">
+      <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" width="120" height="26" style="height: 26px; width: auto; opacity: 0.75">
+      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GetYourGuide_Logo.svg_.webp" alt="GetYourGuide" loading="lazy" decoding="async" width="140" height="28" style="height: 28px; width: auto; opacity: 0.75">
+      <img src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/Bali-Untold-Logo-Final-1-300x90-1.webp" alt="Bali Untold" loading="lazy" decoding="async" width="100" height="30" style="height: 30px; width: auto; opacity: 0.75">
+      <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" decoding="async" width="120" height="26" style="height: 26px; width: auto; opacity: 0.75">
     </div>
   </div>
 
@@ -152,7 +166,7 @@ details[open] .plus { transform: rotate(45deg); }
         <span data-l="en">You came to see the reef, not to chase quotes and fees. This is how most people lose the day instead.</span><span data-l="id">Anda datang untuk melihat reef, bukan mengejar harga dan biaya tambahan. Beginilah cara banyak orang justru kehilangan harinya.</span>
       </p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: start">
-      <img src="{{ asset('c1/problem-reef.png') }}" alt="Coral reef and fish at Menjangan Island" loading="lazy" style="width: 100%; height: 100%; min-height: 300px; object-fit: cover; border-radius: 14px">
+      <img src="{{ asset('c1/problem-reef.webp') }}" width="800" height="600" alt="Coral reef and fish at Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; min-height: 300px; object-fit: cover; border-radius: 14px">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
         <div class="card" style="border-top: 4px solid #d9534f">
           <h4 style="font-size: 17px; margin-bottom: 8px"><span data-l="en">Slow replies</span><span data-l="id">Balasan lambat</span></h4>
@@ -215,9 +229,9 @@ details[open] .plus { transform: rotate(45deg); }
         </div>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
-        <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Coral garden at Menjangan Island" loading="lazy" style="width: 100%; height: 100%; min-height: 180px; object-fit: cover; border-radius: 12px; grid-column: span 2">
-        <img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtle at Menjangan Island" loading="lazy" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px">
-        <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the reef wall" loading="lazy" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px">
+        <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Coral garden at Menjangan Island" loading="lazy" decoding="async" width="600" height="300" style="width: 100%; height: 100%; min-height: 180px; object-fit: cover; border-radius: 12px; grid-column: span 2">
+        <img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtle at Menjangan Island" loading="lazy" decoding="async" width="350" height="170" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px">
+        <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the reef wall" loading="lazy" decoding="async" width="480" height="170" style="width: 100%; height: 170px; object-fit: cover; border-radius: 12px">
       </div>
     </div>
   </section>
@@ -233,7 +247,7 @@ details[open] .plus { transform: rotate(45deg); }
       </p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px">
         <a href="#snorkeling" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(23, 35, 63, 0.07); display: grid">
-          <img src="https://menjangan.pbmagency.id/uploads/wp/GOPR9548-scaled-1.webp" alt="Snorkeling above the reef at Menjangan" loading="lazy" style="width: 100%; height: 200px; object-fit: cover">
+          <img src="https://menjangan.pbmagency.id/uploads/wp/GOPR9548-scaled-1.webp" alt="Snorkeling above the reef at Menjangan" loading="lazy" decoding="async" width="480" height="200" style="width: 100%; height: 200px; object-fit: cover">
           <div style="padding: 22px">
             <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand)">01 Snorkeling</div>
             <h3 style="font-size: 22px; margin: 8px 0 10px"><span data-l="en">For anyone who wants to see the reef</span><span data-l="id">Untuk siapa pun yang ingin melihat reef</span></h3>
@@ -246,7 +260,7 @@ details[open] .plus { transform: rotate(45deg); }
           </div>
         </a>
         <a href="#scuba-diving" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(23, 35, 63, 0.07); display: grid">
-          <img src="https://menjangan.pbmagency.id/uploads/scuba/new_scuba.webp" alt="Scuba diving at Menjangan Island" loading="lazy" style="width: 100%; height: 200px; object-fit: cover">
+          <img src="https://menjangan.pbmagency.id/uploads/scuba/new_scuba.webp" alt="Scuba diving at Menjangan Island" loading="lazy" decoding="async" width="500" height="200" style="width: 100%; height: 200px; object-fit: cover">
           <div style="padding: 22px">
             <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand)">02 Scuba Diving</div>
             <h3 style="font-size: 22px; margin: 8px 0 10px"><span data-l="en">For certified divers, Open Water and above</span><span data-l="id">Untuk penyelam bersertifikasi, Open Water ke atas</span></h3>
@@ -260,7 +274,7 @@ details[open] .plus { transform: rotate(45deg); }
         </a>
         <a href="#try-scuba" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 2px solid var(--cta); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(79, 174, 85, 0.16); display: grid; position: relative">
           <span style="position: absolute; top: 14px; left: 14px; background: var(--cta); color: #FFFFFF; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 10px; border-radius: 6px"><span data-l="en">Most booked</span><span data-l="id">Paling banyak dipesan</span></span>
-          <img src="https://menjangan.pbmagency.id/uploads/try_scuba/new_try_scuba.webp" alt="First-time divers at Menjangan Island" loading="lazy" style="width: 100%; height: 200px; object-fit: cover">
+          <img src="https://menjangan.pbmagency.id/uploads/try_scuba/new_try_scuba.webp" alt="First-time divers at Menjangan Island" loading="lazy" decoding="async" width="480" height="200" style="width: 100%; height: 200px; object-fit: cover">
           <div style="padding: 22px">
             <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand)">03 Try Scuba Diving</div>
             <h3 style="font-size: 22px; margin: 8px 0 10px"><span data-l="en">For a first dive, with no certification</span><span data-l="id">Untuk dive pertama, tanpa sertifikasi</span></h3>
@@ -278,7 +292,7 @@ details[open] .plus { transform: rotate(45deg); }
 
   <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); align-items: stretch">
     <div style="position: relative; min-height: 520px; overflow: hidden">
-      <img src="https://menjangan.pbmagency.id/uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp" alt="Snorkeling at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="https://menjangan.pbmagency.id/uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp" alt="Snorkeling at Menjangan Island" loading="lazy" decoding="async" width="800" height="600" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 24px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #FFFFFF; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Coral garden, inside the national park</span><span data-l="id">Coral garden, di dalam taman nasional</span></div>
     </div>
     <div style="padding: clamp(34px, 5vw, 72px); display: grid; align-content: center; gap: 22px">
@@ -315,12 +329,12 @@ details[open] .plus { transform: rotate(45deg); }
         </div>
       </div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px">
-        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island-350x350.webp') }}" alt="Anemone fish at Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)">Anemone fish</figcaption></figure>
-        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island-350x350.webp') }}" alt="Colourful coral at Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Colourful coral</span><span data-l="id">Coral berwarna</span></figcaption></figure>
-        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island-350x350.webp') }}" alt="Schools of fish at Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Schools of fish</span><span data-l="id">Ribuan ikan</span></figcaption></figure>
-        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtle at Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Turtles</span><span data-l="id">Penyu</span></figcaption></figure>
-        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island-350x350.webp') }}" alt="Wild deer on Menjangan Island" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Wild deer</span><span data-l="id">Rusa liar</span></figcaption></figure>
-        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Snorkeling with the guide" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Guide in the water</span><span data-l="id">Guide di air</span></figcaption></figure>
+        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island-350x350.webp') }}" alt="Anemone fish at Menjangan Island" loading="lazy" decoding="async" width="350" height="350" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)">Anemone fish</figcaption></figure>
+        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island-350x350.webp') }}" alt="Colourful coral at Menjangan Island" loading="lazy" decoding="async" width="350" height="350" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Colourful coral</span><span data-l="id">Coral berwarna</span></figcaption></figure>
+        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island-350x350.webp') }}" alt="Schools of fish at Menjangan Island" loading="lazy" decoding="async" width="350" height="350" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Schools of fish</span><span data-l="id">Ribuan ikan</span></figcaption></figure>
+        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtle at Menjangan Island" loading="lazy" decoding="async" width="350" height="350" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Turtles</span><span data-l="id">Penyu</span></figcaption></figure>
+        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island-350x350.webp') }}" alt="Wild deer on Menjangan Island" loading="lazy" decoding="async" width="350" height="350" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Wild deer</span><span data-l="id">Rusa liar</span></figcaption></figure>
+        <figure style="margin: 0"><img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Snorkeling with the guide" loading="lazy" decoding="async" width="600" height="400" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px"><figcaption style="margin-top: 6px; font-size: 12px; color: var(--body)"><span data-l="en">Guide in the water</span><span data-l="id">Guide di air</span></figcaption></figure>
       </div>
       <div style="display: grid; justify-items: start; gap: 10px">
         <a class="cta" href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20the%20Snorkeling%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener">
@@ -367,14 +381,14 @@ details[open] .plus { transform: rotate(45deg); }
         </div>
       </div>
       <figure style="margin: 0; background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px; padding: 14px">
-        <img src="{{ asset('uploads/wp/Menjangan-Island-West-Bali-National-park.webp') }}" alt="Map of the eleven dive sites around Menjangan Island" loading="lazy" style="width: 100%; height: auto; border-radius: 6px">
+        <img src="{{ asset('uploads/wp/Menjangan-Island-West-Bali-National-park.webp') }}" alt="Map of the eleven dive sites around Menjangan Island" loading="lazy" decoding="async" width="490" height="247" style="width: 100%; height: auto; border-radius: 6px">
         <figcaption style="margin-top: 10px; font-size: 12px; color: var(--body)"><span data-l="en">Pos I, Mangrove Point, Underwater Cave, Pos II, Bat Cave, Temple Wall, Coral Garden, Sandy Slope, Dream Wall, Anchor Wreck, Eel Garden</span><span data-l="id">Pos I, Mangrove Point, Underwater Cave, Pos II, Bat Cave, Temple Wall, Coral Garden, Sandy Slope, Dream Wall, Anchor Wreck, Eel Garden</span></figcaption>
       </figure>
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px">
-        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-7.webp') }}" alt="Wall dive at Menjangan" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Diver over coral at Menjangan" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-5.webp') }}" alt="Reef life at Menjangan" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-3.webp') }}" alt="Divers descending at Menjangan" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-7.webp') }}" alt="Wall dive at Menjangan" loading="lazy" decoding="async" width="600" height="400" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Diver over coral at Menjangan" loading="lazy" decoding="async" width="600" height="400" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-5.webp') }}" alt="Reef life at Menjangan" loading="lazy" decoding="async" width="600" height="400" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-3.webp') }}" alt="Divers descending at Menjangan" loading="lazy" decoding="async" width="600" height="400" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
       </div>
       <div style="display: grid; justify-items: start; gap: 10px">
         <a class="cta" href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20the%20Scuba%20Diving%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener">
@@ -386,14 +400,14 @@ details[open] .plus { transform: rotate(45deg); }
       </div>
     </div>
     <div style="position: relative; min-height: 520px; overflow: hidden">
-      <img src="https://menjangan.pbmagency.id/uploads/scuba/_2111638.webp" alt="Scuba diving at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="https://menjangan.pbmagency.id/uploads/scuba/_2111638.webp" alt="Scuba diving at Menjangan Island" loading="lazy" decoding="async" width="800" height="535" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 24px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #FFFFFF; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Wall dive, 3 to 25 m, gentle current</span><span data-l="id">Wall dive, 3 sampai 25 m, arus tenang</span></div>
     </div>
   </section>
 
   <section id="try-scuba" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); align-items: stretch">
     <div style="position: relative; min-height: 520px; overflow: hidden">
-      <img src="https://menjangan.pbmagency.id/uploads/try_scuba/_1310850.webp" alt="Beginner divers with the instructor at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="https://menjangan.pbmagency.id/uploads/try_scuba/_1310850.webp" alt="Beginner divers with the instructor at Menjangan" loading="lazy" decoding="async" width="800" height="535" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 24px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #FFFFFF; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Beginner dives, 3 to 5 m, instructor beside you</span><span data-l="id">Dive pemula, 3 sampai 5 m, instruktur mendampingi</span></div>
     </div>
     <div style="padding: clamp(34px, 5vw, 72px); display: grid; align-content: center; gap: 22px">
@@ -429,12 +443,12 @@ details[open] .plus { transform: rotate(45deg); }
         </div>
       </div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px">
-        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-1.webp" alt="First breaths in shallow water" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-2.webp" alt="Instructor beside a beginner diver" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-3.webp" alt="Shallow reef at Menjangan" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-4.webp" alt="Guests in the water at Menjangan" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-5.webp" alt="Calm clear water at Menjangan" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
-        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-6.webp" alt="Guests on their first dive" loading="lazy" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-1.webp" alt="First breaths in shallow water" loading="lazy" decoding="async" width="800" height="534" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-2.webp" alt="Instructor beside a beginner diver" loading="lazy" decoding="async" width="800" height="534" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-3.webp" alt="Shallow reef at Menjangan" loading="lazy" decoding="async" width="800" height="534" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-4.webp" alt="Guests in the water at Menjangan" loading="lazy" decoding="async" width="800" height="534" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-5.webp" alt="Calm clear water at Menjangan" loading="lazy" decoding="async" width="800" height="534" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
+        <img src="https://menjangan.pbmagency.id/uploads/try_scuba_new/try-scuba-6.webp" alt="Guests on their first dive" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px">
       </div>
       <div style="display: grid; justify-items: start; gap: 10px">
         <a class="cta" href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20the%20Try%20Scuba%20Diving%20experience%20at%20Menjangan.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener">
@@ -589,7 +603,7 @@ details[open] .plus { transform: rotate(45deg); }
   </section>
 
   <section style="position: relative; overflow: hidden; border-top: 1px solid var(--line)">
-    <img src="{{ asset('uploads/wp/519396628_743465071978357_2561587557975164201_n.webp') }}" alt="Boat at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img src="{{ asset('uploads/wp/519396628_743465071978357_2561587557975164201_n.webp') }}" alt="Boat at Menjangan Island" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: rgba(15, 26, 48, 0.84)"></div>
     <div class="wrap" style="position: relative; padding: 66px 24px; color: #FFFFFF">
       <div class="kicker" style="color: #a9bde0; margin-bottom: 12px"><span data-l="en">Small groups</span><span data-l="id">Kelompok kecil</span></div>
@@ -621,14 +635,14 @@ details[open] .plus { transform: rotate(45deg); }
               <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
             </div>
             <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">196 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">196 ulasan</strong></span></div>
-            <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto">
+            <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto">
           </div>
         </div>
       </div>
       <div id="ta-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f0/48/default-avatar-2020-15.jpg?w=1200&h=1200&s=1" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f0/48/default-avatar-2020-15.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Fanni S</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">1 week ago</span>
@@ -640,7 +654,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e3/6a/default-avatar-2020-47.jpg?w=1200&h=1200&s=1" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e3/6a/default-avatar-2020-47.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Severine L</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -652,7 +666,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/59/default-avatar-2020-24.jpg?w=1200&h=1200&s=1" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/59/default-avatar-2020-24.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">mariagh</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -664,7 +678,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e2/a7/default-avatar-2020-44.jpg?w=1200&h=1200&s=1" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e2/a7/default-avatar-2020-44.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle W</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -676,7 +690,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/eb/a3/default-avatar-2020-38.jpg?w=1200&h=1200&s=1" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/eb/a3/default-avatar-2020-38.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">ahn</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -688,7 +702,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/11/default-avatar-2020-23.jpg?w=1200&h=1200&s=1" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/11/default-avatar-2020-23.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Isabelle S</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -707,21 +721,21 @@ details[open] .plus { transform: rotate(45deg); }
           <div style="background: #FFFFFF; padding: 18px 26px; text-align: center">
             <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.01em; color: #17233f">Excellent</div>
             <div style="display: flex; justify-content: center; gap: 4px; margin: 10px 0 8px">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
             </div>
             <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">963 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">963 ulasan</strong></span></div>
-            <img src="https://cdn.trustindex.io/assets/platform/Google/logo.svg" alt="Google" loading="lazy" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto">
+            <svg viewBox="0 0 255.2 80.3" height="30" style="margin-top: 14px; margin-left: auto; margin-right: auto; display: block"><path fill="#4285F4" d="M31.9 28.6v8.6h20.5c-.6 4.8-2.2 8.3-4.7 10.8-3 3-7.7 6.3-15.8 6.3-12.6 0-22.5-10.2-22.5-22.8S19.2 8.6 31.9 8.6c6.8 0 11.8 2.7 15.5 6.1l6-6C48.3 3.8 41.4 0 31.9 0 14.6 0 0 14.1 0 31.4s14.6 31.4 31.9 31.4c9.4 0 16.4-3.1 21.9-8.8 5.7-5.7 7.4-13.6 7.4-20.1 0-2-.1-3.8-.5-5.4H31.9z"/><path fill="#EA4335" d="M86.9 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C107.2 30.1 98.1 21.6 86.9 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#4285F4" d="M186.6 26.1h-.3c-2-2.4-5.8-4.5-10.7-4.5-10.1 0-19 8.8-19 20.3 0 11.4 8.8 20.3 19 20.3 4.9 0 8.7-2.2 10.7-4.6h.3v2.8c0 7.7-4.2 11.9-10.8 11.9-5.4 0-8.8-3.9-10.2-7.2l-7.7 3.2c2.2 5.4 8.1 12 18 12 10.4 0 19.3-6.1 19.3-21.1V22.7h-8.4v3.4zm-10.2 28.1c-6.1 0-10.8-5.2-10.8-12.3 0-7.2 4.7-12.3 10.8-12.3 6.1 0 10.8 5.2 10.8 12.4 0 7.1-4.7 12.2-10.8 12.2z"/><path fill="#FBBC05" d="M132.3 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C152.6 30.1 143.5 21.6 132.3 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#34A853" d="M202.1.8h8.8v61.3h-8.8z"/><path fill="#EA4335" d="M237.9 54.2c-4.5 0-7.7-2.1-9.8-6.1l27.1-11.2-.9-2.3c-1.7-4.5-6.8-12.9-17.3-12.9-10.4 0-19.1 8.2-19.1 20.3 0 11.4 8.6 20.3 20.1 20.3 9.3 0 14.7-5.7 16.9-9l-6.9-4.6c-2.2 2.8-5.4 5.1-9.9 5.1l.5.4zm-.6-25c3.6 0 6.7 1.9 7.7 4.5l-18.3 7.6c.7-3.8 6.8-7.3 10.6-7.3z"/></svg>
           </div>
         </div>
       </div>
       <div id="g-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Elin Georgina-Davies</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">2 weeks ago</span>
@@ -736,7 +750,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">maria granado</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -751,7 +765,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUgzw8YO1c-9yxVJE9LfznY21SbYhGGmVDACzq2_Aej_Lwncso5=w80-h80-c-rp-mo-br100" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUgzw8YO1c-9yxVJE9LfznY21SbYhGGmVDACzq2_Aej_Lwncso5=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle Weerts</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -766,7 +780,7 @@ details[open] .plus { transform: rotate(45deg); }
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUCE8D9Pwc9axxHrG56ukqSfb4rK47-_CY7Bbuoy9bdoxFaE_wk=w80-h80-c-rp-mo-br100" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUCE8D9Pwc9axxHrG56ukqSfb4rK47-_CY7Bbuoy9bdoxFaE_wk=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dorota Bi</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">1 month ago</span>
@@ -776,12 +790,12 @@ details[open] .plus { transform: rotate(45deg); }
           <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
           <div style="display: flex; gap: 14px; align-items: flex-start">
             <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">An excellent team. Great organization, professional, and punctual, which is very important to me.</blockquote>
-            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmN0F688vz7pcjK7rWBotBrjwYdgxt3yNKpUKc1NcqR8N3c_nXSquDA0pq1sbHSNK5VlOEi8fZ33Z43MiTrO6t7XtJj34oPkxuAO556A-OhlHlmkfGRVMBM2lNWpeLQhXd4oy_GhSGBVNi2F=s720" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
+            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmN0F688vz7pcjK7rWBotBrjwYdgxt3yNKpUKc1NcqR8N3c_nXSquDA0pq1sbHSNK5VlOEi8fZ33Z43MiTrO6t7XtJj34oPkxuAO556A-OhlHlmkfGRVMBM2lNWpeLQhXd4oy_GhSGBVNi2F=s192" width="96" height="96" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
           </div>
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Jarin Wadiwalla</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">2 months ago</span>
@@ -791,12 +805,12 @@ details[open] .plus { transform: rotate(45deg); }
           <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
           <div style="display: flex; gap: 14px; align-items: flex-start">
             <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">We had a really amazing snorkeling trip on Sunday. Menjangan island is so breathtaking with clear water and beautiful corals.</blockquote>
-            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmMCUCuR_cnlLsCrSrLpnA43TnI-KfpQ24pZhStNBWiiJBa3x9CUtPBxT8VxQUWqvIqJeCvhMbWHKjFOrTGUwvRNlzZFBlqS4WoTK08N6dXCRxzjBmfZfCcHdAfFUkvMTXKSwGF8dG35El-k=s720" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
+            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmMCUCuR_cnlLsCrSrLpnA43TnI-KfpQ24pZhStNBWiiJBa3x9CUtPBxT8VxQUWqvIqJeCvhMbWHKjFOrTGUwvRNlzZFBlqS4WoTK08N6dXCRxzjBmfZfCcHdAfFUkvMTXKSwGF8dG35El-k=s192" width="96" height="96" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
           </div>
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjVJ8Strw93g2L49uX9DtEMZiOV1ryLELOcVnSLnIL3HI7fC6wHxAw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjVJ8Strw93g2L49uX9DtEMZiOV1ryLELOcVnSLnIL3HI7fC6wHxAw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dani Fee</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">4 months ago</span>
@@ -841,7 +855,7 @@ details[open] .plus { transform: rotate(45deg); }
         <span class="micro"><span class="st">★★★★★</span><span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span></span>
       </div>
       </div>
-      <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" style="width: 100%; height: auto; max-width: 460px; margin: 0 auto">
+      <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" decoding="async" width="460" height="334" style="width: 100%; height: auto; max-width: 460px; margin: 0 auto">
     </div>
   </section>
 
@@ -933,7 +947,7 @@ details[open] .plus { transform: rotate(45deg); }
   </section>
 
   <section style="position: relative; overflow: hidden; border-top: 1px solid var(--line)">
-    <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Reef at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Reef at Menjangan Island" loading="lazy" decoding="async" width="1600" height="1000" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: rgba(15, 26, 48, 0.86)"></div>
     <div class="wrap" style="position: relative; padding: 84px 24px; text-align: center; color: #FFFFFF">
       <h2 style="font-size: clamp(28px, 3.8vw, 48px); color: #FFFFFF; max-width: 24ch; margin: 0 auto 14px"><span data-l="en">Book Your Trip to Menjangan Island</span><span data-l="id">Booking Trip Anda ke Pulau Menjangan</span></h2>
@@ -951,7 +965,7 @@ details[open] .plus { transform: rotate(45deg); }
   <footer style="padding: 56px 24px 90px; background: #FFFFFF; border-top: 1px solid var(--line)">
     <div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 32px">
       <div>
-        <img src="{{ asset('c1/logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip and Diving" style="height: 56px; width: auto; margin-bottom: 14px">
+        <img src="{{ asset('c1/logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip and Diving" width="140" height="56" style="height: 56px; width: auto; margin-bottom: 14px">
         <p style="font-size: 14px; color: var(--body); margin-bottom: 14px">Jl. Banyuwedang, Banjar Dinas Batu Ampar, Pejarakan, Gerokgak, Buleleng, Bali 81155</p>
         <div style="display: grid; gap: 6px; font-size: 14px; font-weight: 700">
           <a href="https://wa.me/6281238578042" target="_blank" rel="noopener">WhatsApp +62 812 3857 8042</a>
@@ -960,7 +974,7 @@ details[open] .plus { transform: rotate(45deg); }
         <p style="margin-top: 14px; font-size: 14px; color: var(--body)"><span data-l="en">Departures from Banyuwedang Harbour. Share boat 09:00 daily, private trips 07:00 to 15:00.</span><span data-l="id">Keberangkatan dari Pelabuhan Banyuwedang. Share boat 09.00 harian, trip privat 07.00 sampai 15.00.</span></p>
       </div>
       <div style="border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-height: 280px">
-        <iframe title="Map, Menjangan Snorkeling Trip and Diving" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7899.2736786193855!2d114.5633388!3d-8.1384031!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd16953a2c836a7%3A0xcc76350305365688!2sMenjangan%20Snorkeling%20Trip%20%26%20Diving!5e0!3m2!1sen!2sid!4v1787021088694!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="width: 100%; height: 100%; min-height: 280px; border: 0; display: block"></iframe>
+        <iframe title="Map, Menjangan Snorkeling Trip and Diving" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7899.2736786193855!2d114.5633388!3d-8.1384031!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd16953a2c836a7%3A0xcc76350305365688!2sMenjangan%20Snorkeling%20Trip%20%26%20Diving!5e0!3m2!1sen!2sid!4v1787021088694!5m2!1sen!2sid" allowfullscreen="" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin" style="width: 100%; height: 100%; min-height: 280px; border: 0; display: block"></iframe>
       </div>
     </div>
   </footer>

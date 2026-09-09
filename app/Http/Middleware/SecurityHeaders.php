@@ -111,7 +111,7 @@ class SecurityHeaders
                 .' https://static.cloudflareinsights.com https://cloudflareinsights.com'
                 .' https://unpkg.com',
 
-            "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval'"
+            "script-src-elem 'self' 'unsafe-eval'"
                 .' https://unpkg.com'
                 .' https://www.googletagmanager.com'
                 .' https://www.google-analytics.com'
@@ -141,6 +141,7 @@ class SecurityHeaders
                 .' https://www.facebook.com'
                 .' https://connect.facebook.net'
                 .' https://cdn.trustindex.io'
+                .' https://dynamic-media-cdn.tripadvisor.com'
                 .' https://lh3.googleusercontent.com'
                 .' https://ui-avatars.com',
 
@@ -164,10 +165,11 @@ class SecurityHeaders
                 // Cloudflare Web Analytics beacon sends data via connect-src
                 .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
 
-            // Frames: only Facebook pixel noscript fallback
+            // Frames: Facebook pixel noscript fallback & Google Maps embed
             "frame-src 'self'"
                 .' https://www.facebook.com'
-                .' https://www.googletagmanager.com',
+                .' https://www.googletagmanager.com'
+                .' https://www.google.com',
 
             // No base-uri hijacking
             "base-uri 'self'",

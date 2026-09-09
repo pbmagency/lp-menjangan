@@ -2,19 +2,138 @@
 <html lang="en">
 <head>
 <!-- Google Tag Manager -->
-<script nonce="{{ $cspNonce }}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PP3LHJ7F');</script>
+<script nonce="{{ $cspNonce }}">
+/* Defer GTM loading to after page is interactive */
+function loadGTM() {
+  if (window.__gtmLoaded) return;
+  window.__gtmLoaded = true;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PP3LHJ7F');
+}
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(loadGTM, { timeout: 3000 });
+} else {
+  window.addEventListener('load', function() { setTimeout(loadGTM, 1500); });
+}
+</script>
 <!-- End Google Tag Manager -->
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#273B6A">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Menjangan Island Snorkeling & Diving Trips</title>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<title>Menjangan Island Snorkeling & Diving Trips | Menjangan Snorkeling Trip &amp; Diving</title>
 <meta name="description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips.">
+<link rel="canonical" href="https://menjanganislandtrip.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Menjangan Island Snorkeling & Diving Trips">
+<meta property="og:description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips.">
+<meta property="og:image" content="https://menjanganislandtrip.com/hero-snorkeling-800.webp">
+<meta property="og:url" content="https://menjanganislandtrip.com/">
+<meta property="og:site_name" content="Menjangan Snorkeling Trip & Diving">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Menjangan Island Snorkeling & Diving Trips">
+<meta name="twitter:description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips.">
+<meta name="twitter:image" content="https://menjanganislandtrip.com/hero-snorkeling-800.webp">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Menjangan Snorkeling Trip & Diving",
+  "description": "Locally owned snorkeling and diving tour operator in Banyuwedang, West Bali. Licensed Diving Center with Jasa Raharja insurance.",
+  "url": "https://menjanganislandtrip.com",
+  "logo": "https://menjanganislandtrip.com/logo-menjangan.webp",
+  "telephone": "+6281238578042",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Banyuwedang, Banjar Dinas Batu Ampar, Pejarakan",
+    "addressLocality": "Gerokgak",
+    "addressRegion": "Buleleng, Bali",
+    "postalCode": "81155",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -8.1245,
+    "longitude": 114.5845
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "958",
+    "bestRating": "5"
+  },
+  "priceRange": "$$",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "07:00",
+    "closes": "15:00"
+  },
+  "sameAs": [
+    "https://www.instagram.com/menjanganislandtrip/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where are you based, and where does the boat leave from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our office is on Jl. Banyuwedang in Pejarakan, on the north-west coast of Bali. Boats to Menjangan Island leave from Banyuwedang Harbour, and the crossing takes around 30 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is hotel pick-up included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for anywhere along this stretch of coast including Pemuteran, Banyuwedang, Pejarakan and the resorts inside West Bali National Park, at no extra cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Menjangan Island suitable for families with children?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The water around the island is calm and sheltered, and the reef starts in the shallows. Life jackets are provided for everyone and a guide stays in the water with the group."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the best time to visit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We run trips year round. Conditions are most reliable in the dry season, roughly April to November, when the water is clearest and the sea is calmest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book, and can I have a private trip?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Message us on WhatsApp with your dates, group size and which trip you want. Both shared and private trips are available."
+      }
+    }
+  ]
+}
+</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
@@ -158,7 +277,7 @@ figcaption {
   color: color-mix(in srgb, var(--color-text) 55%, transparent);
 }
 .text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
-:focus { outline: none; }
+:focus:not(:focus-visible) { outline: none; }
 :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
 
@@ -488,10 +607,11 @@ if (document.readyState === 'loading') {
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PP3LHJ7F"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <div id="page" data-lg="en" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body)">
+  <main>
 
   <header style="position: sticky; top: 0; z-index: 70; background: #FFFFFF; border-bottom: 1px solid var(--color-divider); box-shadow: 0 1px 6px rgba(15, 26, 48, 0.07)">
     <div style="max-width: 1160px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; gap: 14px; flex-wrap: nowrap">
@@ -499,8 +619,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="128" height="128" style="height: 52px; width: auto; flex: none">
       </a>
       <div style="display: flex; align-items: center; border: 1px solid var(--color-divider)">
-        <button id="btn-lang-en" type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
-        <button id="btn-lang-id" type="button" class="lang-btn" data-lang="id" aria-pressed="false">ID</button>
+        <button id="btn-lang-en" type="button" class="lang-btn active" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+        <button id="btn-lang-id" type="button" class="lang-btn" data-lang="id" aria-pressed="false" aria-label="Ganti ke Bahasa Indonesia">ID</button>
       </div>
       <a id="btn-hero-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island." target="_blank" rel="noopener noreferrer" style="font-size: 14px; padding: 9px 16px; white-space: nowrap">
           <svg viewBox="0 0 24 24" fill="#ffffff" style="width: 32px; height: 32px" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.33-1.59-1.48-1.89-.15-.3-.02-.46.13-.61.15-.15.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.34 5.08 4.56.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"></path><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21z"></path></svg>
@@ -516,9 +636,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span style="color: #FFC107; font-size: 13px; letter-spacing: 1px">★★★★★</span>
         <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #17233f"><span data-l="en" style="color: var(--color-bg)">1.150+ five-star reviews</span><span data-l="id" style="color: var(--color-bg)">1.150+ ulasan bintang 5</span></span>
         <span style="display: flex; align-items: center">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w40-h40-c-rp-mo-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none" width="24" height="24">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w40-h40-c-rp-mo-ba12-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w40-h40-c-rp-mo-br100" alt="" loading="lazy" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
+          <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w40-h40-c-rp-mo-br100" alt="" loading="lazy" decoding="async" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none" width="24" height="24">
+          <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w40-h40-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
+          <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w40-h40-c-rp-mo-br100" alt="" loading="lazy" decoding="async" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
         </span>
       </div>
        <h1 style="font-size: clamp(32px, 4.6vw, 60px); line-height: 1.02; text-transform: uppercase; color: #ffffff; max-width: 22ch; margin: 0 0 16px; text-shadow: 0 2px 18px rgba(15, 26, 48, 0.55)">
@@ -558,7 +678,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; background: var(--color-neutral-300)">
     <a href="#snorkeling" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the Menjangan wall" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="480" height="548">
+      <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the Menjangan wall" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="480" height="548">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">01</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Snorkeling</div>
@@ -566,7 +686,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </a>
     <a href="#scuba-diving" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/scuba/new_scuba.webp') }}" alt="Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="500" height="334">
+      <img src="{{ asset('uploads/scuba/new_scuba.webp') }}" alt="Scuba Diving at Menjangan" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="500" height="334">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">02</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Scuba Diving</div>
@@ -574,7 +694,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </a>
     <a href="#try-scuba" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/try_scuba/new_try_scuba.webp') }}" alt="Try Scuba Diving at Menjangan" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="480" height="549">
+      <img src="{{ asset('uploads/try_scuba/new_try_scuba.webp') }}" alt="Try Scuba Diving at Menjangan" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="480" height="549">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
         <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">03</div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Try Scuba Diving</div>
@@ -654,18 +774,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 style="font-size: clamp(24px, 2.8vw, 34px); text-transform: uppercase; margin: 0 0 8px"><span data-l="en">As Featured On and Trusted By</span><span data-l="id">Terdaftar dan Dipercaya Oleh</span></h2>
       <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 26px"><span data-l="en">Where travellers find us first.</span><span data-l="id">Tempat wisatawan menemukan kami lebih dulu.</span></p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 26px 44px">
-        <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="190" height="30">
-        <img src="{{ asset('uploads/wp/Bali-Untold-Logo-Final-1-300x90-1.webp') }}" alt="Bali Untold" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="45">
-        <img src="{{ asset('uploads/wp/images__2_-removebg-preview.webp') }}" alt="TRAppe" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="84">
-        <img src="{{ asset('uploads/wp/GetYourGuide_Logo.svg_.webp') }}" alt="GetYourGuide" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="200" height="171">
-        <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="160" height="84">
+        <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="190" height="30">
+        <img src="{{ asset('uploads/wp/Bali-Untold-Logo-Final-1-300x90-1.webp') }}" alt="Bali Untold" loading="lazy" decoding="async" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="45">
+        <img src="{{ asset('uploads/wp/images__2_-removebg-preview.webp') }}" alt="TRAppe" loading="lazy" decoding="async" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="84">
+        <img src="{{ asset('uploads/wp/GetYourGuide_Logo.svg_.webp') }}" alt="GetYourGuide" loading="lazy" decoding="async" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="200" height="171">
+        <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" decoding="async" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="160" height="84">
       </div>
     </div>
   </section>
 
     <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="{{ asset('uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp') }}" alt="Coral garden in clear shallow water" loading="lazy" width="500" height="500" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <img src="{{ asset('uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp') }}" alt="Coral garden in clear shallow water" loading="lazy" decoding="async" width="500" height="500" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Coral garden · inside the national park</span><span data-l="id">Coral garden · di dalam taman nasional</span></div>
     </div>
       <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
@@ -743,37 +863,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island-350x350.webp') }}" alt="Anemone fish, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+            <img src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island-350x350.webp') }}" alt="Anemone fish, Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Anemone fish</span><span data-l="id">Anemone fish</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island-350x350.webp') }}" alt="Colorful coral, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+            <img src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island-350x350.webp') }}" alt="Colorful coral, Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Colourful coral</span><span data-l="id">Coral berwarna</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island-350x350.webp') }}" alt="Tons of fishes at Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+            <img src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island-350x350.webp') }}" alt="Tons of fishes at Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Schools of fish</span><span data-l="id">Ribuan ikan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtles, Menjangan Island" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+            <img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtles, Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Turtles</span><span data-l="id">Penyu</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island-350x350.webp') }}" alt="Wild deer on the island during the lunch break" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+            <img src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island-350x350.webp') }}" alt="Wild deer on the island during the lunch break" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Wild deer on the island</span><span data-l="id">Rusa liar di pulau</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Snorkeling with the guide in the water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Snorkeling with the guide in the water" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Guide in the water</span><span data-l="id">Guide di air</span></figcaption>
         </figure>
@@ -844,7 +964,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="tag tag-neutral">Eel Garden</span>
         </div>
         <figure style="margin: 16px 0 0">
-          <img src="{{ asset('uploads/wp/Menjangan-Island-West-Bali-National-park.webp') }}" alt="Map of the dive sites around Menjangan Island, West Bali National Park" loading="lazy" style="width: 100%; height: auto; border: 1px solid var(--color-divider); border-radius: 8px" width="490" height="247">
+          <img src="{{ asset('uploads/wp/Menjangan-Island-West-Bali-National-park.webp') }}" alt="Map of the dive sites around Menjangan Island, West Bali National Park" loading="lazy" decoding="async" style="width: 100%; height: auto; border: 1px solid var(--color-divider); border-radius: 8px" width="490" height="247">
           <figcaption style="margin-top: 8px; font-size: 13px; color: var(--color-neutral-700)"><span data-l="en">Dive site map, Menjangan Island, West Bali National Park</span><span data-l="id">Peta dive site, Pulau Menjangan, Taman Nasional Bali Barat</span></figcaption>
         </figure>
         <p data-l="en" style="margin: 12px 0 0; font-size: 14px; color: var(--color-neutral-700)">Visibility reaches 30 metres and the current stays calm, unlike the stronger sites in the south, this is a reef beginners and photographers can both work in.</p>
@@ -865,7 +985,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#try-scuba" style="font-size: 14px; color: var(--color-accent-700)"><span data-l="en">New to diving? Try it risk-free first →</span><span data-l="id">Belum pernah diving? Coba dulu tanpa risiko →</span></a>
         </div>
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="{{ asset('uploads/scuba/_2111638.webp') }}" alt="Diver along the reef wall at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="800" height="535">
+      <img src="{{ asset('uploads/scuba/_2111638.webp') }}" alt="Diver along the reef wall at Menjangan" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="800" height="535">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Wall dive · 3–25 m · gentle current</span><span data-l="id">Wall dive · 3–25 m · arus tenang</span></div>
     </div>
   </section>
@@ -876,25 +996,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-7.webp') }}" alt="Wall dive along the reef edge" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-7.webp') }}" alt="Wall dive along the reef edge" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Wall dive</span><span data-l="id">Wall dive</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Sea fans and soft coral" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Sea fans and soft coral" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Sea fans</span><span data-l="id">Sea fan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-5.webp') }}" alt="Visibility up to 30 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-5.webp') }}" alt="Visibility up to 30 metres" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Visibility 30 m</span><span data-l="id">Visibility 30 m</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-3.webp') }}" alt="Two divers per guide" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
+            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-3.webp') }}" alt="Two divers per guide" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Two per guide</span><span data-l="id">Dua per guide</span></figcaption>
         </figure>
@@ -904,7 +1024,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section id="try-scuba" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="{{ asset('uploads/try_scuba/_1310850.webp') }}" alt="Shallow reef in clear water" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="800" height="535">
+      <img src="{{ asset('uploads/try_scuba/_1310850.webp') }}" alt="Shallow reef in clear water" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="800" height="535">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Beginner dives · 3–5 m · instructor beside you</span><span data-l="id">Dive pemula · 3–5 m · instruktur mendampingi</span></div>
     </div>
      <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
@@ -980,37 +1100,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-1.webp') }}" alt="First breaths in shallow water" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-1.webp') }}" alt="First breaths in shallow water" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First breaths</span><span data-l="id">Napas pertama</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-2.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-2.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Instructor beside you</span><span data-l="id">Instruktur mendampingi</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-3.webp') }}" alt="Reef at 3–5 metres" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-3.webp') }}" alt="Reef at 3–5 metres" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Reef at 3–5 m</span><span data-l="id">Reef 3–5 m</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-4.webp') }}" alt="Gear fitted before you get in" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-4.webp') }}" alt="Gear fitted before you get in" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Gear fitted for you</span><span data-l="id">Alat disesuaikan</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-5.webp') }}" alt="Calm, clear water all year" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-5.webp') }}" alt="Calm, clear water all year" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Calm water all year</span><span data-l="id">Air tenang sepanjang tahun</span></figcaption>
         </figure>
         <figure style="margin: 0">
           <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-6.webp') }}" alt="Guests on their first dive" loading="lazy" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
+            <img src="{{ asset('uploads/try_scuba_new/try-scuba-6.webp') }}" alt="Guests on their first dive" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
           </div>
           <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First dive</span><span data-l="id">Dive pertama</span></figcaption>
         </figure>
@@ -1198,7 +1318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section id="about-us" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 460px; display: grid; place-items: center; padding: 36px; background: radial-gradient(circle at 50% 45%, var(--color-accent-100) 0%, #ffffff 72%)">
-      <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" style="width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 40px rgba(15, 26, 48, 0.22))" width="884" height="640">
+      <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" decoding="async" style="width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 40px rgba(15, 26, 48, 0.22))" width="884" height="640">
     </div>
     <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 18px">
       <div>
@@ -1217,7 +1337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
     <section id="availability" style="position: relative; min-height: 460px; display: grid; align-items: center; overflow: hidden; border-top: 1px solid var(--color-divider)">
-    <img src="{{ asset('uploads/wp/518408166_741022225555975_840694571809901799_n.webp') }}" alt="Boat on calm water at Menjangan Island" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1536" height="2048">
+    <img src="{{ asset('uploads/wp/518408166_741022225555975_840694571809901799_n.webp') }}" alt="Boat on calm water at Menjangan Island" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1536" height="2048">
     <div style="position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent-900) 88%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 55%, transparent) 60%, transparent 100%)"></div>
     <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 60px 24px; color: var(--color-bg)">
       <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; margin-bottom: 12px"><span data-l="en">Boat capacity</span><span data-l="id">Kapasitas boat</span></div>
@@ -1249,7 +1369,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
             </div>
             <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">196 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">196 ulasan</strong></span></div>
-            <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto" width="190" height="30">
+            <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto" width="190" height="30">
           </div>
         </div>
         <div id="trustindex-widget-4" style="margin: 0"></div>
@@ -1264,7 +1384,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
             </div>
             <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">963 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">963 ulasan</strong></span></div>
-            <img src="https://cdn.trustindex.io/assets/platform/Google/logo.svg" alt="Google" loading="lazy" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto" width="190" height="30">
+            <img src="https://cdn.trustindex.io/assets/platform/Google/logo.svg" alt="Google" loading="lazy" decoding="async" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto" width="190" height="30">
           </div>
         </div>
         <div id="trustindex-widget-3" style="margin: 0"></div>
@@ -1507,7 +1627,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
     <section id="final-cta" style="position: relative; overflow: hidden; border-top: 1px solid var(--color-divider)">
-    <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Diver over the reef at Menjangan" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1600" height="1829">
+    <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Diver over the reef at Menjangan" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1600" height="1829">
     <div style="position: absolute; inset: 0; background: color-mix(in srgb, var(--color-accent-900) 78%, transparent)"></div>
     <div style="position: relative; max-width: 1160px; margin: 0 auto; padding: 92px 24px; text-align: center; color: var(--color-bg)">
       <h2 style="font-size: clamp(30px, 4vw, 52px); text-transform: uppercase; color: var(--color-bg); margin: 0 auto 14px; max-width: 24ch"><span data-l="en">Book Your Trip to Menjangan Island</span><span data-l="id">Booking Trip Anda ke Pulau Menjangan</span></h2>
@@ -1532,6 +1652,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </section>
+
+  </main>
 
   <footer style="padding: 60px 24px 96px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
