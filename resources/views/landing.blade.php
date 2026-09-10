@@ -139,6 +139,9 @@ if ('requestIdleCallback' in window) {
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
+<link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link rel="preconnect" href="https://dynamic-media-cdn.tripadvisor.com" crossorigin>
+<link rel="preconnect" href="https://cdn.trustindex.io" crossorigin>
 <style>
 @font-face {
   font-family: 'Montserrat';
@@ -459,12 +462,56 @@ textarea.input { min-height: 90px; resize: vertical; }
   --color-neutral-100: #FFFFFF;
 }
 body { background: #FFFFFF; }
+#reviews.c1-reviews {
+  --brand: #273B6A;
+  --line: #e2e6ee;
+  --star: #FFC107;
+  --body: #48536b;
+  --color-neutral-100: #FFFFFF;
+  --color-neutral-600: #17233f;
+  color: #17233f;
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+#reviews.c1-reviews figcaption { margin-top: 0; color: inherit; font-size: inherit; }
+#reviews.c1-reviews figure:hover [style*="object-fit: cover"] { transform: none; }
+#reviews.c1-reviews h2 {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+#reviews .cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #70CE73;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  padding: 15px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(79, 174, 85, 0.28);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+#reviews .cta:hover { background: #4fae55; color: #FFFFFF; transform: translateY(-1px); }
+#reviews .cta:focus-visible { outline: 3px solid #273B6A; outline-offset: 3px; }
+#reviews .micro { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 12px; font-weight: 600; color: var(--body); }
+#reviews .micro .st { color: var(--star); letter-spacing: 1px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 #page > header { position: sticky !important; top: 0 !important; z-index: 70 !important; }
 @media (max-width: 900px) {
+  #reviews.c1-reviews { padding: 56px 18px !important; }
+  #reviews.c1-reviews h2 { font-size: 24px !important; }
+  #reviews .cta { width: 100% !important; }
+  #reviews .micro { font-size: 11px !important; }
   #page > header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 90 !important; }
   #page { padding-top: 60px !important; }
   #page > header > div { padding: 8px 14px !important; gap: 10px !important; }
@@ -484,6 +531,9 @@ body { background: #FFFFFF; }
   #top { min-height: 0 !important; }
 }
 @media (max-width: 760px) {
+  #reviews .rev-grid[data-collapsed="1"] > figure:nth-child(n + 4) { display: none !important; }
+  #reviews .rev-more { display: flex !important; }
+  #reviews .micro { font-size: 11px !important; }
   section [style*="min-height: min(46vh, 420px)"] { min-height: 240px !important; }
   section [style*="min-height: min(46vh, 420px)"] > div:last-child { padding: 64px 18px 24px !important; }
   figure[style*="height: min(38vh, 340px)"] { height: 200px !important; }
@@ -555,6 +605,7 @@ section > div > div[style*="letter-spacing: 0.14em"] { font-size: 11px; }
 figure > div[style*="overflow: hidden"] { box-shadow: 0 16px 38px rgba(15, 26, 48, 0.12); }
 @media (min-width: 900px) {
   section[style*="padding: 76px 24px"] { padding-top: 108px !important; padding-bottom: 108px !important; }
+  #reviews.c1-reviews { padding-top: 76px !important; padding-bottom: 76px !important; }
 }
 .btn-primary { background: #70CE74; border-color: #70CE74; color: #ffffff; gap: 10px; font-weight: 700; border-radius: 6px; letter-spacing: 0.01em; }
 .btn-primary:hover { background: #5ec063; border-color: #5ec063; }
@@ -586,6 +637,19 @@ function bindLangButtons() {
   if (btnEn) btnEn.addEventListener('click', function() { setLang('en'); btnEn.setAttribute('aria-pressed','true'); if (btnId) btnId.setAttribute('aria-pressed','false'); });
   if (btnId) btnId.addEventListener('click', function() { setLang('id'); btnId.setAttribute('aria-pressed','true'); if (btnEn) btnEn.setAttribute('aria-pressed','false'); });
 }
+function bindReviewButtons() {
+  document.querySelectorAll('#reviews [data-more]').forEach(function(btn) {
+    if (btn.dataset.wired) return;
+    btn.dataset.wired = '1';
+    btn.addEventListener('click', function() {
+      var grid = document.getElementById(btn.getAttribute('data-more'));
+      if (!grid) return;
+      grid.removeAttribute('data-collapsed');
+      var box = btn.parentElement;
+      if (box) box.style.setProperty('display', 'none', 'important');
+    });
+  });
+}
 function loadMarketingScripts() {
   if (window.__marketingLoaded) return;
   window.__marketingLoaded = true;
@@ -597,6 +661,7 @@ function loadMarketingScripts() {
 }
 function initPageScripts() {
   bindLangButtons();
+  bindReviewButtons();
   loadMarketingScripts();
 }
 if (document.readyState === 'loading') {
@@ -1355,112 +1420,223 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     </div>
   </section>
 
-    <section id="reviews" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
+  <section id="reviews" class="c1-reviews" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto">
-      <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Guest reviews</span><span data-l="id">Ulasan tamu</span></div>
-      <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; margin-bottom: 22px"><span data-l="en">What Guests Say</span><span data-l="id">Kata Tamu Kami</span></h2>
+      <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand); margin-bottom: 12px"><span data-l="en">Guest reviews</span><span data-l="id">Ulasan tamu</span></div>
+      <h2 style="font-size: clamp(26px, 3vw, 38px); margin-bottom: 22px"><span data-l="en">What Guests Say</span><span data-l="id">Kata Tamu Kami</span></h2>
       <div style="display: grid; gap: 26px; margin-bottom: 30px">
         <div style="display: flex; justify-content: center; margin: 0 0 6px">
           <div style="background: #FFFFFF; padding: 18px 26px; text-align: center">
-            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; letter-spacing: 0.02em; text-transform: uppercase; color: #17233f">Excellent</div>
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.01em; color: #17233f">Excellent</div>
             <div style="display: flex; justify-content: center; gap: 4px; margin: 10px 0 8px">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
+              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
+              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
+              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
+              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
+              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
             </div>
             <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">196 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">196 ulasan</strong></span></div>
-            <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto" width="190" height="30">
+            <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto">
           </div>
         </div>
-        <div id="trustindex-widget-4" style="margin: 0"></div>
+      </div>
+      <div id="ta-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px">
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f0/48/default-avatar-2020-15.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Fanni S</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">1 week ago</span>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
+          </figcaption>
+          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
+          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">highly recommend!</strong>We did many times snorkling tours but this was truely the top one!! Instead of rushing from spots to spots every in between.</blockquote>
+        </figure>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e3/6a/default-avatar-2020-47.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Severine L</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
+          </figcaption>
+          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
+          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Snorkeling Menjangan Island Au top</strong>Super sortie super guide Snorkeling Menjangan Island.</blockquote>
+        </figure>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/59/default-avatar-2020-24.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">mariagh</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
+          </figcaption>
+          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
+          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Absolutely worth it!</strong>An incredible experience. An unforgettable snorkeling trip; the hours flew by. A truly wonderful excursion.</blockquote>
+        </figure>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e2/a7/default-avatar-2020-44.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle W</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
+          </figcaption>
+          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
+          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Nice snorking experience menjanan!</strong>It was a very nice snorkling experience. We saw many sea animals and coral reef, and many sea turtles! The guide was great.</blockquote>
+        </figure>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/eb/a3/default-avatar-2020-38.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">ahn</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
+          </figcaption>
+          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
+          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Make your perfect day!</strong>It was a truly perfect trip! They helped us find so many beautiful corals, fish, and turtles, and the underwater world was stunning.</blockquote>
+        </figure>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/11/default-avatar-2020-23.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Isabelle S</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
+          </figcaption>
+          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
+          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Fantastic snorkeling trip!</strong>Two magnificent spots teeming with colorful fish. Our guide, Putu, was absolutely fantastic. Contact them.</blockquote>
+        </figure>
+      </div>
+      <div class="rev-more" style="display: none; justify-content: center; margin: -8px 0 30px">
+        <button type="button" data-more="ta-grid" style="cursor: pointer; background: #FFFFFF; border: 1px solid var(--line); border-radius: 999px; padding: 12px 22px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--brand)"><span data-l="en">Show more Tripadvisor reviews</span><span data-l="id">Lihat ulasan Tripadvisor lainnya</span></button>
+      </div>
+      <div style="display: grid; gap: 26px; margin-bottom: 30px">
         <div style="display: flex; justify-content: center; margin: 0 0 6px">
           <div style="background: #FFFFFF; padding: 18px 26px; text-align: center">
-            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; letter-spacing: 0.02em; text-transform: uppercase; color: #17233f">Excellent</div>
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.01em; color: #17233f">Excellent</div>
             <div style="display: flex; justify-content: center; gap: 4px; margin: 10px 0 8px">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
-              <img src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="" style="width: 28px; height: 28px" width="28" height="28">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
             </div>
             <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">963 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">963 ulasan</strong></span></div>
-            <img src="https://cdn.trustindex.io/assets/platform/Google/logo.svg" alt="Google" loading="lazy" decoding="async" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto" width="190" height="30">
+            <svg viewBox="0 0 255.2 80.3" height="30" style="margin-top: 14px; margin-left: auto; margin-right: auto; display: block"><path fill="#4285F4" d="M31.9 28.6v8.6h20.5c-.6 4.8-2.2 8.3-4.7 10.8-3 3-7.7 6.3-15.8 6.3-12.6 0-22.5-10.2-22.5-22.8S19.2 8.6 31.9 8.6c6.8 0 11.8 2.7 15.5 6.1l6-6C48.3 3.8 41.4 0 31.9 0 14.6 0 0 14.1 0 31.4s14.6 31.4 31.9 31.4c9.4 0 16.4-3.1 21.9-8.8 5.7-5.7 7.4-13.6 7.4-20.1 0-2-.1-3.8-.5-5.4H31.9z"/><path fill="#EA4335" d="M86.9 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C107.2 30.1 98.1 21.6 86.9 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#4285F4" d="M186.6 26.1h-.3c-2-2.4-5.8-4.5-10.7-4.5-10.1 0-19 8.8-19 20.3 0 11.4 8.8 20.3 19 20.3 4.9 0 8.7-2.2 10.7-4.6h.3v2.8c0 7.7-4.2 11.9-10.8 11.9-5.4 0-8.8-3.9-10.2-7.2l-7.7 3.2c2.2 5.4 8.1 12 18 12 10.4 0 19.3-6.1 19.3-21.1V22.7h-8.4v3.4zm-10.2 28.1c-6.1 0-10.8-5.2-10.8-12.3 0-7.2 4.7-12.3 10.8-12.3 6.1 0 10.8 5.2 10.8 12.4 0 7.1-4.7 12.2-10.8 12.2z"/><path fill="#FBBC05" d="M132.3 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C152.6 30.1 143.5 21.6 132.3 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#34A853" d="M202.1.8h8.8v61.3h-8.8z"/><path fill="#EA4335" d="M237.9 54.2c-4.5 0-7.7-2.1-9.8-6.1l27.1-11.2-.9-2.3c-1.7-4.5-6.8-12.9-17.3-12.9-10.4 0-19.1 8.2-19.1 20.3 0 11.4 8.6 20.3 20.1 20.3 9.3 0 14.7-5.7 16.9-9l-6.9-4.6c-2.2 2.8-5.4 5.1-9.9 5.1l.5.4zm-.6-25c3.6 0 6.7 1.9 7.7 4.5l-18.3 7.6c.7-3.8 6.8-7.3 10.6-7.3z"/></svg>
           </div>
         </div>
-        <div id="trustindex-widget-3" style="margin: 0"></div>
       </div>
-      <div id="reviews-fallback" style="display: grid; gap: 22px">
-        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
-          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 22px; text-transform: uppercase; color: var(--color-accent-800)">Excellent</div>
-          <div style="color: #FFC107; font-size: 20px; letter-spacing: 3px">★★★★★</div>
-          <div style="font-size: 14px; color: var(--color-neutral-700)"><span data-l="en">Based on <strong>958 Google reviews</strong></span><span data-l="id">Berdasarkan <strong>958 ulasan Google</strong></span></div>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
-        <figure class="blueprint" style="position: relative; margin: 0; padding: 22px; background: #FFFFFF">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <figcaption style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
-            <span style="width: 38px; height: 38px; border-radius: 50%; background: var(--color-accent-500); color: #ffffff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 15px; flex: none">B</span>
-            <span style="display: grid; flex: 1">
-              <span style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)">Belle Weerts</span>
-              <span style="font-size: 12px; color: var(--color-neutral-600)">1 week ago</span>
+      <div id="g-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Elin Georgina-Davies</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">2 weeks ago</span>
             </span>
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
           </figcaption>
-          <div style="color: #FFC107; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px">★★★★★</div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--color-neutral-800)">"We had a very nice snorkling experience! The guide was good and it was a beautiful experience. We saw seaturtles and many of the coral reef creatures."</blockquote>
+          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">I had an absolutely amazing time! The guides were excellent! Snorkeling Menjangan Island was so fun - highly recommend!</blockquote>
+
+          </div>
         </figure>
-        <figure class="blueprint" style="position: relative; margin: 0; padding: 22px; background: #FFFFFF">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <figcaption style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
-            <span style="width: 38px; height: 38px; border-radius: 50%; background: var(--color-accent-500); color: #ffffff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 15px; flex: none">H</span>
-            <span style="display: grid; flex: 1">
-              <span style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)">hhh_j</span>
-              <span style="font-size: 12px; color: var(--color-neutral-600)">1 week ago</span>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">maria granado</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
             </span>
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
           </figcaption>
-          <div style="color: #FFC107; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px">★★★★★</div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--color-neutral-800)">"It was a truly perfect trip! They helped us find so many beautiful corals, fish, and turtles. Clear information, quick replies, very friendly."</blockquote>
+          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">Excursión más que recomendable. Es una experiencia de 10, el snorkel increíble!!</blockquote>
+
+          </div>
         </figure>
-        <figure class="blueprint" style="position: relative; margin: 0; padding: 22px; background: #FFFFFF">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <figcaption style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
-            <span style="width: 38px; height: 38px; border-radius: 50%; background: var(--color-accent-500); color: #ffffff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 15px; flex: none">J</span>
-            <span style="display: grid; flex: 1">
-              <span style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)">Jack Hennesey Cleary</span>
-              <span style="font-size: 12px; color: var(--color-neutral-600)">1 week ago</span>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUgzw8YO1c-9yxVJE9LfznY21SbYhGGmVDACzq2_Aej_Lwncso5=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle Weerts</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
             </span>
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
           </figcaption>
-          <div style="color: #FFC107; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px">★★★★★</div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--color-neutral-800)">"After diving all around Bali this was my favourite. The visibility was some of the best I have ever seen and the corals were beautiful."</blockquote>
+          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">We had a very nice snorkling experience! The guide was good and it was a beautiful experience. We saw seaturtles and many of the coral reef creatures.</blockquote>
+
+          </div>
         </figure>
-        <figure class="blueprint" style="position: relative; margin: 0; padding: 22px; background: #FFFFFF">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <figcaption style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
-            <span style="width: 38px; height: 38px; border-radius: 50%; background: var(--color-accent-500); color: #ffffff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 15px; flex: none">N</span>
-            <span style="display: grid; flex: 1">
-              <span style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)">Nanang Hidayat</span>
-              <span style="font-size: 12px; color: var(--color-neutral-600)">2 weeks ago</span>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUCE8D9Pwc9axxHrG56ukqSfb4rK47-_CY7Bbuoy9bdoxFaE_wk=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dorota Bi</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">1 month ago</span>
             </span>
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
           </figcaption>
-          <div style="color: #FFC107; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px">★★★★★</div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--color-neutral-800)">"Super sekali pelayanan trip nya, sangat memuaskan. Guide sabar mendampingi dan spot snorkelingnya bagus sekali."</blockquote>
+          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">An excellent team. Great organization, professional, and punctual, which is very important to me.</blockquote>
+            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmN0F688vz7pcjK7rWBotBrjwYdgxt3yNKpUKc1NcqR8N3c_nXSquDA0pq1sbHSNK5VlOEi8fZ33Z43MiTrO6t7XtJj34oPkxuAO556A-OhlHlmkfGRVMBM2lNWpeLQhXd4oy_GhSGBVNi2F=s192" width="96" height="96" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
+          </div>
         </figure>
-        </div>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Jarin Wadiwalla</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">2 months ago</span>
+            </span>
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
+          </figcaption>
+          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">We had a really amazing snorkeling trip on Sunday. Menjangan island is so breathtaking with clear water and beautiful corals.</blockquote>
+            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmMCUCuR_cnlLsCrSrLpnA43TnI-KfpQ24pZhStNBWiiJBa3x9CUtPBxT8VxQUWqvIqJeCvhMbWHKjFOrTGUwvRNlzZFBlqS4WoTK08N6dXCRxzjBmfZfCcHdAfFUkvMTXKSwGF8dG35El-k=s192" width="96" height="96" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
+          </div>
+        </figure>
+        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
+          <figcaption style="display: flex; align-items: center; gap: 12px">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjVJ8Strw93g2L49uX9DtEMZiOV1ryLELOcVnSLnIL3HI7fC6wHxAw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span style="display: grid; flex: 1; min-width: 0">
+              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dani Fee</span>
+              <span style="font-size: 13px; color: var(--color-neutral-600)">4 months ago</span>
+            </span>
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
+          </figcaption>
+          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">Perfect snorkeling day at Menjangan Island. Beautiful corals, many fish, turtels... Good food and good service!</blockquote>
+
+          </div>
+        </figure>
+      </div>
+      <div class="rev-more" style="display: none; justify-content: center; margin: -8px 0 30px">
+        <button type="button" data-more="g-grid" style="cursor: pointer; background: #FFFFFF; border: 1px solid var(--line); border-radius: 999px; padding: 12px 22px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--brand)"><span data-l="en">Show more Google reviews</span><span data-l="id">Lihat ulasan Google lainnya</span></button>
       </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 34px; text-align: center">
-        <a id="btn-reviews-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20read%20your%20reviews%20and%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; font-size: 15px">
+        <a class="cta" href="https://wa.me/6281238578042?text=Hello%2C%20I%20read%20your%20reviews%20and%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
           <span data-l="en">Book Your Trip on WhatsApp</span><span data-l="id">Booking Trip via WhatsApp</span>
         </a>
-        <span style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 10px; font-size: 12px; color: var(--color-neutral-700)">
-          <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-          <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-        </span>
+        <span class="micro" style="justify-content: center"><span class="st">★★★★★</span><span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span></span>
       </div>
 </div>
   </section>
-
     <section id="booking-steps" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
     <div style="max-width: 1160px; margin: 0 auto">
       <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Booking</span><span data-l="id">Cara booking</span></div>
@@ -1701,55 +1877,6 @@ function whenIdle(callback) {
     window.setTimeout(callback, 1);
   }
 }
-
-/* -- Trustindex Widget Loader -- */
-(function() {
-  var keys = [["trustindex-widget-4", "10ccabb799ef438be446ad7f85b"], ["trustindex-widget-3", "e73019379de3438f5c363b89767"]];
-  function loadWidget(pair) {
-    var id = pair[0], key = pair[1];
-    var box = document.getElementById(id);
-    if (!box || box.dataset.loaded) return;
-    box.dataset.loaded = "1";
-    box.innerHTML = "";
-    var frame = document.createElement("iframe");
-    frame.title = "Guest reviews";
-    frame.setAttribute("scrolling", "no");
-    frame.style.cssText = "width:100%;border:0;display:block;height:0;overflow:hidden";
-    box.appendChild(frame);
-    frame.srcdoc = '<!DOCTYPE html><html><head><base target="_blank"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body style="margin:0;font-family:Montserrat,sans-serif"><script defer src="https://cdn.trustindex.io/loader.js?' + key + '"><\/script></body></html>';
-    var fit = function() {
-      var b = frame.contentDocument && frame.contentDocument.body;
-      if (!b) return;
-      var h = Math.max(b.scrollHeight, Math.round(b.getBoundingClientRect().height));
-      if (h > 8) frame.style.height = h + "px";
-    };
-    var iv = setInterval(fit, 400);
-    setTimeout(function() { clearInterval(iv); }, 12000);
-  }
-
-  var observer = 'IntersectionObserver' in window ? new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (!entry.isIntersecting) return;
-      var pair = keys.find(function(item) { return item[0] === entry.target.id; });
-      if (pair) loadWidget(pair);
-      observer.unobserve(entry.target);
-    });
-  }, { rootMargin: '300px 0px' }) : null;
-
-  keys.forEach(function(pair) {
-    var box = document.getElementById(pair[0]);
-    if (!box) return;
-    if (observer) observer.observe(box); else whenIdle(function() { loadWidget(pair); });
-  });
-  setTimeout(function() {
-    var any = keys.some(function(pair) {
-      var b = document.getElementById(pair[0]);
-      return b && b.getBoundingClientRect().height > 40;
-    });
-    var fb = document.getElementById("reviews-fallback");
-    if (any && fb) fb.style.display = "none";
-  }, 4000);
-})();
 
 /* -- Analytics -- */
 (function() {
