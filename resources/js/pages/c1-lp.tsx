@@ -64,6 +64,8 @@ details[open] .plus { transform: rotate(45deg); }
   .rev-more { display: flex !important; }
 }
 .photo-grid img { height: auto !important; }
+.rev-grid > figure { background: #F5F5F8 !important; }
+.rev-grid figcaption img { background: #d7dbe3 !important; }
 @media (max-width: 900px) {
   .sec { padding: 56px 18px; }
   #page > header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 90 !important; }

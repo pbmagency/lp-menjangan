@@ -476,7 +476,8 @@ body { background: #FFFFFF; }
   border-top: 0 !important;
 }
 #reviews.c1-reviews figcaption { margin-top: 0; color: inherit; font-size: inherit; }
-#reviews.c1-reviews figure { background: transparent !important; }
+#reviews.c1-reviews figure { background: #F5F5F8 !important; }
+#reviews.c1-reviews figcaption img { background: #d7dbe3 !important; }
 #reviews.c1-reviews figure:hover [style*="object-fit: cover"] { transform: none; }
 #reviews.c1-reviews h2 {
   font-family: "Montserrat", system-ui, sans-serif;
@@ -1447,7 +1448,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <div id="ta-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#34E0A1;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#17233f">F</span>
+            <img src="/testimoni1/fanny-s.webp" width="42" height="42" alt="Fanni S" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Fanni S</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">1 week ago</span>
@@ -1459,7 +1460,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#00A680;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">S</span>
+            <img src="/testimoni1/severine.webp" width="42" height="42" alt="Severine L" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Severine L</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1471,7 +1472,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#5b6c8c;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">M</span>
+            <img src="/testimoni1/mariagh.webp" width="42" height="42" alt="mariagh" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">mariagh</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1483,7 +1484,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#e8a838;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">B</span>
+            <img src="/testimoni1/belle-w.webp" width="42" height="42" alt="Belle W" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle W</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1495,7 +1496,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#3b82c4;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">A</span>
+            <img src="/testimoni1/ahn.webp" width="42" height="42" alt="ahn" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">ahn</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1507,7 +1508,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#c14b8a;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">I</span>
+            <img src="/testimoni1/issabela%20s.webp" width="42" height="42" alt="Isabelle S" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Isabelle S</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1540,7 +1541,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <div id="g-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#4285F4;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">E</span>
+            <img src="/testimoni1/elin%20giorgina.webp" width="42" height="42" alt="Elin Georgina-Davies" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Elin Georgina-Davies</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">2 weeks ago</span>
@@ -1555,7 +1556,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#EA4335;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">M</span>
+            <img src="/testimoni1/maria%20grando.webp" width="42" height="42" alt="maria granado" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">maria granado</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1570,7 +1571,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#34A853;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">B</span>
+            <img src="/testimoni1/belle%20werts.webp" width="42" height="42" alt="Belle Weerts" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle Weerts</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1585,7 +1586,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#FBBC05;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#17233f">D</span>
+            <img src="/testimoni1/dorota-bi.webp" width="42" height="42" alt="Dorota Bi" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dorota Bi</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">1 month ago</span>
@@ -1600,7 +1601,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#c14b8a;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">J</span>
+            <img src="/testimoni1/jarin%20wa.webp" width="42" height="42" alt="Jarin Wadiwalla" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Jarin Wadiwalla</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">2 months ago</span>
@@ -1615,7 +1616,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#e8a838;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">D</span>
+            <img src="/testimoni1/dani%20fee.webp" width="42" height="42" alt="Dani Fee" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dani Fee</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">4 months ago</span>

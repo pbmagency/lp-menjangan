@@ -4037,7 +4037,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#34E0A1',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#17233f'}}>F</span>
+                                <img src="/testimoni1/fanny-s.webp" width={42} height={42} alt="Fanni S" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -4284,7 +4284,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#00A680',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>S</span>
+                                <img src="/testimoni1/severine.webp" width={42} height={42} alt="Severine L" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -4530,7 +4530,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#5b6c8c',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>m</span>
+                                <img src="/testimoni1/mariagh.webp" width={42} height={42} alt="mariagh" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -4777,7 +4777,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#e8a838',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>B</span>
+                                <img src="/testimoni1/belle-w.webp" width={42} height={42} alt="Belle W" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5024,7 +5024,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#3b82c4',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>a</span>
+                                <img src="/testimoni1/ahn.webp" width={42} height={42} alt="ahn" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5271,7 +5271,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#c14b8a',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>I</span>
+                                <img src="/testimoni1/issabela%20s.webp" width={42} height={42} alt="Isabelle S" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5641,7 +5641,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#4285F4',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>E</span>
+                                <img src="/testimoni1/elin%20giorgina.webp" width={42} height={42} alt="Elin Georgina-Davies" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5819,7 +5819,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#EA4335',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>m</span>
+                                <img src="/testimoni1/maria%20grando.webp" width={42} height={42} alt="maria granado" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5996,7 +5996,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#34A853',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>B</span>
+                                <img src="/testimoni1/belle%20werts.webp" width={42} height={42} alt="Belle Weerts" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6175,7 +6175,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#FBBC05',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#17233f'}}>D</span>
+                                <img src="/testimoni1/dorota-bi.webp" width={42} height={42} alt="Dorota Bi" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6353,7 +6353,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#c14b8a',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>J</span>
+                                <img src="/testimoni1/jarin%20wa.webp" width={42} height={42} alt="Jarin Wadiwalla" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6531,7 +6531,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#e8a838',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>D</span>
+                                <img src="/testimoni1/dani%20fee.webp" width={42} height={42} alt="Dani Fee" loading="lazy" decoding="async" style={{width:'42px',height:'42px',borderRadius:'50%',objectFit:'cover',background:'#d7dbe3',flex:'none'}} />
                                 <span
                                     style={{
                                         display: 'grid',
