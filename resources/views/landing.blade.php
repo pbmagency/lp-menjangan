@@ -146,7 +146,7 @@ if ('requestIdleCallback' in window) {
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 300 800;
   font-display: swap;
   src: url({{ asset('fonts/montserrat-latin.woff2') }}) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -471,8 +471,12 @@ body { background: #FFFFFF; }
   --color-neutral-600: #17233f;
   color: #17233f;
   font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  border-top: 0 !important;
 }
 #reviews.c1-reviews figcaption { margin-top: 0; color: inherit; font-size: inherit; }
+#reviews.c1-reviews figure { background: transparent !important; }
 #reviews.c1-reviews figure:hover [style*="object-fit: cover"] { transform: none; }
 #reviews.c1-reviews h2 {
   font-family: "Montserrat", system-ui, sans-serif;
@@ -508,7 +512,7 @@ body { background: #FFFFFF; }
 }
 #page > header { position: sticky !important; top: 0 !important; z-index: 70 !important; }
 @media (max-width: 900px) {
-  #reviews.c1-reviews { padding: 56px 18px !important; }
+  #reviews.c1-reviews { padding: 76px 24px !important; }
   #reviews.c1-reviews h2 { font-size: 24px !important; }
   #reviews .cta { width: 100% !important; }
   #reviews .micro { font-size: 11px !important; }
@@ -1429,21 +1433,21 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <div style="background: #FFFFFF; padding: 18px 26px; text-align: center">
             <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.01em; color: #17233f">Excellent</div>
             <div style="display: flex; justify-content: center; gap: 4px; margin: 10px 0 8px">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
-              <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg" alt="" style="width: 28px; height: 28px">
+              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
             </div>
             <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">196 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">196 ulasan</strong></span></div>
-            <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" style="height: 30px; width: auto; margin-top: 14px; margin-left: auto; margin-right: auto">
+            <svg viewBox="0 0 275 56" height="30" style="margin-top:14px;display:block;margin-left:auto;margin-right:auto" aria-label="Tripadvisor"><rect width="275" height="56" rx="6" fill="#34E0A1"/><circle cx="28" cy="28" r="16" fill="#fff"/><circle cx="28" cy="28" r="7" fill="none" stroke="#000" stroke-width="2.2"/><circle cx="28" cy="28" r="2.5" fill="#000"/><text x="52" y="36" font-family="Arial,sans-serif" font-weight="700" font-size="20" fill="#000">Tripadvisor</text></svg>
           </div>
         </div>
       </div>
       <div id="ta-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f0/48/default-avatar-2020-15.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#34E0A1;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#17233f">F</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Fanni S</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">1 week ago</span>
@@ -1455,7 +1459,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e3/6a/default-avatar-2020-47.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#00A680;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">S</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Severine L</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1467,7 +1471,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/59/default-avatar-2020-24.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#5b6c8c;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">M</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">mariagh</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1479,7 +1483,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e2/a7/default-avatar-2020-44.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#e8a838;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">B</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle W</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1491,7 +1495,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/eb/a3/default-avatar-2020-38.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#3b82c4;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">A</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">ahn</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1503,7 +1507,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/11/default-avatar-2020-23.jpg?w=84&h=84&s=1" width="42" height="42" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #d7dbe3; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#c14b8a;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">I</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Isabelle S</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1536,7 +1540,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <div id="g-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#4285F4;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">E</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Elin Georgina-Davies</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">2 weeks ago</span>
@@ -1551,7 +1555,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#EA4335;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">M</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">maria granado</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1566,7 +1570,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUgzw8YO1c-9yxVJE9LfznY21SbYhGGmVDACzq2_Aej_Lwncso5=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#34A853;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">B</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle Weerts</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
@@ -1581,7 +1585,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUCE8D9Pwc9axxHrG56ukqSfb4rK47-_CY7Bbuoy9bdoxFaE_wk=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#FBBC05;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#17233f">D</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dorota Bi</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">1 month ago</span>
@@ -1591,12 +1595,12 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
           <div style="display: flex; gap: 14px; align-items: flex-start">
             <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">An excellent team. Great organization, professional, and punctual, which is very important to me.</blockquote>
-            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmN0F688vz7pcjK7rWBotBrjwYdgxt3yNKpUKc1NcqR8N3c_nXSquDA0pq1sbHSNK5VlOEi8fZ33Z43MiTrO6t7XtJj34oPkxuAO556A-OhlHlmkfGRVMBM2lNWpeLQhXd4oy_GhSGBVNi2F=s192" width="96" height="96" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
+            
           </div>
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#c14b8a;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">J</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Jarin Wadiwalla</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">2 months ago</span>
@@ -1606,12 +1610,12 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
           <div style="display: flex; gap: 14px; align-items: flex-start">
             <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">We had a really amazing snorkeling trip on Sunday. Menjangan island is so breathtaking with clear water and beautiful corals.</blockquote>
-            <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmMCUCuR_cnlLsCrSrLpnA43TnI-KfpQ24pZhStNBWiiJBa3x9CUtPBxT8VxQUWqvIqJeCvhMbWHKjFOrTGUwvRNlzZFBlqS4WoTK08N6dXCRxzjBmfZfCcHdAfFUkvMTXKSwGF8dG35El-k=s192" width="96" height="96" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 96px; height: 96px; object-fit: cover; border-radius: 6px; flex: none">
+            
           </div>
         </figure>
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="https://lh3.googleusercontent.com/a-/ALV-UjVJ8Strw93g2L49uX9DtEMZiOV1ryLELOcVnSLnIL3HI7fC6wHxAw=w80-h80-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #93c5ef; flex: none">
+            <span aria-hidden="true" style="width:42px;height:42px;border-radius:50%;background:#e8a838;flex:none;display:inline-flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff">D</span>
             <span style="display: grid; flex: 1; min-width: 0">
               <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dani Fee</span>
               <span style="font-size: 13px; color: var(--color-neutral-600)">4 months ago</span>

@@ -89,19 +89,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                         <span data-l="en">Trusted by</span>
                         <span data-l="id">Dipercaya oleh</span>
                     </span>
-                    <img
-                        src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg"
-                        alt="Tripadvisor"
-                        width={120}
-                        height={26}
-                        loading="lazy"
-                        decoding="async"
-                        style={{
-                            height: '26px',
-                            width: 'auto',
-                            opacity: '0.75',
-                        }}
-                    />
+                    <svg viewBox="0 0 275 56" style={{height:'26px',width:'auto',opacity:'0.75'}} aria-label="Tripadvisor"><rect width="275" height="56" rx="6" fill="#34E0A1"/><circle cx="28" cy="28" r="16" fill="#fff"/><circle cx="28" cy="28" r="7" fill="none" stroke="#000" strokeWidth="2.2"/><circle cx="28" cy="28" r="2.5" fill="#000"/><text x="52" y="36" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="20" fill="#000">Tripadvisor</text></svg>
                     <img
                         src="https://menjanganislandtrip.com/wp-content/uploads/2026/08/GetYourGuide_Logo.svg_.webp"
                         alt="GetYourGuide"
@@ -3980,46 +3968,11 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                         margin: '10px 0 8px',
                                     }}
                                 >
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" strokeWidth="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" strokeWidth="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" strokeWidth="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" strokeWidth="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" strokeWidth="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
                                 </div>
                                 <div
                                     style={{
@@ -4050,18 +4003,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                         </strong>
                                     </span>
                                 </div>
-                                <img
-                                    src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg"
-                                    alt="Tripadvisor"
-                                    loading="lazy"
-                                    style={{
-                                        height: '30px',
-                                        width: 'auto',
-                                        marginTop: '14px',
-                                        marginLeft: 'auto',
-                                        marginRight: 'auto',
-                                    }}
-                                />
+                                <svg viewBox="0 0 275 56" height="30" style={{marginTop:'14px',display:'block',marginLeft:'auto',marginRight:'auto'}} aria-label="Tripadvisor"><rect width="275" height="56" rx="6" fill="#34E0A1"/><circle cx="28" cy="28" r="16" fill="#fff"/><circle cx="28" cy="28" r="7" fill="none" stroke="#000" strokeWidth="2.2"/><circle cx="28" cy="28" r="2.5" fill="#000"/><text x="52" y="36" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="20" fill="#000">Tripadvisor</text></svg>
                             </div>
                         </div>
                     </div>
@@ -4095,23 +4037,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f0/48/default-avatar-2020-15.jpg?w=84&h=84&s=1"
-                                    alt=""
-                                    width={42}
-                                    height={42}
-                                    loading="lazy"
-                                    decoding="async"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#d7dbe3',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#34E0A1',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#17233f'}}>F</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -4358,23 +4284,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e3/6a/default-avatar-2020-47.jpg?w=84&h=84&s=1"
-                                    alt=""
-                                    width={42}
-                                    height={42}
-                                    loading="lazy"
-                                    decoding="async"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#d7dbe3',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#00A680',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>S</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -4620,23 +4530,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/59/default-avatar-2020-24.jpg?w=84&h=84&s=1"
-                                    alt=""
-                                    width={42}
-                                    height={42}
-                                    loading="lazy"
-                                    decoding="async"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#d7dbe3',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#5b6c8c',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>m</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -4883,23 +4777,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e2/a7/default-avatar-2020-44.jpg?w=84&h=84&s=1"
-                                    alt=""
-                                    width={42}
-                                    height={42}
-                                    loading="lazy"
-                                    decoding="async"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#d7dbe3',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#e8a838',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>B</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5146,23 +5024,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/eb/a3/default-avatar-2020-38.jpg?w=84&h=84&s=1"
-                                    alt=""
-                                    width={42}
-                                    height={42}
-                                    loading="lazy"
-                                    decoding="async"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#d7dbe3',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#3b82c4',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>a</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5409,23 +5271,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/11/default-avatar-2020-23.jpg?w=84&h=84&s=1"
-                                    alt=""
-                                    width={42}
-                                    height={42}
-                                    loading="lazy"
-                                    decoding="async"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#d7dbe3',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#c14b8a',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>I</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -5727,46 +5573,11 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                         margin: '10px 0 8px',
                                     }}
                                 >
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
-                                    <img
-                                        src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg"
-                                        alt=""
-                                        style={{
-                                            width: '28px',
-                                            height: '28px',
-                                        }}
-                                    />
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#FBBC05"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#FBBC05"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#FBBC05"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#FBBC05"/></svg>
+                                    <svg viewBox="0 0 24 24" style={{width:'28px',height:'28px'}} aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#FBBC05"/></svg>
                                 </div>
                                 <div
                                     style={{
@@ -5797,18 +5608,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                         </strong>
                                     </span>
                                 </div>
-                                <img
-                                    src="https://cdn.trustindex.io/assets/platform/Google/logo.svg"
-                                    alt="Google"
-                                    loading="lazy"
-                                    style={{
-                                        height: '30px',
-                                        width: 'auto',
-                                        marginTop: '14px',
-                                        marginLeft: 'auto',
-                                        marginRight: 'auto',
-                                    }}
-                                />
+                                <svg viewBox="0 0 255.2 80.3" height="30" style={{marginTop:'14px',display:'block',marginLeft:'auto',marginRight:'auto'}} aria-label="Google"><path fill="#4285F4" d="M31.9 28.6v8.6h20.5c-.6 4.8-2.2 8.3-4.7 10.8-3 3-7.7 6.3-15.8 6.3-12.6 0-22.5-10.2-22.5-22.8S19.2 8.6 31.9 8.6c6.8 0 11.8 2.7 15.5 6.1l6-6C48.3 3.8 41.4 0 31.9 0 14.6 0 0 14.1 0 31.4s14.6 31.4 31.9 31.4c9.4 0 16.4-3.1 21.9-8.8 5.7-5.7 7.4-13.6 7.4-20.1 0-2-.1-3.8-.5-5.4H31.9z"/><path fill="#EA4335" d="M86.9 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C107.2 30.1 98.1 21.6 86.9 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#4285F4" d="M186.6 26.1h-.3c-2-2.4-5.8-4.5-10.7-4.5-10.1 0-19 8.8-19 20.3 0 11.4 8.8 20.3 19 20.3 4.9 0 8.7-2.2 10.7-4.6h.3v2.8c0 7.7-4.2 11.9-10.8 11.9-5.4 0-8.8-3.9-10.2-7.2l-7.7 3.2c2.2 5.4 8.1 12 18 12 10.4 0 19.3-6.1 19.3-21.1V22.7h-8.4v3.4zm-10.2 28.1c-6.1 0-10.8-5.2-10.8-12.3 0-7.2 4.7-12.3 10.8-12.3 6.1 0 10.8 5.2 10.8 12.4 0 7.1-4.7 12.2-10.8 12.2z"/><path fill="#FBBC05" d="M132.3 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C152.6 30.1 143.5 21.6 132.3 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#34A853" d="M202.1.8h8.8v61.3h-8.8z"/><path fill="#EA4335" d="M237.9 54.2c-4.5 0-7.7-2.1-9.8-6.1l27.1-11.2-.9-2.3c-1.7-4.5-6.8-12.9-17.3-12.9-10.4 0-19.1 8.2-19.1 20.3 0 11.4 8.6 20.3 20.1 20.3 9.3 0 14.7-5.7 16.9-9l-6.9-4.6c-2.2 2.8-5.4 5.1-9.9 5.1l.5.4zm-.6-25c3.6 0 6.7 1.9 7.7 4.5l-18.3 7.6c.7-3.8 6.8-7.3 10.6-7.3z"/></svg>
                             </div>
                         </div>
                     </div>
@@ -5841,20 +5641,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#93c5ef',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#4285F4',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>E</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6032,20 +5819,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#93c5ef',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#EA4335',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>m</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6222,20 +5996,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://lh3.googleusercontent.com/a-/ALV-UjUgzw8YO1c-9yxVJE9LfznY21SbYhGGmVDACzq2_Aej_Lwncso5=w80-h80-c-rp-mo-br100"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#93c5ef',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#34A853',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>B</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6414,20 +6175,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://lh3.googleusercontent.com/a-/ALV-UjUCE8D9Pwc9axxHrG56ukqSfb4rK47-_CY7Bbuoy9bdoxFaE_wk=w80-h80-c-rp-mo-br100"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#93c5ef',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#FBBC05',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#17233f'}}>D</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6585,19 +6333,6 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     professional, and punctual, which is very
                                     important to me.
                                 </blockquote>
-                                <img
-                                    src="https://lh3.googleusercontent.com/grass-cs/ACvplmN0F688vz7pcjK7rWBotBrjwYdgxt3yNKpUKc1NcqR8N3c_nXSquDA0pq1sbHSNK5VlOEi8fZ33Z43MiTrO6t7XtJj34oPkxuAO556A-OhlHlmkfGRVMBM2lNWpeLQhXd4oy_GhSGBVNi2F=s720"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '96px',
-                                        height: '96px',
-                                        objectFit: 'cover',
-                                        borderRadius: '6px',
-                                        flex: 'none',
-                                    }}
-                                />
                             </div>
                         </figure>
                         <figure
@@ -6618,20 +6353,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#93c5ef',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#c14b8a',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>J</span>
                                 <span
                                     style={{
                                         display: 'grid',
@@ -6789,19 +6511,6 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     Sunday. Menjangan island is so breathtaking
                                     with clear water and beautiful corals.
                                 </blockquote>
-                                <img
-                                    src="https://lh3.googleusercontent.com/grass-cs/ACvplmMCUCuR_cnlLsCrSrLpnA43TnI-KfpQ24pZhStNBWiiJBa3x9CUtPBxT8VxQUWqvIqJeCvhMbWHKjFOrTGUwvRNlzZFBlqS4WoTK08N6dXCRxzjBmfZfCcHdAfFUkvMTXKSwGF8dG35El-k=s720"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '96px',
-                                        height: '96px',
-                                        objectFit: 'cover',
-                                        borderRadius: '6px',
-                                        flex: 'none',
-                                    }}
-                                />
                             </div>
                         </figure>
                         <figure
@@ -6822,20 +6531,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                                     gap: '12px',
                                 }}
                             >
-                                <img
-                                    src="https://lh3.googleusercontent.com/a-/ALV-UjVJ8Strw93g2L49uX9DtEMZiOV1ryLELOcVnSLnIL3HI7fC6wHxAw=w80-h80-c-rp-mo-ba12-br100"
-                                    alt=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer"
-                                    style={{
-                                        width: '42px',
-                                        height: '42px',
-                                        borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        background: '#93c5ef',
-                                        flex: 'none',
-                                    }}
-                                />
+                                <span aria-hidden="true" style={{width:'42px',height:'42px',borderRadius:'50%',background:'#e8a838',flex:'none',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Montserrat', sans-serif",fontWeight:'700',fontSize:'16px',color:'#fff'}}>D</span>
                                 <span
                                     style={{
                                         display: 'grid',
