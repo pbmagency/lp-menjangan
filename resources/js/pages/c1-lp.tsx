@@ -66,6 +66,48 @@ details[open] .plus { transform: rotate(45deg); }
 .photo-grid img { height: auto !important; }
 .rev-grid > figure { background: #F5F5F8 !important; }
 .rev-grid figcaption img { background: #d7dbe3 !important; }
+.wa-popup {
+  position: fixed;
+  right: 18px;
+  bottom: 92px;
+  z-index: 81;
+  width: min(390px, calc(100vw - 36px));
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 22px 24px 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(39, 59, 106, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 16px 42px rgba(15, 26, 48, 0.28);
+  animation: wa-popup-in 0.3s ease-out;
+}
+.wa-popup-logo { width: 58px; height: 58px; object-fit: contain; }
+.wa-popup-title { display: block; padding-right: 22px; color: var(--ink); font-size: 17px; line-height: 1.3; }
+.wa-popup-copy { margin-top: 4px; color: var(--body); font-size: 15px; line-height: 1.5; }
+.wa-popup-link { display: inline-flex; margin-top: 12px; color: var(--cta-dark); font-size: 15px; font-weight: 800; text-decoration: none; }
+.wa-popup-link:hover { color: #3f9145; }
+.wa-popup-close {
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--brand-900);
+  color: #FFFFFF;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 5px 14px rgba(15, 26, 48, 0.25);
+}
+.wa-popup-close:focus-visible { outline: 3px solid var(--cta); outline-offset: 2px; }
+@keyframes wa-popup-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 @media (max-width: 900px) {
   .sec { padding: 56px 18px; }
   #page > header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 90 !important; }
@@ -87,6 +129,25 @@ details[open] .plus { transform: rotate(45deg); }
   .micro { font-size: 11px !important; }
   .cmp th, .cmp td { padding: 10px 8px !important; }
   .photo-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .wa-popup {
+    right: 12px;
+    bottom: 74px;
+    width: 280px;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+  .wa-popup-logo { width: 40px; height: 40px; }
+  .wa-popup-title { padding-right: 14px; font-size: 13px; }
+  .wa-popup-copy { margin-top: 3px; font-size: 12px; line-height: 1.4; }
+  .wa-popup-link { margin-top: 8px; font-size: 13px; }
+  .wa-popup-close { top: -11px; right: -5px; width: 30px; height: 30px; font-size: 19px; }
+  .wa-floating-button { right: 12px !important; bottom: 12px !important; width: 50px !important; height: 50px !important; }
+  .wa-floating-button svg { width: 26px !important; height: 26px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-popup { animation: none; }
 }`;
 
 const languageButtonStyle = (active: boolean): CSSProperties => ({
@@ -104,6 +165,7 @@ const languageButtonStyle = (active: boolean): CSSProperties => ({
 export default function C1LandingPage() {
     const [language, setLanguage] = useState<Language>('en');
     const [showBelowFold, setShowBelowFold] = useState(false);
+    const [showWhatsAppPopup, setShowWhatsAppPopup] = useState(false);
 
     useEffect(() => {
         const existingGtmScript = document.querySelector(
@@ -168,6 +230,14 @@ export default function C1LandingPage() {
     }, []);
 
     // ── Analytics + A/B Testing ───────────────────────────────────────────────
+    useEffect(() => {
+        const popupTimerId = window.setTimeout(() => {
+            setShowWhatsAppPopup(true);
+        }, 10000);
+
+        return () => window.clearTimeout(popupTimerId);
+    }, []);
+
     useEffect(() => {
         const page = window.location.pathname;
         const params = new URLSearchParams(window.location.search);
@@ -665,7 +735,8 @@ export default function C1LandingPage() {
                             }}
                         >
                             <span data-l="en">
-                                Snorkeling &amp; Diving at Menjangan Island
+                                Explore Best Snorkeling &amp; Diving Spots at
+                                Menjangan Island
                             </span>
                             <span data-l="id">
                                 Snorkeling &amp; Diving di Pulau Menjangan
@@ -680,9 +751,9 @@ export default function C1LandingPage() {
                             }}
                         >
                             <span data-l="en">
-                                Explore the crystal-clear water, vibrant coral
-                                reefs and tropical marine life with a trusted
-                                local team who knows the island.
+                                Float above turtles, marine life and coral
+                                gardens in the clearest water in Bali, with a
+                                trusted local team who knows the island.
                             </span>
                             <span data-l="id">
                                 Jelajahi air yang jernih, terumbu karang yang
@@ -747,7 +818,58 @@ export default function C1LandingPage() {
                     </Suspense>
                 )}
 
+                {showWhatsAppPopup && (
+                    <aside
+                        className="wa-popup"
+                        role="dialog"
+                        aria-label="WhatsApp assistance"
+                    >
+                        <button
+                            className="wa-popup-close"
+                            type="button"
+                            aria-label="Close WhatsApp popup"
+                            onClick={() => setShowWhatsAppPopup(false)}
+                        >
+                            &times;
+                        </button>
+                        <img
+                            className="wa-popup-logo"
+                            src="/c1/logo-menjangan-128.webp"
+                            alt=""
+                            width={58}
+                            height={58}
+                        />
+                        <div>
+                            <strong className="wa-popup-title">
+                                Menjangan Island Trip Team
+                            </strong>
+                            <p className="wa-popup-copy">
+                                <span data-l="en">
+                                    Still deciding, or have a question? Ask me
+                                    directly on WhatsApp.
+                                </span>
+                                <span data-l="id">
+                                    Masih mempertimbangkan atau punya pertanyaan?
+                                    Tanya langsung melalui WhatsApp.
+                                </span>
+                            </p>
+                            <a
+                                className="wa-popup-link"
+                                href="https://wa.me/6281238578042?text=Hello%2C%20I%20have%20a%20question%20about%20a%20Menjangan%20Island%20trip."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Chat on WhatsApp"
+                                onClick={() => setShowWhatsAppPopup(false)}
+                            >
+                                <span data-l="en">Reply now&nbsp;&rarr;</span>
+                                <span data-l="id">Balas sekarang&nbsp;&rarr;</span>
+                            </a>
+                        </div>
+                    </aside>
+                )}
+
                 <a
+                    className="wa-floating-button"
                     href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
                     target="_blank"
                     rel="noopener noreferrer"
