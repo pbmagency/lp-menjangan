@@ -106,6 +106,22 @@ export default function C1LandingPage() {
     const [showBelowFold, setShowBelowFold] = useState(false);
 
     useEffect(() => {
+        if (!(window as any).__gtmLoaded) {
+            (window as any).__gtmLoaded = true;
+            (function(w: any, d: any, s: string, l: string, i: string) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l !== 'dataLayer' ? '&l=' + l : '';
+                (j as any).async = true;
+                (j as any).src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode?.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-PP3LHJ7F');
+        }
+    }, []);
+
+    useEffect(() => {
         let revealed = false;
         let idleId: number | undefined;
 
@@ -390,6 +406,15 @@ export default function C1LandingPage() {
                 <style>{pageStyles}</style>
             </>
             <div id="page" data-lg={language}>
+                {/* Google Tag Manager (noscript) */}
+                <noscript>
+                    <iframe
+                        src="https://www.googletagmanager.com/ns.html?id=GTM-PP3LHJ7F"
+                        height="0"
+                        width="0"
+                        style={{ display: 'none', visibility: 'hidden' }}
+                    />
+                </noscript>
                 <header
                     style={{
                         background: '#FFFFFF',
