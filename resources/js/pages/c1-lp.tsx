@@ -106,7 +106,11 @@ export default function C1LandingPage() {
     const [showBelowFold, setShowBelowFold] = useState(false);
 
     useEffect(() => {
-        if (!(window as any).__gtmLoaded) {
+        const existingGtmScript = document.querySelector(
+            'script[src*="googletagmanager.com/gtm.js?id=GTM-PP3LHJ7F"]',
+        );
+
+        if (!existingGtmScript && !(window as any).__gtmLoaded) {
             (window as any).__gtmLoaded = true;
             (function(w: any, d: any, s: string, l: string, i: string) {
                 w[l] = w[l] || [];

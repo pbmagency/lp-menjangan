@@ -92,6 +92,13 @@ class SecurityHeaders
             ? "script-src 'self' 'nonce-{$nonce}' 'unsafe-eval'"
             : "script-src 'self' 'unsafe-inline'";
 
+        // script-src-elem overrides script-src for <script> elements. Keep the
+        // same nonce here so nonce-bearing inline bootstraps (GTM, analytics,
+        // and JSON-LD) are not blocked by the more specific directive.
+        $scriptElemSrc = $nonce !== ''
+            ? "script-src-elem 'self' 'nonce-{$nonce}' 'unsafe-eval'"
+            : "script-src-elem 'self' 'unsafe-inline'";
+
         $directives = [
             // Default: fall back to self
             "default-src 'self'",
@@ -111,7 +118,7 @@ class SecurityHeaders
                 .' https://static.cloudflareinsights.com https://cloudflareinsights.com'
                 .' https://unpkg.com',
 
-            "script-src-elem 'self' 'unsafe-eval'"
+            $scriptElemSrc
                 .' https://unpkg.com'
                 .' https://www.googletagmanager.com'
                 .' https://www.google-analytics.com'
