@@ -36,7 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json" nonce="{{ $cspNonce }}">
 {
-  "@context": "https://schema.org",
+  "@@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Menjangan Snorkeling Trip & Diving",
   "description": "Locally owned snorkeling and diving tour operator in Banyuwedang, West Bali. Licensed Diving Center with Jasa Raharja insurance.",
@@ -76,7 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <script type="application/ld+json" nonce="{{ $cspNonce }}">
 {
-  "@context": "https://schema.org",
+  "@@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
