@@ -182,6 +182,15 @@ export default function C1LandingPage() {
                     dl = l !== 'dataLayer' ? '&l=' + l : '';
                 (j as any).async = true;
                 (j as any).src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                const nonce = d.querySelector('[nonce]');
+                if (nonce) {
+                    j.setAttribute(
+                        'nonce',
+                        (nonce as HTMLScriptElement).nonce ||
+                            nonce.getAttribute('nonce') ||
+                            '',
+                    );
+                }
                 f.parentNode?.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', 'GTM-PP3LHJ7F');
         }

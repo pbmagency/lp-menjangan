@@ -118,9 +118,11 @@ class SecurityHeaders
                 .' https://static.cloudflareinsights.com https://cloudflareinsights.com'
                 .' https://unpkg.com',
 
+            // Preview mode loads resources from tagmanager.google.com.
             $scriptElemSrc
                 .' https://unpkg.com'
                 .' https://www.googletagmanager.com'
+                .' https://tagmanager.google.com'
                 .' https://www.google-analytics.com'
                 .' https://www.clarity.ms'
                 .' https://scripts.clarity.ms'
@@ -131,7 +133,7 @@ class SecurityHeaders
                 .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
 
             // Styles: self + inline (Tailwind generates inline styles via Radix)
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com",
 
             // Images: self + data: URIs + third-party avatars/logos/pixels
             // (Clarity beacons may redirect via c.bing.com; Google Ads user-list
@@ -140,6 +142,8 @@ class SecurityHeaders
                 .' https://menjanganislandtrip.com'
                 .' https://www.google-analytics.com'
                 .' https://www.googletagmanager.com'
+                .' https://ssl.gstatic.com'
+                .' https://www.gstatic.com'
                 .' https://*.clarity.ms'
                 .' https://*.bing.com'
                 .' https://*.doubleclick.net'
@@ -152,8 +156,8 @@ class SecurityHeaders
                 .' https://lh3.googleusercontent.com'
                 .' https://ui-avatars.com',
 
-            // Fonts: self-hosted Montserrat (no external font requests)
-            "font-src 'self' https://fonts.gstatic.com",
+            // Site fonts are self-hosted; Preview mode may also use data: fonts.
+            "font-src 'self' https://fonts.gstatic.com data:",
 
             // Connections: analytics endpoints
             "connect-src 'self'"
