@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import type { CSSProperties, MouseEvent } from 'react';
+import type { CSSProperties, MouseEvent as ReactMouseEvent } from 'react';
 
 type Language = 'en' | 'id';
 
@@ -197,44 +197,27 @@ export default function C1LandingPage() {
     }, []);
 
     useEffect(() => {
-        let revealed = false;
         let idleId: number | undefined;
-
-        const reveal = () => {
-            if (revealed) return;
-            revealed = true;
-            setShowBelowFold(true);
-        };
-        const revealOnIdle = () => {
+        const prepareBelowFold = () => {
+            // Download the large section before the visitor reaches it, but let
+            // the first hero paint finish before mounting its DOM.
+            void import('./c1-lp-below');
             if ('requestIdleCallback' in window) {
-                idleId = window.requestIdleCallback(reveal, { timeout: 1500 });
+                idleId = window.requestIdleCallback(() => setShowBelowFold(true), {
+                    timeout: 2000,
+                });
             } else {
-                reveal();
+                idleId = setTimeout(() => setShowBelowFold(true), 250) as unknown as number;
             }
         };
-        const timerId = window.setTimeout(revealOnIdle, 5000);
-        const events: Array<keyof WindowEventMap> = [
-            'wheel',
-            'touchstart',
-            'pointerdown',
-            'keydown',
-        ];
-
-        events.forEach((eventName) => {
-            window.addEventListener(eventName, reveal, {
-                once: true,
-                passive: true,
-            });
-        });
+        const timerId = window.setTimeout(prepareBelowFold, 100);
 
         return () => {
             window.clearTimeout(timerId);
-            if (idleId !== undefined && 'cancelIdleCallback' in window) {
-                window.cancelIdleCallback(idleId);
+            if (idleId !== undefined) {
+                if ('cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
+                else clearTimeout(idleId);
             }
-            events.forEach((eventName) => {
-                window.removeEventListener(eventName, reveal);
-            });
         };
     }, []);
 
@@ -408,7 +391,7 @@ export default function C1LandingPage() {
         // Boot everything on load
         const whenIdle = (fn: () => void) => {
             if ('requestIdleCallback' in window) window.requestIdleCallback(fn, { timeout: 3000 });
-            else window.setTimeout(fn, 1500);
+            else setTimeout(fn, 1500);
         };
 
         let dwellInterval: number | undefined;
@@ -429,7 +412,7 @@ export default function C1LandingPage() {
     }, []);
     // ── End Analytics + A/B Testing ───────────────────────────────────────────
 
-    const showMoreReviews = (event: MouseEvent<HTMLButtonElement>) => {
+    const showMoreReviews = (event: ReactMouseEvent<HTMLButtonElement>) => {
         const gridId = event.currentTarget.dataset.more;
 
         if (!gridId) {
