@@ -544,26 +544,26 @@ body { background: #FFFFFF; }
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
-#page > header { position: sticky !important; top: 0 !important; z-index: 70 !important; }
+#page > main > header { position: sticky !important; top: 0 !important; z-index: 70 !important; }
 @media (max-width: 900px) {
   #reviews.c1-reviews { padding: 76px 24px !important; }
   #reviews.c1-reviews h2 { font-size: 24px !important; }
   #reviews .cta { width: 100% !important; }
   #reviews .micro { font-size: 11px !important; }
-  #page > header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 90 !important; }
+  #page > main > header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; height: 60px !important; z-index: 90 !important; }
   #page { padding-top: 60px !important; }
-  #page > header > div { padding: 8px 14px !important; gap: 10px !important; }
-  #page > header img { height: 38px !important; }
-  #page > header .btn-primary { width: auto !important; flex: none !important; padding: 9px 11px !important; font-size: 11px !important; letter-spacing: 0 !important; white-space: nowrap !important; }
-  #page > header a[href*="wa.me"] span { display: none !important; }
-  #page > header a[href*="wa.me"]::after { content: "Book now"; font-family: var(--font-heading); font-weight: 700; }
-  #page > header img { height: 40px !important; }
-  #page > header .btn-primary svg { width: 15px !important; height: 15px !important; }
-  #page > header button { padding: 7px 9px !important; font-size: 11px !important; }
+  #page > main > header > div { height: 100% !important; width: 100% !important; padding: 8px 14px !important; gap: 10px !important; }
+  #page > main > header img { height: 38px !important; }
+  #page > main > header .btn-primary { width: auto !important; flex: none !important; padding: 9px 11px !important; font-size: 11px !important; letter-spacing: 0 !important; white-space: nowrap !important; }
+  #page > main > header a[href*="wa.me"] span { display: none !important; }
+  #page > main > header a[href*="wa.me"]::after { content: "Book now"; font-family: var(--font-heading); font-weight: 700; }
+  #page > main > header img { height: 40px !important; }
+  #page > main > header .btn-primary svg { width: 15px !important; height: 15px !important; }
+  #page > main > header button { padding: 7px 9px !important; font-size: 11px !important; }
 }
 @media (max-width: 380px) {
-  #page > header img { height: 32px !important; }
-  #page > header .btn-primary { padding: 9px 10px !important; font-size: 11px !important; }
+  #page > main > header img { height: 32px !important; }
+  #page > main > header .btn-primary { padding: 9px 10px !important; font-size: 11px !important; }
 }
 @media (max-width: 760px) and (orientation: landscape) {
   #top { min-height: 0 !important; }
@@ -604,7 +604,7 @@ body { background: #FFFFFF; }
   section[style*="padding: 56px 24px"] { padding: 48px 18px !important; }
   section[style*="padding: 52px 24px"] { padding: 44px 18px !important; }
 
-  #page section .btn-primary, #page div[style*="max-width: 1160px"] .btn-primary { width: 100%; justify-content: center; padding: 16px 18px !important; font-size: 16px !important; }
+  #page section .btn-primary, #page div[style*="max-width: 1160px"]:not(header *) .btn-primary { width: 100%; justify-content: center; padding: 16px 18px !important; font-size: 16px !important; }
 
   header { position: sticky !important; top: 0 !important; z-index: 60 !important; }
   header > div { padding: 8px 14px !important; gap: 10px !important; }
@@ -659,7 +659,8 @@ summary { list-style: none; }
 .lang-btn:not(.active) { background:transparent; color:var(--color-neutral-700, #555); }
 /* Skip layout/paint for below-the-fold blocks until they scroll into view -
    cuts initial layout cost dramatically on long landing pages. */
-#page > :not(header):not(section#top):not(a#whatsapp-button) {
+#page > main > section:not(#top),
+#page > footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
 }
@@ -781,7 +782,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     <h2 style="font-size: clamp(24px, 2.6vw, 32px); text-transform: uppercase; margin: 0"><span data-l="en">Three Ways to See Menjangan</span><span data-l="id">Tiga Cara Menikmati Menjangan</span></h2>
   </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; background: var(--color-neutral-300)">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 2px; background: var(--color-neutral-300)">
     <a href="#snorkeling" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
       <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the Menjangan wall" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="480" height="548">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
@@ -888,7 +889,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     </div>
   </section>
 
-    <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
+    <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
       <img src="{{ asset('uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp') }}" alt="Coral garden in clear shallow water" loading="lazy" decoding="async" width="500" height="500" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Coral garden · inside the national park</span><span data-l="id">Coral garden · di dalam taman nasional</span></div>
@@ -1006,7 +1007,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     </div>
   </section>
 
-    <section id="scuba-diving" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
+    <section id="scuba-diving" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
      <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
       <div>
         <div style="display: inline-flex; align-items: center; gap: 12px; background: var(--color-accent-700); padding: 10px 16px; margin-bottom: 18px">
@@ -1127,7 +1128,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     </div>
   </section>
 
-    <section id="try-scuba" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
+    <section id="try-scuba" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 620px; overflow: hidden">
       <img src="{{ asset('uploads/try_scuba/_1310850.webp') }}" alt="Shallow reef in clear water" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="800" height="535">
       <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Beginner dives · 3–5 m · instructor beside you</span><span data-l="id">Dive pemula · 3–5 m · instruktur mendampingi</span></div>
@@ -1244,7 +1245,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   </section>
 
     <section id="itinerary" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 44px">
+    <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 44px">
       <div>
         <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">How the day runs</span><span data-l="id">Alur hari trip</span></div>
         <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 22ch; margin: 0 0 16px"><span data-l="en">The Itinerary, Start to Finish</span><span data-l="id">Itinerary, dari Awal sampai Selesai</span></h2>
@@ -1282,7 +1283,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 12px"><span data-l="en">Why us</span><span data-l="id">Kenapa kami</span></div>
         <h2 style="font-size: clamp(26px, 3vw, 38px); text-transform: uppercase; margin: 0 auto; max-width: 26ch"><span data-l="en">Why Choose Menjangan Island Trip?</span><span data-l="id">Kenapa Memilih Menjangan Island Trip?</span></h2>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px">
         <div style="position: relative; padding: 30px 24px 28px; background: #FFFFFF; border: 1px solid var(--color-divider); border-top: 3px solid var(--color-accent-500)">
           <span style="position: absolute; top: 14px; right: 18px; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-500)">01</span>
           <span style="display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-accent-100); color: var(--color-accent-700); margin-bottom: 18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M8 13l4 4 4-4"></path></svg></span>
@@ -1421,7 +1422,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
     
 
-    <section id="about-us" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); border-top: 1px solid var(--color-divider)">
+    <section id="about-us" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); border-top: 1px solid var(--color-divider)">
     <div style="position: relative; min-height: 460px; display: grid; place-items: center; padding: 36px; background: radial-gradient(circle at 50% 45%, var(--color-accent-100) 0%, #ffffff 72%)">
       <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" decoding="async" style="width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 40px rgba(15, 26, 48, 0.22))" width="884" height="640">
     </div>
@@ -1478,7 +1479,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           </div>
         </div>
       </div>
-      <div id="ta-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px">
+      <div id="ta-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; margin-bottom: 30px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
             <img src="/testimoni1/fanny-s.webp" width="42" height="42" alt="Fanni S" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
@@ -1571,7 +1572,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           </div>
         </div>
       </div>
-      <div id="g-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+      <div id="g-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
         <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
           <figcaption style="display: flex; align-items: center; gap: 12px">
             <img src="/testimoni1/elin%20giorgina.webp" width="42" height="42" alt="Elin Georgina-Davies" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
@@ -1872,7 +1873,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   </main>
 
   <footer style="padding: 60px 24px 96px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
+    <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 32px">
       <div>
         <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="128" height="128" style="height: 88px; width: auto; margin-bottom: 14px">
         <div style="font-family: var(--font-heading); font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-accent-700)">Menjangan Snorkeling Trip &amp; Diving</div>

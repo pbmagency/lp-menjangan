@@ -7,7 +7,7 @@ const vm = require('node:vm');
 const blade = fs.readFileSync(path.join(__dirname, '../resources/views/landing.blade.php'), 'utf8');
 const script = blade.match(/<script nonce="\{\{ \$cspNonce \}\}">([\s\S]*?)<\/script>/)[1];
 
-function run(search, stored, href) {
+function run(search, stored, href, storageBlocked = false) {
   const events = {};
   const values = new Map(stored ? [['gclid', stored]] : []);
   const link = { href };
@@ -17,8 +17,8 @@ function run(search, stored, href) {
   };
   const window = { location: { search, href: `https://example.com/${search}` } };
   const localStorage = {
-    getItem(key) { return values.get(key) || null; },
-    setItem(key, value) { values.set(key, value); },
+    getItem(key) { if (storageBlocked) throw new Error('Storage blocked'); return values.get(key) || null; },
+    setItem(key, value) { if (storageBlocked) throw new Error('Storage blocked'); values.set(key, value); },
   };
 
   vm.runInNewContext(script, { document, window, localStorage, URL, URLSearchParams });
@@ -51,4 +51,21 @@ test('a visit without a known GCLID keeps the original message', () => {
   const { events, link } = run('', null, wa);
   assert.equal(events.click, undefined);
   assert.equal(link.href, wa);
+});
+
+test('a first ad click still works when browser storage is blocked', () => {
+  const { events, link } = run('?gclid=TEST_123', null, wa, true);
+  events.click({ target: { closest: () => link } });
+  assert.match(new URL(link.href).searchParams.get('text'), /^\[ID: TEST_123\]/);
+});
+
+test('every WhatsApp link on the landing page receives the reference', () => {
+  const hrefs = [...blade.matchAll(/href="(https:\/\/wa\.me\/[^"<>]+)"/g)].map((match) => match[1]);
+  assert.ok(hrefs.length > 10);
+
+  for (const href of hrefs) {
+    const { events, link } = run('?gclid=TEST_123', null, href);
+    events.DOMContentLoaded();
+    assert.match(new URL(link.href).searchParams.get('text'), /^\[ID: TEST_123\]/);
+  }
 });
