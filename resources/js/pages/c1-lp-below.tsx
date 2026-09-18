@@ -357,7 +357,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20a%20straight%20answer%20on%20price%20and%20availability%20for%20Menjangan%20Island."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20a%20straight%20answer%20on%20price%20and%20availability%20for%20Menjangan%20Island."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -588,7 +588,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                         >
                             <a
                                 className="cta"
-                                href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20the%20price%20and%20availability%20for%20a%20Menjangan%20Island%20trip."
+                                href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20the%20price%20and%20availability%20for%20a%20Menjangan%20Island%20trip."
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -1572,7 +1572,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20the%20Snorkeling%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Snorkeling%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -2019,7 +2019,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20the%20Scuba%20Diving%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Scuba%20Diving%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -2526,7 +2526,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20the%20Try%20Scuba%20Diving%20experience%20at%20Menjangan.%20Please%20send%20me%20the%20price%20and%20availability."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Try%20Scuba%20Diving%20experience%20at%20Menjangan.%20Please%20send%20me%20the%20price%20and%20availability."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -3170,7 +3170,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -3739,7 +3739,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip%20with%20everything%20included."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip%20with%20everything%20included."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -3862,7 +3862,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20Menjangan%20Island%20trip."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20Menjangan%20Island%20trip."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -6732,7 +6732,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20read%20your%20reviews%20and%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20read%20your%20reviews%20and%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -6926,7 +6926,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                         >
                             <a
                                 className="cta"
-                                href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20with%20your%20local%20team%20at%20Menjangan."
+                                href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20with%20your%20local%20team%20at%20Menjangan."
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -7144,7 +7144,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20start%20step%201%20and%20book%20a%20Menjangan%20Island%20trip."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20start%20step%201%20and%20book%20a%20Menjangan%20Island%20trip."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -7700,7 +7700,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20have%20a%20question%20about%20the%20Menjangan%20Island%20trip."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20have%20a%20question%20about%20the%20Menjangan%20Island%20trip."
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -7821,7 +7821,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                     >
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -7916,7 +7916,7 @@ export default function C1BelowFold({ showMoreReviews }: C1BelowFoldProps) {
                             }}
                         >
                             <a
-                                href="https://wa.me/6281238578042"
+                                href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20have%20a%20question%20about%20Menjangan%20Island%20trips."
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

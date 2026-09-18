@@ -555,7 +555,7 @@ export default function C1LandingPage() {
                         </div>
                         <a
                             className="cta"
-                            href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
+                            href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Book via WhatsApp"
@@ -780,7 +780,7 @@ export default function C1LandingPage() {
                         >
                             <a
                                 className="cta"
-                                href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                                href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -864,7 +864,7 @@ export default function C1LandingPage() {
                             </p>
                             <a
                                 className="wa-popup-link"
-                                href="https://wa.me/6281238578042?text=Hello%2C%20I%20have%20a%20question%20about%20a%20Menjangan%20Island%20trip."
+                                href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20have%20a%20question%20about%20a%20Menjangan%20Island%20trip."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Chat on WhatsApp"
@@ -879,7 +879,7 @@ export default function C1LandingPage() {
 
                 <a
                     className="wa-floating-button"
-                    href="https://wa.me/6281238578042?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
+                    href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Chat on WhatsApp"

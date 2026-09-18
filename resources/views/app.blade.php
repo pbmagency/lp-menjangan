@@ -2,6 +2,54 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
 
 <head>
+    @if(request()->is('c1-lp'))
+    <script nonce="{{ $cspNonce }}">
+    (function () {
+        var note = 'Penting! Kode referensi di atas jangan dihapus';
+        var current = new URLSearchParams(window.location.search).get('gclid');
+        var valid = function (value) {
+            return typeof value === 'string' && value.length > 0 && value.length <= 2048 && !/[\s\x00-\x1f]/.test(value);
+        };
+        var gclid = valid(current) ? current : null;
+
+        try {
+            if (gclid) localStorage.setItem('gclid', gclid);
+            else {
+                var stored = localStorage.getItem('gclid');
+                if (valid(stored)) gclid = stored;
+            }
+        } catch (error) {
+            // The URL value still works when browser storage is unavailable.
+        }
+
+        if (!gclid) return;
+
+        function addReference(link) {
+            var url;
+            try { url = new URL(link.href, window.location.href); } catch (error) { return; }
+            if (url.hostname !== 'wa.me' && url.hostname !== 'api.whatsapp.com' && url.hostname !== 'wa.link') return;
+
+            var message = url.searchParams.get('text') || '';
+            var reference = '[ID: ' + gclid + ']';
+            if (message.indexOf(reference) !== -1) return;
+
+            message = message.replace(/^\[ID:[^\]\r\n]*\]\s*/, '').replace(/^Penting! Kode referensi di atas jangan dihapus\s*/, '');
+            url.searchParams.set('text', reference + '\n\n' + note + '\n\n' + message);
+            link.href = url.toString();
+        }
+
+        // Capture clicks so React links added after page load also receive the reference.
+        document.addEventListener('click', function (event) {
+            var link = event.target.closest && event.target.closest('a[href]');
+            if (link) addReference(link);
+        }, true);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href]').forEach(addReference);
+        }, { once: true });
+    })();
+    </script>
+    @endif
     <!-- Google Tag Manager -->
     <script nonce="{{ $cspNonce }}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

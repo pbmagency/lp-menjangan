@@ -6,8 +6,10 @@ const vm = require('node:vm');
 
 const blade = fs.readFileSync(path.join(__dirname, '../resources/views/landing.blade.php'), 'utf8');
 const script = blade.match(/<script nonce="\{\{ \$cspNonce \}\}">([\s\S]*?)<\/script>/)[1];
+const appBlade = fs.readFileSync(path.join(__dirname, '../resources/views/app.blade.php'), 'utf8');
+const c1Script = appBlade.match(/<script nonce="\{\{ \$cspNonce \}\}">([\s\S]*?)<\/script>/)[1];
 
-function run(search, stored, href, storageBlocked = false) {
+function run(search, stored, href, storageBlocked = false, source = script) {
   const events = {};
   const values = new Map(stored ? [['gclid', stored]] : []);
   const link = { href };
@@ -21,7 +23,7 @@ function run(search, stored, href, storageBlocked = false) {
     setItem(key, value) { if (storageBlocked) throw new Error('Storage blocked'); values.set(key, value); },
   };
 
-  vm.runInNewContext(script, { document, window, localStorage, URL, URLSearchParams });
+  vm.runInNewContext(source, { document, window, localStorage, URL, URLSearchParams });
   return { events, link, values };
 }
 
@@ -67,5 +69,20 @@ test('every WhatsApp link on the landing page receives the reference', () => {
     const { events, link } = run('?gclid=TEST_123', null, href);
     events.DOMContentLoaded();
     assert.match(new URL(link.href).searchParams.get('text'), /^\[ID: TEST_123\]/);
+  }
+});
+
+test('c1-lp WhatsApp links include (uc) and receive the GCLID reference', () => {
+  const pages = ['c1-lp.tsx', 'c1-lp-below.tsx'].map((name) =>
+    fs.readFileSync(path.join(__dirname, '../resources/js/Pages', name), 'utf8')
+  );
+  const hrefs = pages.flatMap((page) => [...page.matchAll(/href="(https:\/\/wa\.me\/[^"<>]+)"/g)].map((match) => match[1]));
+  assert.ok(hrefs.length > 10);
+
+  for (const href of hrefs) {
+    assert.match(new URL(href).searchParams.get('text'), /^\(uc\) /);
+    const { events, link } = run('?gclid=TEST_123', null, href, false, c1Script);
+    events.click({ target: { closest: () => link } });
+    assert.match(new URL(link.href).searchParams.get('text'), /^\[ID: TEST_123\]\n\nPenting! Kode referensi di atas jangan dihapus\n\n\(uc\) /);
   }
 });
