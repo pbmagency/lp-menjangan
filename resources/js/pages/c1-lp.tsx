@@ -71,34 +71,34 @@ details[open] .plus { transform: rotate(45deg); }
   right: 18px;
   bottom: 92px;
   z-index: 81;
-  width: min(390px, calc(100vw - 36px));
+  width: min(320px, calc(100vw - 36px));
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 12px;
   align-items: start;
-  padding: 22px 24px 20px;
+  padding: 18px 20px 16px;
   background: #FFFFFF;
   border: 1px solid rgba(39, 59, 106, 0.1);
-  border-radius: 18px;
+  border-radius: 14px;
   box-shadow: 0 16px 42px rgba(15, 26, 48, 0.28);
   animation: wa-popup-in 0.3s ease-out;
 }
-.wa-popup-logo { width: 58px; height: 58px; object-fit: contain; }
-.wa-popup-title { display: block; padding-right: 22px; color: var(--ink); font-size: 17px; line-height: 1.3; }
-.wa-popup-copy { margin-top: 4px; color: var(--body); font-size: 15px; line-height: 1.5; }
-.wa-popup-link { display: inline-flex; margin-top: 12px; color: var(--cta-dark); font-size: 15px; font-weight: 800; text-decoration: none; }
+.wa-popup-logo { width: 48px; height: 48px; object-fit: contain; }
+.wa-popup-title { display: block; padding-right: 22px; color: var(--ink); font-size: 15px; line-height: 1.3; }
+.wa-popup-copy { margin-top: 4px; color: var(--body); font-size: 14px; line-height: 1.4; }
+.wa-popup-link { display: inline-flex; margin-top: 10px; color: var(--cta-dark); font-size: 14px; font-weight: 800; text-decoration: none; }
 .wa-popup-link:hover { color: #3f9145; }
 .wa-popup-close {
   position: absolute;
-  top: -12px;
+  top: -10px;
   right: -8px;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border: 0;
   border-radius: 50%;
   background: var(--brand-900);
   color: #FFFFFF;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1;
   cursor: pointer;
   box-shadow: 0 5px 14px rgba(15, 26, 48, 0.25);
