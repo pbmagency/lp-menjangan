@@ -186,7 +186,7 @@ n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertB
 }
 </style>
 <link rel="preload" href="{{ asset('fonts/montserrat-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="{{ asset('hero-snorkeling-800.webp') }}" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="{{ asset('new/hero.webp') }}" type="image/webp" fetchpriority="high">
 <style>
 /* Industry — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
 
@@ -657,12 +657,479 @@ summary { list-style: none; }
 .lang-btn { cursor:pointer; border:0; padding:8px 12px; font-size:13px; letter-spacing:0.06em; font-family:var(--font-heading); font-weight:600; }
 .lang-btn.active { background:var(--color-accent); color:var(--color-bg); }
 .lang-btn:not(.active) { background:transparent; color:var(--color-neutral-700, #555); }
-/* Skip layout/paint for below-the-fold blocks until they scroll into view -
-   cuts initial layout cost dramatically on long landing pages. */
-#page > main > section:not(#top),
-#page > footer {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
+/* Hero section specific styling */
+.hero-wrapper {
+  position: relative;
+  min-height: min(82vh, 660px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 20, 38, 0.94) 0%, rgba(8, 20, 38, 0.82) 42%, rgba(8, 20, 38, 0.35) 72%, rgba(8, 20, 38, 0.05) 100%);
+}
+.hero-content {
+  position: relative;
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 24px 64px;
+}
+.hero-title {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(38px, 5.2vw, 68px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+.hero-subtitle {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+.hero-desc {
+  max-width: 480px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 24px 0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: #ffffff !important;
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.hero-cta-btn:hover {
+  background: #20bd5a;
+  transform: translateY(-1px);
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #a7f3d0;
+  margin-top: 14px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: center;
+  align-items: start;
+}
+.photo-slider-wrapper {
+  background: #ffffff;
+  padding: 8px 0 36px 0;
+  overflow: hidden;
+  position: relative;
+}
+.photo-slider-track {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  animation: photoMarquee 30s linear infinite;
+  will-change: transform;
+}
+.photo-slider-track:hover {
+  animation-play-state: paused;
+}
+.photo-slider-list {
+  display: flex;
+  gap: 12px;
+}
+.photo-slider-item {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 220px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(15, 26, 48, 0.08);
+}
+.photo-slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.photo-slider-item:hover img {
+  transform: scale(1.04);
+}
+@keyframes photoMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+@media (max-width: 768px) {
+  .hero-wrapper {
+    min-height: auto;
+  }
+  .hero-content {
+    padding: 60px 20px 48px;
+  }
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(8, 20, 38, 0.92) 0%, rgba(8, 20, 38, 0.85) 60%, rgba(8, 20, 38, 0.5) 100%) !important;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .photo-slider-item {
+    width: 250px;
+    height: 170px;
+  }
+}
+
+/* Review Cards Carousel */
+.rev-carousel-container {
+  position: relative;
+  width: 100%;
+}
+.rev-cards-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 12px 6px 18px;
+}
+.rev-cards-track::-webkit-scrollbar {
+  display: none;
+}
+.rev-card-item {
+  flex: 0 0 calc(25% - 12px);
+  min-width: 260px;
+  max-width: 320px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 18px;
+  box-shadow: 0 3px 12px rgba(15, 26, 48, 0.07);
+  border: 1px solid rgba(15, 26, 48, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+.rev-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.rev-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.rev-user-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+.rev-user-name {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rev-user-date {
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+.rev-google-icon {
+  flex-shrink: 0;
+}
+.rev-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.rev-stars {
+  color: #f59e0b;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.rev-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #334155;
+  margin: 0 0 12px 0;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.rev-read-more {
+  font-size: 12px;
+  color: #94a3b8;
+  text-decoration: none;
+  align-self: flex-start;
+  font-weight: 500;
+}
+.rev-read-more:hover {
+  color: #3b82f6;
+}
+.rev-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(15, 26, 48, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  color: #475569;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.15s, transform 0.15s;
+}
+.rev-arrow-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  transform: translateY(-50%) scale(1.06);
+}
+.rev-arrow-prev {
+  left: -16px;
+}
+.rev-arrow-next {
+  right: -16px;
+}
+@media (max-width: 900px) {
+  .rev-card-item {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 240px;
+  }
+  .rev-arrow-prev { left: -8px; }
+  .rev-arrow-next { right: -8px; }
+}
+.snorkeling-grid-section {
+  padding: 64px 24px 72px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--color-divider);
+}
+.snorkeling-split-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.snorkeling-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.snorkeling-gallery-item {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(15, 26, 48, 0.08);
+}
+.snorkeling-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.snorkeling-gallery-item:hover img {
+  transform: scale(1.04);
+}
+.trip-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #334155;
+  margin-bottom: 12px;
+}
+.trip-check-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: #2563eb;
+  margin-top: 3px;
+}
+.trip-tag-pill {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin: 0 6px 8px 0;
+}
+@media (max-width: 900px) {
+  .snorkeling-split-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+@media (max-width: 860px) {
+  .about-us-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+    text-align: center;
+  }
+  .about-pills {
+    justify-content: center;
+  }
+}
+@media (max-width: 500px) {
+  .snorkeling-gallery-grid {
+    gap: 6px;
+  }
+  .snorkeling-gallery-item {
+    border-radius: 6px;
+  }
+}
+.ta-cards-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 4px 20px;
+}
+.ta-cards-track::-webkit-scrollbar {
+  display: none;
+}
+.ta-card-item {
+  flex: 0 0 calc(25% - 12px);
+  min-width: 250px;
+  max-width: 285px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px 20px;
+  box-shadow: 0 3px 14px rgba(15, 26, 48, 0.05);
+  border: 1px solid rgba(15, 26, 48, 0.06);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+@media (max-width: 1024px) {
+  .ta-card-item {
+    flex: 0 0 calc(33.333% - 11px);
+    min-width: 240px;
+  }
+}
+@media (max-width: 768px) {
+  .ta-card-item {
+    flex: 0 0 calc(50% - 8px);
+    min-width: 230px;
+  }
+}
+@media (max-width: 520px) {
+  .ta-card-item {
+    flex: 0 0 85%;
+    min-width: 220px;
+  }
+}
+.faq-accordion-item {
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+.faq-accordion-item[open] {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.06);
+}
+.faq-accordion-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #0f274a;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.faq-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+.faq-accordion-icon {
+  font-family: system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #2563eb;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.faq-accordion-item[open] .faq-accordion-icon {
+  transform: rotate(45deg);
+}
+.faq-accordion-body {
+  padding: 0 22px 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
 }
 </style>
 <script nonce="{{ $cspNonce }}">
@@ -689,6 +1156,64 @@ function bindReviewButtons() {
     });
   });
 }
+function initReviewCarousel() {
+  var track = document.getElementById('rev-cards-carousel');
+  var prevBtn = document.getElementById('rev-prev-btn');
+  var nextBtn = document.getElementById('rev-next-btn');
+  if (!track || !prevBtn || !nextBtn) return;
+
+  function updateArrows() {
+    prevBtn.style.opacity = track.scrollLeft <= 10 ? '0.35' : '1';
+    prevBtn.style.pointerEvents = track.scrollLeft <= 10 ? 'none' : 'auto';
+    var maxScroll = track.scrollWidth - track.clientWidth - 10;
+    nextBtn.style.opacity = track.scrollLeft >= maxScroll ? '0.35' : '1';
+    nextBtn.style.pointerEvents = track.scrollLeft >= maxScroll ? 'none' : 'auto';
+  }
+
+  prevBtn.addEventListener('click', function() {
+    var card = track.querySelector('.rev-card-item');
+    var scrollWidth = card ? (card.offsetWidth + 16) * 2 : 300;
+    track.scrollBy({ left: -scrollWidth, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', function() {
+    var card = track.querySelector('.rev-card-item');
+    var scrollWidth = card ? (card.offsetWidth + 16) * 2 : 300;
+    track.scrollBy({ left: scrollWidth, behavior: 'smooth' });
+  });
+
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows();
+}
+function initTaReviewCarousel() {
+  var track = document.getElementById('ta-cards-carousel');
+  var prevBtn = document.getElementById('ta-prev-btn');
+  var nextBtn = document.getElementById('ta-next-btn');
+  if (!track || !prevBtn || !nextBtn) return;
+
+  function updateArrows() {
+    prevBtn.style.opacity = track.scrollLeft <= 10 ? '0.35' : '1';
+    prevBtn.style.pointerEvents = track.scrollLeft <= 10 ? 'none' : 'auto';
+    var maxScroll = track.scrollWidth - track.clientWidth - 10;
+    nextBtn.style.opacity = track.scrollLeft >= maxScroll ? '0.35' : '1';
+    nextBtn.style.pointerEvents = track.scrollLeft >= maxScroll ? 'none' : 'auto';
+  }
+
+  prevBtn.addEventListener('click', function() {
+    var card = track.querySelector('.ta-card-item');
+    var scrollWidth = card ? (card.offsetWidth + 16) * 2 : 300;
+    track.scrollBy({ left: -scrollWidth, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', function() {
+    var card = track.querySelector('.ta-card-item');
+    var scrollWidth = card ? (card.offsetWidth + 16) * 2 : 300;
+    track.scrollBy({ left: scrollWidth, behavior: 'smooth' });
+  });
+
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows();
+}
 function loadMarketingScripts() {
   if (window.__marketingLoaded) return;
   window.__marketingLoaded = true;
@@ -701,6 +1226,8 @@ function loadMarketingScripts() {
 function initPageScripts() {
   bindLangButtons();
   bindReviewButtons();
+  initReviewCarousel();
+  initTaReviewCarousel();
   loadMarketingScripts();
 }
 if (document.readyState === 'loading') {
@@ -734,1170 +1261,1568 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </a>
     </div>
   </header>
-  <section id="top" style="position: relative; min-height: min(78vh, 680px); display: grid; align-items: center; overflow: hidden">
-    <img fetchpriority="high" src="{{ asset('hero-snorkeling.webp') }}" srcset="{{ asset('hero-snorkeling-480.webp') }} 480w, {{ asset('hero-snorkeling-800.webp') }} 800w, {{ asset('hero-snorkeling.webp') }} 1200w" sizes="100vw" alt="Menjangan Island and its reef from the air" width="1200" height="799" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
-    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent-900) 62%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 34%, transparent) 34%, color-mix(in srgb, var(--color-accent-900) 82%, transparent) 68%, color-mix(in srgb, var(--color-accent-900) 94%, transparent) 100%)"></div>
-    <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 84px 24px 56px; color: var(--color-bg)">
-      <div style="display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; border-width: 1px; border-style: solid; border-color: var(--color-bg)">
-        <span style="color: #FFC107; font-size: 13px; letter-spacing: 1px">★★★★★</span>
-        <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #17233f"><span data-l="en" style="color: var(--color-bg)">1.150+ five-star reviews</span><span data-l="id" style="color: var(--color-bg)">1.150+ ulasan bintang 5</span></span>
-        <span style="display: flex; align-items: center">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w40-h40-c-rp-mo-br100" alt="" loading="lazy" decoding="async" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none" width="24" height="24">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w40-h40-c-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
-          <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w40-h40-c-rp-mo-br100" alt="" loading="lazy" decoding="async" style="width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ffffff; object-fit: cover; flex: none; margin-left: -8px" width="24" height="24">
-        </span>
-      </div>
-       <h1 style="font-size: clamp(32px, 4.6vw, 60px); line-height: 1.02; text-transform: uppercase; color: #ffffff; max-width: 22ch; margin: 0 0 16px; text-shadow: 0 2px 18px rgba(15, 26, 48, 0.55)">
-        <span data-l="en">Snorkeling &amp; Diving at Menjangan Island</span><span data-l="id">Snorkeling &amp; Diving di Pulau Menjangan</span>
+  <section id="top" class="hero-wrapper">
+    <img fetchpriority="high" src="{{ asset('new/hero.webp') }}" alt="Menjangan Island Tour aerial view" class="hero-bg-img" width="1400" height="933">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span data-l="en">MENJANGAN<br>ISLAND TOUR</span>
+        <span data-l="id">MENJANGAN<br>ISLAND TOUR</span>
       </h1>
-      <p data-l="en" style="max-width: 50ch; font-size: 16px; line-height: 1.6; color: #ffffff; text-shadow: 0 1px 12px rgba(15, 26, 48, 0.5)">Explore the crystal-clear water, vibrant coral reefs and tropical marine life with a trusted local team who knows the island.</p>
-      <p data-l="id" style="max-width: 50ch; font-size: 16px; line-height: 1.6; color: #ffffff; text-shadow: 0 1px 12px rgba(15, 26, 48, 0.5)">Jelajahi perairan sebening kristal, terumbu karang yang hidup, dan biota laut tropis bersama tim lokal tepercaya yang mengenal pulau ini.</p>
-      <div style="display: grid; justify-items: start; gap: 12px; margin: 24px 0 22px">
-        <a id="btn-nav-wa" class="btn btn-primary" href="#snorkeling" style="padding: 14px 24px; font-size: 15px">
-          <span data-l="en">View Trip Packages</span><span data-l="id">Lihat Pilihan Paket</span>
+      <h2 class="hero-subtitle">
+        <span data-l="en">Snorkeling &amp; Diving in West Bali National Park</span>
+        <span data-l="id">Snorkeling &amp; Diving di Taman Nasional Bali Barat</span>
+      </h2>
+      <p class="hero-desc">
+        <span data-l="en">Daily departures from Banyuwedang Harbour. Small groups, local guides in the water with you, and everything included.</span>
+        <span data-l="id">Keberangkatan setiap hari dari Pelabuhan Banyuwedang. Grup kecil, pemandu lokal mendampingi di air, dan semua kebutuhan sudah termasuk.</span>
+      </p>
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+        <a id="btn-hero-wa-main" class="hero-cta-btn" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island." target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="#ffffff" width="19" height="19" aria-hidden="true" style="flex-shrink: 0;">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"/>
+          </svg>
+          <span data-l="en">Book via WhatsApp Now</span>
+          <span data-l="id">Booking via WhatsApp Sekarang</span>
         </a>
-        <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-size: 12px; color: color-mix(in srgb, var(--color-bg) 86%, transparent)">
-          <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-          <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-        </span>
-        
-      </div>
-      
-    </div>
-  </section>
-
-  <div style="border-bottom: 1px solid var(--color-divider); background: #FFFFFF; padding: 26px 24px">
-    <blockquote style="margin: 0 auto; max-width: 900px; display: flex; align-items: flex-start; gap: 14px">
-      <span style="font-family: var(--font-heading); font-weight: 800; font-size: 38px; line-height: 0.8; color: var(--color-accent-700); flex: none">“</span>
-      <span style="font-size: 15px; line-height: 1.6; color: var(--color-neutral-800)">
-        <span data-l="en">Menjangan Snorkeling Trip &amp; Diving is the only locally owned tour operator in Banyuwedang with an officially licensed Diving Center permit and Jasa Raharja insurance coverage.</span>
-        <span data-l="id">Menjangan Snorkeling Trip &amp; Diving adalah satu-satunya operator tur milik warga lokal di Banyuwedang yang memiliki izin Diving Center resmi dan perlindungan asuransi Jasa Raharja.</span>
-      </span>
-    </blockquote>
-  </div>
-
-    <div style="max-width: 1160px; margin: 0 auto; padding: 44px 24px 22px; text-align: center">
-    <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 10px"><span data-l="en">Step 1: choose your trip</span><span data-l="id">Langkah 1: pilih trip Anda</span></div>
-    <h2 style="font-size: clamp(24px, 2.6vw, 32px); text-transform: uppercase; margin: 0"><span data-l="en">Three Ways to See Menjangan</span><span data-l="id">Tiga Cara Menikmati Menjangan</span></h2>
-  </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 2px; background: var(--color-neutral-300)">
-    <a href="#snorkeling" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/wp/GOPR9548-scaled-1.webp') }}" alt="Diver along the Menjangan wall" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="480" height="548">
-      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
-        <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">01</div>
-        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Snorkeling</div>
-        <div style="font-size: 14px; opacity: 0.85"><span data-l="en">Two reef points · all levels · ± 4 hours</span><span data-l="id">Dua titik reef · semua level · ± 4 jam</span></div>
-      </div>
-    </a>
-    <a href="#scuba-diving" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/scuba/new_scuba.webp') }}" alt="Scuba Diving at Menjangan" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="500" height="334">
-      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
-        <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">02</div>
-        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Scuba Diving</div>
-        <div style="font-size: 14px; opacity: 0.85"><span data-l="en">11 dive sites · to 25 m · certified divers</span><span data-l="id">11 dive site · hingga 25 m · bersertifikasi</span></div>
-      </div>
-    </a>
-    <a href="#try-scuba" style="position: relative; display: block; height: 320px; overflow: hidden; text-decoration: none">
-      <img src="{{ asset('uploads/try_scuba/new_try_scuba.webp') }}" alt="Try Scuba Diving at Menjangan" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="480" height="549">
-      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-accent-900) 85%, transparent) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; color: var(--color-bg)">
-        <div style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">03</div>
-        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 28px; text-transform: uppercase; line-height: 1.05">Try Scuba Diving</div>
-        <div style="font-size: 14px; opacity: 0.85"><span data-l="en">No certification · 3–5 m · instructor beside you</span><span data-l="id">Tanpa sertifikasi · 3–5 m · didampingi instruktur</span></div>
-      </div>
-    </a>
-  </div>
-
-    <section id="trust-bar" style="padding: 26px 24px; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); background: var(--color-accent-100)">
-    <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 28px">
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-accent-800)">
-        <span style="color: #70CE74; font-weight: 800; font-size: 17px">✓</span>
-        <span><span data-l="en">Licensed West Bali National Park operator</span><span data-l="id">Operator resmi Taman Nasional Bali Barat</span></span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-accent-800)">
-        <span style="color: #70CE74; font-weight: 800; font-size: 17px">✓</span>
-        <span><span data-l="en">Official insurance for every guest</span><span data-l="id">Asuransi resmi untuk setiap tamu</span></span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-accent-800)">
-        <span style="color: #70CE74; font-weight: 800; font-size: 17px">✓</span>
-        <span><span data-l="en">Maximum 10 guests per boat</span><span data-l="id">Maksimal 10 tamu per boat</span></span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-accent-800)">
-        <span style="color: #70CE74; font-weight: 800; font-size: 17px">✓</span>
-        <span><span data-l="en">1.150+ five-star guest reviews</span><span data-l="id">1.150+ ulasan tamu bintang 5</span></span>
-      </div>
-    </div>
-  </section>
-
-    <section id="review-summary" style="padding: 56px 24px 60px">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 22px">
-        <span style="color: #FFC107; font-size: 20px; letter-spacing: 2px">★★★★★</span>
-        <span style="font-family: var(--font-heading); font-weight: 700; font-size: 16px"><span data-l="en">958 reviews on Google · 193 on Tripadvisor</span><span data-l="id">958 ulasan di Google · 193 di Tripadvisor</span></span>
-        <a href="#reviews" style="font-size: 14px; color: var(--color-accent-700); margin-left: auto"><span data-l="en">Read all reviews ↓</span><span data-l="id">Baca semua ulasan ↓</span></a>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px">
-        <figure style="margin: 0; padding: 20px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 10px; display: grid; gap: 10px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span style="width: 38px; height: 38px; flex: none; border-radius: 50%; background: #7fb3e8; color: #ffffff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 15px">B</span>
-            <span style="display: grid">
-              <span style="font-family: var(--font-heading); font-weight: 700; font-size: 14px">Belle Weerts</span>
-              <span style="font-size: 12px; color: var(--color-neutral-600)">Google</span>
-            </span>
-            <span style="margin-left: auto; color: #FFC107; font-size: 13px; letter-spacing: 1px">★★★★★</span>
-          </figcaption>
-          <blockquote style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-800)"><span data-l="en">"The guide was good and it was a beautiful experience. We saw seaturtles and many of the coral reef creatures."</span><span data-l="id">"The guide was good and it was a beautiful experience. We saw seaturtles and many of the coral reef creatures."</span></blockquote>
-        </figure>
-        <figure style="margin: 0; padding: 20px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 10px; display: grid; gap: 10px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span style="width: 38px; height: 38px; flex: none; border-radius: 50%; background: #6b4fa0; color: #ffffff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 15px">J</span>
-            <span style="display: grid">
-              <span style="font-family: var(--font-heading); font-weight: 700; font-size: 14px">Jack Hennesey Cleary</span>
-              <span style="font-size: 12px; color: var(--color-neutral-600)">Google</span>
-            </span>
-            <span style="margin-left: auto; color: #FFC107; font-size: 13px; letter-spacing: 1px">★★★★★</span>
-          </figcaption>
-          <blockquote style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-800)"><span data-l="en">"After diving all around Bali this was my favourite. The visibility was some of the best I have ever seen."</span><span data-l="id">"After diving all around Bali this was my favourite. The visibility was some of the best I have ever seen."</span></blockquote>
-        </figure>
-        <figure style="margin: 0; padding: 20px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 10px; display: grid; gap: 10px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <span style="width: 38px; height: 38px; flex: none; border-radius: 50%; background: #2f7d6a; color: #ffffff; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: 15px">I</span>
-            <span style="display: grid">
-              <span style="font-family: var(--font-heading); font-weight: 700; font-size: 14px">Isabelle S</span>
-              <span style="font-size: 12px; color: var(--color-neutral-600)">Tripadvisor</span>
-            </span>
-            <span style="margin-left: auto; color: #FFC107; font-size: 13px; letter-spacing: 1px">★★★★★</span>
-          </figcaption>
-          <blockquote style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-800)"><span data-l="en">"Superbe sortie snorkeling ! Deux spots magnifiques remplis de poissons colorés."</span><span data-l="id">"Superbe sortie snorkeling ! Deux spots magnifiques remplis de poissons colorés."</span></blockquote>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="trusted-platforms" style="padding: 56px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto; text-align: center">
-      <h2 style="font-size: clamp(24px, 2.8vw, 34px); text-transform: uppercase; margin: 0 0 8px"><span data-l="en">As Featured On and Trusted By</span><span data-l="id">Terdaftar dan Dipercaya Oleh</span></h2>
-      <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 26px"><span data-l="en">Where travellers find us first.</span><span data-l="id">Tempat wisatawan menemukan kami lebih dulu.</span></p>
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 26px 44px">
-        <img src="https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg" alt="Tripadvisor" loading="lazy" decoding="async" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="190" height="30">
-        <img src="{{ asset('uploads/wp/Bali-Untold-Logo-Final-1-300x90-1.webp') }}" alt="Bali Untold" loading="lazy" decoding="async" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="45">
-        <img src="{{ asset('uploads/wp/images__2_-removebg-preview.webp') }}" alt="TRAppe" loading="lazy" decoding="async" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="150" height="84">
-        <img src="{{ asset('uploads/wp/GetYourGuide_Logo.svg_.webp') }}" alt="GetYourGuide" loading="lazy" decoding="async" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="200" height="171">
-        <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" loading="lazy" decoding="async" style="height: 30px; width: auto; max-width: 190px; object-fit: contain; filter: grayscale(1); opacity: 0.6" width="160" height="84">
-      </div>
-    </div>
-  </section>
-
-    <section id="snorkeling" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
-    <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="{{ asset('uploads/snorkeling/53EB5B71-90A5-4B43-B247-FCF43536ABBD.webp') }}" alt="Coral garden in clear shallow water" loading="lazy" decoding="async" width="500" height="500" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Coral garden · inside the national park</span><span data-l="id">Coral garden · di dalam taman nasional</span></div>
-    </div>
-      <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
-      <div>
-        <div style="display: inline-flex; align-items: center; gap: 12px; background: var(--color-accent-100); border-left: 5px solid var(--color-accent); padding: 10px 16px; margin-bottom: 18px">
-          <span style="font-family: var(--font-heading); font-weight: 800; font-size: 22px; color: var(--color-accent)">01</span>
-          <span style="font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)"><span data-l="en">Snorkeling · All levels, non-swimmers welcome</span><span data-l="id">Snorkeling · Semua level, non-perenang bisa ikut</span></span>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" style="flex-shrink: 0; color: #86efac;">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66C7.38 17.55 9.17 12.3 17 10.3V8zm0-6C10.92 2 6 6.92 6 13c0 1.25.21 2.45.58 3.57C8.16 12.4 12.06 9.68 17 9.1V2zm0 1c3.87 0 7 3.13 7 7s-3.13 7-7 7c-.7 0-1.37-.1-2-.3 1.34-3.1 3.57-5.58 6.53-6.9-.27-.08-.55-.13-.83-.16-4.57.57-8.15 3.33-9.59 7.36-.07.2-.13.4-.19.6-.6-.73-1.04-1.58-1.31-2.5C9.28 9.53 12.82 3 17 3z"/>
+          </svg>
+          <span data-l="en">Licensed local operator, based in Pemuteran</span>
+          <span data-l="id">Operator lokal berlisensi resmi, berbasis di Pemuteran</span>
         </div>
-        <h2 style="font-size: clamp(30px, 3.4vw, 44px); text-transform: uppercase; max-width: 24ch; margin: 0 0 16px">
-          <span data-l="en">Snorkeling Menjangan Island: Half-Day Trip, Everything Included</span><span data-l="id">Snorkeling Pulau Menjangan: Trip Setengah Hari, Semua Termasuk</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="hero-stats" style="background: #ffffff; border-bottom: 1px solid var(--color-divider); padding: 46px 24px 42px;">
+    <div class="stats-grid" style="max-width: 1160px; margin: 0 auto;">
+      <!-- Google Card -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <div style="height: 30px; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 272 92" width="94" height="32" aria-label="Google">
+            <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+            <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+            <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.45zm-8.99 21.01c0-7.81-5.21-13.44-11.84-13.44-6.72 0-12.35 5.63-12.35 13.44 0 7.72 5.63 13.35 12.35 13.35 6.63 0 11.84-5.63 11.84-13.35z"/>
+            <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
+            <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-13.61-8.15l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
+            <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.8.36 34.83.36 15.86 16.32.31 35.3.31c10.42 0 17.73 4.03 23.36 9.41l-6.64 6.64c-3.95-3.7-9.24-6.55-16.72-6.55-13.44 0-24.11 10.84-24.11 24.28 0 13.44 10.67 24.28 24.11 24.28 8.65 0 13.53-3.44 16.63-6.55 1.76-1.76 2.94-4.28 3.36-7.73H35.29v-.68z"/>
+          </svg>
+        </div>
+        <div style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-size: clamp(38px, 4.2vw, 50px); font-weight: 800; line-height: 1; color: #17233f; margin-top: 4px;">
+          1,000+
+        </div>
+        <div style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; color: #475569;">
+          <span data-l="en">Google Reviews</span><span data-l="id">Google Reviews</span>
+        </div>
+        <div style="color: #f59e0b; font-size: 15px; letter-spacing: 2px; line-height: 1;">
+          ★★★★★
+        </div>
+      </div>
+
+      <!-- Tripadvisor Card -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <div style="height: 30px; display: flex; align-items: center; justify-content: center; gap: 7px;">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" style="flex-shrink: 0;">
+            <circle cx="12" cy="12" r="11" fill="#00AA6C"/>
+            <circle cx="8.2" cy="12" r="3" fill="#ffffff"/>
+            <circle cx="15.8" cy="12" r="3" fill="#ffffff"/>
+            <circle cx="8.2" cy="12" r="1.5" fill="#000000"/>
+            <circle cx="15.8" cy="12" r="1.5" fill="#000000"/>
+            <path d="M12 9.2c-.8 0-1.5.6-1.5 1.4 0 .4.2.8.5 1 .3-.2.6-.4 1-.4s.7.2 1 .4c.3-.2.5-.6.5-1 0-.8-.7-1.4-1.5-1.4z" fill="#ffffff"/>
+            <polygon points="12,12.3 11,14 13,14" fill="#000000"/>
+          </svg>
+          <span style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-weight: 800; font-size: 18px; color: #111827; letter-spacing: -0.02em;">Tripadvisor</span>
+        </div>
+        <div style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-size: clamp(38px, 4.2vw, 50px); font-weight: 800; line-height: 1; color: #17233f; margin-top: 4px;">
+          200+
+        </div>
+        <div style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; color: #475569;">
+          <span data-l="en">Tripadvisor Reviews</span><span data-l="id">Tripadvisor Reviews</span>
+        </div>
+        <div style="color: #f59e0b; font-size: 15px; letter-spacing: 2px; line-height: 1;">
+          ★★★★★
+        </div>
+      </div>
+
+      <!-- 10+ Experience Card -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <div style="height: 30px; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 12 11 14 15 10"></polyline>
+          </svg>
+        </div>
+        <div style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-size: clamp(38px, 4.2vw, 50px); font-weight: 800; line-height: 1; color: #17233f; margin-top: 4px;">
+          10+
+        </div>
+        <div style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; color: #475569;">
+          <span data-l="en">Years of Local Experience</span><span data-l="id">Years of Local Experience</span>
+        </div>
+        <div style="font-family: 'Montserrat', system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 500; color: #3b82f6;">
+          <span data-l="en">Licensed operator, Pemuteran</span><span data-l="id">Licensed operator, Pemuteran</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hero-slider" class="photo-slider-wrapper">
+    <div class="photo-slider-track">
+      <div class="photo-slider-list">
+        <div class="photo-slider-item"><img src="{{ asset('new/DJI_0069-compress.webp') }}" alt="Menjangan Island aerial view" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/Menjangan-Island-1.webp') }}" alt="Wild deer in crystal water at Menjangan Island" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/menjanganislandtrip-Slider-mobile-3.webp') }}" alt="Menjangan temple cliff and traditional boat" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/menjanganislandtrip-Slider-mobile-4.webp') }}" alt="Tour boats and deers on Menjangan beach" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/menjanganislandtrip-Slider-mobile-5.webp') }}" alt="Menjangan Island scenery and mountains" loading="lazy" decoding="async"></div>
+      </div>
+      <!-- Duplicate for infinite seamless scroll loop -->
+      <div class="photo-slider-list" aria-hidden="true">
+        <div class="photo-slider-item"><img src="{{ asset('new/DJI_0069-compress.webp') }}" alt="Menjangan Island aerial view" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/Menjangan-Island-1.webp') }}" alt="Wild deer in crystal water at Menjangan Island" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/menjanganislandtrip-Slider-mobile-3.webp') }}" alt="Menjangan temple cliff and traditional boat" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/menjanganislandtrip-Slider-mobile-4.webp') }}" alt="Tour boats and deers on Menjangan beach" loading="lazy" decoding="async"></div>
+        <div class="photo-slider-item"><img src="{{ asset('new/menjanganislandtrip-Slider-mobile-5.webp') }}" alt="Menjangan Island scenery and mountains" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Guests, Real Reviews Section (8 Cards Carousel) -->
+  <section id="guest-reviews-carousel" style="background: #f0f7fc; padding: 56px 20px 48px; border-bottom: 1px solid var(--color-divider); position: relative;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 32px;">
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(24px, 3.2vw, 36px); color: #0f274a; margin: 0 0 8px;">
+          <span data-l="en">Real Guests, Real Reviews</span>
+          <span data-l="id">Tamu Asli, Ulasan Nyata</span>
         </h2>
-      </div><div>
-        <p data-l="en" style="font-size: 16px; color: var(--color-neutral-800); max-width: 52ch">Crystal-clear turquoise water, vibrant coral reefs, and the wild deer of Menjangan’s white-sand beaches.</p>
-        <p data-l="id" style="font-size: 16px; color: var(--color-neutral-800); max-width: 52ch">Air turquoise yang jernih, terumbu karang yang hidup, dan rusa liar di pantai putih Menjangan.</p>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
-        <div>
-          <h4 style="margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">The Trip</span><span data-l="id">Detail Trip</span></h4>
-          <ul data-l="en" style="margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 15px; color: var(--color-neutral-800)">
-            <li>Explore two beautiful snorkeling spots inside the national park</li>
-            <li>Picnic lunch on the white-sand beach, with Menjangan’s famous wild deer roaming nearby</li>
-            <li>Shared boat departs 9:00 AM daily, or take a private boat with a flexible departure time</li>
-            <li>Our experienced guide is in the water with you, showing you the reef and keeping you comfortable</li>
-            <li>First-time snorkeler or travelling with children? No swimming experience needed</li>
-          </ul>
-          <ul data-l="id" style="margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 15px; color: var(--color-neutral-800)">
-            <li>Menjelajahi dua titik snorkeling terbaik di dalam taman nasional</li>
-            <li>Makan siang piknik di pantai berpasir putih, dengan rusa liar Menjangan yang terkenal di sekitarnya</li>
-            <li>Share boat berangkat 9.00 setiap hari, atau private boat dengan jam keberangkatan fleksibel</li>
-            <li>Guide kami yang berpengalaman mendampingi di air, menunjukkan reef dan menjaga kenyamanan Anda</li>
-            <li>Baru pertama snorkeling atau membawa anak? Tidak perlu pengalaman berenang</li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">Included</span><span data-l="id">Termasuk</span></h4>
-          <div data-l="en" style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span class="tag tag-accent">Boat &amp; crew</span>
-            <span class="tag tag-accent">Park permit</span>
-            <span class="tag tag-accent">Full gear</span>
-            <span class="tag tag-accent">Guide in water</span>
-            <span class="tag tag-accent">Lunch &amp; water</span>
-            <span class="tag tag-accent">Insurance</span>
-            <span class="tag tag-accent">Free pick-up</span>
-          </div>
-          <div data-l="id" style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span class="tag tag-accent">Boat &amp; kru</span>
-            <span class="tag tag-accent">Izin taman nasional</span>
-            <span class="tag tag-accent">Alat lengkap</span>
-            <span class="tag tag-accent">Guide di air</span>
-            <span class="tag tag-accent">Makan siang</span>
-            <span class="tag tag-accent">Asuransi</span>
-            <span class="tag tag-accent">Penjemputan gratis</span>
-          </div>
-        </div>
-      </div>
-      
-      
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px">
-        <a id="btn-snorkeling-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Snorkeling%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer" style="padding: 14px 24px; font-size: 15px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
-          <span data-l="en">Booking Snorkeling via WhatsApp</span><span data-l="id">Booking Snorkeling via WhatsApp</span>
-        </a>
-        <div style="flex-basis: 100%; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-neutral-700)">
-        <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-        <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-      </div>
-      </div>
-      <a href="#try-scuba" style="font-size: 14px; color: var(--color-accent-700)"><span data-l="en">First time in the water? See our Try Scuba Diving option →</span><span data-l="id">Pertama kali di air? Lihat pilihan Try Scuba Diving →</span></a>
-        </div>
-  </section>
+        <p style="font-size: 15px; color: #3b82f6; margin: 0 0 24px; font-weight: 500;">
+          <span data-l="en">More than a thousand guests have reviewed their trip with us on Google. Here is what they said.</span>
+          <span data-l="id">Lebih dari seribu tamu telah mengulas perjalanan mereka bersama kami di Google. Inilah pendapat mereka.</span>
+        </p>
 
-    <section id="snorkeling-gallery" style="padding: 52px 24px 60px">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <h3 style="font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 20px"><span data-l="en">Snorkeling: what you will see</span><span data-l="id">Snorkeling: yang akan Anda lihat</span></h3>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island-350x350.webp') }}" alt="Anemone fish, Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+        <!-- Rating summary badge -->
+        <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 3px;">
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 0.08em; color: #111827; text-transform: uppercase;">
+            EXCELLENT
           </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Anemone fish</span><span data-l="id">Anemone fish</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island-350x350.webp') }}" alt="Colorful coral, Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+          <div style="color: #f59e0b; font-size: 22px; letter-spacing: 3px; line-height: 1;">
+            ★★★★★
           </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Colourful coral</span><span data-l="id">Coral berwarna</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island-350x350.webp') }}" alt="Tons of fishes at Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+          <div style="font-size: 12px; color: #64748b; margin-top: 2px;">
+            <span data-l="en">Based on 958 reviews</span>
+            <span data-l="id">Berdasarkan 958 ulasan</span>
           </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Schools of fish</span><span data-l="id">Ribuan ikan</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Turtles-Menjangan-Island-350x350.webp') }}" alt="Turtles, Menjangan Island" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
+          <div style="margin-top: 4px;">
+            <svg viewBox="0 0 272 92" width="80" height="28" aria-label="Google">
+              <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+              <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+              <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.45zm-8.99 21.01c0-7.81-5.21-13.44-11.84-13.44-6.72 0-12.35 5.63-12.35 13.44 0 7.72 5.63 13.35 12.35 13.35 6.63 0 11.84-5.63 11.84-13.35z"/>
+              <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
+              <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-13.61-8.15l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
+              <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.8.36 34.83.36 15.86 16.32.31 35.3.31c10.42 0 17.73 4.03 23.36 9.41l-6.64 6.64c-3.95-3.7-9.24-6.55-16.72-6.55-13.44 0-24.11 10.84-24.11 24.28 0 13.44 10.67 24.28 24.11 24.28 8.65 0 13.53-3.44 16.63-6.55 1.76-1.76 2.94-4.28 3.36-7.73H35.29v-.68z"/>
+            </svg>
           </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Turtles</span><span data-l="id">Penyu</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island-350x350.webp') }}" alt="Wild deer on the island during the lunch break" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="350" height="350">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Wild deer on the island</span><span data-l="id">Rusa liar di pulau</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-4.webp') }}" alt="Snorkeling with the guide in the water" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Guide in the water</span><span data-l="id">Guide di air</span></figcaption>
-        </figure>
+        </div>
       </div>
-    </div>
-  </section>
 
-    <section id="scuba-diving" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
-     <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
-      <div>
-        <div style="display: inline-flex; align-items: center; gap: 12px; background: var(--color-accent-700); padding: 10px 16px; margin-bottom: 18px">
-          <span style="font-family: var(--font-heading); font-weight: 800; font-size: 22px; color: #FFC107">02</span>
-          <span style="font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff"><span data-l="en">Scuba Diving · Certified divers, Open Water +</span><span data-l="id">Scuba Diving · Penyelam bersertifikasi, Open Water +</span></span>
-        </div>
-        <h2 style="font-size: clamp(30px, 3.4vw, 44px); text-transform: uppercase; max-width: 24ch; margin: 0 0 16px">
-          <span data-l="en">Scuba Diving Menjangan Island: Visit 2 Beautiful Dive Spots</span><span data-l="id">Scuba Diving Pulau Menjangan: Kunjungi 2 Dive Spot Terbaik</span>
-        </h2>
-      </div><div>
-        <p data-l="en" style="font-size: 16px; color: var(--color-neutral-800); max-width: 52ch">Spectacular coral walls and colourful reef life, at one of Bali’s most beautiful dive destinations.</p>
-        <p data-l="id" style="font-size: 16px; color: var(--color-neutral-800); max-width: 52ch">Dinding coral spektakuler dan reef berwarna, di destinasi diving terindah di Bali.</p>
-        <ul data-l="en" style="margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 15px; color: var(--color-neutral-800)">
-            <li>Explore 2 dive sites around Menjangan Island</li>
-            <li>Suitable for certified divers from Open Water (Level 1) and above</li>
-            <li>In good conditions the visibility reaches up to 30 metres</li>
-            <li>Approx. 5-hour experience, including a comfortable surface interval on the beach</li>
-          </ul>
-        <ul data-l="id" style="margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 15px; color: var(--color-neutral-800)">
-            <li>Menjelajahi 2 dive site di sekitar Pulau Menjangan</li>
-            <li>Untuk penyelam bersertifikasi Open Water (Level 1) ke atas</li>
-            <li>Pada kondisi baik, visibility mencapai hingga 30 meter</li>
-            <li>Durasi sekitar 5 jam, termasuk surface interval yang nyaman di pantai</li>
-          </ul>
-      </div>
-      <div>
-        <h4 style="margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">Included</span><span data-l="id">Termasuk</span></h4>
-        <div data-l="en" style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span class="tag tag-accent">Boat &amp; crew</span>
-            <span class="tag tag-accent">Park permit</span>
-            <span class="tag tag-accent">Full gear</span>
-            <span class="tag tag-accent">Guide in water</span>
-            <span class="tag tag-accent">Lunch &amp; water</span>
-            <span class="tag tag-accent">Insurance</span>
-            <span class="tag tag-accent">Free pick-up</span>
-          </div>
-        <div data-l="id" style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span class="tag tag-accent">Boat &amp; kru</span>
-            <span class="tag tag-accent">Izin taman nasional</span>
-            <span class="tag tag-accent">Alat lengkap</span>
-            <span class="tag tag-accent">Guide di air</span>
-            <span class="tag tag-accent">Makan siang</span>
-            <span class="tag tag-accent">Asuransi</span>
-            <span class="tag tag-accent">Penjemputan gratis</span>
-          </div>
-      </div>
-      <div>
-        <h4 style="margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">The 11 dive sites</span><span data-l="id">11 dive site</span></h4>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px">
-          <span class="tag tag-neutral">Pos I</span>
-          <span class="tag tag-neutral">Pos II</span>
-          <span class="tag tag-neutral">Mangrove Point</span>
-          <span class="tag tag-neutral">Underwater Cave</span>
-          <span class="tag tag-neutral">Bat Cave</span>
-          <span class="tag tag-neutral">Temple Wall</span>
-          <span class="tag tag-neutral">Coral Garden</span>
-          <span class="tag tag-neutral">Sandy Slope</span>
-          <span class="tag tag-neutral">Dream Wall</span>
-          <span class="tag tag-neutral">Anchor Wreck</span>
-          <span class="tag tag-neutral">Eel Garden</span>
-        </div>
-        <figure style="margin: 16px 0 0">
-          <img src="{{ asset('uploads/wp/Menjangan-Island-West-Bali-National-park.webp') }}" alt="Map of the dive sites around Menjangan Island, West Bali National Park" loading="lazy" decoding="async" style="width: 100%; height: auto; border: 1px solid var(--color-divider); border-radius: 8px" width="490" height="247">
-          <figcaption style="margin-top: 8px; font-size: 13px; color: var(--color-neutral-700)"><span data-l="en">Dive site map, Menjangan Island, West Bali National Park</span><span data-l="id">Peta dive site, Pulau Menjangan, Taman Nasional Bali Barat</span></figcaption>
-        </figure>
-        <p data-l="en" style="margin: 12px 0 0; font-size: 14px; color: var(--color-neutral-700)">Visibility reaches 30 metres and the current stays calm, unlike the stronger sites in the south, this is a reef beginners and photographers can both work in.</p>
-        <p data-l="id" style="margin: 12px 0 0; font-size: 14px; color: var(--color-neutral-700)">Visibility mencapai 30 meter dan arusnya tenang, berbeda dengan spot berarus kuat di selatan Bali, reef ini nyaman untuk pemula sekaligus fotografer bawah air.</p>
-      </div>
-      
-      
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px">
-        <a id="btn-scuba-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Scuba%20Diving%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer" style="padding: 14px 24px; font-size: 15px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
-          <span data-l="en">Booking Scuba Diving via WhatsApp</span><span data-l="id">Booking Scuba Diving via WhatsApp</span>
-        </a>
-        <div style="flex-basis: 100%; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-neutral-700)">
-        <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-        <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-      </div>
-      </div>
-      <a href="#try-scuba" style="font-size: 14px; color: var(--color-accent-700)"><span data-l="en">New to diving? Try it risk-free first →</span><span data-l="id">Belum pernah diving? Coba dulu tanpa risiko →</span></a>
-        </div>
-    <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="{{ asset('uploads/scuba/_2111638.webp') }}" alt="Diver along the reef wall at Menjangan" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="800" height="535">
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Wall dive · 3–25 m · gentle current</span><span data-l="id">Wall dive · 3–25 m · arus tenang</span></div>
-    </div>
-  </section>
+      <!-- Carousel Track with Navigation Buttons -->
+      <div class="rev-carousel-container">
+        <button id="rev-prev-btn" class="rev-arrow-btn rev-arrow-prev" aria-label="Previous reviews">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
 
-    <section id="scuba-gallery" style="padding: 52px 24px 60px">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <h3 style="font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 20px"><span data-l="en">Scuba diving at Menjangan</span><span data-l="id">Scuba diving di Menjangan</span></h3>
-       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-7.webp') }}" alt="Wall dive along the reef edge" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Wall dive</span><span data-l="id">Wall dive</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Sea fans and soft coral" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Sea fans</span><span data-l="id">Sea fan</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-5.webp') }}" alt="Visibility up to 30 metres" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Visibility 30 m</span><span data-l="id">Visibility 30 m</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-3.webp') }}" alt="Two divers per guide" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="600" height="400">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Two per guide</span><span data-l="id">Dua per guide</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-    <section id="try-scuba" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); align-items: stretch; border-top: 1px solid var(--color-divider)">
-    <div style="position: relative; min-height: 620px; overflow: hidden">
-      <img src="{{ asset('uploads/try_scuba/_1310850.webp') }}" alt="Shallow reef in clear water" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="800" height="535">
-      <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; background: linear-gradient(180deg, transparent, rgba(15, 26, 48, 0.82)); color: #ffffff; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase"><span data-l="en">Beginner dives · 3–5 m · instructor beside you</span><span data-l="id">Dive pemula · 3–5 m · instruktur mendampingi</span></div>
-    </div>
-     <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 24px">
-      <div>
-        <div style="display: inline-flex; align-items: center; gap: 12px; background: #FFC107; padding: 10px 16px; margin-bottom: 18px">
-          <span style="font-family: var(--font-heading); font-weight: 800; font-size: 22px; color: var(--color-accent-700)">03</span>
-          <span style="font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-800)"><span data-l="en">Try Scuba Diving · Total beginners, no certification</span><span data-l="id">Try Scuba Diving · Pemula total, tanpa sertifikasi</span></span>
-        </div>
-        <h2 style="font-size: clamp(30px, 3.4vw, 44px); text-transform: uppercase; max-width: 24ch; margin: 0 0 16px">
-          <span data-l="en">Never Dived Before? Try Scuba Diving at Menjangan, No Certification Needed</span><span data-l="id">Belum Pernah Diving? Coba Scuba Diving di Menjangan, Tanpa Sertifikasi</span>
-        </h2>
-      </div><div>
-        <p data-l="en" style="font-size: 16px; color: var(--color-neutral-800); max-width: 52ch">Nervous about your first breath underwater? This trip is built for that.</p>
-        <p data-l="id" style="font-size: 16px; color: var(--color-neutral-800); max-width: 52ch">Ragu dengan napas pertama di bawah air? Trip ini dibuat untuk itu.</p>
-        </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
-        <div>
-          <h4 style="margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">The Trip</span><span data-l="id">Detail Trip</span></h4>
-          <ul data-l="en" style="margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 15px; color: var(--color-neutral-800)">
-            <li>No certification or experience needed</li>
-            <li>Two shallow dives, 3–5 m</li>
-            <li>± 4 hours with briefing and lunch</li>
-            <li>The experience itself, not a course</li>
-          </ul>
-          <ul data-l="id" style="margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 15px; color: var(--color-neutral-800)">
-            <li>Tanpa sertifikasi atau pengalaman</li>
-            <li>Dua dive dangkal, 3–5 m</li>
-            <li>± 4 jam termasuk briefing dan makan siang</li>
-            <li>Pengalaman mencoba, bukan kursus</li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">Included</span><span data-l="id">Termasuk</span></h4>
-          <div data-l="en" style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span class="tag tag-accent">Boat &amp; crew</span>
-            <span class="tag tag-accent">Park permit</span>
-            <span class="tag tag-accent">Full gear</span>
-            <span class="tag tag-accent">Guide in water</span>
-            <span class="tag tag-accent">Lunch &amp; water</span>
-            <span class="tag tag-accent">Insurance</span>
-            <span class="tag tag-accent">Free pick-up</span>
-          </div>
-          <div data-l="id" style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span class="tag tag-accent">Boat &amp; kru</span>
-            <span class="tag tag-accent">Izin taman nasional</span>
-            <span class="tag tag-accent">Alat lengkap</span>
-            <span class="tag tag-accent">Guide di air</span>
-            <span class="tag tag-accent">Makan siang</span>
-            <span class="tag tag-accent">Asuransi</span>
-            <span class="tag tag-accent">Penjemputan gratis</span>
-          </div>
-        </div>
-      </div>
-      
-      
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px">
-        <a id="btn-tryscuba-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Try%20Scuba%20Diving%20experience%20at%20Menjangan.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer" style="padding: 14px 24px; font-size: 15px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
-          <span data-l="en">Booking Try Scuba via WhatsApp</span><span data-l="id">Booking Try Scuba via WhatsApp</span>
-        </a>
-        <div style="flex-basis: 100%; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-neutral-700)">
-        <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-        <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-      </div>
-      </div>
-      <a href="#scuba-diving" style="font-size: 14px; color: var(--color-accent-700)"><span data-l="en">Already comfortable in the water? Explore full Scuba Diving →</span><span data-l="id">Sudah nyaman di air? Lihat paket Scuba Diving →</span></a>
-        </div>
-  </section>
-
-    <section id="try-scuba-gallery" style="padding: 52px 24px 60px">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <h3 style="font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 20px"><span data-l="en">Try Scuba Diving: first-timers</span><span data-l="id">Try Scuba Diving: pemula</span></h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px">
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-1.webp') }}" alt="First breaths in shallow water" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First breaths</span><span data-l="id">Napas pertama</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-2.webp') }}" alt="Instructor beside you the whole dive" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Instructor beside you</span><span data-l="id">Instruktur mendampingi</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-3.webp') }}" alt="Reef at 3–5 metres" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Reef at 3–5 m</span><span data-l="id">Reef 3–5 m</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-4.webp') }}" alt="Gear fitted before you get in" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="534">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Gear fitted for you</span><span data-l="id">Alat disesuaikan</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-5.webp') }}" alt="Calm, clear water all year" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">Calm water all year</span><span data-l="id">Air tenang sepanjang tahun</span></figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-neutral-200)">
-            <img src="{{ asset('uploads/try_scuba_new/try-scuba-6.webp') }}" alt="Guests on their first dive" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover" width="800" height="700">
-          </div>
-          <figcaption style="margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--color-neutral-700)"><span data-l="en">First dive</span><span data-l="id">Dive pertama</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-    <section id="itinerary" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 44px">
-      <div>
-        <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">How the day runs</span><span data-l="id">Alur hari trip</span></div>
-        <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 22ch; margin: 0 0 16px"><span data-l="en">The Itinerary, Start to Finish</span><span data-l="id">Itinerary, dari Awal sampai Selesai</span></h2>
-        
-      </div>
-      <ol style="margin: 0; padding: 0; list-style: none; display: grid; gap: 0; align-content: start">
-        <li style="display: grid; grid-template-columns: 74px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <span style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--color-accent-700)">30 MIN</span>
-          <span style="font-size: 15px; color: var(--color-neutral-800)"><span data-l="en">Boat to Menjangan Island</span><span data-l="id">Boat ke Pulau Menjangan</span></span>
-        </li>
-        <li style="display: grid; grid-template-columns: 74px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <span style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--color-accent-700)">45–60 MIN</span>
-          <span style="font-size: 15px; color: var(--color-neutral-800)"><span data-l="en">First spot</span><span data-l="id">Spot pertama</span></span>
-        </li>
-        <li style="display: grid; grid-template-columns: 74px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <span style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--color-accent-700)">± 1 HOUR</span>
-          <span style="font-size: 15px; color: var(--color-neutral-800)"><span data-l="en">Lunch on the beach, wild deer walk</span><span data-l="id">Makan siang di pantai, lihat rusa liar</span></span>
-        </li>
-        <li style="display: grid; grid-template-columns: 74px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <span style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--color-accent-700)">45–60 MIN</span>
-          <span style="font-size: 15px; color: var(--color-neutral-800)"><span data-l="en">Second spot</span><span data-l="id">Spot kedua</span></span>
-        </li>
-        <li style="display: grid; grid-template-columns: 74px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider)">
-          <span style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--color-accent-700)">30 MIN</span>
-          <span style="font-size: 15px; color: var(--color-neutral-800)"><span data-l="en">Boat back to the harbour</span><span data-l="id">Boat kembali ke pelabuhan</span></span>
-        </li>
-        <li style="padding-top: 18px; font-size: 14px; color: var(--color-neutral-700)"><span data-l="en">Lunch box: fried rice, noodles, sandwich or fruit. Towels provided.</span><span data-l="id">Lunch box: nasi goreng, mie, sandwich atau buah. Handuk disediakan.</span></li>
-      </ol>
-    </div>
-  </section>
-
-        <section id="why-us" style="padding: 78px 24px; border-top: 1px solid var(--color-divider); background: var(--color-neutral-100)">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <div style="text-align: center; margin-bottom: 34px">
-        <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 12px"><span data-l="en">Why us</span><span data-l="id">Kenapa kami</span></div>
-        <h2 style="font-size: clamp(26px, 3vw, 38px); text-transform: uppercase; margin: 0 auto; max-width: 26ch"><span data-l="en">Why Choose Menjangan Island Trip?</span><span data-l="id">Kenapa Memilih Menjangan Island Trip?</span></h2>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px">
-        <div style="position: relative; padding: 30px 24px 28px; background: #FFFFFF; border: 1px solid var(--color-divider); border-top: 3px solid var(--color-accent-500)">
-          <span style="position: absolute; top: 14px; right: 18px; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-500)">01</span>
-          <span style="display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-accent-100); color: var(--color-accent-700); margin-bottom: 18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M8 13l4 4 4-4"></path></svg></span>
-          <h3 style="font-size: 17px; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.25; margin: 0 0 10px; color: var(--color-accent-800)"><span data-l="en">100% Locally Owned</span><span data-l="id">100% Milik Warga Lokal</span></h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--color-neutral-800)"><span data-l="en">Your booking supports families in Menjangan Village directly, not an outside agency.</span><span data-l="id">Booking Anda langsung mendukung keluarga di Desa Menjangan, bukan agensi luar.</span></p>
-        </div>
-        <div style="position: relative; padding: 30px 24px 28px; background: #FFFFFF; border: 1px solid var(--color-divider); border-top: 3px solid var(--color-accent-500)">
-          <span style="position: absolute; top: 14px; right: 18px; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-500)">02</span>
-          <span style="display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-accent-100); color: var(--color-accent-700); margin-bottom: 18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><path d="M15 3h6v5h-6z"></path><path d="M17 8v2l2-2"></path></svg></span>
-          <h3 style="font-size: 17px; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.25; margin: 0 0 10px; color: var(--color-accent-800)"><span data-l="en">First Class Service</span><span data-l="id">Pelayanan Kelas Utama</span></h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--color-neutral-800)"><span data-l="en">From booking to drop-off, our local team shapes the day around what you want.</span><span data-l="id">Dari booking hingga diantar kembali, tim lokal kami menyesuaikan trip dengan keinginan Anda.</span></p>
-        </div>
-        <div style="position: relative; padding: 30px 24px 28px; background: #FFFFFF; border: 1px solid var(--color-divider); border-top: 3px solid var(--color-accent-500)">
-          <span style="position: absolute; top: 14px; right: 18px; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-500)">03</span>
-          <span style="display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-accent-100); color: var(--color-accent-700); margin-bottom: 18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px"><path d="M4 5h7v14H4z"></path><path d="M13 5h7v14h-7z"></path><path d="M6 9h3M6 12h3M15 9h3M15 12h3"></path></svg></span>
-          <h3 style="font-size: 17px; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.25; margin: 0 0 10px; color: var(--color-accent-800)"><span data-l="en">Easy Booking &amp; All-Inclusive</span><span data-l="id">Booking Mudah &amp; Semua Termasuk</span></h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--color-neutral-800)"><span data-l="en">No deposit, no forms, everything included, and a free shuttle from nearby hotels.</span><span data-l="id">Tanpa deposit, tanpa formulir, semua termasuk, dan antar-jemput gratis dari hotel sekitar.</span></p>
-        </div>
-        <div style="position: relative; padding: 30px 24px 28px; background: #FFFFFF; border: 1px solid var(--color-divider); border-top: 3px solid var(--color-accent-500)">
-          <span style="position: absolute; top: 14px; right: 18px; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-500)">04</span>
-          <span style="display: grid; place-items: center; width: 52px; height: 52px; background: var(--color-accent-100); color: var(--color-accent-700); margin-bottom: 18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"></path><rect x="9.5" y="10.5" width="5" height="4" rx="1"></rect><path d="M10.5 10.5V9a1.5 1.5 0 0 1 3 0v1.5"></path></svg></span>
-          <h3 style="font-size: 17px; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.25; margin: 0 0 10px; color: var(--color-accent-800)"><span data-l="en">We Care &amp; Protect Menjangan</span><span data-l="id">Kami Menjaga Menjangan</span></h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--color-neutral-800)"><span data-l="en">The ocean is our home. Choosing us protects the coral and marine life here.</span><span data-l="id">Laut adalah rumah kami. Memilih kami berarti melindungi coral dan biota laut di sini.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    
-
-    <section id="comparison" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Compare</span><span data-l="id">Perbandingan</span></div>
-      <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 24ch; margin: 0 0 8px"><span data-l="en">What You Actually Get for the Price</span><span data-l="id">Apa yang Sebenarnya Anda Dapat</span></h2>
-      <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 22px"><span data-l="en">Us, next to what a cheaper trip usually leaves out.</span><span data-l="id">Kami, dibandingkan dengan yang biasanya tidak termasuk pada trip lebih murah.</span></p>
-      <div id="compare-table" style="border-bottom: 1px solid var(--color-divider)">
-        <div data-compare-head="1" style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 18px; padding-bottom: 10px; font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600)">
-          <div><span data-l="en">Item</span><span data-l="id">Item</span></div>
-          <div style="color: var(--color-accent-700)"><span style="display: none" data-head-short="1"><span data-l="en">Us</span><span data-l="id">Kami</span></span><span data-head-long="1">Menjangan Island Trip</span></div>
-          <div><span style="display: none" data-head-short="1"><span data-l="en">Others</span><span data-l="id">Lainnya</span></span><span data-head-long="1"><span data-l="en">Cheaper trips, typically</span><span data-l="id">Trip lebih murah, umumnya</span></span></div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Official insurance for every guest</span><span data-l="id">Asuransi resmi untuk setiap tamu</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Included</span><span data-l="id">Termasuk</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Often not included</span><span data-l="id">Sering tidak termasuk</span></span>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Licensed national park operator</span><span data-l="id">Operator resmi taman nasional</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Yes</span><span data-l="id">Ya</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Permits often incomplete</span><span data-l="id">Izin sering tidak lengkap</span></span>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Guests per boat</span><span data-l="id">Jumlah tamu per boat</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Max 10</span><span data-l="id">Maks. 10</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Boat filled to capacity</span><span data-l="id">Boat diisi penuh</span></span>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Guide in the water with you</span><span data-l="id">Guide mendampingi di air</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Always</span><span data-l="id">Selalu</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Watches from the deck</span><span data-l="id">Mengawasi dari boat</span></span>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Fee, gear, lunch</span><span data-l="id">Izin, alat, makan siang</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">One price</span><span data-l="id">Satu harga</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Charged on the day</span><span data-l="id">Dibayar di hari trip</span></span>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Boats and equipment</span><span data-l="id">Boat dan peralatan</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Our own, maintained</span><span data-l="id">Milik sendiri, terawat</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Rented, varies</span><span data-l="id">Sewa, bervariasi</span></span>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Who runs your trip</span><span data-l="id">Siapa yang menjalankan trip</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Direct operator</span><span data-l="id">Operator langsung</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Agent, with markup</span><span data-l="id">Agen, dengan markup</span></span>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: minmax(180px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr); gap: 10px 18px; align-items: start; padding: 16px 0; border-top: 1px solid var(--color-divider)">
-          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--color-accent-800)"><span data-l="en">Hotel pick-up nearby</span><span data-l="id">Penjemputan hotel sekitar</span></div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-accent-800)">
-            <span style="color: #70CE74; font-weight: 800; font-size: 16px; line-height: 1.35">✓</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Free</span><span data-l="id">Gratis</span></span>
-          </div>
-          <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--color-neutral-600)">
-            <span style="font-weight: 700; font-size: 15px; line-height: 1.35">✕</span>
-            <span><span style="display: none" data-mobile-label="1"></span><span data-l="en">Extra charge</span><span data-l="id">Biaya tambahan</span></span>
-          </div>
-        </div>
-      </div>
-      <p style="font-size: 13px; color: var(--color-neutral-600); margin: 18px 0 0"><span data-l="en">General comparison, no specific operator referred to.</span><span data-l="id">Perbandingan umum, tanpa merujuk operator tertentu.</span></p>
-    </div>
-  </section>
-
-    
-
-    
-
-    <section id="about-us" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); border-top: 1px solid var(--color-divider)">
-    <div style="position: relative; min-height: 460px; display: grid; place-items: center; padding: 36px; background: radial-gradient(circle at 50% 45%, var(--color-accent-100) 0%, #ffffff 72%)">
-      <img src="{{ asset('uploads/wp/diving-menjangan-island1.webp') }}" alt="Diver at Menjangan Island" loading="lazy" decoding="async" style="width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 22px 40px rgba(15, 26, 48, 0.22))" width="884" height="640">
-    </div>
-    <div style="padding: clamp(36px, 5vw, 72px); display: grid; align-content: center; gap: 18px">
-      <div>
-        <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">About us</span><span data-l="id">Tentang kami</span></div>
-        <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 24ch; margin: 0 0 16px"><span data-l="en">A Local Operation on the West Bali Coast</span><span data-l="id">Operator Lokal di Pesisir Bali Barat</span></h2>
-        <p style="font-size: 16px; color: var(--color-neutral-800); max-width: 52ch"><span data-l="en">Based in Pejarakan, between Pemuteran and Banyuwedang Harbour, with guides from this coast.</span><span data-l="id">Berbasis di Pejarakan, antara Pemuteran dan Pelabuhan Banyuwedang, dengan guide dari pesisir ini.</span></p>
-        
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px">
-        <span class="tag tag-outline"><span data-l="en">Licensed operator</span><span data-l="id">Operator berlisensi</span></span>
-        <span class="tag tag-outline"><span data-l="en">10+ years on this coast</span><span data-l="id">10+ tahun di pesisir ini</span></span>
-        <span class="tag tag-outline"><span data-l="en">Max 10 per boat</span><span data-l="id">Maks. 10 per boat</span></span>
-        <span class="tag tag-outline"><span data-l="en">Reef conservation</span><span data-l="id">Konservasi reef</span></span>
-      </div>
-    </div>
-  </section>
-
-    <section id="availability" style="position: relative; min-height: 460px; display: grid; align-items: center; overflow: hidden; border-top: 1px solid var(--color-divider)">
-    <img src="{{ asset('uploads/wp/518408166_741022225555975_840694571809901799_n.webp') }}" alt="Boat on calm water at Menjangan Island" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1536" height="2048">
-    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent-900) 88%, transparent) 0%, color-mix(in srgb, var(--color-accent-900) 55%, transparent) 60%, transparent 100%)"></div>
-    <div style="position: relative; max-width: 1160px; width: 100%; margin: 0 auto; padding: 60px 24px; color: var(--color-bg)">
-      <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; margin-bottom: 12px"><span data-l="en">Boat capacity</span><span data-l="id">Kapasitas boat</span></div>
-      <h2 style="font-size: clamp(28px, 3.6vw, 48px); text-transform: uppercase; color: var(--color-bg); max-width: 22ch; margin: 0 0 14px"><span data-l="en">Ten Guests per Boat. That Is the Limit.</span><span data-l="id">Sepuluh Tamu per Boat. Itu Batasnya.</span></h2>
-      <p data-l="en" style="max-width: 56ch; font-size: 17px; color: color-mix(in srgb, var(--color-bg) 88%, transparent)">We cap every boat at 10 guests so the experience stays personal, which means slots are genuinely limited, particularly for private trips and in high season. Secure your date early via WhatsApp.</p>
-      <p data-l="id" style="max-width: 56ch; font-size: 17px; color: color-mix(in srgb, var(--color-bg) 88%, transparent)">Setiap boat kami batasi maksimal 10 tamu supaya pengalaman tetap personal, sehingga slot memang terbatas, terutama untuk trip privat dan pada musim ramai. Amankan tanggal Anda lebih awal via WhatsApp.</p>
-      <a id="btn-banner-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20Menjangan%20Island%20trip." target="_blank" rel="noopener noreferrer" style="margin-top: 18px; padding: 13px 22px; font-size: 15px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg><span data-l="en">Check Available Dates on WhatsApp</span><span data-l="id">Cek Tanggal via WhatsApp</span></a>
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 12px; font-size: 13px; color: color-mix(in srgb, var(--color-bg) 82%, transparent)">
-        <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-        <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews" class="c1-reviews" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand); margin-bottom: 12px"><span data-l="en">Guest reviews</span><span data-l="id">Ulasan tamu</span></div>
-      <h2 style="font-size: clamp(26px, 3vw, 38px); margin-bottom: 22px"><span data-l="en">What Guests Say</span><span data-l="id">Kata Tamu Kami</span></h2>
-      <div style="display: grid; gap: 26px; margin-bottom: 30px">
-        <div style="display: flex; justify-content: center; margin: 0 0 6px">
-          <div style="background: #FFFFFF; padding: 18px 26px; text-align: center">
-            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.01em; color: #17233f">Excellent</div>
-            <div style="display: flex; justify-content: center; gap: 4px; margin: 10px 0 8px">
-              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
-              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
-              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
-              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
-              <svg viewBox="0 0 24 24" style="width:28px;height:28px" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#34E0A1"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="12" r="1.6" fill="#000"/></svg>
+        <div id="rev-cards-carousel" class="rev-cards-track">
+          <!-- Card 1: Belle Weerts -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <div class="rev-avatar" style="background: #5ba3e0;"></div>
+              <div class="rev-user-info">
+                <span class="rev-user-name">Belle Weerts</span>
+                <span class="rev-user-date">1 month ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
             </div>
-            <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">196 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">196 ulasan</strong></span></div>
-            <svg viewBox="0 0 275 56" height="30" style="margin-top:14px;display:block;margin-left:auto;margin-right:auto" aria-label="Tripadvisor"><rect width="275" height="56" rx="6" fill="#34E0A1"/><circle cx="28" cy="28" r="16" fill="#fff"/><circle cx="28" cy="28" r="7" fill="none" stroke="#000" stroke-width="2.2"/><circle cx="28" cy="28" r="2.5" fill="#000"/><text x="52" y="36" font-family="Arial,sans-serif" font-weight="700" font-size="20" fill="#000">Tripadvisor</text></svg>
-          </div>
-        </div>
-      </div>
-      <div id="ta-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; margin-bottom: 30px">
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/fanny-s.webp" width="42" height="42" alt="Fanni S" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Fanni S</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">1 week ago</span>
-            </span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
-          </figcaption>
-          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">highly recommend!</strong>We did many times snorkling tours but this was truely the top one!! Instead of rushing from spots to spots every in between.</blockquote>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/severine.webp" width="42" height="42" alt="Severine L" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Severine L</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
-          </figcaption>
-          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Snorkeling Menjangan Island Au top</strong>Super sortie super guide Snorkeling Menjangan Island.</blockquote>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/mariagh.webp" width="42" height="42" alt="mariagh" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">mariagh</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
-          </figcaption>
-          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Absolutely worth it!</strong>An incredible experience. An unforgettable snorkeling trip; the hours flew by. A truly wonderful excursion.</blockquote>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/belle-w.webp" width="42" height="42" alt="Belle W" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle W</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
-          </figcaption>
-          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Nice snorking experience menjanan!</strong>It was a very nice snorkling experience. We saw many sea animals and coral reef, and many sea turtles! The guide was great.</blockquote>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/ahn.webp" width="42" height="42" alt="ahn" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">ahn</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
-          </figcaption>
-          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Make your perfect day!</strong>It was a truly perfect trip! They helped us find so many beautiful corals, fish, and turtles, and the underwater world was stunning.</blockquote>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/issabela%20s.webp" width="42" height="42" alt="Isabelle S" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Isabelle S</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><circle cx="12" cy="12" r="11" fill="#34E0A1"></circle><circle cx="8.4" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="15.6" cy="12" r="3.1" fill="none" stroke="#000" stroke-width="1.3"></circle><circle cx="8.4" cy="12" r="1.1" fill="#000"></circle><circle cx="15.6" cy="12" r="1.1" fill="#000"></circle></svg>
-          </figcaption>
-          <div style="display: flex; gap: 3px; align-items: center"><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 17px; height: 17px"><circle cx="12" cy="12" r="10" fill="none" stroke="#00A680" stroke-width="2.4"></circle><circle cx="12" cy="12" r="4.6" fill="#00A680"></circle></svg><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 4px"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></div>
-          <blockquote style="margin: 0; font-size: 15px; line-height: 1.6; color: #2c3a57"><strong style="display: block; margin-bottom: 6px">Fantastic snorkeling trip!</strong>Two magnificent spots teeming with colorful fish. Our guide, Putu, was absolutely fantastic. Contact them.</blockquote>
-        </figure>
-      </div>
-      <div class="rev-more" style="display: none; justify-content: center; margin: -8px 0 30px">
-        <button type="button" data-more="ta-grid" style="cursor: pointer; background: #FFFFFF; border: 1px solid var(--line); border-radius: 999px; padding: 12px 22px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--brand)"><span data-l="en">Show more Tripadvisor reviews</span><span data-l="id">Lihat ulasan Tripadvisor lainnya</span></button>
-      </div>
-      <div style="display: grid; gap: 26px; margin-bottom: 30px">
-        <div style="display: flex; justify-content: center; margin: 0 0 6px">
-          <div style="background: #FFFFFF; padding: 18px 26px; text-align: center">
-            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 0.01em; color: #17233f">Excellent</div>
-            <div style="display: flex; justify-content: center; gap: 4px; margin: 10px 0 8px">
-              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
-              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
-              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
-              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
-              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 8.9l6.6-.9z" fill="#F6BB06"/></svg>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             </div>
-            <div style="font-size: 15px; color: #17233f"><span data-l="en">Based on <strong style="border-bottom: 2px solid #17233f">963 reviews</strong></span><span data-l="id">Berdasarkan <strong style="border-bottom: 2px solid #17233f">963 ulasan</strong></span></div>
-            <svg viewBox="0 0 255.2 80.3" height="30" style="margin-top: 14px; margin-left: auto; margin-right: auto; display: block"><path fill="#4285F4" d="M31.9 28.6v8.6h20.5c-.6 4.8-2.2 8.3-4.7 10.8-3 3-7.7 6.3-15.8 6.3-12.6 0-22.5-10.2-22.5-22.8S19.2 8.6 31.9 8.6c6.8 0 11.8 2.7 15.5 6.1l6-6C48.3 3.8 41.4 0 31.9 0 14.6 0 0 14.1 0 31.4s14.6 31.4 31.9 31.4c9.4 0 16.4-3.1 21.9-8.8 5.7-5.7 7.4-13.6 7.4-20.1 0-2-.1-3.8-.5-5.4H31.9z"/><path fill="#EA4335" d="M86.9 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C107.2 30.1 98.1 21.6 86.9 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#4285F4" d="M186.6 26.1h-.3c-2-2.4-5.8-4.5-10.7-4.5-10.1 0-19 8.8-19 20.3 0 11.4 8.8 20.3 19 20.3 4.9 0 8.7-2.2 10.7-4.6h.3v2.8c0 7.7-4.2 11.9-10.8 11.9-5.4 0-8.8-3.9-10.2-7.2l-7.7 3.2c2.2 5.4 8.1 12 18 12 10.4 0 19.3-6.1 19.3-21.1V22.7h-8.4v3.4zm-10.2 28.1c-6.1 0-10.8-5.2-10.8-12.3 0-7.2 4.7-12.3 10.8-12.3 6.1 0 10.8 5.2 10.8 12.4 0 7.1-4.7 12.2-10.8 12.2z"/><path fill="#FBBC05" d="M132.3 21.6c-11.2 0-20.4 8.5-20.4 20.3 0 11.7 9.1 20.3 20.4 20.3s20.4-8.6 20.4-20.3C152.6 30.1 143.5 21.6 132.3 21.6zm0 32.6c-6.1 0-11.4-5.1-11.4-12.3 0-7.3 5.3-12.3 11.4-12.3 6.1 0 11.4 5 11.4 12.3 0 7.2-5.3 12.3-11.4 12.3z"/><path fill="#34A853" d="M202.1.8h8.8v61.3h-8.8z"/><path fill="#EA4335" d="M237.9 54.2c-4.5 0-7.7-2.1-9.8-6.1l27.1-11.2-.9-2.3c-1.7-4.5-6.8-12.9-17.3-12.9-10.4 0-19.1 8.2-19.1 20.3 0 11.4 8.6 20.3 20.1 20.3 9.3 0 14.7-5.7 16.9-9l-6.9-4.6c-2.2 2.8-5.4 5.1-9.9 5.1l.5.4zm-.6-25c3.6 0 6.7 1.9 7.7 4.5l-18.3 7.6c.7-3.8 6.8-7.3 10.6-7.3z"/></svg>
+            <p class="rev-text">We had a very nice snorkling experience! The guide was good and it was a beautiful experience. We saw seaturtles and many of th...</p>
+            <a href="#reviews" class="rev-read-more">Read more</a>
           </div>
+
+          <!-- Card 2: hhh_j -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <div class="rev-avatar" style="background: #e05375;">h</div>
+              <div class="rev-user-info">
+                <span class="rev-user-name">hhh_j</span>
+                <span class="rev-user-date">1 month ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="rev-text">It was a truly perfect trip! They helped us find so many beautiful corals, fish, and turtles. And the underwater scenery was absolutel...</p>
+            <a href="#reviews" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 3: Jack Hennesey Cleary -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <div class="rev-avatar" style="background: #6d28d9;">J</div>
+              <div class="rev-user-info">
+                <span class="rev-user-name">Jack Hennesey Cleary</span>
+                <span class="rev-user-date">1 month ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="rev-text">I did two dives here last week and after diving all around Bali for the last several days I can now say that this was my favourite. I'm sorry I...</p>
+            <a href="#reviews" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 4: Areta Herwendra -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <div class="rev-avatar" style="background: #0d9488;">A</div>
+              <div class="rev-user-info">
+                <span class="rev-user-name">Areta Herwendra</span>
+                <span class="rev-user-date">1 month ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="rev-text">Pelayanannya bagus bangettttt, makasih bli Suma udh sabar sama kitaa semua</p>
+            <a href="#reviews" class="rev-read-more" style="visibility: hidden;">Read more</a>
+          </div>
+
+          <!-- Card 5: Nanang Hidayat -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <div class="rev-avatar" style="background: #0f766e;">N</div>
+              <div class="rev-user-info">
+                <span class="rev-user-name">Nanang Hidayat</span>
+                <span class="rev-user-date">1 month ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="rev-text">Super sekali pelayanan trip nya sangat memuaskan teruntuk private trip bersama teman-teman. Sangat rekomen untuk yang mau...</p>
+            <a href="#reviews" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 6: Bianca -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <div class="rev-avatar" style="background: #064e3b;">B</div>
+              <div class="rev-user-info">
+                <span class="rev-user-name">Bianca</span>
+                <span class="rev-user-date">2 months ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="rev-text">We hebben een hele leuke safari trip gedaan! Erg genoten en leuke open auto en van alles gezien met de gids en chauffeur! Veel zwarte...</p>
+            <a href="#reviews" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 7: Sab Voyage -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <div class="rev-avatar" style="background: #ea580c;">S</div>
+              <div class="rev-user-info">
+                <span class="rev-user-name">Sab Voyage</span>
+                <span class="rev-user-date">2 months ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="rev-text">Spectaculaire !!!<br><br>Je remercie énormément notre guide Putu et notre capitaine pour cette...</p>
+            <a href="#reviews" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 8: Dorota Bi -->
+          <div class="rev-card-item">
+            <div class="rev-card-header">
+              <img src="{{ asset('testimoni1/dorota-bi.webp') }}" alt="Dorota Bi" class="rev-avatar" style="object-fit: cover;">
+              <div class="rev-user-info">
+                <span class="rev-user-name">Dorota Bi</span>
+                <span class="rev-user-date">2 months ago</span>
+              </div>
+              <div class="rev-google-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars-row">
+              <span class="rev-stars">★★★★★</span>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p class="rev-text">An excellent team. Great organization, professional, and punctual, which is very important to me. Thank you for a great day of...</p>
+            <a href="#reviews" class="rev-read-more">Read more</a>
+          </div>
+
+        </div>
+
+        <button id="rev-next-btn" class="rev-arrow-btn rev-arrow-next" aria-label="Next reviews">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Trustindex badge on bottom right -->
+      <div style="display: flex; justify-content: flex-end; padding: 0 4px;">
+        <div style="display: inline-flex; align-items: center; gap: 5px; background: #dcfce7; color: #166534; font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px;">
+          <span>Verified by Trustindex</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
         </div>
       </div>
-      <div id="g-grid" class="rev-grid" data-collapsed="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/elin%20giorgina.webp" width="42" height="42" alt="Elin Georgina-Davies" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Elin Georgina-Davies</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">2 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
-          </figcaption>
-          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
-          <div style="display: flex; gap: 14px; align-items: flex-start">
-            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">I had an absolutely amazing time! The guides were excellent! Snorkeling Menjangan Island was so fun - highly recommend!</blockquote>
 
-          </div>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/maria%20grando.webp" width="42" height="42" alt="maria granado" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">maria granado</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
-          </figcaption>
-          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
-          <div style="display: flex; gap: 14px; align-items: flex-start">
-            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">Excursión más que recomendable. Es una experiencia de 10, el snorkel increíble!!</blockquote>
-
-          </div>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/belle%20werts.webp" width="42" height="42" alt="Belle Weerts" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Belle Weerts</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">3 weeks ago</span>
-            </span>
-            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
-          </figcaption>
-          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
-          <div style="display: flex; gap: 14px; align-items: flex-start">
-            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">We had a very nice snorkling experience! The guide was good and it was a beautiful experience. We saw seaturtles and many of the coral reef creatures.</blockquote>
-
-          </div>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/dorota-bi.webp" width="42" height="42" alt="Dorota Bi" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dorota Bi</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">1 month ago</span>
-            </span>
-            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
-          </figcaption>
-          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
-          <div style="display: flex; gap: 14px; align-items: flex-start">
-            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">An excellent team. Great organization, professional, and punctual, which is very important to me.</blockquote>
-            
-          </div>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/jarin%20wa.webp" width="42" height="42" alt="Jarin Wadiwalla" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Jarin Wadiwalla</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">2 months ago</span>
-            </span>
-            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
-          </figcaption>
-          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
-          <div style="display: flex; gap: 14px; align-items: flex-start">
-            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">We had a really amazing snorkeling trip on Sunday. Menjangan island is so breathtaking with clear water and beautiful corals.</blockquote>
-            
-          </div>
-        </figure>
-        <figure style="margin: 0; padding: 22px; background: var(--color-neutral-100); border-radius: 10px; display: grid; gap: 12px; align-content: start">
-          <figcaption style="display: flex; align-items: center; gap: 12px">
-            <img src="/testimoni1/dani%20fee.webp" width="42" height="42" alt="Dani Fee" loading="lazy" decoding="async" style="width:42px;height:42px;border-radius:50%;object-fit:cover;background:#d7dbe3;flex:none">
-            <span style="display: grid; flex: 1; min-width: 0">
-              <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: #17233f">Dani Fee</span>
-              <span style="font-size: 13px; color: var(--color-neutral-600)">4 months ago</span>
-            </span>
-            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 20px; height: 20px; flex: none"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.7-.4-3.9H24v7.4h12.1c-.2 2-1.5 5-4.4 7l6.7 5.2c4-3.7 6.7-9.2 6.7-15.7z"></path><path fill="#34A853" d="M24 46c6 0 11-2 14.4-5.8l-6.7-5.2c-1.8 1.3-4.3 2.2-7.7 2.2-5.9 0-10.9-3.9-12.7-9.3l-7 5.4C7.7 40.9 15.2 46 24 46z"></path><path fill="#FBBC05" d="M11.3 27.9c-.5-1.4-.8-2.9-.8-4.4s.3-3 .7-4.4l-7-5.5C2.9 16.5 2 20.1 2 23.5s.9 7 2.3 9.9l7-5.5z"></path><path fill="#EA4335" d="M24 9.9c4.2 0 7 1.8 8.6 3.3l6-5.8C34.9 4 30 2 24 2 15.2 2 7.7 7.1 4.3 13.6l7 5.5C13.1 13.8 18.1 9.9 24 9.9z"></path></svg>
-          </figcaption>
-          <div style="display: flex; gap: 2px; align-items: center"><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24" fill="#FBBC05" style="width: 17px; height: 17px"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><span style="display: inline-flex; margin-left: 4px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; flex: none"><path fill="#4285F4" d="M12 1.5l2.1 1.6 2.6-.4 1.2 2.4 2.4 1.2-.4 2.6L21.5 12l-1.6 2.1.4 2.6-2.4 1.2-1.2 2.4-2.6-.4L12 22.5l-2.1-1.6-2.6.4-1.2-2.4-2.4-1.2.4-2.6L2.5 12l1.6-2.1-.4-2.6 2.4-1.2 1.2-2.4 2.6.4z"></path><path fill="#ffffff" d="M10.6 15.2l-2.9-2.9 1.2-1.2 1.7 1.7 4-4 1.2 1.2z"></path></svg></span></div>
-          <div style="display: flex; gap: 14px; align-items: flex-start">
-            <blockquote style="margin: 0; flex: 1; font-size: 15px; line-height: 1.6; color: #2c3a57">Perfect snorkeling day at Menjangan Island. Beautiful corals, many fish, turtels... Good food and good service!</blockquote>
-
-          </div>
-        </figure>
-      </div>
-      <div class="rev-more" style="display: none; justify-content: center; margin: -8px 0 30px">
-        <button type="button" data-more="g-grid" style="cursor: pointer; background: #FFFFFF; border: 1px solid var(--line); border-radius: 999px; padding: 12px 22px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--brand)"><span data-l="en">Show more Google reviews</span><span data-l="id">Lihat ulasan Google lainnya</span></button>
-      </div>
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 34px; text-align: center">
-        <a class="cta" href="https://wa.me/6281238578042?text=Hello%2C%20I%20read%20your%20reviews%20and%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
-          <span data-l="en">Book Your Trip on WhatsApp</span><span data-l="id">Booking Trip via WhatsApp</span>
-        </a>
-        <span class="micro" style="justify-content: center"><span class="st">★★★★★</span><span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span></span>
-      </div>
-</div>
+    </div>
   </section>
-    <section id="booking-steps" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Booking</span><span data-l="id">Cara booking</span></div>
-      <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 24ch; margin: 0 0 6px"><span data-l="en">How to Book Your Menjangan Island Tour</span><span data-l="id">Cara Booking Trip Pulau Menjangan</span></h2>
-      <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 26px"><span data-l="en">Three steps, and we handle the rest.</span><span data-l="id">Tiga langkah, sisanya kami urus.</span></p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
-        <div class="blueprint" style="position: relative; padding: 22px">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; color: var(--color-accent); line-height: 1">1</div>
-          <h4 style="margin: 10px 0 6px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">Message Us</span><span data-l="id">Kirim Pesan</span></h4>
-          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-800)"><span data-l="en">Send your dates, group size and trip. We reply within the hour.</span><span data-l="id">Kirim tanggal, jumlah orang dan trip. Kami balas dalam satu jam.</span></p>
+
+  <!-- Three Ways Into The Water / Snorkeling Trip Section -->
+  <section id="snorkeling-intro" class="snorkeling-grid-section">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div style="font-family: 'Montserrat', system-ui, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb; margin-bottom: 10px;">
+          <span data-l="en">THREE WAYS INTO THE WATER</span>
+          <span data-l="id">TIGA CARA MENIKMATI MENJANGAN</span>
         </div>
-        <div class="blueprint" style="position: relative; padding: 22px">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; color: var(--color-accent); line-height: 1">2</div>
-          <h4 style="margin: 10px 0 6px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">We Confirm the Details</span><span data-l="id">Kami Konfirmasi Detail</span></h4>
-          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-800)"><span data-l="en">We check availability and send the plan, timings and price.</span><span data-l="id">Kami cek ketersediaan dan kirim rencana, jadwal serta harga.</span></p>
-        </div>
-        <div class="blueprint" style="position: relative; padding: 22px">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 26px; color: var(--color-accent); line-height: 1">3</div>
-          <h4 style="margin: 10px 0 6px; text-transform: uppercase; letter-spacing: 0.04em"><span data-l="en">Show Up and Get In</span><span data-l="id">Datang dan Masuk Air</span></h4>
-          <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-800)"><span data-l="en">Transfer, boat, gear, permit, guide and lunch are arranged.</span><span data-l="id">Transfer, boat, alat, izin, guide dan makan siang sudah diatur.</span></p>
-        </div>
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 42px); color: #0f274a; margin: 0 0 14px;">
+          <span data-l="en">Menjangan Snorkeling Trip &amp; Diving</span>
+          <span data-l="id">Menjangan Snorkeling Trip &amp; Diving</span>
+        </h2>
+        <p style="max-width: 720px; margin: 0 auto; font-size: 15px; line-height: 1.6; color: #475569;">
+          <span data-l="en">Explore crystal-clear waters, vibrant coral reefs, and incredible tropical marine life with our experienced local guides. As a legally licensed local operator, we are committed to providing safe, professional, and unforgettable ocean adventures.</span>
+          <span data-l="id">Jelajahi perairan sebening kristal, terumbu karang yang hidup, dan biota laut tropis bersama pemandu lokal berpengalaman kami. Sebagai operator berlisensi resmi, kami berkomitmen memberikan petualangan laut yang aman, profesional, dan tak terlupakan.</span>
+        </p>
       </div>
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px">
-        <a id="btn-general-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island.%20Please%20send%20me%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer" style="padding: 15px 26px; font-size: 16px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
-          <span data-l="en">Start on WhatsApp</span><span data-l="id">Mulai via WhatsApp</span>
-        </a>
-        <div style="flex-basis: 100%; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-neutral-700)">
-        <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-        <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
+
+      <!-- 2-Column Split: 3x3 Photo Gallery & Trip Info -->
+      <div class="snorkeling-split-layout">
+        
+        <!-- Left: 3x3 Photo Gallery -->
+        <div class="snorkeling-gallery-grid">
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-01.webp') }}" alt="Snorkeling at coral garden Menjangan" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-02.webp') }}" alt="Snorkeler swimming with tropical fish" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-03.webp') }}" alt="Child snorkeling Menjangan Island" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-04.webp') }}" alt="Wild deer on the beach Menjangan" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-05.webp') }}" alt="Sea turtle swimming in crystal clear water" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-06.webp') }}" alt="Clownfish anemone reef" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-07.webp') }}" alt="Snorkeling above vibrant reef" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-08.webp') }}" alt="Aerial view of turquoise lagoon" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/snorkeling-09.webp') }}" alt="White sand beach Menjangan" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <!-- Right: Snorkeling Trip Details -->
+        <div style="display: flex; flex-direction: column;">
+          
+          <!-- Category Badge -->
+          <div style="display: inline-flex; align-items: center; background: #0f274a; color: #ffffff; padding: 6px 14px; border-radius: 6px; align-self: flex-start; margin-bottom: 16px;">
+            <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;">01 SNORKELING</span>
+            <span style="opacity: 0.75; font-size: 11.5px; margin-left: 6px;">· <span data-l="en">All levels - non-swimmers welcome</span><span data-l="id">Semua level - ramah pemula</span></span>
+          </div>
+
+          <!-- Trip Title -->
+          <h3 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(22px, 2.3vw, 29px); color: #0f274a; line-height: 1.25; margin: 0 0 14px;">
+            <span data-l="en">Snorkeling Menjangan Island: Half-Day Trip, Everything Included</span>
+            <span data-l="id">Snorkeling Pulau Menjangan: Trip Setengah Hari, Semua Termasuk</span>
+          </h3>
+
+          <!-- Sub-description -->
+          <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0 0 24px;">
+            <span data-l="en">Crystal-clear turquoise water, vibrant coral reefs, and the wild deer of Menjangan's white-sand beaches.</span>
+            <span data-l="id">Air biru kehijauan yang sebening kristal, terumbu karang hidup yang memukau, dan rusa liar di pantai pasir putih Menjangan.</span>
+          </p>
+
+          <!-- THE TRIP Section -->
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2563eb; margin-bottom: 14px;">
+            <span data-l="en">THE TRIP</span>
+            <span data-l="id">DETAIL TRIP</span>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">Explore two beautiful snorkeling spots inside West Bali National Park</span><span data-l="id">Jelajahi dua titik snorkeling terindah di Taman Nasional Bali Barat</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">Picnic lunch on the white-sand beach, with Menjangan's famous wild deer nearby</span><span data-l="id">Makan siang piknik di pantai pasir putih, bersama rusa liar khas Menjangan di sekitar</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">Shared boat departs 9:00 AM daily, or take a private boat at a time that suits you</span><span data-l="id">Perahu bersama berangkat jam 09.00 WITA setiap hari, atau pilih perahu privat sesuai waktu Anda</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">Your guide is in the water with you, showing you the reef and keeping you comfortable</span><span data-l="id">Pemandu Anda mendampingi di air, menunjukkan keindahan terumbu karang dan memastikan keamanan Anda</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">First time snorkeling, or travelling with children? No swimming experience needed</span><span data-l="id">Baru pertama kali snorkeling, atau bersama anak-anak? Tidak perlu pengalaman berenang</span></span>
+            </div>
+          </div>
+
+          <!-- INCLUDED Section -->
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2563eb; margin-bottom: 12px;">
+            <span data-l="en">INCLUDED</span>
+            <span data-l="id">SUDAH TERMASUK</span>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="trip-tag-pill"><span data-l="en">Boat and crew</span><span data-l="id">Perahu &amp; kru</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Park permit</span><span data-l="id">Tiket taman nasional</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Full gear</span><span data-l="id">Alat lengkap</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Guide in the water</span><span data-l="id">Pemandu di air</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Lunch and water</span><span data-l="id">Makan siang &amp; air</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Insurance</span><span data-l="id">Asuransi</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Free local pick-up</span><span data-l="id">Antar jemput lokal gratis</span></span>
+          </div>
+
+        </div>
+
       </div>
+
+    </div>
+  </section>
+
+  <!-- Scuba Diving Section (02 SCUBA DIVING) -->
+  <section id="scuba-diving-section" class="snorkeling-grid-section" style="border-top: none;">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      
+      <!-- 2-Column Split: Scuba Info on Left, 3x3 Photo Gallery on Right -->
+      <div class="snorkeling-split-layout">
+        
+        <!-- Left: Scuba Trip Details -->
+        <div style="display: flex; flex-direction: column;">
+          
+          <!-- Category Badge -->
+          <div style="display: inline-flex; align-items: center; background: #0f274a; color: #ffffff; padding: 6px 14px; border-radius: 6px; align-self: flex-start; margin-bottom: 16px;">
+            <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;">02 SCUBA DIVING</span>
+            <span style="opacity: 0.75; font-size: 11.5px; margin-left: 6px;">· <span data-l="en">Certified divers · Open Water and above</span><span data-l="id">Penyelam bersertifikat · Open Water ke atas</span></span>
+          </div>
+
+          <!-- Trip Title -->
+          <h3 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(22px, 2.3vw, 29px); color: #0f274a; line-height: 1.25; margin: 0 0 14px;">
+            <span data-l="en">Scuba Diving Menjangan Island: Visit 2 Beautiful Dive Spots</span>
+            <span data-l="id">Scuba Diving Pulau Menjangan: Kunjungi 2 Spot Selam Terbaik</span>
+          </h3>
+
+          <!-- Sub-description -->
+          <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0 0 24px;">
+            <span data-l="en">Spectacular coral walls and colourful reef life, at one of Bali’s most beautiful dive destinations.</span>
+            <span data-l="id">Dinding karang spektakuler dan kehidupan terumbu karang yang memukau, di salah satu destinasi selam terindah di Bali.</span>
+          </p>
+
+          <!-- THE TRIP Section -->
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2563eb; margin-bottom: 14px;">
+            <span data-l="en">THE TRIP</span>
+            <span data-l="id">DETAIL TRIP</span>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">Two dives around Menjangan Island, at sites chosen on the morning for the best conditions</span><span data-l="id">Dua kali penyelaman di sekitar Pulau Menjangan, di spot terbaik yang dipilih pagi hari sesuai kondisi</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">For certified divers from Open Water (Level 1) and above</span><span data-l="id">Untuk penyelam bersertifikat dari level Open Water (Level 1) ke atas</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">Wall, boat and drift dives at 3 to 25 metres, with gentle currents</span><span data-l="id">Penyelaman dinding (wall dive), perahu, dan drift dive pada kedalaman 3 hingga 25 meter dengan arus tenang</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">In good conditions the visibility reaches up to 30 metres</span><span data-l="id">Pada kondisi prima, jarak pandang dalam air mencapai hingga 30 meter</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">A comfortable surface interval on the beach between the two dives</span><span data-l="id">Jeda permukaan (surface interval) yang nyaman di pantai di antara dua sesi penyelaman</span></span>
+            </div>
+          </div>
+
+          <!-- Eleven dive sites box -->
+          <div style="background: #f0f7ff; border-left: 3.5px solid #2563eb; padding: 12px 16px; border-radius: 6px; margin-bottom: 24px; font-size: 13px; line-height: 1.6; color: #334155;">
+            <strong style="color: #0f274a;"><span data-l="en">Eleven dive sites:</span><span data-l="id">Sebelas spot selam:</span></strong> Pos I · Mangrove Point · Underwater Cave · Pos II · Bat Cave · Temple Wall · Coral Garden · Sandy Slope · Dream Wall · Anchor Wreck · Eel Garden
+          </div>
+
+          <!-- INCLUDED Section -->
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2563eb; margin-bottom: 12px;">
+            <span data-l="en">INCLUDED</span>
+            <span data-l="id">SUDAH TERMASUK</span>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="trip-tag-pill"><span data-l="en">Gear and tanks</span><span data-l="id">Alat &amp; tabung</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Boat and crew</span><span data-l="id">Perahu &amp; kru</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Park permit</span><span data-l="id">Tiket taman nasional</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Certified dive guide</span><span data-l="id">Pemandu selam bersertifikat</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Lunch and water</span><span data-l="id">Makan siang &amp; air</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Diving insurance</span><span data-l="id">Asuransi selam</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Free local pick-up</span><span data-l="id">Antar jemput lokal gratis</span></span>
+          </div>
+
+        </div>
+
+        <!-- Right: 3x3 Photo Gallery -->
+        <div class="snorkeling-gallery-grid">
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-01.webp') }}" alt="Scuba diver photographing coral reef Menjangan" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-02.webp') }}" alt="Diver swimming with sea turtle" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-03.webp') }}" alt="Vibrant reef and anthias fish" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-04.webp') }}" alt="Diver exploring reef wall" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-05.webp') }}" alt="Divers near big sea fan" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-06.webp') }}" alt="Diver beside gorgonian coral" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-07.webp') }}" alt="Diver above colorful corals" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-08.webp') }}" alt="Diver admiring huge sea fan" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/scuba-09.webp') }}" alt="Sunbeams penetrating underwater cave dive site" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Discovery Scuba Diving Section (03 DISCOVERY SCUBA DIVING) -->
+  <section id="discovery-scuba-section" class="snorkeling-grid-section" style="border-top: none;">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      
+      <!-- 2-Column Split: 7-Photo Gallery on Left, Discovery Info on Right -->
+      <div class="snorkeling-split-layout">
+        
+        <!-- Left: 7-Photo Gallery Grid (Row 1: 3, Row 2: 3, Row 3: 1 centered) -->
+        <div class="snorkeling-gallery-grid">
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/discovery-01.webp') }}" alt="Beginner scuba diving Menjangan Island" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/discovery-02.webp') }}" alt="Diver swimming over coral garden" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/discovery-03.webp') }}" alt="Try scuba diver next to sea fan" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/discovery-04.webp') }}" alt="Sea turtle swimming alongside diver" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/discovery-05.webp') }}" alt="Try scuba diver giving peace sign underwater" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item">
+            <img src="{{ asset('new/discovery-06.webp') }}" alt="First time diver with instructor nearby" loading="lazy" decoding="async">
+          </div>
+          <div class="snorkeling-gallery-item" style="grid-column: 2;">
+            <img src="{{ asset('new/discovery-07.webp') }}" alt="Discovery scuba diver in shallow clear water" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <!-- Right: Discovery Scuba Trip Details -->
+        <div style="display: flex; flex-direction: column;">
+          
+          <!-- Category Badge -->
+          <div style="display: inline-flex; align-items: center; background: #0f274a; color: #ffffff; padding: 6px 14px; border-radius: 6px; align-self: flex-start; margin-bottom: 16px;">
+            <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;">03 DISCOVERY SCUBA DIVING</span>
+            <span style="opacity: 0.75; font-size: 11.5px; margin-left: 6px;">· <span data-l="en">Total beginners · no certification</span><span data-l="id">Pemula total · tanpa sertifikasi</span></span>
+          </div>
+
+          <!-- Trip Title -->
+          <h3 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(22px, 2.3vw, 29px); color: #0f274a; line-height: 1.25; margin: 0 0 14px;">
+            <span data-l="en">Never Dived Before? Discovery Scuba Diving at Menjangan, No Certification Needed</span>
+            <span data-l="id">Belum Pernah Menyelam? Discovery Scuba Diving di Menjangan, Tanpa Perlu Sertifikasi</span>
+          </h3>
+
+          <!-- Sub-description -->
+          <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0 0 24px;">
+            <span data-l="en">Also known as Try Scuba. Nervous about your first breath underwater? This trip is built for that.</span>
+            <span data-l="id">Juga dikenal sebagai Try Scuba. Ragu atau gugup untuk bernapas pertama kali di bawah air? Trip ini dirancang khusus untuk Anda.</span>
+          </p>
+
+          <!-- THE TRIP Section -->
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2563eb; margin-bottom: 14px;">
+            <span data-l="en">THE TRIP</span>
+            <span data-l="id">DETAIL TRIP</span>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">No certification, diving experience or swimming ability needed</span><span data-l="id">Tidak perlu sertifikasi, pengalaman menyelam, ataupun kemampuan berenang</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">Two shallow dives at 3 to 5 metres, with your instructor beside you throughout</span><span data-l="id">Dua kali penyelaman dangkal di kedalaman 3 hingga 5 meter, didampingi penuh oleh instruktur Anda</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">About 4 hours, including the briefing and lunch</span><span data-l="id">Durasi sekitar 4 jam, sudah termasuk sesi briefing dan makan siang</span></span>
+            </div>
+            <div class="trip-check-item">
+              <svg viewBox="0 0 24 24" class="trip-check-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><span data-l="en">The experience itself, not a certification course</span><span data-l="id">Fokus menikmati pengalaman menyelam sesungguhnya, bukan kursus sertifikasi</span></span>
+            </div>
+          </div>
+
+          <!-- INCLUDED Section -->
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2563eb; margin-bottom: 12px;">
+            <span data-l="en">INCLUDED</span>
+            <span data-l="id">SUDAH TERMASUK</span>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="trip-tag-pill"><span data-l="en">Instructor with you</span><span data-l="id">Instruktur mendampingi</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Full gear in your size</span><span data-l="id">Alat lengkap sesuai ukuran</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Boat and crew</span><span data-l="id">Perahu &amp; kru</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Park permit</span><span data-l="id">Tiket taman nasional</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Lunch and water</span><span data-l="id">Makan siang &amp; air</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Insurance</span><span data-l="id">Asuransi</span></span>
+            <span class="trip-tag-pill"><span data-l="en">Free local pick-up</span><span data-l="id">Antar jemput lokal gratis</span></span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Us Section (A Local Operation on the West Bali Coast) -->
+  <section id="about-us" style="background: #f0f7fc; padding: 68px 24px 72px; border-bottom: 1px solid var(--color-divider);">
+    <div class="about-us-grid" style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.25fr; gap: 52px; align-items: center;">
+      
+      <!-- Left: Diver Image -->
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="{{ asset('new/diving-menjangan-island1.webp') }}" alt="Local diver swimming along Menjangan reef" loading="lazy" decoding="async" style="width: 100%; max-width: 460px; height: auto; display: block;">
+      </div>
+
+      <!-- Right: About Us Content & Badge Pills -->
+      <div style="display: flex; flex-direction: column;">
+        <div style="font-family: 'Montserrat', system-ui, sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb; margin-bottom: 10px;">
+          <span data-l="en">ABOUT US</span>
+          <span data-l="id">TENTANG KAMI</span>
+        </div>
+
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(26px, 3.2vw, 38px); color: #0f274a; line-height: 1.2; margin: 0 0 20px;">
+          <span data-l="en">A Local Operation on the West Bali Coast</span>
+          <span data-l="id">Operator Lokal di Pesisir Bali Barat</span>
+        </h2>
+
+        <p style="font-size: 15px; line-height: 1.65; color: #334155; margin: 0 0 16px;">
+          <span data-l="en">We are based in Pejarakan, on the coast road between Pemuteran and Banyuwedang Harbour, and we work with guides who grew up along this stretch of water. They learned these reefs before they ever guided on them, and they know which wall the turtles favour and how the tide runs at each site.</span>
+          <span data-l="id">Kami berbasis di Pejarakan, di jalan pesisir antara Pemuteran dan Pelabuhan Banyuwedang, serta bekerja bersama pemandu lokal yang tumbuh besar di pesisir ini. Mereka telah mengenal terumbu karang ini jauh sebelum menjadi pemandu, dan sangat memahami dinding karang favorit penyu serta pola arus di setiap spot.</span>
+        </p>
+
+        <p style="font-size: 15px; line-height: 1.65; color: #334155; margin: 0 0 28px;">
+          <span data-l="en">Booking with us keeps the work on this coast. We keep groups small, maintain our own gear, and support the reef restoration efforts the area is known for.</span>
+          <span data-l="id">Memesan bersama kami turut memberdayakan perekonomian pesisir lokal. Kami menjaga kapasitas grup tetap kecil, merawat peralatan sendiri, dan mendukung upaya pelestarian terumbu karang di kawasan ini.</span>
+        </p>
+
+        <!-- Feature Pill Badges -->
+        <div class="about-pills" style="display: flex; flex-wrap: wrap; gap: 10px;">
+          
+          <div style="display: inline-flex; align-items: center; gap: 7px; background: #ffffff; border: 1px solid rgba(15, 26, 48, 0.08); border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: #1e293b; box-shadow: 0 1px 4px rgba(15, 26, 48, 0.04);">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+            <span><span data-l="en">Licensed operator</span><span data-l="id">Operator berlisensi</span></span>
+          </div>
+
+          <div style="display: inline-flex; align-items: center; gap: 7px; background: #ffffff; border: 1px solid rgba(15, 26, 48, 0.08); border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: #1e293b; box-shadow: 0 1px 4px rgba(15, 26, 48, 0.04);">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span><span data-l="en">10+ years on this coast</span><span data-l="id">10+ tahun pengalaman di pesisir ini</span></span>
+          </div>
+
+          <div style="display: inline-flex; align-items: center; gap: 7px; background: #ffffff; border: 1px solid rgba(15, 26, 48, 0.08); border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: #1e293b; box-shadow: 0 1px 4px rgba(15, 26, 48, 0.04);">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span><span data-l="en">Max 10 per boat</span><span data-l="id">Maksimal 10 per perahu</span></span>
+          </div>
+
+          <div style="display: inline-flex; align-items: center; gap: 7px; background: #ffffff; border: 1px solid rgba(15, 26, 48, 0.08); border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: #1e293b; box-shadow: 0 1px 4px rgba(15, 26, 48, 0.04);">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            <span><span data-l="en">Reef conservation</span><span data-l="id">Konservasi terumbu karang</span></span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How to Book & Why Book With Us Section -->
+  <section id="how-to-book-why-us" style="background: #eef6fc; padding: 68px 24px 76px; border-bottom: 1px solid var(--color-divider);">
+    <div style="max-width: 1160px; margin: 0 auto;">
+      
+      <!-- Part 1: How to Book Your Menjangan Island Tour -->
+      <div style="text-align: center; margin-bottom: 36px;">
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(26px, 3.2vw, 36px); color: #0f274a; margin: 0 0 8px;">
+          <span data-l="en">How to Book Your Menjangan Island Tour</span>
+          <span data-l="id">Cara Memesan Tur Pulau Menjangan</span>
+        </h2>
+        <p style="font-size: 15px; color: #475569; margin: 0;">
+          <span data-l="en">Three steps, and we handle the rest.</span>
+          <span data-l="id">Tiga langkah mudah, sisanya kami yang urus.</span>
+        </p>
+      </div>
+
+      <!-- 3 Steps Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 64px;">
+        
+        <!-- Step 1 -->
+        <div style="background: #ffffff; border-radius: 14px; padding: 36px 24px 30px; box-shadow: 0 4px 18px rgba(15, 26, 48, 0.05); position: relative; text-align: center; display: flex; flex-direction: column; align-items: center;">
+          <span style="position: absolute; top: 18px; left: 24px; font-family: 'Montserrat', system-ui, sans-serif; font-size: 34px; font-weight: 800; color: #e2e8f0; line-height: 1;">1</span>
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: #0f274a; display: grid; place-items: center; color: #ffffff; margin-bottom: 18px;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <h3 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 18px; color: #0f274a; margin: 0 0 10px;">
+            <span data-l="en">Message Us</span>
+            <span data-l="id">Hubungi Kami</span>
+          </h3>
+          <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+            <span data-l="en">Send us your dates, group size and which trip you have in mind. WhatsApp is fastest, and we usually reply within the hour.</span>
+            <span data-l="id">Kirimkan tanggal, jumlah peserta, dan paket trip yang diinginkan. WhatsApp paling cepat, dan kami membalas dalam hitungan menit.</span>
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="background: #ffffff; border-radius: 14px; padding: 36px 24px 30px; box-shadow: 0 4px 18px rgba(15, 26, 48, 0.05); position: relative; text-align: center; display: flex; flex-direction: column; align-items: center;">
+          <span style="position: absolute; top: 18px; left: 24px; font-family: 'Montserrat', system-ui, sans-serif; font-size: 34px; font-weight: 800; color: #e2e8f0; line-height: 1;">2</span>
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: #0f274a; display: grid; place-items: center; color: #ffffff; margin-bottom: 18px;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <h3 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 18px; color: #0f274a; margin: 0 0 10px;">
+            <span data-l="en">We Confirm the Details</span>
+            <span data-l="id">Kami Konfirmasi Detailnya</span>
+          </h3>
+          <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+            <span data-l="en">We check availability, adjust the itinerary if you want something different, and send you the full plan with timings and price.</span>
+            <span data-l="id">Kami cek ketersediaan, sesuaikan jadwal sesuai keinginan Anda, dan kirimkan rencana lengkap beserta rincian waktu dan harga.</span>
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="background: #ffffff; border-radius: 14px; padding: 36px 24px 30px; box-shadow: 0 4px 18px rgba(15, 26, 48, 0.05); position: relative; text-align: center; display: flex; flex-direction: column; align-items: center;">
+          <span style="position: absolute; top: 18px; left: 24px; font-family: 'Montserrat', system-ui, sans-serif; font-size: 34px; font-weight: 800; color: #e2e8f0; line-height: 1;">3</span>
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: #0f274a; display: grid; place-items: center; color: #ffffff; margin-bottom: 18px;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M2 17h20M2 7h20"></path></svg>
+          </div>
+          <h3 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 18px; color: #0f274a; margin: 0 0 10px;">
+            <span data-l="en">Show Up and Get In</span>
+            <span data-l="id">Datang dan Nikmati Trip</span>
+          </h3>
+          <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+            <span data-l="en">Transfer, boat, gear, park permit, guide and lunch are all arranged. You just need to turn up ready to get in the water.</span>
+            <span data-l="id">Antar jemput, perahu, alat, tiket taman nasional, pemandu, dan makan siang sudah siap. Anda tinggal datang siap menyelam.</span>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Part 2: Why Book With Us -->
+      <div style="text-align: center; margin-bottom: 36px;">
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(26px, 3.2vw, 36px); color: #0f274a; margin: 0 0 8px;">
+          <span data-l="en">Why Book With Us</span>
+          <span data-l="id">Mengapa Memilih Kami</span>
+        </h2>
+        <p style="font-size: 15px; color: #475569; margin: 0;">
+          <span data-l="en">What you get on every trip, without asking for it.</span>
+          <span data-l="id">Kelebihan dan jaminan kenyamanan di setiap perjalanan Anda.</span>
+        </p>
+      </div>
+
+      <!-- 6 Feature Cards Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+        
+        <!-- Feature 1: Not a Middleman -->
+        <div style="background: #ffffff; border-radius: 12px; padding: 22px 20px; box-shadow: 0 3px 14px rgba(15, 26, 48, 0.05); display: flex; align-items: flex-start; gap: 14px;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; display: grid; place-items: center; color: #2563eb; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div>
+            <h4 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; color: #0f274a; margin: 0 0 6px;">
+              <span data-l="en">Not a Middleman</span>
+              <span data-l="id">Langsung Operator, Bukan Perantara</span>
+            </h4>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+              <span data-l="en">We are based on this coast and run the trips ourselves. No agency markup, no handing you over to someone else at the harbour.</span>
+              <span data-l="id">Kami berbasis langsung di pesisir ini dan menjalankan trip sendiri. Tanpa biaya perantara, tanpa dioper ke pihak lain di dermaga.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2: Safety First, Always -->
+        <div style="background: #ffffff; border-radius: 12px; padding: 22px 20px; box-shadow: 0 3px 14px rgba(15, 26, 48, 0.05); display: flex; align-items: flex-start; gap: 14px;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; display: grid; place-items: center; color: #2563eb; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          </div>
+          <div>
+            <h4 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; color: #0f274a; margin: 0 0 6px;">
+              <span data-l="en">Safety First, Always</span>
+              <span data-l="id">Keselamatan Selalu Utama</span>
+            </h4>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+              <span data-l="en">Life jackets for everyone, a briefing before you enter, and a guide in the water with the group the whole time. Non-swimmers welcome.</span>
+              <span data-l="id">Pelampung untuk semua, briefing sebelum masuk air, dan pemandu mendampingi di air sepanjang waktu. Ramah pemula.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3: Small Groups -->
+        <div style="background: #ffffff; border-radius: 12px; padding: 22px 20px; box-shadow: 0 3px 14px rgba(15, 26, 48, 0.05); display: flex; align-items: flex-start; gap: 14px;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; display: grid; place-items: center; color: #2563eb; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div>
+            <h4 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; color: #0f274a; margin: 0 0 6px;">
+              <span data-l="en">Small Groups</span>
+              <span data-l="id">Grup Kecil &amp; Eksklusif</span>
+            </h4>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+              <span data-l="en">Maximum ten people per boat, and two divers per guide on dive trips. You get attention in the water, not a queue.</span>
+              <span data-l="id">Maksimal 10 orang per perahu, dan 2 penyelam per pemandu untuk trip diving. Perhatian penuh di air tanpa antre.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4: One Price, Everything In -->
+        <div style="background: #ffffff; border-radius: 12px; padding: 22px 20px; box-shadow: 0 3px 14px rgba(15, 26, 48, 0.05); display: flex; align-items: flex-start; gap: 14px;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; display: grid; place-items: center; color: #2563eb; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          </div>
+          <div>
+            <h4 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; color: #0f274a; margin: 0 0 6px;">
+              <span data-l="en">One Price, Everything In</span>
+              <span data-l="id">Satu Harga, Semua Termasuk</span>
+            </h4>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+              <span data-l="en">Boat, national park entrance, gear, guide, lunch and insurance are all in the quoted price. Nothing gets added at the jetty.</span>
+              <span data-l="id">Perahu, tiket taman nasional, alat, pemandu, makan siang, dan asuransi sudah termasuk. Bebas biaya tambahan.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 5: The Right Sites, Not the Nearest -->
+        <div style="background: #ffffff; border-radius: 12px; padding: 22px 20px; box-shadow: 0 3px 14px rgba(15, 26, 48, 0.05); display: flex; align-items: flex-start; gap: 14px;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; display: grid; place-items: center; color: #2563eb; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M2 17h20M2 7h20"></path></svg>
+          </div>
+          <div>
+            <h4 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; color: #0f274a; margin: 0 0 6px;">
+              <span data-l="en">The Right Sites, Not the Nearest</span>
+              <span data-l="id">Spot Terbaik, Bukan yang Terdekat</span>
+            </h4>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+              <span data-l="en">Eleven dive sites around the island and conditions that change daily. We pick where to take you on the morning, not from a fixed list.</span>
+              <span data-l="id">11 titik selam di sekitar pulau dengan kondisi dinamis. Kami memilih spot terbaik di pagi hari sesuai kondisi laut.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 6: Private or Share, Year Round -->
+        <div style="background: #ffffff; border-radius: 12px; padding: 22px 20px; box-shadow: 0 3px 14px rgba(15, 26, 48, 0.05); display: flex; align-items: flex-start; gap: 14px;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: #e0f2fe; display: grid; place-items: center; color: #2563eb; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <div>
+            <h4 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; color: #0f274a; margin: 0 0 6px;">
+              <span data-l="en">Private or Share, Year Round</span>
+              <span data-l="id">Trip Privat atau Bersama, Sepanjang Tahun</span>
+            </h4>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0;">
+              <span data-l="en">Share boats leave at 9am daily. Private trips run any time between 7am and 3pm, including last-minute bookings.</span>
+              <span data-l="id">Trip bersama berangkat jam 09.00 WITA setiap hari. Trip privat fleksibel berangkat kapan saja antara 07.00–15.00 WITA.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- As featured on and trusted by Section -->
+  <section id="featured-trusted-by" style="background: #f8fafc; padding: 56px 24px 48px; border-bottom: 1px solid var(--color-divider); text-align: center;">
+    <div style="max-width: 1160px; margin: 0 auto;">
+      <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(22px, 2.5vw, 30px); color: #0f274a; margin: 0 0 10px;">
+        <span data-l="en">As featured on and trusted by</span>
+        <span data-l="id">Telah Diliput dan Dipercaya Oleh</span>
+      </h2>
+      <p style="font-size: 14.5px; color: #475569; margin: 0 0 36px;">
+        <span data-l="en">Thousands of travellers have found Menjangan Island through us. Here is where they found us first.</span>
+        <span data-l="id">Ribuan wisatawan telah menemukan Pulau Menjangan bersama kami. Di sinilah mereka pertama kali menemukan kami.</span>
+      </p>
+
+      <!-- Logos Row -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap;">
+        
+        <!-- TripAdvisor -->
+        <div style="display: flex; align-items: center; gap: 8px; filter: grayscale(100%); opacity: 0.7; transition: all 0.2s ease;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          </div>
+          <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 19px; color: #0f274a; letter-spacing: -0.02em;">Tripadvisor</span>
+        </div>
+
+        <!-- BALI Untold -->
+        <div style="display: flex; align-items: center; filter: grayscale(100%); opacity: 0.7; transition: all 0.2s ease;">
+          <img src="{{ asset('uploads/wp/Bali-Untold-Logo-Final-1-300x90-1.webp') }}" alt="Bali Untold" style="height: 32px; width: auto; object-fit: contain;">
+        </div>
+
+        <!-- TRAppe. -->
+        <div style="display: flex; align-items: center; filter: grayscale(100%); opacity: 0.7; transition: all 0.2s ease;">
+          <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 900; font-size: 23px; color: #0f274a; letter-spacing: -0.04em;">TRAppe<span style="color: #2563eb;">.</span></span>
+        </div>
+
+        <!-- GET YOUR GUIDE -->
+        <div style="display: flex; align-items: center; filter: grayscale(100%); opacity: 0.7; transition: all 0.2s ease;">
+          <img src="{{ asset('uploads/wp/GetYourGuide_Logo.svg_.webp') }}" alt="GetYourGuide" style="height: 38px; width: auto; object-fit: contain;">
+        </div>
+
+        <!-- Yandex Maps -->
+        <div style="display: flex; align-items: center; filter: grayscale(100%); opacity: 0.7; transition: all 0.2s ease;">
+          <img src="{{ asset('uploads/wp/yandexmaps-removebg-previewnorm.webp') }}" alt="Yandex Maps" style="height: 32px; width: auto; object-fit: contain;">
+        </div>
+
       </div>
     </div>
   </section>
 
-    <section id="faq" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 900px; margin: 0 auto">
-      <div style="text-align: center; margin-bottom: 30px">
-        <h2 style="font-size: clamp(28px, 3.4vw, 42px); text-transform: uppercase; margin: 0 0 8px"><span data-l="en">Frequently Asked Questions</span><span data-l="id">Pertanyaan yang Sering Diajukan</span></h2>
-        <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0"><span data-l="en">Asked most before booking. Anything else, message us.</span><span data-l="id">Paling sering ditanya sebelum booking. Sisanya, chat kami.</span></p>
+  <!-- More from Tripadvisor Section -->
+  <section id="more-tripadvisor-reviews" style="background: #eef6fc; padding: 64px 24px 72px; border-bottom: 1px solid var(--color-divider);">
+    <div style="max-width: 1160px; margin: 0 auto;">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 32px;">
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 36px); color: #0f274a; margin: 0 0 8px;">
+          <span data-l="en">More from Tripadvisor</span>
+          <span data-l="id">Lebih Banyak dari Tripadvisor</span>
+        </h2>
+        <p style="font-size: 14.5px; color: #475569; margin: 0 0 24px;">
+          <span data-l="en">Another 200+ reviews from travellers who have been out on the water with us.</span>
+          <span data-l="id">200+ ulasan lainnya dari wisatawan yang telah berpetualang di laut bersama kami.</span>
+        </p>
+
+        <!-- TripAdvisor Trust Badge -->
+        <div style="display: inline-flex; flex-direction: column; align-items: center;">
+          <div style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 15px; color: #0f274a; letter-spacing: 0.04em; margin-bottom: 6px;">
+            EXCELLENT
+          </div>
+          <!-- 5 Green Tripadvisor Circles -->
+          <div style="display: flex; gap: 5px; justify-content: center; margin-bottom: 6px;">
+            <span style="width: 15px; height: 15px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+            <span style="width: 15px; height: 15px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+            <span style="width: 15px; height: 15px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+            <span style="width: 15px; height: 15px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+            <span style="width: 15px; height: 15px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+          </div>
+          <div style="font-size: 12.5px; color: #64748b; margin-bottom: 8px;">
+            <span data-l="en">Based on 193 reviews</span>
+            <span data-l="id">Berdasarkan 193 ulasan</span>
+          </div>
+          <!-- Tripadvisor brand -->
+          <div style="display: inline-flex; align-items: center; gap: 6px; color: #0f274a; font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 14.5px;">
+            <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff;">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            </div>
+            <span>Tripadvisor</span>
+          </div>
+        </div>
       </div>
+
+      <!-- 10-Card Carousel Track Container -->
+      <div style="position: relative; max-width: 1160px; margin: 0 auto;">
+        
+        <!-- Left Nav Arrow Button -->
+        <button id="ta-prev-btn" type="button" aria-label="Previous Tripadvisor review" class="rev-arrow-btn rev-arrow-prev">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <!-- Right Nav Arrow Button -->
+        <button id="ta-next-btn" type="button" aria-label="Next Tripadvisor review" class="rev-arrow-btn rev-arrow-next">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <!-- Horizontal Scrollable Cards -->
+        <div id="ta-cards-carousel" class="ta-cards-track">
+          
+          <!-- Card 1: Isabelle S -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/issabela s.webp') }}" alt="Isabelle S avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Isabelle S</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Superbe sortie snorkeling !</strong> Deux spots magnifiques remplis de poissons colorés.Le guide Putu était vraiment au top, t...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 2: ahn -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/ahn.webp') }}" alt="ahn avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">ahn</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Make your perfect day!</strong> It was a truly perfect trip! They helped us find so many beautiful corals, fish, and turtles, and the...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 3: Baukje d -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/belle-w.webp') }}" alt="Baukje d avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Baukje d</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Highly recommended</strong> Highly recommend this organisation, great snorkelling trip with respect to nature. Using...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 4: Torste -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/dani fee.webp') }}" alt="Torste avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Torste</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Ein absolutes Highlight !</strong> Ein unvergessliches Schnorchelerlebnis rund um Menjangan Island – absolute...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 5: nicole p -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/fanny-s.webp') }}" alt="nicole p avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">nicole p</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Journée enchantée</strong> Mon conjoint, mon frère et ma fille de 5 ans avons passé une superbe journée 🤩 Snorkeling Mejangan...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 6: Thomas L -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/jarin wa.webp') }}" alt="Thomas L avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Thomas L</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Memories from Bali</strong> Really good expérience Really good picture too for the memories
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 7: Sylvie F -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/severine.webp') }}" alt="Sylvie F avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Sylvie F</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Magnifique sortie en famille</strong> Snorkeling Menjangan Island Nous avons passé un merveilleux moment en famille de snorkeling à...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 8: Achille S -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/elin giorgina.webp') }}" alt="Achille S avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Achille S</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              Les guides sont très bienveillants, ils prennent le temps de biens expliquer les consignes et sont toujours à l'écoute...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 9: Cecilia A -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/maria grando.webp') }}" alt="Cecilia A avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Cecilia A</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Excellent snorkeling at Menjangan Island</strong> Amazing experience at Menjangan Island! The underwater world was...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+          <!-- Card 10: Linda W -->
+          <div class="ta-card-item">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ asset('testimoni1/dorota-bi.webp') }}" alt="Linda W avatar" loading="lazy" decoding="async" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 13.5px; color: #0f274a;">Linda W</span>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #00aa6c; display: grid; place-items: center; color: #ffffff; flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-2.92 1.95c-.28.18-.44.5-.44.83v.39c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-.39c0-.34-.16-.65-.44-.83l-2.92-1.95c.23-.57.36-1.18.36-1.83 0-2.76-2.24-5-5-5zm-3.5 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+              <div style="display: flex; gap: 3px;">
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+                <span style="width: 12px; height: 12px; border-radius: 50%; background: #00aa6c; display: inline-block;"></span>
+              </div>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#3b82f6" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <p style="font-size: 13.5px; line-height: 1.55; color: #334155; margin: 0 0 12px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+              <strong style="color: #0f274a;">Outstanding Value</strong> Pick up and return journey went smoothly. Staff were punctual, efficient, professional and very...
+            </p>
+            <a href="https://www.tripadvisor.com" target="_blank" rel="noopener noreferrer" class="rev-read-more">Read more</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions Section -->
+  <section id="faq" style="background: #f0f7fc; padding: 68px 24px 76px; border-bottom: 1px solid var(--color-divider);">
+    <div style="max-width: 860px; margin: 0 auto;">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 36px;">
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(26px, 3.2vw, 36px); color: #0f274a; margin: 0 0 10px;">
+          <span data-l="en">Frequently Asked Questions</span>
+          <span data-l="id">Pertanyaan yang Sering Diajukan</span>
+        </h2>
+        <p style="font-size: 14.5px; color: #475569; margin: 0;">
+          <span data-l="en">The things people ask us most before booking. Anything else, just message us.</span>
+          <span data-l="id">Hal-hal yang paling sering ditanyakan sebelum memesan. Ada pertanyaan lain? Hubungi kami langsung.</span>
+        </p>
+      </div>
+
+      <!-- FAQ Accordions (8 Items) -->
       <div>
-        <details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">Where are you based, and where does the boat leave from?</span><span data-l="id">Di mana lokasi kami, dan dari mana boat berangkat?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
-          </summary>
-          <p style="margin: 0; padding: 0 20px 8px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Our office is on Jl. Banyuwedang in Pejarakan, on the north-west coast of Bali. Boats to Menjangan Island leave from Banyuwedang Harbour, a few minutes away, and the crossing takes around 30 minutes.</span><span data-l="id">Kantor kami di Jl. Banyuwedang, Pejarakan, pesisir barat laut Bali. Boat ke Pulau Menjangan berangkat dari Pelabuhan Banyuwedang, beberapa menit dari kantor, dan penyeberangan sekitar 30 menit.</span></p>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Most guests stay either in Pemuteran, about fifteen minutes east, or at one of the resorts closer to Banyuwedang. We collect you from wherever you are staying.</span><span data-l="id">Sebagian besar tamu menginap di Pemuteran, sekitar lima belas menit ke timur, atau di resor yang lebih dekat ke Banyuwedang. Kami menjemput Anda di tempat menginap.</span></p>
-        </details>
-        <details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">Is hotel pick-up included?</span><span data-l="id">Apakah penjemputan hotel termasuk?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
-          </summary>
-          <p style="margin: 0; padding: 0 20px 8px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Yes, for anywhere along this stretch of coast. That covers Pemuteran, Banyuwedang, Pejarakan and the resorts inside West Bali National Park, at no extra cost.</span><span data-l="id">Ya, untuk seluruh area pesisir ini: Pemuteran, Banyuwedang, Pejarakan dan resor di dalam Taman Nasional Bali Barat, tanpa biaya tambahan.</span></p>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Coming from further away, from Lovina, Munduk, Ubud or the airport, we can arrange a transfer at a fixed price. Tell us where you are staying when you message and we will confirm the pickup time.</span><span data-l="id">Dari area lebih jauh seperti Lovina, Munduk, Ubud atau bandara, kami dapat mengatur transfer dengan harga tetap. Sebutkan lokasi menginap Anda saat chat dan kami konfirmasi jam penjemputan.</span></p>
-        </details>
         
-                <details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">What can we do at Menjangan Island and in West Bali National Park?</span><span data-l="id">Apa saja yang bisa dilakukan di Pulau Menjangan dan Taman Nasional Bali Barat?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
+        <!-- Item 1 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">Do I need to be able to swim?</span><span data-l="id">Apakah saya harus bisa berenang?</span></span>
+            <span class="faq-accordion-icon">+</span>
           </summary>
-          <p style="margin: 0; padding: 0 20px 8px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">In the water: snorkeling at Menjangan, scuba diving across eleven sites around the island, first-time dives with an instructor, and full certification courses. Visibility regularly reaches 30 metres.</span><span data-l="id">Di air: snorkeling di Menjangan, scuba diving di sebelas spot sekitar pulau, dive pertama bersama instruktur, dan kursus sertifikasi lengkap. Visibility sering mencapai 30 meter.</span></p>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">On land: trekking, sunrise bird watching for the Bali Starling, afternoon safari by vehicle, mangrove boat tours and village cycling.</span><span data-l="id">Di darat: trekking, bird watching Jalak Bali saat matahari terbit, safari sore dengan kendaraan, tur perahu mangrove dan bersepeda desa.</span></p>
+          <div class="faq-accordion-body">
+            <span data-l="en">No, you don't need to be able to swim. For snorkeling trips, we provide properly fitted life jackets and our guides stay in the water with you at all times holding a safety float ring. For first-time divers (Discovery Scuba Diving), your certified instructor stays right beside you the whole time controlling your buoyancy and movement.</span>
+            <span data-l="id">Tidak, Anda tidak harus bisa berenang. Untuk trip snorkeling, kami menyediakan pelampung pas badan dan pemandu kami selalu mendampingi Anda di air dengan ban pelampung keselamatan. Untuk pemula yang ingin mencoba diving (Discovery Scuba Diving), instruktur bersertifikat akan mendampingi langsung dan mengatur peralatan serta pergerakan Anda.</span>
+          </div>
         </details>
-        <details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">When is the best time to visit?</span><span data-l="id">Kapan waktu terbaik untuk berkunjung?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
+
+        <!-- Item 2 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">Do I need a diving certificate?</span><span data-l="id">Apakah saya memerlukan sertifikat menyelam?</span></span>
+            <span class="faq-accordion-icon">+</span>
           </summary>
-          <p style="margin: 0; padding: 0 20px 8px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">We run trips year round. Conditions are most reliable in the dry season, roughly April to November, when the water is clearest and the sea is calmest.</span><span data-l="id">Kami menjalankan trip sepanjang tahun. Kondisi paling stabil pada musim kemarau, sekitar April hingga November, saat air paling jernih dan laut paling tenang.</span></p>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">The wet season still has plenty of good days, and this coast sits in the rain shadow of the mountains, so it gets far less rainfall than the south of Bali. Mornings are usually calmer than afternoons whatever the month.</span><span data-l="id">Musim hujan pun masih banyak hari baik, dan pesisir ini berada di balik pegunungan sehingga curah hujannya jauh lebih rendah daripada Bali selatan. Pagi biasanya lebih tenang daripada sore, bulan apa pun.</span></p>
+          <div class="faq-accordion-body">
+            <span data-l="en">You only need a certificate (Open Water Diver or higher) for the certified Scuba Diving package. For Snorkeling and Discovery Scuba Diving (Try Scuba), no certification or prior experience is required at all.</span>
+            <span data-l="id">Anda hanya membutuhkan sertifikat selam (Open Water Diver ke atas) untuk paket Certified Scuba Diving. Untuk Snorkeling dan Discovery Scuba Diving (Try Scuba), sama sekali tidak memerlukan sertifikasi ataupun pengalaman sebelumnya.</span>
+          </div>
         </details>
-<details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">Is Menjangan Island suitable for families with children?</span><span data-l="id">Apakah Pulau Menjangan cocok untuk keluarga dengan anak?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
+
+        <!-- Item 3 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">Where are you based, and where does the boat leave from?</span><span data-l="id">Di mana lokasi Anda, dan dari mana perahu berangkat?</span></span>
+            <span class="faq-accordion-icon">+</span>
           </summary>
-          <p style="margin: 0; padding: 0 20px 8px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Yes. The water around the island is calm and sheltered, and the reef starts in the shallows, so children can see plenty without going deep.</span><span data-l="id">Ya. Air di sekitar pulau tenang dan terlindung, dan reef sudah mulai di area dangkal, sehingga anak-anak bisa melihat banyak tanpa harus turun jauh.</span></p>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Life jackets are provided for everyone and a guide stays in the water with the group throughout. Non-swimmers are welcome. If you are travelling with small children, a private boat gives you more control over timing and pace.</span><span data-l="id">Life jacket disediakan untuk semua dan guide selalu berada di air bersama kelompok. Non-perenang bisa ikut. Jika membawa anak kecil, private boat memberi Anda kendali lebih atas jadwal dan ritme trip.</span></p>
+          <div class="faq-accordion-body">
+            <span data-l="en">We are based in Pejarakan / Banyuwedang on the West Bali coast road. All our boat trips depart directly from Banyuwedang Harbour, which is the closest harbor to Menjangan Island (about a 25–30 minute boat ride).</span>
+            <span data-l="id">Kami berbasis di Pejarakan / Banyuwedang di jalur pesisir Bali Barat. Semua perahu kami berangkat langsung dari Pelabuhan Banyuwedang, pelabuhan terdekat menuju Pulau Menjangan (sekitar 25–30 menit perjalanan perahu).</span>
+          </div>
         </details>
-        
-        <details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">Are your guides experienced?</span><span data-l="id">Apakah guide Anda berpengalaman?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
+
+        <!-- Item 4 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">Is hotel pick-up included?</span><span data-l="id">Apakah antar-jemput hotel sudah termasuk?</span></span>
+            <span class="faq-accordion-icon">+</span>
           </summary>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Our guides grew up on this coast and have worked these reefs for years. Dive guides are certified, and park tours are led by licensed park guides.</span><span data-l="id">Guide kami tumbuh di pesisir ini dan sudah bertahun-tahun bekerja di reef ini. Dive guide bersertifikasi, dan tur taman nasional dipandu guide berlisensi.</span></p>
+          <div class="faq-accordion-body">
+            <span data-l="en">Yes, free return hotel pick-up is included for all accommodations in the Pemuteran and Banyuwedang areas. If you are staying further away (such as Lovina, Munduk, or South Bali), we can easily arrange private car transfers for a small additional fee.</span>
+            <span data-l="id">Ya, antar-jemput hotel pulang-pergi gratis sudah termasuk untuk seluruh penginapan di area Pemuteran dan Banyuwedang. Jika Anda menginap lebih jauh (seperti Lovina, Munduk, atau Bali Selatan), kami dapat mengatur transfer mobil privat dengan biaya tambahan terjangkau.</span>
+          </div>
         </details>
-        <details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">How do I book, and can I have a private trip?</span><span data-l="id">Bagaimana cara booking, dan bisakah trip privat?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
+
+        <!-- Item 5 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">Is Menjangan Island suitable for families with children?</span><span data-l="id">Apakah Pulau Menjangan cocok untuk keluarga dengan anak-anak?</span></span>
+            <span class="faq-accordion-icon">+</span>
           </summary>
-          <p style="margin: 0; padding: 0 20px 8px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Message us on WhatsApp with your dates, group size and which trip you want. We usually reply within the hour and will confirm availability, price and pickup time.</span><span data-l="id">Chat kami di WhatsApp dengan tanggal, jumlah orang dan trip yang diinginkan. Biasanya kami balas dalam satu jam berisi konfirmasi ketersediaan, harga dan jam penjemputan.</span></p>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Both shared and private trips are available. Share boats leave in the morning at a set time. A private boat lets you choose your own departure and adjust the itinerary, and is worth it for families, photographers or anyone who wants a longer day.</span><span data-l="id">Tersedia share maupun private trip. Share boat berangkat pagi pada jam yang sudah ditentukan. Private boat memungkinkan Anda memilih jam keberangkatan dan menyesuaikan itinerary, cocok untuk keluarga, fotografer, atau yang ingin hari lebih panjang.</span></p>
+          <div class="faq-accordion-body">
+            <span data-l="en">Absolutely. The waters around Menjangan Island are calm with gentle currents and exceptionally clear visibility, making it one of the best and safest snorkeling spots in Bali for kids and families. Children also love meeting the wild deer on the island's white sandy beaches!</span>
+            <span data-l="id">Sangat cocok. Perairan di sekitar Pulau Menjangan sangat tenang dengan arus lembut dan visibilitas yang sangat jernih, menjadikannya salah satu spot snorkeling teraman dan terbaik di Bali untuk anak-anak dan keluarga. Anak-anak juga sangat senang bertemu rusa liar di pantai pasir putih pulau!</span>
+          </div>
         </details>
-        
-        <details style="background: #ffffff; border: 1px solid var(--color-divider); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 26, 48, 0.06); padding: 0; margin-bottom: 12px">
-          <summary style="cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 20px; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-accent-800)">
-            <span style="flex: 1"><span data-l="en">Can I cancel or move my date?</span><span data-l="id">Bisakah membatalkan atau memindah tanggal?</span></span>
-            <span style="flex: none; font-size: 18px; line-height: 1; color: var(--color-accent-500)">+</span>
+
+        <!-- Item 6 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">When is the best time to visit?</span><span data-l="id">Kapan waktu terbaik untuk berkunjung?</span></span>
+            <span class="faq-accordion-icon">+</span>
           </summary>
-          <p style="margin: 0; padding: 0 20px 20px; font-size: 15px; line-height: 1.7; color: var(--color-neutral-800)"><span data-l="en">Policy: [KEBIJAKAN_PEMBATALAN]. Weather cancellations: move the date or full refund.</span><span data-l="id">Kebijakan: [KEBIJAKAN_PEMBATALAN]. Batal karena cuaca: ganti tanggal atau refund penuh.</span></p>
+          <div class="faq-accordion-body">
+            <span data-l="en">Menjangan Island can be visited year-round thanks to its sheltered location. The dry season from April to November generally offers the calmest seas and best underwater visibility (often 20–30+ metres), but good trips run throughout the entire year. Shared boats depart daily at 9:00 AM.</span>
+            <span data-l="id">Pulau Menjangan dapat dikunjungi sepanjang tahun karena lokasinya yang terlindung. Musim kemarau dari April hingga November umumnya menawarkan laut paling tenang dan visibilitas bawah laut terbaik (hingga 20–30+ meter), namun trip tetap berjalan lancar sepanjang tahun. Perahu bersama berangkat setiap hari pukul 09.00 WITA.</span>
+          </div>
         </details>
+
+        <!-- Item 7 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">Are your guides experienced?</span><span data-l="id">Apakah pemandu Anda berpengalaman?</span></span>
+            <span class="faq-accordion-icon">+</span>
+          </summary>
+          <div class="faq-accordion-body">
+            <span data-l="en">Yes. All our guides and divemasters are local professionals who grew up along this coast with 10+ years of experience on Menjangan's reefs. They are officially certified, trained in first aid and safety, and know every reef wall and sea life habit around the island.</span>
+            <span data-l="id">Ya. Seluruh pemandu dan divemaster kami adalah tenaga profesional lokal yang tumbuh besar di pesisir ini dengan 10+ tahun pengalaman di terumbu karang Menjangan. Mereka berlisensi resmi, terlatih dalam keselamatan & P3K, serta sangat memahami setiap titik selam dan biota laut di sekitar pulau.</span>
+          </div>
+        </details>
+
+        <!-- Item 8 -->
+        <details class="faq-accordion-item">
+          <summary class="faq-accordion-summary">
+            <span><span data-l="en">How do I book, and can I have a private trip?</span><span data-l="id">Bagaimana cara memesan, dan bisakah pesan trip privat?</span></span>
+            <span class="faq-accordion-icon">+</span>
+          </summary>
+          <div class="faq-accordion-body">
+            <span data-l="en">Booking is simple—just send us a message via WhatsApp with your preferred date, number of people, and package. We confirm your booking quickly without hidden fees. Both daily shared boats (9:00 AM) and flexible private boat charters (departing anytime from 7:00 AM to 3:00 PM) are available.</span>
+            <span data-l="id">Pemesanan sangat mudah—cukup kirim pesan melalui WhatsApp berisi tanggal, jumlah peserta, dan pilihan paket. Kami akan mengonfirmasi dengan cepat tanpa biaya tersembunyi. Tersedia opsi perahu bersama (berangkat 09.00 WITA) maupun perahu privat fleksibel (berangkat kapan saja antara 07.00–15.00 WITA).</span>
+          </div>
+        </details>
+
       </div>
-      
+
     </div>
   </section>
 
-    <section id="location" style="padding: 76px 24px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto">
-      <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">Getting here</span><span data-l="id">Cara ke lokasi</span></div>
-      <h2 style="font-size: clamp(28px, 3.2vw, 40px); text-transform: uppercase; max-width: 26ch; margin: 0 0 6px"><span data-l="en">How Far Is Menjangan From You?</span><span data-l="id">Seberapa Jauh Menjangan dari Anda?</span></h2>
-      <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 24px"><span data-l="en">Drive to Pejarakan, then a 30-minute boat crossing.</span><span data-l="id">Perjalanan ke Pejarakan, lalu 30 menit dengan boat.</span></p>
-      <div style="overflow-x: auto">
-        <table class="table" style="min-width: 520px">
-          <thead><tr><th><span data-l="en">From</span><span data-l="id">Dari</span></th><th><span data-l="en">Drive time</span><span data-l="id">Waktu tempuh</span></th><th><span data-l="en">Pick-up</span><span data-l="id">Penjemputan</span></th></tr></thead>
-          <tbody>
-            <tr><td style="font-weight: 700">Pemuteran</td><td>± 15 min</td><td style="color: var(--color-neutral-700)"><span data-l="en">Free hotel pick-up</span><span data-l="id">Penjemputan hotel gratis</span></td></tr>
-            
-            <tr><td style="font-weight: 700">Lovina</td><td>± 1.5 hours</td><td style="color: var(--color-neutral-700)"><span data-l="en">Arranged, extra cost</span><span data-l="id">Bisa diatur, biaya tambahan</span></td></tr>
-            <tr><td style="font-weight: 700">Ubud</td><td>± 3.5 hours</td><td style="color: var(--color-neutral-700)"><span data-l="en">Arranged, extra cost</span><span data-l="id">Bisa diatur, biaya tambahan</span></td></tr>
-            
-          </tbody>
-        </table>
-      </div>
-      
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 26px">
-        <a id="btn-faq-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20am%20staying%20in%20...%20Could%20you%20help%20me%20plan%20the%20timing%20for%20a%20Menjangan%20trip%3F" target="_blank" rel="noopener noreferrer" style="padding: 15px 26px; font-size: 16px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>
-          <span data-l="en">Ask About Pick-Up on WhatsApp</span><span data-l="id">Tanya Penjemputan via WhatsApp</span>
-        </a>
-        <div style="flex-basis: 100%; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-neutral-700)">
-        <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-        <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-      </div>
-      </div>
-    </div>
-  </section>
-
-    <section id="island-gallery" style="border-top: 1px solid var(--color-divider); padding: 72px 0 0">
-    <div style="max-width: 1160px; margin: 0 auto; padding: 0 24px 30px">
-      <div style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span data-l="en">The island</span><span data-l="id">Pulaunya</span></div>
-      <h2 style="font-size: clamp(30px, 3.4vw, 46px); text-transform: uppercase; max-width: 26ch; margin: 0 0 12px"><span data-l="en">Menjangan Island, Above and Below the Surface</span><span data-l="id">Pulau Menjangan, di Atas dan di Bawah Permukaan</span></h2>
-      <p data-l="en" style="max-width: 64ch; font-size: 16px; color: var(--color-neutral-800); margin: 0">Thirty minutes from Banyuwedang Harbour: a small island inside a national park, ringed by a reef wall that starts a few metres from the boat.</p>
-      <p data-l="id" style="max-width: 64ch; font-size: 16px; color: var(--color-neutral-800); margin: 0">Tiga puluh menit dari Pelabuhan Banyuwedang: pulau kecil di dalam taman nasional, dikelilingi dinding reef yang mulai hanya beberapa meter dari boat.</p>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); grid-auto-rows: 210px; gap: 2px; background: var(--color-neutral-300); background: var(--color-accent-100)">
-      <img loading="lazy" src="{{ asset('uploads/wp/518311948_739445245713673_2929780841752963449_n.webp') }}" alt="Our boat on the way to Menjangan Island" decoding="async" style="grid-column: span 2; grid-row: span 2; width: 100%; height: 100%; object-fit: cover; min-width: 0" width="1536" height="2048">
-      <img loading="lazy" src="{{ asset('uploads/wp/519396628_743465071978357_2561587557975164201_n.webp') }}" alt="Guests in the water with the guide" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="960" height="840">
-      <img loading="lazy" src="{{ asset('uploads/wp/Anemone-fish-Menjangan-Island.webp') }}" alt="Anemone fish" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="600" height="400">
-      <img loading="lazy" src="{{ asset('uploads/wp/Colorful-coral-Menjangan-Island.webp') }}" alt="Colourful coral" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="600" height="400">
-      <img loading="lazy" src="{{ asset('uploads/wp/Turtles-Menjangan-Island.webp') }}" alt="Turtle over the reef" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="600" height="400">
-      <img loading="lazy" src="{{ asset('uploads/wp/Tons-of-fishes-At-Menjangan-Island.webp') }}" alt="Schools of fish" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; min-width: 0" width="600" height="400">
-      <img loading="lazy" src="{{ asset('uploads/wp/Wild-Deers-at-Menjangan-Island.webp') }}" alt="Wild deer on the island" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="600" height="400">
-      <img loading="lazy" src="{{ asset('uploads/wp/Scuba-Diving-Menjangan-4.webp') }}" alt="Sea fans on the wall" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="600" height="400">
-      <img loading="lazy" src="{{ asset('uploads/wp/Snorkeling-Menjangan-Island-3.webp') }}" alt="Snorkeling the shallows" decoding="async" style="width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="600" height="400">
-      <img loading="lazy" src="{{ asset('_2172056_11zon.webp') }}" alt="Menjangan Island scenery" decoding="async" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover; background: var(--color-accent-100); min-width: 0" width="800" height="534">
-    </div>
-  </section>
-
-    <section id="final-cta" style="position: relative; overflow: hidden; border-top: 1px solid var(--color-divider)">
-    <img src="{{ asset('uploads/wp/GOPR9465-scaled-1.webp') }}" alt="Diver over the reef at Menjangan" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" width="1600" height="1829">
-    <div style="position: absolute; inset: 0; background: color-mix(in srgb, var(--color-accent-900) 78%, transparent)"></div>
-    <div style="position: relative; max-width: 1160px; margin: 0 auto; padding: 92px 24px; text-align: center; color: var(--color-bg)">
-      <h2 style="font-size: clamp(30px, 4vw, 52px); text-transform: uppercase; color: var(--color-bg); margin: 0 auto 14px; max-width: 24ch"><span data-l="en">Book Your Trip to Menjangan Island</span><span data-l="id">Booking Trip Anda ke Pulau Menjangan</span></h2>
-      <p data-l="en" style="max-width: 46ch; margin: 0 auto 28px; font-size: 17px; color: color-mix(in srgb, var(--color-bg) 85%, transparent)">Send your date, package and group size. We reply with price.</p>
-      <p data-l="id" style="max-width: 46ch; margin: 0 auto 28px; font-size: 17px; color: color-mix(in srgb, var(--color-bg) 85%, transparent)">Kirim tanggal, paket dan jumlah tamu. Kami balas dengan harga.</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
-        <a id="btn-footer-snorkeling-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Snorkeling%20Menjangan%20Island%20trip." target="_blank" rel="noopener noreferrer" style="padding: 14px 24px; font-size: 15px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>Snorkeling</a>
-        <a id="btn-footer-scuba-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Scuba%20Diving%20Menjangan%20Island%20trip." target="_blank" rel="noopener noreferrer" style="padding: 14px 24px; font-size: 15px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>Scuba Diving</a>
-        <a id="btn-footer-tryscuba-wa" class="btn btn-primary" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Try%20Scuba%20Diving%20experience%20at%20Menjangan." target="_blank" rel="noopener noreferrer" style="padding: 14px 24px; font-size: 15px">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"></path></svg>Try Scuba Diving</a>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin-top: 16px; font-size: 13px; color: color-mix(in srgb, var(--color-bg) 82%, transparent)">
-        <span style="color: #FFC107; letter-spacing: 1px">★★★★★</span>
-        <span><span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span><span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span></span>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 30px; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--color-bg) 74%, transparent)">
-        <span><span data-l="en">Licensed Local Operator</span><span data-l="id">Operator Berlisensi Resmi</span></span>
-        <span><span data-l="en">Official Insurance</span><span data-l="id">Asuransi Resmi</span></span>
-        <span><span data-l="en">Max 10 Guests per Boat</span><span data-l="id">Maks. 10 Tamu per Boat</span></span>
+  <!-- Ready to see it for yourself? Section -->
+  <section id="final-cta" style="position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center;">
+    <img src="{{ asset('new/menjanganislandtrip.webp') }}" alt="Menjangan Island coral and scuba diver" loading="lazy" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 25, 48, 0.2) 0%, rgba(10, 25, 48, 0.7) 45%, rgba(10, 25, 48, 0.92) 100%);"></div>
+    <div style="position: relative; z-index: 2; max-width: 1160px; width: 100%; margin: 0 auto; padding: 80px 24px; display: flex; justify-content: flex-end;">
+      <div style="max-width: 520px; color: #ffffff;">
+        <h2 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.15; color: #ffffff; margin: 0 0 16px;">
+          <span data-l="en">Ready to see it for yourself?</span>
+          <span data-l="id">Siap Menyaksikan Keindahannya Sendiri?</span>
+        </h2>
+        <p style="font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.9); margin: 0 0 28px;">
+          <span data-l="en">Tell us your dates and we will do the rest. Boat, gear, park permit, guide and lunch are all arranged before you arrive.</span>
+          <span data-l="id">Kirimkan tanggal Anda dan kami akan siapkan sisanya. Perahu, alat, tiket taman, pemandu, dan makan siang sudah siap sebelum Anda tiba.</span>
+        </p>
+        <div>
+          <a id="btn-final-cta-wa" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island." target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #ffffff; padding: 14px 28px; border-radius: 8px; font-family: 'Montserrat', system-ui, sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35); transition: transform 0.15s, background 0.15s;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z"/></svg>
+            <span data-l="en">Book via WhatsApp</span>
+            <span data-l="id">Booking via WhatsApp</span>
+          </a>
+        </div>
+        <div style="margin-top: 20px; font-size: 13.5px; color: rgba(255, 255, 255, 0.8);">
+          <span data-l="en">Free pickup along the coast · Small groups · No booking fee</span>
+          <span data-l="id">Antar jemput gratis di sepanjang pesisir · Grup kecil · Tanpa biaya pemesanan</span>
+        </div>
       </div>
     </div>
   </section>
 
   </main>
 
-  <footer style="padding: 60px 24px 96px; border-top: 1px solid var(--color-divider)">
-    <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 32px">
-      <div>
-        <img src="{{ asset('logo-menjangan.webp') }}" alt="Menjangan Snorkeling Trip &amp; Diving" width="128" height="128" style="height: 88px; width: auto; margin-bottom: 14px">
-        <div style="font-family: var(--font-heading); font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-accent-700)">Menjangan Snorkeling Trip &amp; Diving</div>
-        <p style="margin: 8px 0 16px; font-size: 14px; color: var(--color-neutral-700)">Jl. Banyuwedang, Banjar Dinas Batu Ampar, Pejarakan, Gerokgak, Buleleng, Bali 81155</p>
-        <div style="display: grid; gap: 6px; font-size: 14px">
-          <a id="link-contact-wa" href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20have%20a%20question%20about%20Menjangan%20Island%20trips." target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-700)">WhatsApp +62 812 3857 8042</a>
-          <a href="https://www.instagram.com/menjanganislandtrip/" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-700)">Instagram @menjanganislandtrip</a>
-        </div>
+  <!-- Modern Dark Navy Footer -->
+  <footer style="background: #103860; color: #ffffff; padding: 68px 24px 36px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+    <div style="max-width: 1160px; margin: 0 auto;">
+      
+      <!-- Top Grid: Info & Google Maps -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; align-items: start; margin-bottom: 56px;">
         
-        <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-700)"><span data-l="en">Departures from Banyuwedang Harbour · 09:00 shared boat daily · private trips 07:00–15:00</span><span data-l="id">Keberangkatan dari Pelabuhan Banyuwedang · share boat 09.00 setiap hari · trip privat 07.00–15.00</span></p>
-        
-      </div>
-      <figure class="blueprint" style="position: relative; min-height: 280px; margin: 0">
-        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <div role="group" aria-label="Menjangan Snorkeling Trip &amp; Diving location" style="min-height: 280px; padding: 32px; display: grid; place-content: center; justify-items: center; gap: 14px; text-align: center; background: linear-gradient(145deg, #eef1f8, #ffffff)">
-          <span aria-hidden="true" style="width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--color-accent); color: #ffffff; box-shadow: 0 8px 20px rgba(39, 59, 106, 0.2)">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
-          </span>
-          <strong style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-800)">Menjangan Snorkeling Trip &amp; Diving</strong>
-          <span style="max-width: 38ch; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700)">Jl. Banyuwedang, Pejarakan, Gerokgak, Buleleng, Bali 81155</span>
-          <a id="btn-google-maps" class="btn btn-primary" href="https://maps.app.goo.gl/bF5n9eEmeC8aTKMCA" target="_blank" rel="noopener noreferrer" style="padding: 12px 18px; font-size: 14px">
-            <span data-l="en">Open in Google Maps</span><span data-l="id">Buka di Google Maps</span>
+        <!-- Left: Logo & Details -->
+        <div>
+          <a href="#top" style="display: inline-block; text-decoration: none; margin-bottom: 18px;">
+            <img src="{{ asset('new/New-Logo-Menjangan-Snorkeling-Trip-Diving-putih.webp') }}" alt="Menjangan Snorkeling Trip & Diving" style="height: 68px; width: auto; display: block;">
           </a>
+          
+          <h3 style="font-family: 'Montserrat', system-ui, sans-serif; font-weight: 800; font-size: 14.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; margin: 0 0 12px;">
+            MENJANGAN SNORKELING TRIP &amp; DIVING
+          </h3>
+          
+          <p style="font-size: 13.5px; line-height: 1.6; color: #cbd5e1; margin: 0 0 24px; max-width: 480px;">
+            <span data-l="en">A licensed local operator on the north-west coast of Bali, running snorkeling and scuba diving trips at Menjangan Island.</span>
+            <span data-l="id">Operator lokal berlisensi resmi di pesisir barat laut Bali, melayani trip snorkeling dan scuba diving di Pulau Menjangan.</span>
+          </p>
+
+          <!-- Contact items -->
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: #cbd5e1;">
+            
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+              <span>Jl. Banyuwedang, Banjar Dinas Batu Ampar, Pejarakan, Gerokgak, Buleleng, Bali 81155</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/6281238578042" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: none;">+62 812-3857-8042</a>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <a href="https://www.instagram.com/menjanganislandtrip/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: none;">@menjanganislandtrip</a>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>
+                <span data-l="en">Departures from Banyuwedang Harbour · shared boat 9:00 daily · private trips 7:00–15:00</span>
+                <span data-l="id">Keberangkatan dari Pelabuhan Banyuwedang · perahu bersama 09.00 setiap hari · trip privat 07.00–15.00</span>
+              </span>
+            </div>
+
+          </div>
         </div>
-      </figure>
+
+        <!-- Right: Google Maps Embed Card -->
+        <div style="background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28); height: 290px; position: relative;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.722668351543!2d114.5701623!3d-8.138403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd167098485295f%3A0xcc7667d0a2732e88!2sMenjangan%20Snorkeling%20Trip%20%26%20Diving!5e0!3m2!1sen!2sid!4v1700000000000" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            title="Menjangan Snorkeling Trip & Diving Location Map">
+          </iframe>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: #94a3b8;">
+        <div>
+          &copy; 2026 Menjangan Snorkeling Trip &amp; Diving. All rights reserved.
+        </div>
+        <div>
+          <span data-l="en">Licensed operator · Insured · Max 10 guests per boat</span>
+          <span data-l="id">Operator berlisensi · Berasuransi · Maks 10 tamu per perahu</span>
+        </div>
+      </div>
+
     </div>
   </footer>
 

@@ -30,7 +30,7 @@ return Application::configure(basePath: dirname(__DIR__))
             CacheLandingPage::class,
             HandleAppearance::class,
             HandleInertiaRequests::class,
-            AddLinkHeadersForPreloadedAssets::class,
+            // AddLinkHeadersForPreloadedAssets removed to prevent early JS saturation of LCP bandwidth
         ]);
 
         $middleware->alias([

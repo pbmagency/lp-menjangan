@@ -10,7 +10,7 @@ import { compression } from 'vite-plugin-compression2';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.tsx', 'resources/js/lp-app.tsx'],
+            input: ['resources/css/app.css', 'resources/js/app.tsx', 'resources/js/lp-app.tsx', 'resources/js/landing-app.tsx'],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
             fonts: [

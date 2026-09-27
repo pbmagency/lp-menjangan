@@ -87,40 +87,17 @@ class SecurityHeaders
      */
     private function buildCspPolicy(string $nonce = ''): string
     {
-        // Build script-src: nonce-only (no 'unsafe-inline')
+        // Build script-src: nonce-based with strict-dynamic for GTM/analytics
         $scriptSrc = $nonce !== ''
-            ? "script-src 'self' 'nonce-{$nonce}' 'unsafe-eval'"
-            : "script-src 'self' 'unsafe-inline'";
-
-        // script-src-elem overrides script-src for <script> elements. Keep the
-        // same nonce here so nonce-bearing inline bootstraps (GTM, analytics,
-        // and JSON-LD) are not blocked by the more specific directive.
-        $scriptElemSrc = $nonce !== ''
-            ? "script-src-elem 'self' 'nonce-{$nonce}' 'unsafe-eval'"
-            : "script-src-elem 'self' 'unsafe-inline'";
+            ? "script-src 'self' 'nonce-{$nonce}' 'strict-dynamic' 'unsafe-eval' https: http:"
+            : "script-src 'self' 'unsafe-inline' https: http:";
 
         $directives = [
             // Default: fall back to self
             "default-src 'self'",
 
             // Scripts: nonce-based + trusted third-party analytics
-            // 'unsafe-inline' removed — Lighthouse Best Practices flags it
             $scriptSrc
-                .' https://www.googletagmanager.com'
-                .' https://www.google-analytics.com'
-                .' https://www.clarity.ms'
-                .' https://scripts.clarity.ms'
-                .' https://*.doubleclick.net'
-                .' https://connect.facebook.net'
-                .' https://cdn.trustindex.io'
-                // Cloudflare Web Analytics injects its beacon script into HTML at the edge;
-                // without this host Lighthouse flags console errors (best-practices audit).
-                .' https://static.cloudflareinsights.com https://cloudflareinsights.com'
-                .' https://unpkg.com',
-
-            // Preview mode loads resources from tagmanager.google.com.
-            $scriptElemSrc
-                .' https://unpkg.com'
                 .' https://www.googletagmanager.com'
                 .' https://tagmanager.google.com'
                 .' https://www.google-analytics.com'
@@ -129,8 +106,8 @@ class SecurityHeaders
                 .' https://*.doubleclick.net'
                 .' https://connect.facebook.net'
                 .' https://cdn.trustindex.io'
-                // Cloudflare Web Analytics beacon host (see script-src above)
-                .' https://static.cloudflareinsights.com https://cloudflareinsights.com',
+                .' https://static.cloudflareinsights.com https://cloudflareinsights.com'
+                .' https://unpkg.com',
 
             // Styles: self + inline (Tailwind generates inline styles via Radix)
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com",
@@ -180,7 +157,9 @@ class SecurityHeaders
             "frame-src 'self'"
                 .' https://www.facebook.com'
                 .' https://www.googletagmanager.com'
-                .' https://www.google.com',
+                .' https://www.google.com'
+                .' https://maps.google.com'
+                .' https://*.google.com',
 
             // No base-uri hijacking
             "base-uri 'self'",

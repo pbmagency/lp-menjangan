@@ -332,19 +332,27 @@ class AbTestingService
         // Human-readable labels for known sections (fallback to raw ID for unknowns)
         $labels = [
             'top' => 'Hero',
+            'hero-stats' => 'Trust Signals & Stats',
             'trust-bar' => 'Trust Signals',
-            'review-summary' => 'Review Summary',
-            'trusted-platforms' => 'Trusted Platforms',
+            'hero-slider' => 'Photo Slider',
+            'guest-reviews-carousel' => 'Guest Reviews Carousel',
+            'snorkeling-intro' => 'Snorkeling Intro',
+            'snorkeling-section' => 'Snorkeling Package',
             'snorkeling' => 'Snorkeling Package',
             'snorkeling-gallery' => 'Snorkeling Gallery',
+            'scuba-diving-section' => 'Scuba Diving Package',
             'scuba-diving' => 'Scuba Diving Package',
             'scuba-gallery' => 'Scuba Gallery',
+            'discovery-scuba-section' => 'Discovery Scuba Package',
             'try-scuba' => 'Try Scuba Package',
             'try-scuba-gallery' => 'Try Scuba Gallery',
             'itinerary' => 'Itinerary',
+            'about-us' => 'About Us',
+            'how-to-book-why-us' => 'How to Book & Why Us',
             'why-us' => 'Why Us',
             'comparison' => 'Package Comparison',
-            'about-us' => 'About Us',
+            'featured-trusted-by' => 'Featured & Trusted By',
+            'more-tripadvisor-reviews' => 'Tripadvisor Reviews',
             'availability' => 'Availability CTA',
             'reviews' => 'Guest Reviews',
             'booking-steps' => 'Booking Steps',
@@ -352,6 +360,7 @@ class AbTestingService
             'location' => 'Location',
             'island-gallery' => 'Island Gallery',
             'final-cta' => 'Final CTA',
+            'footer' => 'Footer',
         ];
 
         // Query: aggregate views per section AND capture earliest first_seen

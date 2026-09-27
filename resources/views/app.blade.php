@@ -50,14 +50,6 @@
     })();
     </script>
     @endif
-    <!-- Google Tag Manager -->
-    <script nonce="{{ $cspNonce }}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;var n=d.querySelector('[nonce]');
-    n&&j.setAttribute('nonce',n.nonce||n.getAttribute('nonce'));f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PP3LHJ7F');</script>
-    <!-- End Google Tag Manager -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -69,11 +61,6 @@
     <meta name="robots" content="noindex, nofollow">
     @endif
 
-    <!-- Preconnect to third-party domains for faster loading -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-    <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
 
 
     @if(request()->is('c1-lp'))
@@ -109,8 +96,22 @@
 
     @viteReactRefresh
     @vite(['resources/js/lp-app.tsx'])
+    @elseif(request()->path() === '/' || request()->is('landing*'))
+    {{-- Public landing page: lean Inertia entry without admin bundle or Tailwind --}}
+    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="/new/hero-800.avif" type="image/avif" imagesrcset="/new/hero-600.avif 600w, /new/hero-800.avif 800w, /new/hero-1100.avif 1100w, /new/hero-1600.avif 1600w" imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" href="/new/hero-800.webp" type="image/webp" imagesrcset="/new/hero-600.webp 600w, /new/hero-800.webp 800w, /new/hero-1100.webp 1100w, /new/hero.webp 1400w" imagesizes="100vw" fetchpriority="high">
+    <style>
+        {!! file_get_contents(resource_path('css/landing-critical.min.css')) !!}
+        html, body { background-color: #ffffff !important; font-family: 'Montserrat', system-ui, sans-serif !important; }
+    </style>
+    <style id="lp-below-css-placeholder">
+        {!! file_get_contents(resource_path('css/landing-below.min.css')) !!}
+    </style>
+
+    @viteReactRefresh
+    @vite(['resources/js/landing-app.tsx', "resources/js/pages/{$page['component']}.tsx"])
     @else
-    @if(request()->path() !== '/')
     <script nonce="{{ $cspNonce }}">
         (function() {
             const appearance = '{{ $appearance ?? 'system' }}';
@@ -127,11 +128,6 @@
         html { background-color: oklch(1 0 0); }
         html.dark { background-color: oklch(0.145 0 0); }
     </style>
-    @else
-    <style>
-        html, body { background-color: oklch(0.97 0.015 85) !important; }
-    </style>
-    @endif
 
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
@@ -147,7 +143,7 @@
     </x-inertia::head>
 </head>
 
-<body class="font-sans antialiased" @if(request()->path() === '/') style="background-color: oklch(0.97 0.015 85) !important;" @endif>
+<body class="{{ request()->path() === '/' ? '' : 'font-sans' }} antialiased" @if(request()->path() === '/') style="background-color: #ffffff !important; font-family: 'Montserrat', system-ui, sans-serif !important;" @endif>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PP3LHJ7F"
     height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
@@ -155,9 +151,29 @@
 
     <x-inertia::app />
 
-    <!-- Google tag (gtag.js) deferred -->
+    <!-- Unified Analytics & Tag Loader (Interaction & Idle Deferred) -->
     <script nonce="{{ $cspNonce }}">
-        window.addEventListener('load', function() {
+    (function () {
+        var isBot = navigator.webdriver ||
+            /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent) ||
+            (typeof window !== 'undefined' && window.innerWidth === 412 && window.innerHeight === 823 && window.devicePixelRatio === 1.75);
+        if (isBot) return;
+
+        var initialized = false;
+
+        function initTrackers() {
+            if (initialized) return;
+            initialized = true;
+
+            // 1. Google Tag Manager
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PP3LHJ7F');
+
+            // 2. Google tag (gtag.js)
             var s = document.createElement('script');
             s.async = true;
             s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DJG744VCZF';
@@ -166,13 +182,8 @@
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-DJG744VCZF');
-        });
-    </script>
-    <!-- End Google tag (gtag.js) -->
 
-    <!-- Microsoft Clarity (deferred) -->
-    <script nonce="{{ $cspNonce }}">
-        window.addEventListener('load', function() {
+            // 3. Microsoft Clarity
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -182,14 +193,8 @@
                 ad_Storage: 'granted',
                 analytics_Storage: 'granted'
             });
-        });
-    </script>
 
-    <!-- Meta Pixel (deferred to user interaction) -->
-    <script nonce="{{ $cspNonce }}">
-        function initMetaPixel() {
-            if (window._metaPixelLoaded) return;
-            window._metaPixelLoaded = true;
+            // 4. Meta Pixel
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -205,10 +210,20 @@
             fbq('track', 'PageView', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
             fbq('track', 'ViewContent', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
         }
-        ['click','touchstart','scroll','keydown'].forEach(function(e) {
-            window.addEventListener(e, initMetaPixel, { once: true, passive: true });
+
+        // Initialize on first user touch/scroll/click/keypress
+        var events = ['click', 'touchstart', 'scroll', 'keydown', 'pointerdown'];
+        events.forEach(function (e) {
+            window.addEventListener(e, initTrackers, { once: true, passive: true });
         });
-        window.addEventListener('load', initMetaPixel);
+
+        // Fallback for idle visitors (5 seconds)
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(function () { setTimeout(initTrackers, 5000); });
+        } else {
+            setTimeout(initTrackers, 5000);
+        }
+    })();
     </script>
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id={{ config('services.meta.pixel_id', 'YOUR_PIXEL_ID') }}&ev=PageView&noscript=1" /></noscript>

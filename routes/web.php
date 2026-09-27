@@ -6,10 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 // ── Public landing page ───────────────────────────────────────────────────────
 Route::get('/', function () {
-    return view('landing');
-})->name('home')->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class)
-  ->withoutMiddleware(\App\Http\Middleware\HandleInertiaRequests::class)
-  ->withoutMiddleware(\Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class);
+    return inertia('landing');
+})->name('home');
 
 
 // ── Analytics tracking endpoint (public, uses session CSRF) ──────────────────

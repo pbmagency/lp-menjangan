@@ -22,8 +22,8 @@ class MetaConversionService
 
     public function __construct()
     {
-        $this->pixelId = config('services.meta.pixel_id', '');
-        $this->accessToken = config('services.meta.access_token', '');
+        $this->pixelId = (string) (config('services.meta.pixel_id') ?? '');
+        $this->accessToken = (string) (config('services.meta.access_token') ?? '');
         $this->sdkAvailable = class_exists('\FacebookAds\Api');
 
         if ($this->isConfigured() && $this->sdkAvailable) {
