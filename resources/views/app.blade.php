@@ -2,6 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
 
 <head>
+    <!-- Google Tag Manager -->
+    <script nonce="{{ $cspNonce }}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57DRDWXR');</script>
+    <!-- End Google Tag Manager -->
+
     @if(request()->is('c1-lp'))
     <script nonce="{{ $cspNonce }}">
     (function () {
@@ -144,7 +152,7 @@
 
 <body class="{{ request()->path() === '/' ? '' : 'font-sans' }} antialiased" @if(request()->path() === '/') style="background-color: #ffffff !important; font-family: 'Montserrat', system-ui, sans-serif !important;" @endif>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PP3LHJ7F"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57DRDWXR"
     height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
@@ -168,15 +176,7 @@
             if (initialized) return;
             initialized = true;
 
-            // 1. Google Tag Manager
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;
-            f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PP3LHJ7F');
-
-            // 2. Google tag (gtag.js)
+            // 1. Google tag (gtag.js)
             var s = document.createElement('script');
             s.async = true;
             s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DJG744VCZF';
