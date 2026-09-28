@@ -162,7 +162,7 @@ export default function Landing() {
       const link = (e.target as Element).closest('a');
       if (!link) return;
       const href = link.href || '';
-      if (href.includes('wa.me/')) {
+      if (href.includes('wa.me/') || href.includes('api.whatsapp.com/') || href.includes('wa.link/')) {
         const text = (link.textContent || link.getAttribute('aria-label') || 'CTA').replace(/\s+/g, ' ').trim().slice(0, 255);
         const decoded = decodeURIComponent(href.replace(/\+/g, ' ')).toLowerCase();
         const closestSection = link.closest('section[id]');
@@ -187,8 +187,29 @@ export default function Landing() {
         track('cta_click', { event_id: eventId('cta'), ...common }, true);
         track('conversion', { event_id: conversionId, type: conversionType, meta_event: 'Search', ...common }, true);
 
+        // Mirror to Meta Pixel
         if (typeof (window as any).fbq === 'function') {
           (window as any).fbq('track', 'Search', { content_category: conversionType, content_name: packageName || 'WhatsApp inquiry' }, { eventID: conversionId });
+          (window as any).fbq('track', 'Lead', { content_category: conversionType, content_name: packageName || 'WhatsApp inquiry' }, { eventID: conversionId });
+        }
+
+        // Mirror to Google Tag Manager (dataLayer)
+        if (typeof window !== 'undefined') {
+          (window as any).dataLayer = (window as any).dataLayer || [];
+          (window as any).dataLayer.push({
+            event: 'generate_lead',
+            event_id: conversionId,
+            lead_type: conversionType,
+            cta_location: location,
+            package_name: packageName || 'General WhatsApp',
+            destination: href,
+          });
+          (window as any).dataLayer.push({
+            event: 'whatsapp_click',
+            event_id: conversionId,
+            location: location,
+            package: packageName,
+          });
         }
       }
     };
