@@ -23,7 +23,7 @@ class CacheLandingPage
     private const TTL_SECONDS = 604800;
 
     private const PUBLIC_CACHE_HEADERS = [
-        'Cache-Control' => 'public, max-age=300, s-maxage=86400, stale-while-revalidate=604800',
+        'Cache-Control' => 'public, max-age=60, s-maxage=300, stale-while-revalidate=300',
         'Vary' => 'Accept-Encoding',
         'X-Content-Type-Options' => 'nosniff',
         'Referrer-Policy' => 'strict-origin-when-cross-origin',
