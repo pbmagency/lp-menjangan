@@ -110,7 +110,7 @@
     </style>
 
     @viteReactRefresh
-    @vite(['resources/js/landing-app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+    @vite(['resources/js/landing-app.tsx', "resources/js/pages/" . ($page['component'] ?? 'landing') . ".tsx"])
     @else
     <script nonce="{{ $cspNonce }}">
         (function() {
@@ -130,7 +130,7 @@
     </style>
 
     @viteReactRefresh
-    @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+    @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/" . ($page['component'] ?? 'dashboard') . ".tsx"])
     @endif
 
     <link rel="icon" href="/favicon.ico" sizes="any">
