@@ -10,6 +10,7 @@ export default function Landing() {
     const isBot = navigator.webdriver ||
       /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent) ||
       (window.innerWidth === 412 && window.innerHeight === 823 && window.devicePixelRatio === 1.75);
+    if (isBot) return;
     const page = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
     const LANDING_KEY = 'landing_source';
