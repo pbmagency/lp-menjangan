@@ -98,9 +98,8 @@
     @vite(['resources/js/lp-app.tsx'])
     @elseif(request()->path() === '/' || request()->is('landing*'))
     {{-- Public landing page: lean Inertia entry without admin bundle or Tailwind --}}
-    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" as="image" href="/new/hero-800.avif" type="image/avif" imagesrcset="/new/hero-600.avif 600w, /new/hero-800.avif 800w, /new/hero-1100.avif 1100w, /new/hero-1600.avif 1600w" imagesizes="100vw" fetchpriority="high">
-    <link rel="preload" as="image" href="/new/hero-800.webp" type="image/webp" imagesrcset="/new/hero-600.webp 600w, /new/hero-800.webp 800w, /new/hero-1100.webp 1100w, /new/hero.webp 1400w" imagesizes="100vw" fetchpriority="high">
     <style>
         {!! file_get_contents(resource_path('css/landing-critical.min.css')) !!}
         html, body { background-color: #ffffff !important; font-family: 'Montserrat', system-ui, sans-serif !important; }
