@@ -41,7 +41,7 @@ class CacheLandingPage
             return $next($request);
         }
 
-        $cacheKey = 'landing_page_html_v2:'.self::manifestVersion();
+        $cacheKey = 'landing_page_html_v3:'.self::manifestVersion();
 
         // Single Cache::get: with the database cache store a has()+get() pair
         // would cost two queries per hit, and the value is a large blob.
@@ -81,11 +81,11 @@ class CacheLandingPage
     private static function manifestVersion(): string
     {
         $manifest = public_path('build/manifest.json');
-        $landingView = resource_path('views/landing.blade.php');
+        $appView = resource_path('views/app.blade.php');
 
         $timestamps = array_filter([
             file_exists($manifest) ? filemtime($manifest) : null,
-            file_exists($landingView) ? filemtime($landingView) : null,
+            file_exists($appView) ? filemtime($appView) : null,
         ]);
 
         return $timestamps === [] ? 'dev' : (string) max($timestamps);
