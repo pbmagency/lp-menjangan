@@ -31,3 +31,15 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.'
 require __DIR__ . '/settings.php';
 
 Route::inertia('/c1-lp', 'c1-lp')->name('c1-lp');
+
+Route::get('/clear-view-cache', function () {
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('route:clear');
+    return response()->json([
+        'status' => 'success',
+        'message' => 'Laravel view and config caches cleared on server!',
+        'timestamp' => now()->toDateTimeString()
+    ]);
+});
+
