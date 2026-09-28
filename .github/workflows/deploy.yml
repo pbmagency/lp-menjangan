@@ -34,3 +34,7 @@ jobs:
           exclude: |
             **/node_modules/**
             **/.git*/**
+            **/storage/framework/views/*
+            **/storage/framework/cache/*
+            **/storage/framework/sessions/*
+            **/bootstrap/cache/*.php
