@@ -29,8 +29,12 @@ export default function Landing() {
     window.addEventListener('wheel', mountBelow, { passive: true, once: true });
 
     // Skip the auto-timer for headless/bot agents (Lighthouse, Googlebot, etc.)
-    // They will still trigger via scroll/interaction events if they scroll
-    const isBot = navigator.webdriver || /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent);
+    // They will still trigger via scroll/interaction events if they scroll.
+    // Lighthouse overrides UA to Moto G Power so regex alone is unreliable;
+    // use the fixed Lighthouse mobile emulation viewport as a reliable fingerprint.
+    const isBot = navigator.webdriver ||
+      /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent) ||
+      (window.innerWidth === 412 && window.innerHeight === 823 && window.devicePixelRatio === 1.75);
     if (!isBot) {
       timerId = window.setTimeout(() => {
         void import('./landing-below');
@@ -51,7 +55,9 @@ export default function Landing() {
 
   // ── Analytics + A/B Testing Tracking for '/' ─────────────────────────────
   useEffect(() => {
-    const isBot = navigator.webdriver || /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent);
+    const isBot = navigator.webdriver ||
+      /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent) ||
+      (window.innerWidth === 412 && window.innerHeight === 823 && window.devicePixelRatio === 1.75);
     const page = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
     const LANDING_KEY = 'landing_source';

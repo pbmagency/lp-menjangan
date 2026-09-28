@@ -390,7 +390,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-PO8Tjb25.js",
+    "file": "assets/app-BGI3lDZe.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -429,7 +429,7 @@
     ]
   },
   "resources/js/landing-app.tsx": {
-    "file": "assets/landing-app-BNSD61fE.js",
+    "file": "assets/landing-app-BCj3xxF6.js",
     "name": "landing-app",
     "src": "resources/js/landing-app.tsx",
     "isEntry": true,
@@ -658,7 +658,7 @@
     ]
   },
   "resources/js/pages/landing.tsx": {
-    "file": "assets/landing-BCEI0TU-.js",
+    "file": "assets/landing-CdGD5Cws.js",
     "name": "landing",
     "src": "resources/js/pages/landing.tsx",
     "isDynamicEntry": true,
