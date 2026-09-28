@@ -76,6 +76,8 @@ class AnalyticsController extends Controller
             'event_data.email' => ['nullable', 'email', 'max:255'],
             'event_data.phone' => ['nullable', 'string', 'max:50'],
             'event_data.name' => ['nullable', 'string', 'max:255'],
+            'event_data.ab_variant' => ['nullable', 'string', 'max:50'],
+            'event_data.lead_type' => ['nullable', 'string', 'max:100'],
             'referral_source' => ['nullable', 'string', 'max:255'],
             'utm_source' => ['nullable', 'string', 'max:255'],
             'utm_medium' => ['nullable', 'string', 'max:255'],

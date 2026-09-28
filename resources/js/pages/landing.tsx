@@ -8,9 +8,7 @@ export default function Landing() {
   // ── Analytics + A/B Testing Tracking for '/' ─────────────────────────────
   useEffect(() => {
     const isBot = navigator.webdriver ||
-      /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent) ||
-      (window.innerWidth === 412 && window.innerHeight === 823 && window.devicePixelRatio === 1.75);
-    if (isBot) return;
+      /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent);
     const page = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
     const LANDING_KEY = 'landing_source';
@@ -63,19 +61,26 @@ export default function Landing() {
         utm_term: params.get('utm_term'),
       });
 
-      if (useBeacon && navigator.sendBeacon) {
-        return navigator.sendBeacon('/analytics/track', new Blob([payload], { type: 'application/json' }));
+      try {
+        fetch('/analytics/track', {
+          method: 'POST',
+          credentials: 'same-origin',
+          keepalive: true,
+          headers: {
+            'Content-Type': 'application/json',
+            ...(csrf ? { 'X-CSRF-TOKEN': csrf } : {}),
+          },
+          body: payload,
+        }).catch(() => {
+          if (useBeacon && navigator.sendBeacon) {
+            navigator.sendBeacon('/analytics/track', new Blob([payload], { type: 'application/json' }));
+          }
+        });
+      } catch {
+        if (useBeacon && navigator.sendBeacon) {
+          navigator.sendBeacon('/analytics/track', new Blob([payload], { type: 'application/json' }));
+        }
       }
-      fetch('/analytics/track', {
-        method: 'POST',
-        credentials: 'same-origin',
-        keepalive: true,
-        headers: {
-          'Content-Type': 'application/json',
-          ...(csrf ? { 'X-CSRF-TOKEN': csrf } : {}),
-        },
-        body: payload,
-      }).catch(() => {});
       return true;
     };
 
