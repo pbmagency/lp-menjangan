@@ -211,18 +211,11 @@
             fbq('track', 'ViewContent', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
         }
 
-        // Initialize on first user touch/scroll/click/keypress
-        var events = ['click', 'touchstart', 'scroll', 'keydown', 'pointerdown'];
+        // Initialize on first user touch/scroll/click/keypress/movement
+        var events = ['click', 'touchstart', 'scroll', 'keydown', 'pointerdown', 'mousemove'];
         events.forEach(function (e) {
             window.addEventListener(e, initTrackers, { once: true, passive: true });
         });
-
-        // Fallback for idle visitors (5 seconds)
-        if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(function () { setTimeout(initTrackers, 5000); });
-        } else {
-            setTimeout(initTrackers, 5000);
-        }
     })();
     </script>
     <noscript><img height="1" width="1" style="display:none"
