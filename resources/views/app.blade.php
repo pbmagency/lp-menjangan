@@ -149,7 +149,11 @@
     height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <x-inertia::app />
+    @if(isset($page))
+        <x-inertia::app />
+    @else
+        <div id="app" data-page='{"component":"landing","props":{},"url":"\/","version":""}'></div>
+    @endif
 
     <!-- Unified Analytics & Tag Loader (Interaction & Idle Deferred) -->
     <script nonce="{{ $cspNonce }}">
@@ -195,20 +199,23 @@
             });
 
             // 4. Meta Pixel
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window,document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '{{ config('services.meta.pixel_id', 'YOUR_PIXEL_ID') }}');
-            window.__META_PAGE_VIEW_EVENT_ID = crypto.randomUUID
-                ? crypto.randomUUID()
-                : Date.now() + '-' + Math.random().toString(36).substring(2, 11);
-            fbq('track', 'PageView', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
-            fbq('track', 'ViewContent', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
+            var pixelId = '{{ (string) (config('services.meta.pixel_id') ?: '') }}';
+            if (pixelId && pixelId !== 'YOUR_PIXEL_ID') {
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window,document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', pixelId);
+                window.__META_PAGE_VIEW_EVENT_ID = crypto.randomUUID
+                    ? crypto.randomUUID()
+                    : Date.now() + '-' + Math.random().toString(36).substring(2, 11);
+                fbq('track', 'PageView', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
+                fbq('track', 'ViewContent', {}, { eventID: window.__META_PAGE_VIEW_EVENT_ID });
+            }
         }
 
         // Initialize on first user touch/scroll/click/keypress/movement
@@ -218,8 +225,10 @@
         });
     })();
     </script>
+    @if((string) config('services.meta.pixel_id') !== '')
     <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id={{ config('services.meta.pixel_id', 'YOUR_PIXEL_ID') }}&ev=PageView&noscript=1" /></noscript>
+        src="https://www.facebook.com/tr?id={{ config('services.meta.pixel_id') }}&ev=PageView&noscript=1" /></noscript>
+    @endif
 
 
 </body>
