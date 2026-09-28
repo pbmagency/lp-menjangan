@@ -107,7 +107,7 @@
     @elseif(request()->path() === '/' || request()->is('landing*'))
     {{-- Public landing page: lean Inertia entry without admin bundle or Tailwind --}}
     <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" as="image" href="/new/hero-800.avif" type="image/avif" imagesrcset="/new/hero-600.avif 600w, /new/hero-800.avif 800w, /new/hero-1100.avif 1100w, /new/hero-1600.avif 1600w" imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" href="/c1/hero-reef-diver-800.avif" type="image/avif" imagesrcset="/c1/hero-reef-diver-480.avif 480w, /c1/hero-reef-diver-800.avif 800w, /c1/hero-reef-diver-1400.avif 1400w" imagesizes="100vw" fetchpriority="high">
     <style>
         {!! file_get_contents(resource_path('css/landing-critical.min.css')) !!}
         html, body { background-color: #ffffff !important; font-family: 'Montserrat', system-ui, sans-serif !important; }

@@ -278,14 +278,14 @@ export default function Landing() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Menjangan Island Snorkeling &amp; Diving Trips" />
         <meta property="og:description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips." />
-        <meta property="og:image" content="https://menjanganislandtrip.com/hero-snorkeling-800.webp" />
+        <meta property="og:image" content="https://menjanganislandtrip.com/c1/hero-reef-diver.webp" />
         <meta property="og:url" content="https://menjanganislandtrip.com/" />
         <meta property="og:site_name" content="Menjangan Snorkeling Trip &amp; Diving" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Menjangan Island Snorkeling &amp; Diving Trips" />
         <meta name="twitter:description" content="Discover the best of Menjangan Island: Explore crystal-clear waters, vibrant coral reefs, and incredible marine life with our snorkeling and diving trips." />
-        <meta name="twitter:image" content="https://menjanganislandtrip.com/hero-snorkeling-800.webp" />
+        <meta name="twitter:image" content="https://menjanganislandtrip.com/c1/hero-reef-diver.webp" />
       </Head>
 
       <div id="page" data-lg={lang} style={{ background: 'var(--color-bg)', color: 'var(--color-text)', fontFamily: 'var(--font-body)' }}>
@@ -339,9 +339,9 @@ export default function Landing() {
           {/* Hero Section */}
           <section id="top" className="hero-wrapper">
             <picture style={{ position: 'absolute', inset: 0 }}>
-              <source type="image/avif" srcSet="/new/hero-600.avif 600w, /new/hero-800.avif 800w, /new/hero-1100.avif 1100w, /new/hero-1600.avif 1600w" sizes="100vw" />
-              <source type="image/webp" srcSet="/new/hero-600.webp 600w, /new/hero-800.webp 800w, /new/hero-1100.webp 1100w, /new/hero.webp 1400w" sizes="100vw" />
-              <img id="hero-img" fetchPriority="high" loading="eager" src="/new/hero-800.webp" alt="Menjangan Island Tour aerial view" className="hero-bg-img" width={1400} height={933} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center' }} />
+              <source type="image/avif" srcSet="/c1/hero-reef-diver-480.avif 480w, /c1/hero-reef-diver-800.avif 800w, /c1/hero-reef-diver-1400.avif 1400w" sizes="100vw" />
+              <source type="image/webp" srcSet="/c1/hero-reef-diver-480.webp 480w, /c1/hero-reef-diver-800.webp 800w, /c1/hero-reef-diver.webp 1400w" sizes="100vw" />
+              <img id="hero-img" fetchPriority="high" loading="eager" src="/c1/hero-reef-diver-800.webp" alt="Snorkeler gliding over coral and sea fans at Menjangan Island" className="hero-bg-img" width={1400} height={933} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '58% 42%' }} />
             </picture>
             <div className="hero-overlay"></div>
             <div className="hero-content">

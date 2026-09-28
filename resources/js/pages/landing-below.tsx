@@ -273,6 +273,30 @@ export default function LandingBelow() {
                   <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 </div>
               </div>
+
+              {/* WhatsApp CTA Button */}
+              <div style={{ display: 'grid', justifyItems: 'center', gap: '10px', marginTop: '36px' }}>
+                <a
+                  className="cta"
+                  href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20read%20your%20reviews%20and%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                  </svg>
+                  <span data-l="en">Book with Confidence on WhatsApp</span>
+                  <span data-l="id">Booking Praktis via WhatsApp</span>
+                </a>
+                <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                  <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                  <span>
+                    <span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span>
+                    <span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span>
+                  </span>
+                </span>
+              </div>
             </div>
           </section>
 
@@ -367,6 +391,29 @@ export default function LandingBelow() {
                     <span className="trip-tag-pill"><span data-l="en">Insurance</span><span data-l="id">Asuransi</span></span>
                     <span className="trip-tag-pill"><span data-l="en">Free local pick-up</span><span data-l="id">Antar jemput lokal gratis</span></span>
                   </div>
+
+                  <div style={{ display: 'grid', justifyItems: 'start', gap: '10px', marginTop: '24px' }}>
+                    <a
+                      className="cta"
+                      href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Snorkeling%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                      </svg>
+                      <span data-l="en">Book the Snorkeling Trip</span>
+                      <span data-l="id">Booking Trip Snorkeling</span>
+                    </a>
+                    <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                      <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                      <span>
+                        <span data-l="en">5-star reviews · Insurance 100% · Licensed operator</span>
+                        <span data-l="id">Ulasan bintang 5 · Asuransi 100% · Operator berlisensi</span>
+                      </span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -438,6 +485,29 @@ export default function LandingBelow() {
                     <span className="trip-tag-pill"><span data-l="en">Lunch and water</span><span data-l="id">Makan siang &amp; air</span></span>
                     <span className="trip-tag-pill"><span data-l="en">Diving insurance</span><span data-l="id">Asuransi selam</span></span>
                     <span className="trip-tag-pill"><span data-l="en">Free local pick-up</span><span data-l="id">Antar jemput lokal gratis</span></span>
+                  </div>
+
+                  <div style={{ display: 'grid', justifyItems: 'start', gap: '10px', marginTop: '24px' }}>
+                    <a
+                      className="cta"
+                      href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Scuba%20Diving%20Menjangan%20Island%20trip.%20Please%20send%20me%20the%20price%20and%20availability."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                      </svg>
+                      <span data-l="en">Book the Scuba Diving Trip</span>
+                      <span data-l="id">Booking Trip Scuba Diving</span>
+                    </a>
+                    <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                      <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                      <span>
+                        <span data-l="en">5-star reviews · Certified divemaster · Gear included</span>
+                        <span data-l="id">Ulasan bintang 5 · Divemaster bersertifikat · Alat lengkap</span>
+                      </span>
+                    </span>
                   </div>
                 </div>
 
@@ -527,6 +597,29 @@ export default function LandingBelow() {
                     <span className="trip-tag-pill"><span data-l="en">Insurance</span><span data-l="id">Asuransi</span></span>
                     <span className="trip-tag-pill"><span data-l="en">Free local pick-up</span><span data-l="id">Antar jemput lokal gratis</span></span>
                   </div>
+
+                  <div style={{ display: 'grid', justifyItems: 'start', gap: '10px', marginTop: '24px' }}>
+                    <a
+                      className="cta"
+                      href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20the%20Try%20Scuba%20Diving%20experience%20at%20Menjangan.%20Please%20send%20me%20the%20price%20and%20availability."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                      </svg>
+                      <span data-l="en">Book Discovery Scuba Diving</span>
+                      <span data-l="id">Booking Discovery Scuba</span>
+                    </a>
+                    <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                      <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                      <span>
+                        <span data-l="en">No experience needed · 100% guided · Safe for beginners</span>
+                        <span data-l="id">Tanpa pengalaman · 100% didampingi · Aman untuk pemula</span>
+                      </span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -572,6 +665,29 @@ export default function LandingBelow() {
                     <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
                     <span><span data-l="en">Reef conservation</span><span data-l="id">Konservasi terumbu karang</span></span>
                   </div>
+                </div>
+
+                <div style={{ display: 'grid', justifyItems: 'start', gap: '10px', marginTop: '24px' }}>
+                  <a
+                    className="cta"
+                    href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20with%20your%20local%20team%20at%20Menjangan."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                    </svg>
+                    <span data-l="en">Chat with Our Local Team</span>
+                    <span data-l="id">Hubungi Tim Lokal Kami</span>
+                  </a>
+                  <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                    <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                    <span>
+                      <span data-l="en">Direct local operator · Fast response on WhatsApp</span>
+                      <span data-l="id">Operator lokal langsung · Respon cepat di WhatsApp</span>
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -748,6 +864,30 @@ export default function LandingBelow() {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* WhatsApp CTA Button */}
+              <div style={{ display: 'grid', justifyItems: 'center', gap: '10px', marginTop: '48px' }}>
+                <a
+                  className="cta"
+                  href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20Menjangan%20Island%20trip."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                  </svg>
+                  <span data-l="en">Start Step 1: Message Us on WhatsApp</span>
+                  <span data-l="id">Mulai Langkah 1: Hubungi via WhatsApp</span>
+                </a>
+                <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                  <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                  <span>
+                    <span data-l="en">Free consultation · No upfront commitment</span>
+                    <span data-l="id">Konsultasi gratis · Tanpa komitmen di awal</span>
+                  </span>
+                </span>
               </div>
             </div>
           </section>
@@ -1122,6 +1262,30 @@ export default function LandingBelow() {
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
               </div>
+
+              {/* WhatsApp CTA Button */}
+              <div style={{ display: 'grid', justifyItems: 'center', gap: '10px', marginTop: '36px' }}>
+                <a
+                  className="cta"
+                  href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20check%20availability%20for%20a%20Menjangan%20Island%20trip."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                  </svg>
+                  <span data-l="en">Check Trip Dates &amp; Availability</span>
+                  <span data-l="id">Cek Tanggal &amp; Ketersediaan Trip</span>
+                </a>
+                <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                  <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                  <span>
+                    <span data-l="en">Top rated on Tripadvisor · Instant booking confirmation</span>
+                    <span data-l="id">Peringkat teratas di Tripadvisor · Konfirmasi instan</span>
+                  </span>
+                </span>
+              </div>
             </div>
           </section>
 
@@ -1227,6 +1391,30 @@ export default function LandingBelow() {
                     <span data-l="id">Pemesanan sangat mudah—cukup kirim pesan melalui WhatsApp berisi tanggal, jumlah peserta, dan pilihan paket. Kami akan mengonfirmasi dengan cepat tanpa biaya tersembunyi. Tersedia opsi perahu bersama (berangkat 09.00 WITA) maupun perahu privat fleksibel (berangkat kapan saja antara 07.00–15.00 WITA).</span>
                   </div>
                 </details>
+              </div>
+
+              {/* WhatsApp CTA Button */}
+              <div style={{ display: 'grid', justifyItems: 'center', gap: '10px', marginTop: '40px' }}>
+                <a
+                  className="cta"
+                  href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20have%20a%20question%20about%20the%20Menjangan%20Island%20trip."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', background: '#70CE73', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: '15px', padding: '15px 26px', borderRadius: '8px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(79, 174, 85, 0.28)' }}
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ width: '21px', height: '21px', flex: 'none' }}>
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
+                  </svg>
+                  <span data-l="en">Have Another Question? Ask Us on WhatsApp</span>
+                  <span data-l="id">Punya Pertanyaan Lain? Tanya Kami di WhatsApp</span>
+                </a>
+                <span className="micro" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px 10px', fontSize: '12px', fontWeight: 600, color: '#48536b' }}>
+                  <span style={{ color: '#FFC107', letterSpacing: '1px' }}>★★★★★</span>
+                  <span>
+                    <span data-l="en">Friendly local support · Direct answer from our team</span>
+                    <span data-l="id">Layanan ramah · Jawaban langsung dari tim kami</span>
+                  </span>
+                </span>
               </div>
             </div>
           </section>
