@@ -5,9 +5,8 @@ use App\Http\Controllers\LabsController;
 use Illuminate\Support\Facades\Route;
 
 // ── Public landing page ───────────────────────────────────────────────────────
-Route::get('/', function () {
-    return inertia('landing');
-})->name('home');
+Route::inertia('/', 'landing')->name('home');
+
 
 
 // ── Analytics tracking endpoint (public, uses session CSRF) ──────────────────
