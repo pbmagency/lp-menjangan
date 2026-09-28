@@ -1,0 +1,1 @@
+import{r as e,t}from"./react-vendor-CJLfZSIy.js";import{t as n}from"./c1-lp-yRvv9g5r.js";var r=e(),i=t(),a=document.getElementById(`app`);a&&(0,r.createRoot)(a).render((0,i.jsx)(n,{}));
