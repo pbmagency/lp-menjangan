@@ -111,6 +111,7 @@
     @vite(['resources/js/lp-app.tsx'])
     @elseif(request()->path() === '/' || request()->is('landing*'))
     {{-- Public landing page: lean Inertia entry without admin bundle or Tailwind --}}
+    <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
     <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" as="image" href="/c1/hero-reef-diver-800.avif" type="image/avif" imagesrcset="/c1/hero-reef-diver-480.avif 480w, /c1/hero-reef-diver-800.avif 800w, /c1/hero-reef-diver-1400.avif 1400w" imagesizes="100vw" fetchpriority="high">
     <style>

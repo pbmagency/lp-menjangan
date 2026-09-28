@@ -288,15 +288,14 @@ export default function Landing() {
               </div>
               <a
                 id="btn-hero-wa"
-                className="btn btn-primary"
+                className="hero-cta-btn btn-primary"
                 href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontSize: '14px', padding: '9px 16px', whiteSpace: 'nowrap' }}
+                style={{ fontSize: '13px', padding: '10px 18px', whiteSpace: 'nowrap', flex: 'none', borderRadius: '8px' }}
               >
-                <svg viewBox="0 0 24 24" fill="#ffffff" style={{ width: '32px', height: '32px' }} aria-hidden="true">
-                  <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.33-1.59-1.48-1.89-.15-.3-.02-.46.13-.61.15-.15.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.34 5.08 4.56.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35z"></path>
-                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21z"></path>
+                <svg viewBox="0 0 24 24" fill="#ffffff" style={{ width: '18px', height: '18px', flexShrink: 0 }} aria-hidden="true">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.92 6.45 17.5 2 12.04 2zm0 18.13c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.15.83.84-3.07-.2-.32a8.16 8.16 0 0 1-1.25-4.32c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.17 8.21zm4.79-5.85c-.26-.13-1.55-.76-1.79-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.02-.15.18-.3.19-.57.06-.26-.13-.99-.37-1.88-1.16-.7-.62-1.17-1.39-1.3-1.65-.13-.26-.02-.4.11-.53.13-.13.26-.3.4-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.03-.46-.06-.13-.59-1.41-.8-1.93-.21-.5-.43-.44-.59-.45h-.5c-.17 0-.45.06-.69.32-.24.26-.91.88-.91 2.16s.93 2.51 1.06 2.69c.13.17 1.83 2.92 4.44 3.99.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.18-.5-.31z" />
                 </svg>
                 <span data-l="en">Booking via WhatsApp</span>
                 <span data-l="id">Booking via WhatsApp</span>
@@ -309,10 +308,23 @@ export default function Landing() {
             <picture style={{ position: 'absolute', inset: 0 }}>
               <source type="image/avif" srcSet="/c1/hero-reef-diver-480.avif 480w, /c1/hero-reef-diver-800.avif 800w, /c1/hero-reef-diver-1400.avif 1400w" sizes="100vw" />
               <source type="image/webp" srcSet="/c1/hero-reef-diver-480.webp 480w, /c1/hero-reef-diver-800.webp 800w, /c1/hero-reef-diver.webp 1400w" sizes="100vw" />
-              <img id="hero-img" fetchPriority="high" loading="eager" src="/c1/hero-reef-diver-800.webp" alt="Snorkeler gliding over coral and sea fans at Menjangan Island" className="hero-bg-img" width={1400} height={933} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '58% 42%' }} />
+              <img id="hero-img" fetchPriority="high" loading="eager" src="/c1/hero-reef-diver-800.webp" alt="Snorkeler gliding over coral and sea fans at Menjangan Island" className="hero-bg-img" width={1400} height={933} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '58% 42%', filter: 'brightness(1.06) contrast(1.02)' }} />
             </picture>
             <div className="hero-overlay"></div>
             <div className="hero-content">
+              {/* Star Reviews Badge */}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '999px', padding: '5px 12px', marginBottom: '16px', background: 'rgba(15, 26, 48, 0.35)', backdropFilter: 'blur(4px)', width: 'fit-content' }}>
+                <span style={{ color: '#FFC107', fontSize: '13px', letterSpacing: '1px' }}>★★★★★</span>
+                <span style={{ fontWeight: 800, fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#ffffff' }}>
+                  <span data-l="en">1.150+ five-star reviews</span>
+                  <span data-l="id">1.150+ ulasan bintang 5</span>
+                </span>
+                <span style={{ display: 'flex', alignItems: 'center' }}>
+                  <img src="https://lh3.googleusercontent.com/a-/ALV-UjW-6b9dWJYlqucqyOG9MKBwePsZDQk6FMk2lCZxhY9Z1lN2FcE=w80-h80-c-rp-mo-br100" alt="" width={24} height={24} style={{ width: '24px', height: '24px', borderRadius: '50%', border: '2px solid #ffffff', objectFit: 'cover', flex: 'none' }} />
+                  <img src="https://lh3.googleusercontent.com/a-/ALV-UjUe8F2EkfzifVFcolV6LH52P7urkwIJt9u-9YQRxgiRzuqEgGSdQw=w80-h80-c-rp-mo-ba12-br100" alt="" width={24} height={24} style={{ width: '24px', height: '24px', borderRadius: '50%', border: '2px solid #ffffff', objectFit: 'cover', flex: 'none', marginLeft: '-8px' }} />
+                  <img src="https://lh3.googleusercontent.com/a-/ALV-UjWgkfdm69EosFB2aGTOvOG8fJAhDiDs-6kjQHwAfen3aB7WXMDY-g=w80-h80-c-rp-mo-br100" alt="" width={24} height={24} style={{ width: '24px', height: '24px', borderRadius: '50%', border: '2px solid #ffffff', objectFit: 'cover', flex: 'none', marginLeft: '-8px' }} />
+                </span>
+              </div>
               <h1 className="hero-title">
                 <span data-l="en">MENJANGAN<br />ISLAND TOUR</span>
                 <span data-l="id">MENJANGAN<br />ISLAND TOUR</span>
