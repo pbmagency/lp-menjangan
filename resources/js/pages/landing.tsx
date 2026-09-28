@@ -1,57 +1,9 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Head } from '@inertiajs/react';
-
-const LandingBelow = lazy(() => import('./landing-below'));
+import LandingBelow from './landing-below';
 
 export default function Landing() {
   const [lang, setLang] = useState<'en' | 'id'>('en');
-  const [showBelowFold, setShowBelowFold] = useState(false);
-
-  useEffect(() => {
-    let idleId: number | undefined;
-    let timerId: number | undefined;
-
-    const mountBelow = () => {
-      setShowBelowFold(true);
-      if (timerId) window.clearTimeout(timerId);
-      if (idleId && 'cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
-      cleanup();
-    };
-
-    const cleanup = () => {
-      window.removeEventListener('scroll', mountBelow);
-      window.removeEventListener('touchstart', mountBelow);
-      window.removeEventListener('wheel', mountBelow);
-    };
-
-    window.addEventListener('scroll', mountBelow, { passive: true, once: true });
-    window.addEventListener('touchstart', mountBelow, { passive: true, once: true });
-    window.addEventListener('wheel', mountBelow, { passive: true, once: true });
-
-    // Skip the auto-timer for headless/bot agents (Lighthouse, Googlebot, etc.)
-    // They will still trigger via scroll/interaction events if they scroll.
-    // Lighthouse overrides UA to Moto G Power so regex alone is unreliable;
-    // use the fixed Lighthouse mobile emulation viewport as a reliable fingerprint.
-    const isBot = navigator.webdriver ||
-      /Lighthouse|HeadlessChrome|Chrome-Lighthouse/i.test(navigator.userAgent) ||
-      (window.innerWidth === 412 && window.innerHeight === 823 && window.devicePixelRatio === 1.75);
-    if (!isBot) {
-      timerId = window.setTimeout(() => {
-        void import('./landing-below');
-        if ('requestIdleCallback' in window) {
-          idleId = window.requestIdleCallback(() => mountBelow(), { timeout: 1000 });
-        } else {
-          mountBelow();
-        }
-      }, 3500);
-    }
-
-    return () => {
-      if (timerId) window.clearTimeout(timerId);
-      if (idleId && 'cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
-      cleanup();
-    };
-  }, []);
 
   // ── Analytics + A/B Testing Tracking for '/' ─────────────────────────────
   useEffect(() => {
@@ -258,17 +210,6 @@ export default function Landing() {
     };
   }, []);
 
-  // Re-observe sections when below-fold component mounts
-  useEffect(() => {
-    if (!showBelowFold) return;
-    const timer = setTimeout(() => {
-      document.querySelectorAll('section[id]').forEach((s) => {
-        // Section observer handles it
-      });
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [showBelowFold]);
-
   return (
     <>
       <Head>
@@ -458,12 +399,8 @@ export default function Landing() {
             </div>
           </section>
 
-          {/* All Below-the-fold content: mounts after 50ms (imperceptible to user, allows hero LCP) */}
-          {showBelowFold && (
-            <Suspense fallback={null}>
-              <LandingBelow />
-            </Suspense>
-          )}
+          {/* All Below-the-fold content */}
+          <LandingBelow />
         </main>
       </div>
     </>
