@@ -26,18 +26,18 @@ export default function LandingBelow() {
           <section id="hero-slider" className="photo-slider-wrapper">
             <div className="photo-slider-track">
               <div className="photo-slider-list">
-                <div className="photo-slider-item"><img src="/new/DJI_0069-compress.webp" alt="Menjangan Island aerial view" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/Menjangan-Island-1.webp" alt="Wild deer in crystal water at Menjangan Island" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/menjanganislandtrip-Slider-mobile-3.webp" alt="Menjangan temple cliff and traditional boat" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/menjanganislandtrip-Slider-mobile-4.webp" alt="Tour boats and deers on Menjangan beach" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/menjanganislandtrip-Slider-mobile-5.webp" alt="Menjangan Island scenery and mountains" width={320} height={220} loading="lazy" decoding="async" /></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/DJI_0069-compress.avif" type="image/avif" /><img src="/new/DJI_0069-compress.webp" alt="Menjangan Island aerial view" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/Menjangan-Island-1.avif" type="image/avif" /><img src="/new/Menjangan-Island-1.webp" alt="Wild deer in crystal water at Menjangan Island" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/menjanganislandtrip-Slider-mobile-3.avif" type="image/avif" /><img src="/new/menjanganislandtrip-Slider-mobile-3.webp" alt="Menjangan temple cliff and traditional boat" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/menjanganislandtrip-Slider-mobile-4.avif" type="image/avif" /><img src="/new/menjanganislandtrip-Slider-mobile-4.webp" alt="Tour boats and deers on Menjangan beach" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/menjanganislandtrip-Slider-mobile-5.avif" type="image/avif" /><img src="/new/menjanganislandtrip-Slider-mobile-5.webp" alt="Menjangan Island scenery and mountains" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
               </div>
               <div className="photo-slider-list" aria-hidden="true">
-                <div className="photo-slider-item"><img src="/new/DJI_0069-compress.webp" alt="Menjangan Island aerial view" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/Menjangan-Island-1.webp" alt="Wild deer in crystal water at Menjangan Island" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/menjanganislandtrip-Slider-mobile-3.webp" alt="Menjangan temple cliff and traditional boat" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/menjanganislandtrip-Slider-mobile-4.webp" alt="Tour boats and deers on Menjangan beach" width={320} height={220} loading="lazy" decoding="async" /></div>
-                <div className="photo-slider-item"><img src="/new/menjanganislandtrip-Slider-mobile-5.webp" alt="Menjangan Island scenery and mountains" width={320} height={220} loading="lazy" decoding="async" /></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/DJI_0069-compress.avif" type="image/avif" /><img src="/new/DJI_0069-compress.webp" alt="Menjangan Island aerial view" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/Menjangan-Island-1.avif" type="image/avif" /><img src="/new/Menjangan-Island-1.webp" alt="Wild deer in crystal water at Menjangan Island" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/menjanganislandtrip-Slider-mobile-3.avif" type="image/avif" /><img src="/new/menjanganislandtrip-Slider-mobile-3.webp" alt="Menjangan temple cliff and traditional boat" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/menjanganislandtrip-Slider-mobile-4.avif" type="image/avif" /><img src="/new/menjanganislandtrip-Slider-mobile-4.webp" alt="Tour boats and deers on Menjangan beach" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
+                <div className="photo-slider-item"><picture><source srcSet="/new/menjanganislandtrip-Slider-mobile-5.avif" type="image/avif" /><img src="/new/menjanganislandtrip-Slider-mobile-5.webp" alt="Menjangan Island scenery and mountains" width={320} height={220} loading="lazy" decoding="async" /></picture></div>
               </div>
             </div>
           </section>
@@ -297,15 +297,15 @@ export default function LandingBelow() {
               <div className="snorkeling-split-layout">
                 {/* 3x3 Photo Gallery */}
                 <div className="snorkeling-gallery-grid">
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-01.webp" alt="Snorkeling at coral garden Menjangan" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-02.webp" alt="Snorkeler swimming with tropical fish" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-03.webp" alt="Child snorkeling Menjangan Island" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-04.webp" alt="Wild deer on the beach Menjangan" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-05.webp" alt="Sea turtle swimming in crystal clear water" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-06.webp" alt="Clownfish anemone reef" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-07.webp" alt="Snorkeling above vibrant reef" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-08.webp" alt="Aerial view of turquoise lagoon" loading="lazy" decoding="async" /></div>
-                  <div className="snorkeling-gallery-item"><img src="/new/snorkeling-09.webp" alt="White sand beach Menjangan" loading="lazy" decoding="async" /></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-01.avif" type="image/avif" /><img src="/new/snorkeling-01.webp" alt="Snorkeling at coral garden Menjangan" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-02.avif" type="image/avif" /><img src="/new/snorkeling-02.webp" alt="Snorkeler swimming with tropical fish" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-03.avif" type="image/avif" /><img src="/new/snorkeling-03.webp" alt="Child snorkeling Menjangan Island" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-04.avif" type="image/avif" /><img src="/new/snorkeling-04.webp" alt="Wild deer on the beach Menjangan" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-05.avif" type="image/avif" /><img src="/new/snorkeling-05.webp" alt="Sea turtle swimming in crystal clear water" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-06.avif" type="image/avif" /><img src="/new/snorkeling-06.webp" alt="Clownfish anemone reef" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-07.avif" type="image/avif" /><img src="/new/snorkeling-07.webp" alt="Snorkeling above vibrant reef" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-08.avif" type="image/avif" /><img src="/new/snorkeling-08.webp" alt="Aerial view of turquoise lagoon" loading="lazy" decoding="async" /></picture></div>
+                  <div className="snorkeling-gallery-item"><picture><source srcSet="/new/snorkeling-09.avif" type="image/avif" /><img src="/new/snorkeling-09.webp" alt="White sand beach Menjangan" loading="lazy" decoding="async" /></picture></div>
                 </div>
 
                 {/* Right: Snorkeling Details */}

@@ -390,7 +390,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-BGI3lDZe.js",
+    "file": "assets/app-Dn6EIaCm.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -429,7 +429,7 @@
     ]
   },
   "resources/js/landing-app.tsx": {
-    "file": "assets/landing-app-BCj3xxF6.js",
+    "file": "assets/landing-app-CjiaecXH.js",
     "name": "landing-app",
     "src": "resources/js/landing-app.tsx",
     "isEntry": true,
@@ -648,7 +648,7 @@
     ]
   },
   "resources/js/pages/landing-below.tsx": {
-    "file": "assets/landing-below-DJpsTMHo.js",
+    "file": "assets/landing-below-M205lwzN.js",
     "name": "landing-below",
     "src": "resources/js/pages/landing-below.tsx",
     "isDynamicEntry": true,
@@ -658,7 +658,7 @@
     ]
   },
   "resources/js/pages/landing.tsx": {
-    "file": "assets/landing-CdGD5Cws.js",
+    "file": "assets/landing-DYGdMhkn.js",
     "name": "landing",
     "src": "resources/js/pages/landing.tsx",
     "isDynamicEntry": true,
