@@ -1,0 +1,736 @@
+{
+  "content": [
+    {
+      "id": "a1000001",
+      "settings": {
+        "classes": {
+          "$$type": "classes",
+          "value": [
+            "e-a1000001-c100001"
+          ]
+        }
+      },
+      "elements": [
+        {
+          "id": "a1000002",
+          "settings": [],
+          "elements": [],
+          "isInner": false,
+          "widgetType": "e-image",
+          "elType": "widget",
+          "version": "0.0"
+        },
+        {
+          "id": "a1000003",
+          "settings": {
+            "classes": {
+              "$$type": "classes",
+              "value": [
+                "e-a1000003-c100003"
+              ]
+            }
+          },
+          "elements": [],
+          "isInner": false,
+          "elType": "e-flexbox",
+          "styles": {
+            "e-a1000003-c100003": {
+              "id": "e-a1000003-c100003",
+              "label": "local",
+              "type": "class",
+              "variants": [
+                {
+                  "meta": {
+                    "breakpoint": "desktop",
+                    "state": null
+                  },
+                  "props": {
+                    "position": {
+                      "$$type": "string",
+                      "value": "absolute"
+                    },
+                    "background": {
+                      "$$type": "background",
+                      "value": {
+                        "color": {
+                          "$$type": "color",
+                          "value": "#081426"
+                        }
+                      }
+                    }
+                  },
+                  "custom_css": null
+                }
+              ]
+            }
+          },
+          "version": "0.0"
+        },
+        {
+          "id": "a1000004",
+          "settings": {
+            "classes": {
+              "$$type": "classes",
+              "value": [
+                "e-a1000004-c100004"
+              ]
+            }
+          },
+          "elements": [
+            {
+              "id": "a1000005",
+              "settings": {
+                "classes": {
+                  "$$type": "classes",
+                  "value": [
+                    "e-a1000005-c100005"
+                  ]
+                }
+              },
+              "elements": [
+                {
+                  "id": "a1000006",
+                  "settings": {
+                    "classes": {
+                      "$$type": "classes",
+                      "value": [
+                        "e-a1000006-c100006"
+                      ]
+                    },
+                    "paragraph": {
+                      "$$type": "escaped-html",
+                      "value": "★★★★★"
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false,
+                  "widgetType": "e-paragraph",
+                  "elType": "widget",
+                  "styles": {
+                    "e-a1000006-c100006": {
+                      "id": "e-a1000006-c100006",
+                      "label": "local",
+                      "type": "class",
+                      "variants": [
+                        {
+                          "meta": {
+                            "breakpoint": "desktop",
+                            "state": null
+                          },
+                          "props": {
+                            "color": {
+                              "$$type": "color",
+                              "value": "#FFC107"
+                            }
+                          },
+                          "custom_css": null
+                        }
+                      ]
+                    }
+                  },
+                  "version": "0.0"
+                },
+                {
+                  "id": "a1000007",
+                  "settings": {
+                    "classes": {
+                      "$$type": "classes",
+                      "value": [
+                        "e-a1000007-c100007"
+                      ]
+                    },
+                    "paragraph": {
+                      "$$type": "escaped-html",
+                      "value": "1.150+ five-star reviews"
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false,
+                  "widgetType": "e-paragraph",
+                  "elType": "widget",
+                  "styles": {
+                    "e-a1000007-c100007": {
+                      "id": "e-a1000007-c100007",
+                      "label": "local",
+                      "type": "class",
+                      "variants": [
+                        {
+                          "meta": {
+                            "breakpoint": "desktop",
+                            "state": null
+                          },
+                          "props": {
+                            "color": {
+                              "$$type": "color",
+                              "value": "#ffffff"
+                            }
+                          },
+                          "custom_css": null
+                        }
+                      ]
+                    }
+                  },
+                  "version": "0.0"
+                },
+                {
+                  "id": "a1000008",
+                  "settings": {
+                    "classes": {
+                      "$$type": "classes",
+                      "value": [
+                        "e-a1000008-c100008"
+                      ]
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "a1000009",
+                      "settings": [],
+                      "elements": [],
+                      "isInner": false,
+                      "widgetType": "e-image",
+                      "elType": "widget",
+                      "version": "0.0"
+                    },
+                    {
+                      "id": "a100000a",
+                      "settings": [],
+                      "elements": [],
+                      "isInner": false,
+                      "widgetType": "e-image",
+                      "elType": "widget",
+                      "version": "0.0"
+                    },
+                    {
+                      "id": "a100000b",
+                      "settings": [],
+                      "elements": [],
+                      "isInner": false,
+                      "widgetType": "e-image",
+                      "elType": "widget",
+                      "version": "0.0"
+                    }
+                  ],
+                  "isInner": false,
+                  "elType": "e-flexbox",
+                  "styles": {
+                    "e-a1000008-c100008": {
+                      "id": "e-a1000008-c100008",
+                      "label": "local",
+                      "type": "class",
+                      "variants": [
+                        {
+                          "meta": {
+                            "breakpoint": "desktop",
+                            "state": null
+                          },
+                          "props": {
+                            "display": {
+                              "$$type": "string",
+                              "value": "flex"
+                            }
+                          },
+                          "custom_css": null
+                        }
+                      ]
+                    }
+                  },
+                  "version": "0.0"
+                }
+              ],
+              "isInner": false,
+              "elType": "e-flexbox",
+              "styles": {
+                "e-a1000005-c100005": {
+                  "id": "e-a1000005-c100005",
+                  "label": "local",
+                  "type": "class",
+                  "variants": [
+                    {
+                      "meta": {
+                        "breakpoint": "desktop",
+                        "state": null
+                      },
+                      "props": {
+                        "padding": {
+                          "$$type": "size",
+                          "value": {
+                            "unit": "px",
+                            "size": 8
+                          }
+                        },
+                        "margin": {
+                          "$$type": "size",
+                          "value": {
+                            "unit": "px",
+                            "size": 16
+                          }
+                        },
+                        "display": {
+                          "$$type": "string",
+                          "value": "flex"
+                        },
+                        "background": {
+                          "$$type": "background",
+                          "value": {
+                            "color": {
+                              "$$type": "color",
+                              "value": "#0f1a30"
+                            }
+                          }
+                        },
+                        "border-width": {
+                          "$$type": "size",
+                          "value": {
+                            "unit": "px",
+                            "size": 1
+                          }
+                        }
+                      },
+                      "custom_css": null
+                    }
+                  ]
+                }
+              },
+              "version": "0.0"
+            },
+            {
+              "id": "a100000c",
+              "settings": {
+                "classes": {
+                  "$$type": "classes",
+                  "value": [
+                    "e-a100000c-c10000c"
+                  ]
+                },
+                "title": {
+                  "$$type": "escaped-html",
+                  "value": "MENJANGAN<br>ISLAND TOUR"
+                },
+                "link": {
+                  "$$type": "link",
+                  "value": []
+                }
+              },
+              "elements": [],
+              "isInner": false,
+              "widgetType": "e-heading",
+              "elType": "widget",
+              "styles": {
+                "e-a100000c-c10000c": {
+                  "id": "e-a100000c-c10000c",
+                  "label": "local",
+                  "type": "class",
+                  "variants": [
+                    {
+                      "meta": {
+                        "breakpoint": "desktop",
+                        "state": null
+                      },
+                      "props": {
+                        "margin": {
+                          "$$type": "size",
+                          "value": {
+                            "unit": "px",
+                            "size": 16
+                          }
+                        },
+                        "color": {
+                          "$$type": "color",
+                          "value": "#ffffff"
+                        }
+                      },
+                      "custom_css": null
+                    }
+                  ]
+                }
+              },
+              "version": "0.0"
+            },
+            {
+              "id": "a100000d",
+              "settings": {
+                "classes": {
+                  "$$type": "classes",
+                  "value": [
+                    "e-a100000d-c10000d"
+                  ]
+                },
+                "title": {
+                  "$$type": "escaped-html",
+                  "value": "Snorkeling & Diving in West Bali National Park"
+                },
+                "link": {
+                  "$$type": "link",
+                  "value": []
+                }
+              },
+              "elements": [],
+              "isInner": false,
+              "widgetType": "e-heading",
+              "elType": "widget",
+              "styles": {
+                "e-a100000d-c10000d": {
+                  "id": "e-a100000d-c10000d",
+                  "label": "local",
+                  "type": "class",
+                  "variants": [
+                    {
+                      "meta": {
+                        "breakpoint": "desktop",
+                        "state": null
+                      },
+                      "props": {
+                        "margin": {
+                          "$$type": "size",
+                          "value": {
+                            "unit": "px",
+                            "size": 16
+                          }
+                        },
+                        "color": {
+                          "$$type": "color",
+                          "value": "#ffffff"
+                        }
+                      },
+                      "custom_css": null
+                    }
+                  ]
+                }
+              },
+              "version": "0.0"
+            },
+            {
+              "id": "a100000e",
+              "settings": {
+                "classes": {
+                  "$$type": "classes",
+                  "value": [
+                    "e-a100000e-c10000e"
+                  ]
+                },
+                "paragraph": {
+                  "$$type": "escaped-html",
+                  "value": "Daily departures from Banyuwedang Harbour. Small groups, local guides in the water with you, and everything included."
+                }
+              },
+              "elements": [],
+              "isInner": false,
+              "widgetType": "e-paragraph",
+              "elType": "widget",
+              "styles": {
+                "e-a100000e-c10000e": {
+                  "id": "e-a100000e-c10000e",
+                  "label": "local",
+                  "type": "class",
+                  "variants": [
+                    {
+                      "meta": {
+                        "breakpoint": "desktop",
+                        "state": null
+                      },
+                      "props": {
+                        "width": {
+                          "$$type": "size",
+                          "value": {
+                            "unit": "px",
+                            "size": 480
+                          }
+                        },
+                        "margin": {
+                          "$$type": "size",
+                          "value": {
+                            "unit": "px",
+                            "size": 24
+                          }
+                        },
+                        "color": {
+                          "$$type": "color",
+                          "value": "#ffffff"
+                        }
+                      },
+                      "custom_css": null
+                    }
+                  ]
+                }
+              },
+              "version": "0.0"
+            },
+            {
+              "id": "a100000f",
+              "settings": {
+                "classes": {
+                  "$$type": "classes",
+                  "value": [
+                    "e-a100000f-c10000f"
+                  ]
+                }
+              },
+              "elements": [
+                {
+                  "id": "a1000010",
+                  "settings": {
+                    "classes": {
+                      "$$type": "classes",
+                      "value": [
+                        "e-a1000010-c100010"
+                      ]
+                    },
+                    "text": {
+                      "$$type": "escaped-html",
+                      "value": "Book via WhatsApp Now"
+                    },
+                    "link": {
+                      "$$type": "link",
+                      "value": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false,
+                  "widgetType": "e-button",
+                  "elType": "widget",
+                  "styles": {
+                    "e-a1000010-c100010": {
+                      "id": "e-a1000010-c100010",
+                      "label": "local",
+                      "type": "class",
+                      "variants": [
+                        {
+                          "meta": {
+                            "breakpoint": "desktop",
+                            "state": null
+                          },
+                          "props": {
+                            "padding": {
+                              "$$type": "size",
+                              "value": {
+                                "unit": "px",
+                                "size": 16
+                              }
+                            },
+                            "color": {
+                              "$$type": "color",
+                              "value": "#ffffff"
+                            },
+                            "background": {
+                              "$$type": "background",
+                              "value": {
+                                "color": {
+                                  "$$type": "color",
+                                  "value": "#25D366"
+                                }
+                              }
+                            }
+                          },
+                          "custom_css": null
+                        }
+                      ]
+                    }
+                  },
+                  "version": "0.0"
+                },
+                {
+                  "id": "a1000011",
+                  "settings": {
+                    "classes": {
+                      "$$type": "classes",
+                      "value": [
+                        "e-a1000011-c100011"
+                      ]
+                    },
+                    "paragraph": {
+                      "$$type": "escaped-html",
+                      "value": "Licensed local operator, based in Pemuteran"
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false,
+                  "widgetType": "e-paragraph",
+                  "elType": "widget",
+                  "styles": {
+                    "e-a1000011-c100011": {
+                      "id": "e-a1000011-c100011",
+                      "label": "local",
+                      "type": "class",
+                      "variants": [
+                        {
+                          "meta": {
+                            "breakpoint": "desktop",
+                            "state": null
+                          },
+                          "props": {
+                            "margin": {
+                              "$$type": "size",
+                              "value": {
+                                "unit": "px",
+                                "size": 14
+                              }
+                            },
+                            "color": {
+                              "$$type": "color",
+                              "value": "#a7f3d0"
+                            }
+                          },
+                          "custom_css": null
+                        }
+                      ]
+                    }
+                  },
+                  "version": "0.0"
+                }
+              ],
+              "isInner": false,
+              "elType": "e-flexbox",
+              "styles": {
+                "e-a100000f-c10000f": {
+                  "id": "e-a100000f-c10000f",
+                  "label": "local",
+                  "type": "class",
+                  "variants": [
+                    {
+                      "meta": {
+                        "breakpoint": "desktop",
+                        "state": null
+                      },
+                      "props": {
+                        "display": {
+                          "$$type": "string",
+                          "value": "flex"
+                        },
+                        "flex-direction": {
+                          "$$type": "string",
+                          "value": "column"
+                        }
+                      },
+                      "custom_css": null
+                    }
+                  ]
+                }
+              },
+              "version": "0.0"
+            }
+          ],
+          "isInner": false,
+          "elType": "e-flexbox",
+          "styles": {
+            "e-a1000004-c100004": {
+              "id": "e-a1000004-c100004",
+              "label": "local",
+              "type": "class",
+              "variants": [
+                {
+                  "meta": {
+                    "breakpoint": "desktop",
+                    "state": null
+                  },
+                  "props": {
+                    "width": {
+                      "$$type": "size",
+                      "value": {
+                        "unit": "px",
+                        "size": 1160
+                      }
+                    },
+                    "padding": {
+                      "$$type": "size",
+                      "value": {
+                        "unit": "px",
+                        "size": 64
+                      }
+                    },
+                    "display": {
+                      "$$type": "string",
+                      "value": "flex"
+                    },
+                    "position": {
+                      "$$type": "string",
+                      "value": "relative"
+                    },
+                    "flex-direction": {
+                      "$$type": "string",
+                      "value": "column"
+                    }
+                  },
+                  "custom_css": null
+                },
+                {
+                  "meta": {
+                    "breakpoint": "mobile",
+                    "state": null
+                  },
+                  "props": {
+                    "padding": {
+                      "$$type": "size",
+                      "value": {
+                        "unit": "px",
+                        "size": 24
+                      }
+                    }
+                  },
+                  "custom_css": null
+                }
+              ]
+            }
+          },
+          "version": "0.0"
+        }
+      ],
+      "isInner": false,
+      "elType": "e-flexbox",
+      "styles": {
+        "e-a1000001-c100001": {
+          "id": "e-a1000001-c100001",
+          "label": "local",
+          "type": "class",
+          "variants": [
+            {
+              "meta": {
+                "breakpoint": "desktop",
+                "state": null
+              },
+              "props": {
+                "min-height": {
+                  "$$type": "size",
+                  "value": {
+                    "unit": "px",
+                    "size": 720
+                  }
+                },
+                "display": {
+                  "$$type": "string",
+                  "value": "flex"
+                },
+                "position": {
+                  "$$type": "string",
+                  "value": "relative"
+                }
+              },
+              "custom_css": null
+            },
+            {
+              "meta": {
+                "breakpoint": "mobile",
+                "state": null
+              },
+              "props": {
+                "min-height": {
+                  "$$type": "size",
+                  "value": {
+                    "unit": "px",
+                    "size": 650
+                  }
+                }
+              },
+              "custom_css": null
+            }
+          ]
+        }
+      },
+      "version": "0.0"
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "landing",
+  "type": "page"
+}

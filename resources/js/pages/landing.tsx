@@ -289,7 +289,7 @@ export default function Landing() {
               <a
                 id="btn-hero-wa"
                 className="hero-cta-btn btn-primary"
-                href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
+                href="https://wa.me/6281238578042?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20trip%20to%20Menjangan%20Island.%20Could%20you%20please%20check%20availability%20and%20details%20for%20me%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ fontSize: '13px', padding: '10px 18px', whiteSpace: 'nowrap', flex: 'none', borderRadius: '8px' }}
@@ -341,7 +341,7 @@ export default function Landing() {
                 <a
                   id="btn-hero-wa-main"
                   className="hero-cta-btn"
-                  href="https://wa.me/6281238578042?text=(uc)%20Hello%2C%20I%20would%20like%20to%20book%20a%20trip%20to%20Menjangan%20Island."
+                  href="https://wa.me/6281238578042?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20trip%20to%20Menjangan%20Island.%20Could%20you%20please%20check%20availability%20and%20details%20for%20me%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
