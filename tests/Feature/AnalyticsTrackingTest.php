@@ -10,6 +10,14 @@ class AnalyticsTrackingTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_wordpress_bridge_can_obtain_a_session_csrf_token(): void
+    {
+        $this->get(route('analytics.csrf'))
+            ->assertOk()
+            ->assertJsonStructure(['token'])
+            ->assertHeader('Cache-Control', 'no-store, private');
+    }
+
     public function test_landing_page_contains_ctwa_analytics_instrumentation(): void
     {
         $response = $this->get(route('home'));

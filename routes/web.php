@@ -10,6 +10,10 @@ Route::inertia('/', 'landing')->name('home');
 
 
 // ── Analytics tracking endpoint (public, uses session CSRF) ──────────────────
+Route::get('/analytics/csrf', function () {
+    return response()->json(['token' => csrf_token()])
+        ->header('Cache-Control', 'no-store, private');
+})->name('analytics.csrf');
 Route::post('/analytics/track', [AnalyticsController::class, 'track'])->name('analytics.track');
 
 // ── Authenticated routes ──────────────────────────────────────────────────────

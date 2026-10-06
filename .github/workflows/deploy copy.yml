@@ -1,9 +1,7 @@
 name: Deploy to Production (Menjangan Subdomain)
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 concurrency:
   group: production-menjangan
