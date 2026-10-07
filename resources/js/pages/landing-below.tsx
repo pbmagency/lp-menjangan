@@ -1289,12 +1289,12 @@ export default function LandingBelow() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13.5px', color: '#cbd5e1' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: '3px' }}><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" /></svg>
-                    <span>Jl. Banyuwedang, Banjar Dinas Batu Ampar, Pejarakan, Gerokgak, Buleleng, Bali 81155</span>
+                    <a href="https://maps.app.goo.gl/U93TYLBK9cprtJ9B8?g_st=ic" target="_blank" rel="noopener noreferrer" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Jln Seririt Gilimanuk, Pejarakan, Singaraja, Kabupaten Buleleng, Bali 81155</a>
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                    <a href="https://wa.me/6281238578042?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20trip%20to%20Menjangan%20Island.%20Could%20you%20please%20check%20availability%20and%20details%20for%20me%3F" target="_blank" rel="noopener noreferrer" style={{ color: '#cbd5e1', textDecoration: 'none' }}>+62 812-3857-8042</a>
+                    <a href="https://wa.me/6287874593795?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20trip%20to%20Menjangan%20Island.%20Could%20you%20please%20check%20availability%20and%20details%20for%20me%3F" target="_blank" rel="noopener noreferrer" style={{ color: '#cbd5e1', textDecoration: 'none' }}>+62 878-7459-3795</a>
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -1315,14 +1315,14 @@ export default function LandingBelow() {
               {/* Right: Google Maps Embed Card */}
               <div style={{ background: '#ffffff', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 6px 24px rgba(0, 0, 0, 0.28)', height: '290px', position: 'relative' }}>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.722668351543!2d114.5701623!3d-8.138403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd167098485295f%3A0xcc7667d0a2732e88!2sMenjangan%20Snorkeling%20Trip%20%26%20Diving!5e0!3m2!1sen!2sid!4v1700000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.63667468211!2d114.5780359!3d-8.1419219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1698297112d6f%3A0x6e6445204a952279!2sMenjangan%20Snorkeling%20Center%20%26%20Dive%20Trip%20Bali%20%7C%20Menjangan%20Island%20Experience!5e0!3m2!1sen!2sid!4v1700000000000"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Menjangan Snorkeling Trip &amp; Diving Location Map"
+                  title="Menjangan Snorkeling Center &amp; Dive Trip Bali Location Map"
                 ></iframe>
               </div>
             </div>
@@ -1343,7 +1343,7 @@ export default function LandingBelow() {
         {/* Floating WhatsApp CTA */}
         <a
           id="whatsapp-button"
-          href="https://wa.me/6281238578042?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20trip%20to%20Menjangan%20Island.%20Could%20you%20please%20check%20availability%20and%20details%20for%20me%3F"
+          href="https://wa.me/6287874593795?text=Hello%2C%20I%27m%20interested%20in%20booking%20a%20trip%20to%20Menjangan%20Island.%20Could%20you%20please%20check%20availability%20and%20details%20for%20me%3F"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"

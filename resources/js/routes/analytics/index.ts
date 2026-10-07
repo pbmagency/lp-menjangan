@@ -1,5 +1,76 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
+ * @see routes/web.php:13
+ * @route '/analytics/csrf'
+ */
+export const csrf = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: csrf.url(options),
+    method: 'get',
+})
+
+csrf.definition = {
+    methods: ["get","head"],
+    url: '/analytics/csrf',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+ * @see routes/web.php:13
+ * @route '/analytics/csrf'
+ */
+csrf.url = (options?: RouteQueryOptions) => {
+    return csrf.definition.url + queryParams(options)
+}
+
+/**
+ * @see routes/web.php:13
+ * @route '/analytics/csrf'
+ */
+csrf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: csrf.url(options),
+    method: 'get',
+})
+/**
+ * @see routes/web.php:13
+ * @route '/analytics/csrf'
+ */
+csrf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: csrf.url(options),
+    method: 'head',
+})
+
+    /**
+ * @see routes/web.php:13
+ * @route '/analytics/csrf'
+ */
+    const csrfForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: csrf.url(options),
+        method: 'get',
+    })
+
+            /**
+ * @see routes/web.php:13
+ * @route '/analytics/csrf'
+ */
+        csrfForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: csrf.url(options),
+            method: 'get',
+        })
+            /**
+ * @see routes/web.php:13
+ * @route '/analytics/csrf'
+ */
+        csrfForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: csrf.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    csrf.form = csrfForm
+/**
 * @see \App\Http\Controllers\AnalyticsController::track
  * @see app/Http/Controllers/AnalyticsController.php:40
  * @route '/analytics/track'
@@ -55,7 +126,8 @@ track.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     
     track.form = trackForm
 const analytics = {
-    track: Object.assign(track, track),
+    csrf: Object.assign(csrf, csrf),
+track: Object.assign(track, track),
 }
 
 export default analytics
