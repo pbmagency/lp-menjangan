@@ -34,3 +34,6 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.'
 require __DIR__ . '/settings.php';
 
 Route::inertia('/c1-lp', 'c1-lp')->name('c1-lp');
+
+// Public API Feed for Centralized Ops Board
+Route::get('/api/analytics/feed', [\App\Http\Controllers\Api\AnalyticsFeedController::class, 'feed'])->name('api.analytics.feed');
