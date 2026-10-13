@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html class="wp-toolbar"
+	lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Edit Plugins &lsaquo; Menjangan WP &#8212; WordPress</title>
+<script>
+addLoadEvent = function(func){if(typeof jQuery!=='undefined')jQuery(function(){func();});else if(typeof wpOnload!=='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+var ajaxurl = '/wp/wp-admin/admin-ajax.php',
+	pagenow = 'plugin-editor',
+	typenow = '',
+	adminpage = 'plugin-editor-php',
+	thousandsSeparator = ',',
+	decimalPoint = '.',
+	isRtl = 0;
+</script>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='stylesheet' href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/load-styles.php?c=0&amp;dir=ltr&amp;load%5Bchunk_0%5D=dashicons,admin-bar,code-editor,common,forms,admin-menu,dashboard,list-tables,edit,revisions,media,themes,about,nav-menus,wp-poi&amp;load%5Bchunk_1%5D=nter,widgets,site-icon,l10n,wp-base-styles,wp-tooltip,buttons,wp-auth-check,wp-theme,wp-components,wp-commands&amp;ver=7.1.3' media='all' />
+<style>
+
+			@font-face {
+				font-family: 'w3tc';
+				src: url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/w3-total-cache/pub/fonts/w3tc.eot');
+				src: url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/w3-total-cache/pub/fonts/w3tc.eot?#iefix') format('embedded-opentype'),
+					url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/w3-total-cache/pub/fonts/w3tc.woff') format('woff'),
+					url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/w3-total-cache/pub/fonts/w3tc.ttf') format('truetype'),
+					url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/w3-total-cache/pub/fonts/w3tc.svg#w3tc') format('svg');
+				font-weight: normal;
+				font-style: normal;
+			}
+			.w3tc-icon:before{
+				content:'\0041'; top: 2px;
+				font-family: 'w3tc';
+			}
+@media print { #wpadminbar { display:none; } }
+/*# sourceURL=css-inline-concat-dashicons%2Cadmin-bar%2Ccode-editor%2Ccommon%2Cforms%2Cadmin-menu%2Cdashboard%2Clist-tables%2Cedit%2Crevisions%2Cmedia%2Cthemes%2Cabout%2Cnav-menus%2Cwp-pointer%2Cwidgets%2Csite-icon%2Cl10n%2Cwp-base-styles%2Cwp-tooltip%2Cbuttons%2Cwp-auth-check%2Cwp-theme%2Cwp-components%2Cwp-commands */
+</style>
+<link rel='stylesheet' id='wp-codemirror-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/codemirror/codemirror.min.css?ver=5.65.20' media='all' />
+<link rel='stylesheet' id='colors-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/css/colors/modern/colors.min.css?ver=7.1.3' media='all' />
+<style id="wp-view-transitions-admin-inline-css">
+/*! This file is auto-generated */
+@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}#adminmenu>.menu-top{view-transition-name:attr(id type(<custom-ident>),none)}}
+</style>
+<link rel='stylesheet' id='w3tc_feature_counter-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/w3-total-cache/pub/css/feature-counter.css?ver=2.10.7' media='all' />
+<link crossorigin="anonymous" rel='stylesheet' id='elementor-one-admin-fonts-css' href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&#038;display=swap&#038;ver=1.0.0' media='all' />
+<link rel='stylesheet' id='elementor-one-admin-common-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/vendor/elementor/wp-one-package/assets/build/common.css?ver=1.0.72' media='all' />
+<link rel='stylesheet' id='elementor-admin-menu-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/css/modules/editor-one/admin-menu.min.css?ver=4.3.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.54.0' media='all' />
+<link rel='stylesheet' id='elementor-common-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/css/common.min.css?ver=4.3.3' media='all' />
+<link rel='stylesheet' id='e-theme-ui-light-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/css/theme-light.min.css?ver=4.3.3' media='all' />
+<link rel='stylesheet' id='elementor-admin-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/css/admin.min.css?ver=4.3.3' media='all' />
+<link rel='stylesheet' id='thickbox-css' href='https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/thickbox/thickbox.css?ver=7.1.3' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style class="wp-fonts-local">
+@font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Fira Code";font-style:normal;font-weight:300 700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-code/FiraCode-VariableFont_wght.woff2') format('woff2');}
+</style>
+<style class="wp-fonts-local">
+@font-face{font-family:Beiruti;font-style:normal;font-weight:200 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/beiruti/Beiruti-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:Vollkorn;font-style:italic;font-weight:400 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/vollkorn/Vollkorn-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Vollkorn;font-style:normal;font-weight:400 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/vollkorn/Vollkorn-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Fira Code";font-style:normal;font-weight:300 700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-code/FiraCode-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:normal;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:italic;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:normal;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:italic;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Roboto Slab";font-style:normal;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/roboto-slab/RobotoSlab-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:normal;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:italic;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:normal;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:italic;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:100;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Thin.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:100;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ThinItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Light.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-LightItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Italic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Regular.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Medium.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-SemiBold.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Bold.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Black.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:Beiruti;font-style:normal;font-weight:200 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/beiruti/Beiruti-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:Vollkorn;font-style:italic;font-weight:400 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/vollkorn/Vollkorn-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Vollkorn;font-style:normal;font-weight:400 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/vollkorn/Vollkorn-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Fira Code";font-style:normal;font-weight:300 700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-code/FiraCode-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:normal;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:italic;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:normal;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:italic;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Roboto Slab";font-style:normal;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/roboto-slab/RobotoSlab-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:normal;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:"Ysabeau Office";font-style:italic;font-weight:100 900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/ysabeau-office/YsabeauOffice-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:normal;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Platypi;font-style:italic;font-weight:300 800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/platypi/Platypi-Italic-VariableFont_wght.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Light.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-LightItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Regular.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-RegularItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Medium.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Bold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-Black.woff2') format('woff2');}
+@font-face{font-family:Literata;font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/literata/Literata72pt-BlackItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:100;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Thin.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:100;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ThinItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraLight.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:200;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraLightItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Light.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:300;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-LightItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Italic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:400;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Regular.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Medium.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:500;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-MediumItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-SemiBold.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:600;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-SemiBoldItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Bold.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:700;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-BoldItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraBold.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:800;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-ExtraBoldItalic.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:normal;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-Black.woff2') format('woff2');}
+@font-face{font-family:"Fira Sans";font-style:italic;font-weight:900;font-display:fallback;src:url('https://menjangansnorkelingtripanddiving.com/wp/wp-content/themes/twentytwentyfive/assets/fonts/fira-sans/FiraSans-BlackItalic.woff2') format('woff2');}
+</style>
+		<script type="text/javascript">
+			function w3tc_popupadmin_bar(url) {
+				return window.open(url, '', 'width=800,height=600,status=no,toolbar=no,menubar=no,scrollbars=yes');
+			}
+		</script>
+		<script>
+var userSettings = {"url":"/wp/","uid":"1","time":"1791789883","secure":"1"};
+//# sourceURL=js-inline-concat-jquery-core%2Cjquery-migrate%2Cutils%2Cwp-codemirror%2Cunderscore
+</script>
+<script src="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/load-scripts.php?c=0&#038;load%5Bchunk_0%5D=jquery-core,jquery-migrate,utils,wp-codemirror,underscore&#038;ver=7.1.3"></script>
+<script id="code-editor-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/js/code-editor.min.js?ver=7.1.3"></script>
+<script id="code-editor-js-after">
+jQuery.extend( wp.codeEditor.defaultSettings, {"codemirror":{"indentUnit":4,"indentWithTabs":true,"inputStyle":"contenteditable","lineNumbers":true,"lineWrapping":true,"styleActiveLine":true,"continueComments":true,"extraKeys":{"Ctrl-Space":"autocomplete","Ctrl-/":"toggleComment","Cmd-/":"toggleComment","Alt-F":"findPersistent","Ctrl-F":"findPersistent","Cmd-F":"findPersistent"},"direction":"ltr","gutters":[],"mode":"php","autoCloseBrackets":true,"autoCloseTags":true,"matchBrackets":true,"matchTags":{"bothTags":true}},"csslint":{"errors":true,"box-model":true,"display-property-grouping":true,"duplicate-properties":true,"known-properties":true,"outline-none":true},"jshint":{"esversion":11,"module":false,"espreeModuleUrl":"https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/codemirror/espree.min.js?ver=9.6.1","boss":true,"curly":true,"eqeqeq":true,"eqnull":true,"expr":true,"immed":true,"noarg":true,"nonbsp":true,"quotmark":"single","undef":true,"unused":true,"browser":true,"globals":{"_":false,"Backbone":false,"jQuery":false,"JSON":false,"wp":false,"export":false,"module":false,"require":false,"WorkerGlobalScope":false,"self":false,"OffscreenCanvas":false,"Promise":false}},"htmlhint":{"tagname-lowercase":true,"attr-lowercase":true,"attr-value-double-quotes":false,"doctype-first":false,"tag-pair":true,"spec-char-escape":true,"id-unique":true,"src-not-empty":true,"attr-no-duplication":true,"alt-require":true,"space-tab-mixed-disabled":"tab","attr-unsafe-chars":true}} );
+//# sourceURL=code-editor-js-after
+</script>
+		<style type="text/css" media="screen">
+			li.toplevel_page_w3tc_dashboard .wp-menu-image:before{
+				content:'\0041';
+				top: 2px;
+				font-family: 'w3tc';
+			}
+		</style>
+		<script>
+			jQuery(document).ready( function($) {
+				$('#toplevel_page_w3tc_dashboard ul li').find('a[href*="w3tc_faq"]')
+					.prop('target','_blank')
+					.prop('href', "https:\/\/api.w3-edge.com\/v1\/redirects\/faq");
+			} );
+		</script>
+				<style type="text/css">
+			#menu-posts-elementor_library {
+				display: none !important;
+			}
+		</style>
+				<style type="text/css">
+			#toplevel_page_elementor {
+				display: none !important;
+			}
+		</style>
+		<script>var _wpColorScheme = {"icons":{"base":"#f3f1f1","focus":"#fff","current":"#fff"}};</script>
+	<link id="wp-admin-canonical" rel="canonical" href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/plugin-editor.php?plugin=menjangan-elementor%2Fmenjangan-elementor.php" />
+	<script>
+		if ( window.history.replaceState ) {
+			window.history.replaceState( null, null, document.getElementById( 'wp-admin-canonical' ).href + window.location.hash );
+		}
+	</script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body class="wp-admin wp-core-ui no-js plugin-editor-php auto-fold admin-bar branch-7-1 version-7-1-3 admin-color-modern locale-en-us no-customize-support svg wp-theme-twentytwentyfive">
+<script>
+	document.body.className = document.body.className.replace('no-js','js');
+</script>
+
+<script>
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+				request = true;
+	
+			b[c] = b[c].replace( rcs, ' ' );
+			// The customizer requires postMessage and CORS (if the site is cross domain).
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	
+//# sourceURL=wp_customize_support_script
+</script>
+
+<div id="wpwrap">
+
+<div id="adminmenumain" role="navigation" aria-label="Main menu">
+<a href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
+<a href="#wp-toolbar" class="screen-reader-shortcut">Skip to toolbar</a>
+<div id="adminmenuback"></div>
+<div id="adminmenuwrap">
+<ul id="adminmenu">
+
+
+	<li class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard" id="menu-dashboard">
+	<a href='index.php' class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-dashboard' aria-hidden='true'><br /></div><div class='wp-menu-name'>Dashboard</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Dashboard</li><li class="wp-first-item"><a href='index.php' class="wp-first-item">Home</a></li><li><a href='update-core.php'>Updates <span class="update-plugins count-1"><span class="update-count">1</span></span></a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_elementor-home menu-top-last" id="toplevel_page_elementor-home">
+	<a href='admin.php?page=elementor-home' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_elementor-home menu-top-last" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-generic' aria-hidden='true'><br /></div><div class='wp-menu-name'>Elementor</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Elementor</li><li class="wp-first-item"><a href='admin.php?page=elementor-home' class="wp-first-item">Home</a></li><li><a href='admin.php?page=elementor'>Editor</a></li><li><a href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app&ver=4.3.3&return_to=/wp/wp-admin/plugin-editor.php?plugin=menjangan-elementor%2Fmenjangan-elementor.php#site-editor/promotion'>Theme Builder</a></li><li><a href='admin.php?page=e-form-submissions'>Submissions</a></li><li><a href='admin.php?page=elementor-mcp'>Elementor MCP</a></li><li><a href='admin.php?page=elementor-connect-account'>Connect Account</a></li><li><a href='admin.php?page=elementor-one-upgrade'>Upgrade</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" id="menu-posts">
+	<a href='edit.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js menu-top-first" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-post' aria-hidden='true'><br /></div><div class='wp-menu-name'>Posts</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Posts</li><li class="wp-first-item"><a href='edit.php' class="wp-first-item">All Posts</a></li><li><a href='post-new.php'>Add Post</a></li><li><a href='edit-tags.php?taxonomy=category'>Categories</a></li><li><a href='edit-tags.php?taxonomy=post_tag'>Tags</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top toplevel_page_http2-push-content" id="toplevel_page_http2-push-content">
+	<a href='admin.php?page=http2-push-content' class="wp-not-current-submenu menu-top toplevel_page_http2-push-content" ><div class='wp-menu-image dashicons-before dashicons-randomize' aria-hidden='true'><br /></div><div class='wp-menu-name'>HTTP2 Push Content</div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" id="menu-media">
+	<a href='upload.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-media' aria-hidden='true'><br /></div><div class='wp-menu-name'>Media</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Media</li><li class="wp-first-item"><a href='upload.php' class="wp-first-item">Library</a></li><li><a href='media-new.php'>Add Media File</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" id="menu-pages">
+	<a href='edit.php?post_type=page' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-page' aria-hidden='true'><br /></div><div class='wp-menu-name'>Pages</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Pages</li><li class="wp-first-item"><a href='edit.php?post_type=page' class="wp-first-item">All Pages</a></li><li><a href='post-new.php?post_type=page'>Add Page</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-comments" id="menu-comments">
+	<a href='edit-comments.php' class="wp-not-current-submenu menu-top menu-icon-comments" ><div class='wp-menu-image dashicons-before dashicons-admin-comments' aria-hidden='true'><br /></div><div class='wp-menu-name'>Comments <span class="awaiting-mod count-0"><span class="pending-count" aria-hidden="true">0</span><span class="comments-in-moderation-text screen-reader-text">0 Comments in moderation</span></span></div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-elementor_library" id="menu-posts-elementor_library">
+	<a href='edit.php?post_type=elementor_library' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-elementor_library" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-page' aria-hidden='true'><br /></div><div class='wp-menu-name'>Templates</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Templates</li><li class="wp-first-item"><a href='edit.php?post_type=elementor_library' class="wp-first-item">All Templates</a></li><li><a href='post-new.php?post_type=elementor_library'>Add New Template</a></li><li><a href='edit-tags.php?taxonomy=elementor_library_category&amp;post_type=elementor_library'>Categories</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_elementor menu-top-last" id="toplevel_page_elementor"><a href='admin.php?page=elementor' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_elementor menu-top-last" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-generic' aria-hidden='true'><br /></div><div class='wp-menu-name'>Elementor</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Elementor</li><li class="wp-first-item"><a href='admin.php?page=elementor' class="wp-first-item">Quick start</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" id="menu-appearance">
+	<a href='themes.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-appearance' aria-hidden='true'><br /></div><div class='wp-menu-name'>Appearance</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Appearance</li><li class="wp-first-item"><a href='themes.php' class="wp-first-item">Themes <span class="update-plugins count-0"><span class="theme-count">0</span></span></a></li><li><a href='site-editor.php'>Editor</a></li><li class="hide-if-no-customize"><a href='customize.php?return=%2Fwp%2Fwp-admin%2Fplugin-editor.php%3Fplugin%3Dmenjangan-elementor%252Fmenjangan-elementor.php' class="hide-if-no-customize">Customize</a></li><li><a href='font-library.php'>Fonts</a></li><li><a href='customize.php?amp_preview=1&autofocus[panel]=amp_panel'>AMP</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" id="menu-plugins">
+	<a href='plugins.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-plugins' aria-hidden='true'><br /></div><div class='wp-menu-name'>Plugins <span class="update-plugins count-1"><span class="plugin-count">1</span></span></div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Plugins <span class="update-plugins count-1"><span class="plugin-count">1</span></span></li><li class="wp-first-item"><a href='plugins.php' class="wp-first-item">Installed Plugins</a></li><li><a href='plugin-install.php'>Add Plugin</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" id="menu-users">
+	<a href='users.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-users' aria-hidden='true'><br /></div><div class='wp-menu-name'>Users</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Users</li><li class="wp-first-item"><a href='users.php' class="wp-first-item">All Users</a></li><li><a href='user-new.php'>Add User</a></li><li><a href='profile.php'>Profile</a></li></ul></li>
+	<li class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-tools" id="menu-tools">
+	<a href='tools.php' class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-tools" ><div class='wp-menu-image dashicons-before dashicons-admin-tools' aria-hidden='true'><br /></div><div class='wp-menu-name'>Tools</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Tools</li><li class="wp-first-item"><a href='tools.php' class="wp-first-item">Available Tools</a></li><li><a href='import.php'>Import</a></li><li><a href='export.php'>Export</a></li><li><a href='site-health.php'>Site Health <span class="menu-counter site-health-counter count-0"><span class="count">0</span></span></a></li><li><a href='export-personal-data.php'>Export Personal Data</a></li><li><a href='erase-personal-data.php'>Erase Personal Data</a></li><li><a href='tools.php?page=menjangan-import'>Menjangan Import</a></li><li><a href='theme-editor.php'>Theme File Editor</a></li><li class="current"><a href='plugin-editor.php' class="current" aria-current="page">Plugin File Editor</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" id="menu-settings">
+	<a href='options-general.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-settings' aria-hidden='true'><br /></div><div class='wp-menu-name'>Settings</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Settings</li><li class="wp-first-item"><a href='options-general.php' class="wp-first-item">General</a></li><li><a href='options-connectors.php'>Connectors</a></li><li><a href='options-writing.php'>Writing</a></li><li><a href='options-reading.php'>Reading</a></li><li><a href='options-discussion.php'>Discussion</a></li><li><a href='options-media.php'>Media</a></li><li><a href='options-permalink.php'>Permalinks</a></li><li><a href='options-privacy.php'>Privacy</a></li><li><a href='options-general.php?page=gtm4wp-settings'>Google Tag Manager</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+	<li class="wp-not-current-submenu menu-top toplevel_page_microsoft-clarity menu-top-first" id="toplevel_page_microsoft-clarity">
+	<a href='admin.php?page=microsoft-clarity' class="wp-not-current-submenu menu-top toplevel_page_microsoft-clarity menu-top-first" ><div class='wp-menu-image dashicons-before' aria-hidden='true'><img src="https://claritystatic.blob.core.windows.net/images/logo.svg" alt="" /></div><div class='wp-menu-name'>Clarity</div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_amp-options" id="toplevel_page_amp-options"><a href='admin.php?page=amp-options' class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_amp-options" data-ariahaspopup><div class='wp-menu-image svg' style="background-image:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjIiIGhlaWdodD0iNjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTQxLjYyODg2NjcgMjguMTYxNDMzM2wtMTMuMDA0NSAyMS42NDIxMzM0aC0yLjM1NmwyLjMyOTEzMzMtMTQuMTAxOS03LjIxMzcuMDA5M3MtLjA2ODIuMDAyMDY2Ni0uMTAwMjMzMy4wMDIwNjY2Yy0uNjQ5OTY2NyAwLTEuMTc1OTMzNC0uNTI1OTY2Ni0xLjE3NTkzMzQtMS4xNzU5MzMzIDAtLjI3OS4yNTkzNjY3LS43NTEyMzMzLjI1OTM2NjctLjc1MTIzMzNsMTIuOTYyMTMzMy0yMS42MTYzTDM1LjcyNDQgMTIuMTc5OWwtMi4zODgwMzMzIDE0LjEyMzYgNy4yNTA5LS4wMDkzcy4wNzc1LS4wMDEwMzMzLjExNDctLjAwMTAzMzNjLjY0OTk2NjYgMCAxLjE3NTkzMzMuNTI1OTY2NiAxLjE3NTkzMzMgMS4xNzU5MzMzIDAgLjI2MzUtLjEwMzMzMzMuNDk0OTY2Ny0uMjUwMDY2Ny42OTEzbC4wMDEwMzM0LjAwMTAzMzN6TTMxIDBDMTMuODc4NyAwIDAgMTMuODc5NzMzMyAwIDMxYzAgMTcuMTIxMyAxMy44Nzg3IDMxIDMxIDMxIDE3LjEyMDI2NjcgMCAzMS0xMy44Nzg3IDMxLTMxQzYyIDEzLjg3OTczMzMgNDguMTIwMjY2NyAwIDMxIDB6IiBmaWxsPSIjYTBhNWFhIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=')" aria-hidden='true'><br /></div><div class='wp-menu-name'>AMP</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>AMP</li><li class="wp-first-item"><a href='admin.php?page=amp-options' class="wp-first-item">Settings</a></li><li><a href='admin.php?page=amp-options#analytics-options'>Analytics</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_w3tc_dashboard" id="toplevel_page_w3tc_dashboard"><a href='admin.php?page=w3tc_dashboard' class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_w3tc_dashboard" data-ariahaspopup><div class='wp-menu-image dashicons-before' aria-hidden='true'><br /></div><div class='wp-menu-name'>Performance</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Performance</li><li class="wp-first-item"><a href='admin.php?page=w3tc_dashboard' class="wp-first-item">Dashboard</a></li><li><a href='admin.php?page=w3tc_feature_showcase'>Feature Showcase</a></li><li><a href='admin.php?page=w3tc_general'>General Settings</a></li><li><a href='admin.php?page=w3tc_pgcache'>Page Cache</a></li><li><a href='admin.php?page=w3tc_minify'>Minify</a></li><li><a href='admin.php?page=w3tc_dbcache'>Database Cache</a></li><li><a href='admin.php?page=w3tc_objectcache'>Object Cache</a></li><li><a href='admin.php?page=w3tc_browsercache'>Browser Cache</a></li><li><a href='admin.php?page=w3tc_cachegroups'>Cache Groups</a></li><li><a href='admin.php?page=w3tc_cdn'><acronym title="Content Delivery Network">CDN</acronym></a></li><li><a href='admin.php?page=w3tc_faq'>FAQ</a></li><li><a href='admin.php?page=w3tc_support'>Support</a></li><li><a href='admin.php?page=w3tc_pagespeed'>Google PageSpeed</a></li><li><a href='admin.php?page=w3tc_userexperience'>User Experience</a></li><li><a href='admin.php?page=w3tc_install'>Install</a></li><li><a href='admin.php?page=w3tc_setup_guide'>Setup Guide</a></li><li><a href='admin.php?page=w3tc_about'>About</a></li><li><a href='admin.php?page=w3tc_extensions'>Extensions</a></li><li><a href='admin.php?page=w3tc_stats'>Statistics</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_loginizer menu-top-last" id="toplevel_page_loginizer"><a href='admin.php?page=loginizer' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_loginizer menu-top-last" data-ariahaspopup><div class='wp-menu-image dashicons-before dashicons-admin-generic' aria-hidden='true'><br /></div><div class='wp-menu-name'>Loginizer Security</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Loginizer Security</li><li class="wp-first-item"><a href='admin.php?page=loginizer' class="wp-first-item">Dashboard</a></li><li><a href='admin.php?page=loginizer_brute_force'>Brute Force</a></li><li><a href='admin.php?page=loginizer_firewall'>Country Block </a></li><li><a href='admin.php?page=loginizer_passwordless'>PasswordLess</a></li><li><a href='admin.php?page=loginizer_2fa'>Two Factor Auth</a></li><li><a href='admin.php?page=loginizer_recaptcha'>reCAPTCHA</a></li><li><a href='admin.php?page=loginizer_sso'>Single Sign On</a></li><li><a href='admin.php?page=loginizer_social_login'>Social Login</a></li><li><a href='admin.php?page=loginizer_security'>Security Settings</a></li><li><a href='admin.php?page=loginizer_checksums'>File Checksums</a></li></ul></li><li id="collapse-menu" class="hide-if-no-js"><button type="button" id="collapse-button" aria-label="Collapse Main Menu" aria-expanded="true"><span class="collapse-button-icon" aria-hidden="true"></span><span class="collapse-button-label">Collapse Menu</span></button></li></ul>
+</div>
+</div>
+<div id="wpcontent">
+
+		<div id="wpadminbar" class="nojq nojs">
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar">
+				<ul role='menu' id='wp-admin-bar-root-default' class="ab-top-menu"><li role='group' id='wp-admin-bar-menu-toggle'><a class='ab-item' role="menuitem" href='#'><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">Menu</span></a></li><li role='group' id='wp-admin-bar-wp-logo' class="menupop"><a class='ab-item' role="menuitem" aria-expanded="false" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/about.php'><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul role='menu' aria-label='About WordPress' id='wp-admin-bar-wp-logo-default' class="ab-submenu"><li role='group' id='wp-admin-bar-about'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/about.php'>About WordPress</a></li><li role='group' id='wp-admin-bar-contribute'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/contribute.php'>Get Involved</a></li></ul><ul role='menu' aria-label='About WordPress' id='wp-admin-bar-wp-logo-external' class="ab-sub-secondary ab-submenu"><li role='group' id='wp-admin-bar-wporg'><a class='ab-item' role="menuitem" href='https://wordpress.org/'>WordPress.org</a></li><li role='group' id='wp-admin-bar-documentation'><a class='ab-item' role="menuitem" href='https://wordpress.org/documentation/'>Documentation</a></li><li role='group' id='wp-admin-bar-learn'><a class='ab-item' role="menuitem" href='https://learn.wordpress.org/'>Learn WordPress</a></li><li role='group' id='wp-admin-bar-support-forums'><a class='ab-item' role="menuitem" href='https://wordpress.org/support/forums/'>Support</a></li><li role='group' id='wp-admin-bar-feedback'><a class='ab-item' role="menuitem" href='https://wordpress.org/support/forum/requests-and-feedback'>Feedback</a></li></ul></div></li><li role='group' id='wp-admin-bar-site-name' class="menupop"><a class='ab-item' role="menuitem" aria-expanded="false" href='https://menjangansnorkelingtripanddiving.com/wp/'>Menjangan WP</a><div class="ab-sub-wrapper"><ul role='menu' aria-label='Menjangan WP' id='wp-admin-bar-site-name-default' class="ab-submenu"><li role='group' id='wp-admin-bar-view-site'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/'>Visit Site</a></li></ul></div></li><li role='group' id='wp-admin-bar-updates'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/update-core.php'><span class="ab-icon" aria-hidden="true"></span><span class="ab-label" aria-hidden="true">1</span><span class="screen-reader-text updates-available-text">1 update available</span></a></li><li role='group' id='wp-admin-bar-command-palette' class="hide-if-no-js"><a class='ab-item' role="menuitem" href='#' onclick='wp.data.dispatch( &quot;core/commands&quot; ).open(); return false;'><span class="ab-icon" aria-hidden="true"></span><span class="ab-label"><kbd>Ctrl+K</kbd><span class="screen-reader-text"> Open command palette</span></span></a><script>
+( 	( applePattern, appleOSLabel ) => {
+		if ( ! ( new RegExp( applePattern, 'i' ) ).test( navigator.userAgent ) ) {
+			return;
+		}
+		const kbd = document.querySelector( '#wp-admin-bar-command-palette .ab-label kbd' );
+		if ( kbd ) {
+			kbd.textContent = appleOSLabel;
+		}
+	} )( "Macintosh|Mac OS X|Mac_PowerPC", "\u2318K" );
+//# sourceURL=wp_admin_bar_command_palette_menu
+</script>
+</li><li role='group' id='wp-admin-bar-comments'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/edit-comments.php'><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text comments-in-moderation-text">0 Comments in moderation</span></a></li><li role='group' id='wp-admin-bar-new-content' class="menupop"><a class='ab-item' role="menuitem" aria-expanded="false" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/post-new.php'><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul role='menu' aria-label='New' id='wp-admin-bar-new-content-default' class="ab-submenu"><li role='group' id='wp-admin-bar-new-post'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/post-new.php'>Post</a></li><li role='group' id='wp-admin-bar-new-media'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/media-new.php'>Media</a></li><li role='group' id='wp-admin-bar-new-page'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/post-new.php?post_type=page'>Page</a></li><li role='group' id='wp-admin-bar-new-e-floating-buttons'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/edit.php?action=elementor_new_post&#038;post_type=e-floating-buttons&#038;template_type=floating-buttons&#038;_wpnonce=add4b6f171#library'>Floating Element</a></li><li role='group' id='wp-admin-bar-new-elementor_library'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/post-new.php?post_type=elementor_library'>Template</a></li><li role='group' id='wp-admin-bar-new-user'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/user-new.php'>User</a></li></ul></div></li><li role='group' id='wp-admin-bar-w3tc' class="menupop"><a class='ab-item' role="menuitem" aria-expanded="false" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dashboard'><span class="w3tc-icon ab-icon"></span><span class="ab-label">Performance</span></a><div class="ab-sub-wrapper"><ul role='menu' id='wp-admin-bar-w3tc-default' class="ab-submenu"><li role='group' id='wp-admin-bar-w3tc_overlay_upgrade'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_message_action=licensing_upgrade'><span style="color: red;background: none">Upgrade Performance</span></a></li><li role='group' id='wp-admin-bar-w3tc_flush_all'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?w3tc_flush_all=1&#038;_wpnonce=fc1f158126'>Purge All Caches</a></li><li role='group' id='wp-admin-bar-w3tc_flush' class="menupop"><div class="ab-item ab-empty-item" role="menuitem" aria-expanded="false"><span class="wp-admin-bar-arrow" aria-hidden="true"></span>Purge Modules</div><div class="ab-sub-wrapper"><ul role='menu' id='wp-admin-bar-w3tc_flush-default' class="ab-submenu"><li role='group' id='wp-admin-bar-w3tc_flush_pgcache'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_pgcache&#038;_wpnonce=5a9c141a74'>Page Cache</a></li><li role='group' id='wp-admin-bar-w3tc_flush_dbcache'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_dbcache&#038;_wpnonce=306d616106'>Database</a></li><li role='group' id='wp-admin-bar-w3tc_flush_objectcache'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_objectcache&#038;_wpnonce=5c99336ca3'>Object Cache</a></li><li role='group' id='wp-admin-bar-w3tc_flush_opcache'><a class='ab-item' role="menuitem" href='admin.php?page=w3tc_dashboard&#038;w3tc_opcache_flush&#038;_wpnonce=08ed956990'>Opcode Cache</a></li></ul></div></li><li role='group' id='wp-admin-bar-w3tc_feature_showcase'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_feature_showcase'>Feature Showcase</a></li><li role='group' id='wp-admin-bar-w3tc_settings_general'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_general'>General Settings</a></li><li role='group' id='wp-admin-bar-w3tc_settings_extensions'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_extensions'>Manage Extensions</a></li><li role='group' id='wp-admin-bar-w3tc_settings_faq'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_faq'>FAQ</a></li><li role='group' id='wp-admin-bar-w3tc_support'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_support'>Support</a></li></ul></div></li></ul><ul role='menu' id='wp-admin-bar-top-secondary' class="ab-top-secondary ab-top-menu"><li role='group' id='wp-admin-bar-my-account' class="menupop with-avatar"><a class='ab-item' role="menuitem" aria-expanded="false" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/profile.php'>Howdy, <span class="display-name">admin</span><img alt='' src='https://secure.gravatar.com/avatar/976195fe9105876b5216f15f462d93ad071284d9a0fff0681e38396f1510e14a?s=28&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/976195fe9105876b5216f15f462d93ad071284d9a0fff0681e38396f1510e14a?s=56&#038;d=mm&#038;r=g 2x' class='avatar avatar-28 photo' height='28' width='28' decoding='async'/></a><div class="ab-sub-wrapper"><ul role='menu' aria-label='Howdy, admin' id='wp-admin-bar-user-actions' class="ab-submenu"><li role='group' id='wp-admin-bar-user-info'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/profile.php'><img alt='' src='https://secure.gravatar.com/avatar/976195fe9105876b5216f15f462d93ad071284d9a0fff0681e38396f1510e14a?s=64&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/976195fe9105876b5216f15f462d93ad071284d9a0fff0681e38396f1510e14a?s=128&#038;d=mm&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' decoding='async'/><span class='display-name'>admin</span><span class='display-name edit-profile'>Edit Profile</span></a></li><li role='group' id='wp-admin-bar-logout'><a class='ab-item' role="menuitem" href='https://menjangansnorkelingtripanddiving.com/wp/wp-login.php?action=logout&#038;_wpnonce=cf91a0505b'>Log Out</a></li></ul></div></li></ul>			</div>
+		</div>
+
+		
+<div id="wpbody" role="main">
+
+<div id="wpbody-content">
+		<div id="screen-meta" class="metabox-prefs">
+
+			<div id="contextual-help-wrap" class="hidden" tabindex="-1" aria-label="Contextual Help Tab">
+				<div id="contextual-help-back"></div>
+				<div id="contextual-help-columns">
+					<div class="contextual-help-tabs">
+						<ul>
+						
+							<li id="tab-link-overview" class="active">
+								<a href="#tab-panel-overview" aria-controls="tab-panel-overview">
+									Overview								</a>
+							</li>
+													</ul>
+					</div>
+
+										<div class="contextual-help-sidebar">
+						<p><strong>For more information:</strong></p><p><a href="https://developer.wordpress.org/advanced-administration/plugins/editor-screen/">Documentation on Editing Plugins</a></p><p><a href="https://developer.wordpress.org/plugins/">Documentation on Writing Plugins</a></p><p><a href="https://wordpress.org/support/forums/">Support forums</a></p>					</div>
+					
+					<div class="contextual-help-tabs-wrap">
+						
+							<div id="tab-panel-overview" class="help-tab-content active">
+								<p>You can use the plugin file editor to make changes to any of your plugins&#8217; individual PHP files. Be aware that if you make changes, plugins updates will overwrite your customizations.</p><p>Choose a plugin to edit from the dropdown menu and click the Select button. Click once on any file name to load it in the editor, and make your changes. Do not forget to save your changes (Update File) when you are finished.</p><p>The documentation menu below the editor lists the PHP functions recognized in the plugin file. Clicking Look Up takes you to a web page about that particular function.</p><p id="editor-keyboard-trap-help-1">When using a keyboard to navigate:</p><ul><li id="editor-keyboard-trap-help-2">In the editing area, the Tab key enters a tab character.</li><li id="editor-keyboard-trap-help-3">To move away from this area, press the Esc key followed by the Tab key.</li><li id="editor-keyboard-trap-help-4">Screen reader users: when in forms mode, you may need to press the Esc key twice.</li></ul><p>If you want to make changes but do not want them to be overwritten when the plugin is updated, you may be ready to think about writing your own plugin. For information on how to edit plugins, write your own from scratch, or just better understand their anatomy, check out the links below.</p>							</div>
+												</div>
+				</div>
+			</div>
+				</div>
+				<div id="screen-meta-links">
+					<div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle">
+			<button type="button" id="contextual-help-link" class="button button-compact show-settings" aria-controls="contextual-help-wrap" aria-expanded="false">Help</button>
+			</div>
+				</div>
+		<div class="notice notice-info is-dismissible">
+            <p style="font-weight:700">
+                Unlock User Insights with Microsoft Clarity!
+            </p>
+            <p style="font-weight:500">
+                Almost there! Start tracking user behavior on your site with Microsoft Clarity. See exactly where on your site users click, scroll, and get stuck. It takes just a few moments to set up.
+            </p>
+            <p>
+                <a class="button-primary" href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=microsoft-clarity">
+                    Setup Clarity
+                </a>
+                <a class="button-primary" style="margin-left:10px" href="https://wordpress.org/plugins/microsoft-clarity/">
+                    Learn more
+                </a>
+            </p>
+        </div><div class="wrap">
+<h1>Edit Plugins</h1>
+
+
+<div class="fileedit-sub">
+<div class="alignleft">
+<h2>
+	Editing <strong>Menjangan Landing for Elementor</strong> (active)</h2>
+ <span><strong>File: menjangan-elementor/menjangan-elementor.php</strong></span></div>
+<div class="alignright">
+	<form action="plugin-editor.php" method="get">
+		<label for="plugin" id="theme-plugin-editor-selector">Select plugin to edit: </label>
+		<select name="plugin" id="plugin">
+		
+	<option value="akismet/akismet.php" >Akismet Anti-spam: Spam Protection</option>
+	<option value="amp/amp.php" >AMP</option>
+	<option value="elementor/elementor.php" >Elementor</option>
+	<option value="duracelltomi-google-tag-manager/duracelltomi-google-tag-manager-for-wordpress.php" >GTM4WP - A Google Tag Manager (GTM) plugin for WordPress</option>
+	<option value="hello.php" >Hello Dolly</option>
+	<option value="http2-push-content/http2-push-content.php" >HTTP2 push content</option>
+	<option value="loginizer/loginizer.php" >Loginizer</option>
+	<option value="loginizer-security/loginizer-security.php" >Loginizer Pro</option>
+	<option value="menjangan-elementor/menjangan-elementor.php"  selected='selected'>Menjangan Landing for Elementor</option>
+	<option value="microsoft-clarity/clarity.php" >Microsoft Clarity</option>
+	<option value="w3-total-cache/w3-total-cache.php" >W3 Total Cache</option>		</select>
+		<input type="submit" name="Submit" id="Submit" class="button" value="Select"  />	</form>
+</div>
+<br class="clear" />
+</div>
+
+<div id="templateside">
+	<h2 id="plugin-files-label">Plugin Files</h2>
+
+		<ul role="tree" aria-labelledby="plugin-files-label">
+	<li role="treeitem" tabindex="-1" aria-expanded="true" aria-level="1" aria-posinset="1" aria-setsize="1">
+		<ul role="group">
+					<li role="none" class="current-file">
+			<a role="treeitem" tabindex="0"
+				href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/plugin-editor.php?file=menjangan-elementor%2Fmenjangan-elementor.php&#038;plugin=menjangan-elementor%2Fmenjangan-elementor.php"
+				aria-level="2"
+				aria-setsize="1"
+				aria-posinset="5">
+				<span class="notice notice-info">menjangan-elementor.php</span>			</a>
+		</li>
+				<li role="none" class="">
+			<a role="treeitem" tabindex="-1"
+				href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/plugin-editor.php?file=menjangan-elementor%2Ftemplate.json&#038;plugin=menjangan-elementor%2Fmenjangan-elementor.php"
+				aria-level="2"
+				aria-setsize="2"
+				aria-posinset="5">
+				template.json			</a>
+		</li>
+				<li role="none" class="">
+			<a role="treeitem" tabindex="-1"
+				href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/plugin-editor.php?file=menjangan-elementor%2Fsections.json&#038;plugin=menjangan-elementor%2Fmenjangan-elementor.php"
+				aria-level="2"
+				aria-setsize="3"
+				aria-posinset="5">
+				sections.json			</a>
+		</li>
+				<li role="none" class="">
+			<a role="treeitem" tabindex="-1"
+				href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/plugin-editor.php?file=menjangan-elementor%2Fwidgets.php&#038;plugin=menjangan-elementor%2Fmenjangan-elementor.php"
+				aria-level="2"
+				aria-setsize="4"
+				aria-posinset="5">
+				widgets.php			</a>
+		</li>
+					<li role="treeitem" aria-expanded="true" tabindex="-1"
+				aria-level="2"
+				aria-setsize="5"
+				aria-posinset="5">
+				<span class="folder-label">assets <span class="screen-reader-text">
+					folder				</span><span aria-hidden="true" class="icon"></span></span>
+				<ul role="group" class="tree-folder">		<li role="none" class="">
+			<a role="treeitem" tabindex="-1"
+				href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/plugin-editor.php?file=menjangan-elementor%2Fassets%2Flanding.js&#038;plugin=menjangan-elementor%2Fmenjangan-elementor.php"
+				aria-level="3"
+				aria-setsize="1"
+				aria-posinset="2">
+				landing.js			</a>
+		</li>
+				<li role="none" class="">
+			<a role="treeitem" tabindex="-1"
+				href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/plugin-editor.php?file=menjangan-elementor%2Fassets%2Flanding.css&#038;plugin=menjangan-elementor%2Fmenjangan-elementor.php"
+				aria-level="3"
+				aria-setsize="2"
+				aria-posinset="2">
+				landing.css			</a>
+		</li>
+		</ul>
+			</li>
+					</ul>
+	</li>
+	</ul>
+</div>
+
+<form name="template" id="template" action="plugin-editor.php" method="post">
+	<input type="hidden" id="nonce" name="nonce" value="ebdd0a06fb" /><input type="hidden" name="_wp_http_referer" value="/wp/wp-admin/plugin-editor.php?plugin=menjangan-elementor%2Fmenjangan-elementor.php" />	<div>
+		<label for="newcontent" id="theme-plugin-editor-label">Selected file content:</label>
+		<textarea cols="70" rows="25" name="newcontent" id="newcontent" aria-describedby="editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4">&lt;?php
+/**
+ * Plugin Name: Menjangan Landing for Elementor
+ * Description: Editable Elementor sections and bundled assets for the Menjangan landing page.
+ * Version: 1.3.0
+ * Requires PHP: 8.0
+ * Author: Menjangan
+ * Text Domain: menjangan-elementor
+ */
+
+defined(&#039;ABSPATH&#039;) || exit;
+
+add_action(&#039;wp_enqueue_scripts&#039;, function () {
+    wp_register_style(&#039;menjangan-landing&#039;, plugins_url(&#039;assets/landing.css&#039;, __FILE__), [], &#039;1.3.0&#039;);
+    wp_register_script(&#039;menjangan-landing&#039;, plugins_url(&#039;assets/landing.js&#039;, __FILE__), [], &#039;1.3.0&#039;, true);
+});
+
+// The existing Clarity project used by the Menjangan Laravel landing page.
+add_action(&#039;wp_head&#039;, function () {
+    if (is_admin() || isset($_GET[&#039;elementor-preview&#039;])) return;
+    ?&gt;
+    &lt;!-- Menjangan Microsoft Clarity --&gt;
+    &lt;script id=&quot;menjangan-clarity&quot; type=&quot;text/javascript&quot;&gt;
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src=&quot;https://www.clarity.ms/tag/&quot;+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, &quot;clarity&quot;, &quot;script&quot;, &quot;y5mhtiav9f&quot;);
+    &lt;/script&gt;
+    &lt;?php
+}, 5);
+
+function menjangan_sections(): array {
+    static $sections = null;
+    if ($sections === null) {
+        $data = json_decode((string) file_get_contents(__DIR__ . &#039;/sections.json&#039;), true);
+        $sections = is_array($data) ? $data : [];
+    }
+    return $sections;
+}
+
+add_action(&#039;elementor/widgets/register&#039;, function ($widgets_manager) {
+    if (!class_exists(&#039;\\Elementor\\Widget_Base&#039;)) return;
+
+    abstract class Menjangan_Elementor_Section_Base extends \Elementor\Widget_Base {
+        protected const SECTION_KEY = &#039;&#039;;
+
+        public function get_name(): string { return &#039;menjangan_&#039; . str_replace(&#039;-&#039;, &#039;_&#039;, static::SECTION_KEY); }
+        public function get_title(): string { return &#039;Menjangan: &#039; . $this-&gt;section()[&#039;label&#039;]; }
+        public function get_icon(): string { return &#039;eicon-banner&#039;; }
+        public function get_categories(): array { return [&#039;general&#039;]; }
+        public function get_style_depends(): array { return [&#039;menjangan-landing&#039;]; }
+        public function get_script_depends(): array { return [&#039;menjangan-landing&#039;]; }
+
+        private function section(): array {
+            foreach (menjangan_sections() as $section) {
+                if ($section[&#039;key&#039;] === static::SECTION_KEY) return $section;
+            }
+            return [&#039;key&#039; =&gt; &#039;&#039;, &#039;label&#039; =&gt; &#039;&#039;, &#039;fields&#039; =&gt; [], &#039;html&#039; =&gt; &#039;&#039;];
+        }
+
+        private static function asset_url(string $path): string {
+            if (!str_starts_with($path, &#039;/&#039;)) return $path;
+            $segments = array_map(&#039;rawurlencode&#039;, explode(&#039;/&#039;, ltrim($path, &#039;/&#039;)));
+            return plugins_url(&#039;assets/&#039; . implode(&#039;/&#039;, $segments), __FILE__);
+        }
+
+        protected function register_controls(): void {
+            $section = $this-&gt;section();
+            $this-&gt;start_controls_section(&#039;menjangan_content&#039;, [
+                &#039;label&#039; =&gt; $section[&#039;label&#039;] . &#039; — konten&#039;,
+                &#039;tab&#039; =&gt; \Elementor\Controls_Manager::TAB_CONTENT,
+            ]);
+            foreach ($section[&#039;fields&#039;] as $id =&gt; $field) {
+                $is_image = $field[&#039;type&#039;] === &#039;image&#039;;
+                $default = $is_image ? [&#039;url&#039; =&gt; self::asset_url($field[&#039;default&#039;])] : $field[&#039;default&#039;];
+                $type = $is_image ? \Elementor\Controls_Manager::MEDIA : (strlen($default) &gt; 100 ? \Elementor\Controls_Manager::TEXTAREA : \Elementor\Controls_Manager::TEXT);
+                $this-&gt;add_control($id, [
+                    &#039;label&#039; =&gt; $field[&#039;label&#039;] ?: $id,
+                    &#039;type&#039; =&gt; $type,
+                    &#039;default&#039; =&gt; $default,
+                ]);
+            }
+            $this-&gt;end_controls_section();
+        }
+
+        protected function render(): void {
+            $settings = $this-&gt;get_settings_for_display();
+            $section = $this-&gt;section();
+            $replace = [];
+            foreach ($section[&#039;fields&#039;] as $id =&gt; $field) {
+                if ($field[&#039;type&#039;] === &#039;image&#039;) {
+                    $image = $settings[$id] ?? [];
+                    $url = is_array($image) ? ($image[&#039;url&#039;] ?? &#039;&#039;) : &#039;&#039;;
+                    $replace[&#039;{{&#039; . $id . &#039;}}&#039;] = esc_url($url ?: self::asset_url($field[&#039;default&#039;]));
+                } else {
+                    $replace[&#039;{{&#039; . $id . &#039;}}&#039;] = esc_html((string) ($settings[$id] ?? $field[&#039;default&#039;]));
+                }
+            }
+            $html = strtr($section[&#039;html&#039;], $replace);
+            $html = preg_replace_callback(&#039;/\{\{asset:(\/[^}]+)\}\}/&#039;, fn($m) =&gt; esc_url(self::asset_url($m[1])), $html);
+            echo &#039;&lt;div class=&quot;menjangan-page&quot; data-lg=&quot;en&quot;&gt;&#039; . $html . &#039;&lt;/div&gt;&#039;;
+        }
+    }
+
+    require_once __DIR__ . &#039;/widgets.php&#039;;
+    foreach (menjangan_sections() as $section) {
+        $class = &#039;Menjangan_Widget_&#039; . str_replace(&#039;-&#039;, &#039;_&#039;, $section[&#039;key&#039;]);
+        $widgets_manager-&gt;register(new $class());
+    }
+});
+
+// Create a draft directly when the Elementor template-upload AJAX request is too slow behind a proxy.
+add_action(&#039;admin_menu&#039;, function () {
+    add_management_page(&#039;Menjangan Import&#039;, &#039;Menjangan Import&#039;, &#039;edit_pages&#039;, &#039;menjangan-import&#039;, &#039;menjangan_import_screen&#039;);
+});
+
+function menjangan_import_screen(): void {
+    if (!current_user_can(&#039;edit_pages&#039;)) wp_die(&#039;Akses ditolak.&#039;);
+    echo &#039;&lt;div class=&quot;wrap&quot;&gt;&lt;h1&gt;Menjangan Landing&lt;/h1&gt;&lt;p&gt;Buat halaman draf Elementor dari template di plugin. Periksa tampilannya sebelum dipublikasikan.&lt;/p&gt;&#039;;
+    if (isset($_GET[&#039;created&#039;])) {
+        $id = absint($_GET[&#039;created&#039;]);
+        if ($id &amp;&amp; get_post_status($id)) {
+            echo &#039;&lt;div class=&quot;notice notice-success&quot;&gt;&lt;p&gt;Halaman draf dibuat. &lt;a href=&quot;&#039; . esc_url(get_edit_post_link($id)) . &#039;&quot;&gt;Buka halaman&lt;/a&gt; atau &lt;a href=&quot;&#039; . esc_url(admin_url(&#039;post.php?post=&#039; . $id . &#039;&amp;action=elementor&#039;)) . &#039;&quot;&gt;Edit dengan Elementor&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;&#039;;
+        }
+    }
+    echo &#039;&lt;form method=&quot;post&quot; action=&quot;&#039; . esc_url(admin_url(&#039;admin-post.php&#039;)) . &#039;&quot;&gt;&#039;;
+    echo &#039;&lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;menjangan_create_page&quot;&gt;&#039;;
+    wp_nonce_field(&#039;menjangan_create_page&#039;);
+    submit_button(&#039;Buat halaman draf Menjangan&#039;);
+    echo &#039;&lt;/form&gt;&lt;/div&gt;&#039;;
+}
+
+add_action(&#039;admin_post_menjangan_create_page&#039;, function () {
+    if (!current_user_can(&#039;edit_pages&#039;)) wp_die(&#039;Akses ditolak.&#039;);
+    check_admin_referer(&#039;menjangan_create_page&#039;);
+    if (!did_action(&#039;elementor/loaded&#039;)) wp_die(&#039;Aktifkan Elementor terlebih dahulu.&#039;);
+    $template = json_decode((string) file_get_contents(__DIR__ . &#039;/template.json&#039;), true);
+    if (!is_array($template) || empty($template[&#039;content&#039;])) wp_die(&#039;Template Menjangan tidak valid.&#039;);
+    $id = wp_insert_post([
+        &#039;post_type&#039; =&gt; &#039;page&#039;,
+        &#039;post_status&#039; =&gt; &#039;draft&#039;,
+        &#039;post_title&#039; =&gt; &#039;Menjangan Landing&#039;,
+        &#039;post_content&#039; =&gt; &#039;&#039;,
+    ], true);
+    if (is_wp_error($id)) wp_die(esc_html($id-&gt;get_error_message()));
+    update_post_meta($id, &#039;_elementor_edit_mode&#039;, &#039;builder&#039;);
+    update_post_meta($id, &#039;_elementor_data&#039;, wp_slash(wp_json_encode($template[&#039;content&#039;])));
+    update_post_meta($id, &#039;_elementor_page_settings&#039;, [&#039;template&#039; =&gt; &#039;elementor_canvas&#039;]);
+    update_post_meta($id, &#039;_wp_page_template&#039;, &#039;elementor_canvas&#039;);
+    update_post_meta($id, &#039;_menjangan_import_version&#039;, &#039;1.1.0&#039;);
+    wp_safe_redirect(admin_url(&#039;tools.php?page=menjangan-import&amp;created=&#039; . $id));
+    exit;
+});
+</textarea>
+		<input type="hidden" name="action" value="update" />
+		<input type="hidden" name="file" value="menjangan-elementor/menjangan-elementor.php" />
+		<input type="hidden" name="plugin" value="menjangan-elementor/menjangan-elementor.php" />
+	</div>
+
+			<div id="documentation" class="hide-if-no-js">
+			<label for="docs-list">Documentation:</label>
+			<select name="docs-list" id="docs-list"><option value="">Function Name&hellip;</option><option value="absint">absint()</option><option value="add_action">add_action()</option><option value="add_management_page">add_management_page()</option><option value="admin_url">admin_url()</option><option value="array_map">array_map()</option><option value="check_admin_referer">check_admin_referer()</option><option value="class_exists">class_exists()</option><option value="current_user_can">current_user_can()</option><option value="defined">defined()</option><option value="did_action">did_action()</option><option value="esc_html">esc_html()</option><option value="esc_url">esc_url()</option><option value="explode">explode()</option><option value="file_get_contents">file_get_contents()</option><option value="get_edit_post_link">get_edit_post_link()</option><option value="get_post_status">get_post_status()</option><option value="implode">implode()</option><option value="is_admin">is_admin()</option><option value="is_array">is_array()</option><option value="is_wp_error">is_wp_error()</option><option value="json_decode">json_decode()</option><option value="ltrim">ltrim()</option><option value="plugins_url">plugins_url()</option><option value="preg_replace_callback">preg_replace_callback()</option><option value="str_replace">str_replace()</option><option value="str_starts_with">str_starts_with()</option><option value="strlen">strlen()</option><option value="strtr">strtr()</option><option value="submit_button">submit_button()</option><option value="update_post_meta">update_post_meta()</option><option value="wp_die">wp_die()</option><option value="wp_insert_post">wp_insert_post()</option><option value="wp_json_encode">wp_json_encode()</option><option value="wp_nonce_field">wp_nonce_field()</option><option value="wp_register_script">wp_register_script()</option><option value="wp_register_style">wp_register_style()</option><option value="wp_safe_redirect">wp_safe_redirect()</option><option value="wp_slash">wp_slash()</option></select>			<input disabled id="docs-lookup" type="button" class="button" value="Look Up" onclick="if ( '' !== jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=en_US&amp;version=7.1.3&amp;redirect=true'); }" />
+		</div>
+	
+			<div class="editor-notices">
+		<div class="notice notice-warning inline active-plugin-edit-warning"><p><strong>Warning:</strong> Making changes to active plugins is not recommended.</p></div>		</div>
+		<p class="submit">
+			<input type="submit" name="submit" id="submit" class="button button-primary" value="Update File"  />			<span class="spinner"></span>
+		</p>
+	
+		<script type="text/html" id="tmpl-wp-file-editor-notice">
+		<div class="notice inline notice-{{ data.type || 'info' }} {{ data.alt ? 'notice-alt' : '' }} {{ data.dismissible ? 'is-dismissible' : '' }} {{ data.classes || '' }}">
+			<# if ( 'php_error' === data.code ) { #>
+				<p>
+					Your PHP code changes were not applied due to an error on line {{ data.line }} of file {{ data.file }}. Please fix and try saving again.				</p>
+				<pre>{{ data.message }}</pre>
+			<# } else if ( 'file_not_writable' === data.code ) { #>
+				<p>
+					You need to make this file writable before you can save your changes. See <a href="https://developer.wordpress.org/advanced-administration/server/file-permissions/">Changing File Permissions</a> for more information.				</p>
+			<# } else { #>
+				<p>{{ data.message || data.code }}</p>
+
+				<# if ( 'lint_errors' === data.code ) { #>
+					<p>
+						<# var elementId = 'el-' + String( Math.random() ); #>
+						<input id="{{ elementId }}"  type="checkbox">
+						<label for="{{ elementId }}">Update anyway, even though it might break your site?</label>
+					</p>
+				<# } #>
+			<# } #>
+			<# if ( data.dismissible ) { #>
+				<button type="button" class="notice-dismiss"><span class="screen-reader-text">
+					Dismiss				</span></button>
+			<# } #>
+		</div>
+	</script>
+	</form>
+<br class="clear" />
+</div>
+	<div id="file-editor-warning" class="notification-dialog-wrap file-editor-warning hide-if-no-js hidden">
+		<div class="notification-dialog-background"></div>
+		<div class="notification-dialog">
+			<div class="file-editor-warning-content">
+				<div class="file-editor-warning-message">
+					<h1>Heads up!</h1>
+					<p>You appear to be making direct edits to your plugin in the WordPress dashboard. Editing plugins directly is not recommended as it may introduce incompatibilities that break your site and your changes may be lost in future updates.</p>
+					<p>If you absolutely have to make direct edits to this plugin, use a file manager to create a copy with a new name and hang on to the original. That way, you can re-enable a functional version if something goes wrong.</p>
+				</div>
+				<p>
+					<a class="button file-editor-warning-go-back" href="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/">Go back</a>
+					<button type="button" class="file-editor-warning-dismiss button button-primary">I understand</button>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+<div class="clear"></div></div><!-- wpbody-content -->
+<div class="clear"></div></div><!-- wpbody -->
+<div class="clear"></div></div><!-- wpcontent -->
+
+<div id="wpfooter" role="contentinfo">
+		<p id="footer-left" class="alignleft">
+		<span id="footer-thankyou">Thank you for creating with <a href="https://wordpress.org/">WordPress</a>.</span>	</p>
+	<p id="footer-upgrade" class="alignright">
+		Version 7.1.3	</p>
+	<div class="clear"></div>
+</div>
+<script>
+	document.addEventListener( "click", function ( event ) {
+		if ( ! event.target.matches( ".gtm4wp-notice .notice-dismiss" ) ) {
+			return;
+		}
+		var notice = event.target.closest( ".gtm4wp-notice" );
+		if ( ! notice || ! notice.dataset.href ) {
+			return;
+		}
+		var body = new FormData();
+		body.append( "action", "gtm4wp_dismiss_notice" );
+		body.append( "noticeid", notice.dataset.href.substring( 1 ) );
+		body.append( "nonce", "65a4e351b8" );
+		window.fetch( window.ajaxurl, { method: "POST", credentials: "same-origin", body: body } );
+	} );
+</script><script type="text/template" id="tmpl-elementor-templates-modal__header">
+	<div class="elementor-templates-modal__header__logo-area"></div>
+	<div class="elementor-templates-modal__header__menu-area"></div>
+	<div class="elementor-templates-modal__header__items-area">
+		<# if ( closeType ) { #>
+			<button type="button" class="elementor-templates-modal__header__close elementor-templates-modal__header__close--{{{ closeType }}} elementor-templates-modal__header__item" aria-label="Close">
+				<# if ( 'skip' === closeType ) { #>
+				<span>Skip</span>
+				<# } #>
+				<i class="eicon-close" aria-hidden="true"></i>
+				<span class="elementor-screen-only">{{{ $e.components?.get( 'document/elements' )?.utils?.getTitleForLibraryClose() }}}</span>
+			</button>
+		<# } #>
+		<div id="elementor-template-library-header-tools"></div>
+	</div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-templates-modal__header__logo">
+	<span class="elementor-templates-modal__header__logo__icon-wrapper e-logo-wrapper">
+		<i class="eicon-elementor-circle"></i>
+	</span>
+	<span class="elementor-templates-modal__header__logo__title">{{{ title }}}</span>
+</script>
+<script type="text/template" id="tmpl-elementor-finder">
+	<div id="elementor-finder__search">
+		<i class="eicon-search" aria-hidden="true"></i>
+		<input id="elementor-finder__search__input" placeholder="Type to find anything in Elementor" autocomplete="off">
+	</div>
+	<div id="elementor-finder__content"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder-results-container">
+	<div id="elementor-finder__no-results">No Results Found</div>
+	<div id="elementor-finder__results"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder__results__category">
+	<div class="elementor-finder__results__category__title">{{{ title }}}</div>
+	<div class="elementor-finder__results__category__items"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder__results__item">
+	<a href="{{ url }}" class="elementor-finder__results__item__link">
+		<div class="elementor-finder__results__item__icon">
+			<i class="eicon-{{{ icon }}}" aria-hidden="true"></i>
+		</div>
+		<div class="elementor-finder__results__item__title">{{{ title }}}</div>
+		<# if ( description ) { #>
+			<div class="elementor-finder__results__item__description">- {{{ description }}}</div>
+		<# } #>
+
+		<# if ( lock ) { #>
+		<div class="elementor-finder__results__item__badge"><i class="{{{ lock.badge.icon }}}"></i>{{ lock.badge.text }}</div>
+		<# } #>
+	</a>
+	<# if ( actions.length ) { #>
+		<div class="elementor-finder__results__item__actions">
+		<# jQuery.each( actions, function() { #>
+			<a class="elementor-finder__results__item__action elementor-finder__results__item__action--{{ this.name }}" href="{{ this.url }}" target="_blank">
+				<i class="eicon-{{{ this.icon }}}"></i>
+			</a>
+		<# } ); #>
+		</div>
+	<# } #>
+</script>
+	<div id="wp-auth-check-wrap" class="hidden">
+	<div id="wp-auth-check-bg"></div>
+	<div id="wp-auth-check">
+	<button type="button" class="wp-auth-check-close button-link"><span class="screen-reader-text">
+		Close dialog	</span></button>
+			<div id="wp-auth-check-form" class="loading" data-src="https://menjangansnorkelingtripanddiving.com/wp/wp-login.php?interim-login=1&#038;wp_lang=en_US"></div>
+			<div class="wp-auth-fallback">
+		<p><b class="wp-auth-fallback-expired" tabindex="0">Session expired</b></p>
+		<p><a href="https://menjangansnorkelingtripanddiving.com/wp/wp-login.php" target="_blank">Please log in again.</a>
+		The login page will open in a new tab. After logging in you can close it and return to this page.</p>
+	</div>
+	</div>
+	</div>
+	<script id="wp-importmap" type="importmap">
+{"imports":{"@wordpress/video-conversion/worker":"https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/script-modules/video-conversion/worker.min.js?ver=4d3627c45251ceb4f9a2","@wordpress/vips/worker":"https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/script-modules/vips/worker.min.js?ver=7e33cd8c4128731126e8"}}
+</script>
+<script src="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/load-scripts.php?c=0&#038;load%5Bchunk_0%5D=hoverIntent,wp-dom-ready,wp-hooks&#038;ver=7.1.3"></script>
+<script id="wp-i18n-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="wp-a11y-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/a11y.min.js?ver=31c6cec5a4ff7aff483d"></script>
+<script id="common-js-extra">
+var bulkActionObserverIds = {"bulk_action":"action","changeit":"new_role"};
+//# sourceURL=common-js-extra
+</script>
+<script id="common-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/js/common.min.js?ver=7.1.3"></script>
+<script id="hoverintent-js-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/hoverintent-js.min.js?ver=2.2.1"></script>
+<script id="admin-bar-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/admin-bar.min.js?ver=7.1.3"></script>
+<script id="wp-util-js-extra">
+var _wpUtilSettings = {"ajax":{"url":"/wp/wp-admin/admin-ajax.php"}};
+//# sourceURL=wp-util-js-extra
+</script>
+<script id="wp-util-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/wp-util.min.js?ver=7.1.3"></script>
+<script id="wp-sanitize-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/wp-sanitize.min.js?ver=7.1.3"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2"></script>
+<script id="wp-theme-plugin-editor-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/js/theme-plugin-editor.min.js?ver=7.1.3"></script>
+<script id="wp-theme-plugin-editor-js-after">
+jQuery( function( $ ) { wp.themePluginEditor.init( $( "#template" ), {"codeEditor":{"codemirror":{"indentUnit":4,"indentWithTabs":true,"inputStyle":"contenteditable","lineNumbers":true,"lineWrapping":true,"styleActiveLine":true,"continueComments":true,"extraKeys":{"Ctrl-Space":"autocomplete","Ctrl-/":"toggleComment","Cmd-/":"toggleComment","Alt-F":"findPersistent","Ctrl-F":"findPersistent","Cmd-F":"findPersistent"},"direction":"ltr","gutters":[],"mode":"php","autoCloseBrackets":true,"autoCloseTags":true,"matchBrackets":true,"matchTags":{"bothTags":true}},"csslint":{"errors":true,"box-model":true,"display-property-grouping":true,"duplicate-properties":true,"known-properties":true,"outline-none":true},"jshint":{"esversion":11,"module":false,"espreeModuleUrl":"https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/codemirror/espree.min.js?ver=9.6.1","boss":true,"curly":true,"eqeqeq":true,"eqnull":true,"expr":true,"immed":true,"noarg":true,"nonbsp":true,"quotmark":"single","undef":true,"unused":true,"browser":true,"globals":{"_":false,"Backbone":false,"jQuery":false,"JSON":false,"wp":false,"export":false,"module":false,"require":false,"WorkerGlobalScope":false,"self":false,"OffscreenCanvas":false,"Promise":false}},"htmlhint":{"tagname-lowercase":true,"attr-lowercase":true,"attr-value-double-quotes":false,"doctype-first":false,"tag-pair":true,"spec-char-escape":true,"id-unique":true,"src-not-empty":true,"attr-no-duplication":true,"alt-require":true,"space-tab-mixed-disabled":"tab","attr-unsafe-chars":true}}} ); } )
+wp.themePluginEditor.themeOrPlugin = "plugin";
+//# sourceURL=wp-theme-plugin-editor-js-after
+</script>
+<script id="svg-painter-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-admin/js/svg-painter.js?ver=7.1.3"></script>
+<script id="jquery-ui-mouse-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/jquery/ui/mouse.min.js?ver=1.14.2"></script>
+<script id="jquery-ui-draggable-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/jquery/ui/draggable.min.js?ver=1.14.2"></script>
+<script id="backbone-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/backbone.min.js?ver=1.6.1"></script>
+<script id="backbone-marionette-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/lib/backbone/backbone.marionette.min.js?ver=2.4.5.e1"></script>
+<script id="backbone-radio-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/lib/backbone/backbone.radio.min.js?ver=1.0.4"></script>
+<script id="react-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/vendor/react.min.js?ver=18.3.1.1"></script>
+<script id="react-dom-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/vendor/react-dom.min.js?ver=18.3.1.1"></script>
+<script id="elementor-vendors-redux-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/vendors-redux.min.js?ver=4.3.3"></script>
+<script id="elementor-common-modules-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/common-modules.min.js?ver=4.3.3"></script>
+<script id="elementor-web-cli-js-before">
+var elementorWebCliConfig = {"isDebug":false,"urls":{"rest":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-json\/","assets":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-content\/plugins\/elementor\/assets\/"},"nonce":"579f412b8d","version":"4.3.3"};
+//# sourceURL=elementor-web-cli-js-before
+</script>
+<script id="elementor-web-cli-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/web-cli.min.js?ver=4.3.3"></script>
+<script id="elementor-dialog-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.9.0"></script>
+<script id="wp-api-request-js-extra">
+var wpApiSettings = {"root":"https://menjangansnorkelingtripanddiving.com/wp/wp-json/","nonce":"579f412b8d","versionString":"wp/v2/"};
+//# sourceURL=wp-api-request-js-extra
+</script>
+<script id="wp-api-request-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/api-request.min.js?ver=7.1.3"></script>
+<script id="elementor-dev-tools-js-before">
+var elementorDevToolsConfig = {"isDebug":false,"urls":{"assets":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"4.3.3"}};
+var elementorDevToolsConfig = {"isDebug":false,"urls":{"assets":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"4.3.3"}};
+//# sourceURL=elementor-dev-tools-js-before
+</script>
+<script id="elementor-dev-tools-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/dev-tools.min.js?ver=4.3.3"></script>
+<script id="elementor-common-js-before">
+var elementorCommonConfig = {"version":"4.3.3","isRTL":false,"isDebug":false,"isElementorDebug":false,"activeModules":["ajax","finder","connect","event-tracker","events-manager"],"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"nested-elements":true,"e_atomic_elements":true,"e_opt_in_v4":true,"import-export-customization":true,"editor_events":true},"allExperimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"e_optimized_css_files":false,"nested-elements":true,"pages_panel":false,"e_atomic_elements":true,"e_list":false,"e_icon_button":false,"e_accordion":false,"e_svg_library":false,"launchpad-checklist":false,"e_page_audit":false,"e_opt_in_v4":true,"e_component_variants":false,"e_angie_in_panels":false,"markdown_rendering":false,"agents_llms_txt":false,"e_assets_manager":false,"import-export-customization":true,"e_onboarding":false,"editor_events":true,"in_editor_feedback":false},"urls":{"assets":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-content\/plugins\/elementor\/assets\/","rest":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-json\/"},"filesUpload":{"unfilteredFiles":true},"editor_events":{"can_send_events":false,"debug":false,"elementor_version":"4.3.3","site_url":"2ce481b63210b626a7e85f7296180b743f43e44529894c519716ec4492c02de6","wp_version":"7.1.3","user_agent":"Mozilla\/5.0","site_language":"en_US","site_key":"98abc2305f897a82d51ef815c0ec8abb","subscription_id":null,"subscription":null,"token":"150605b3b9f979922f2ac5a52e2dcfe9","proxy_api_host":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-json\/elementor\/v1\/events\/api","proxy_lib_base_path":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-json\/elementor\/v1\/events\/libs\/","flags_enabled":false,"user_id":null,"session_recording_percent":0},"allowedHTMLWrapperTags":["a","article","aside","button","form","div","footer","h1","h2","h3","h4","h5","h6","header","main","nav","p","section","span","b","i","em","u","ul","ol","li","blockquote","del","br","strong","sup","sub","s"],"library_connect":{"is_connected":false,"user_id":null,"user_roles":["administrator"],"subscription_plans":{"free":{"label":null,"promotion_url":null,"color":null},"essential":{"label":"Pro","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"essential-oct2023":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"advanced":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"expert":{"label":"Expert","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"agency":{"label":"Agency","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"}},"base_access_level":0,"base_access_tier":"free","current_access_level":0,"current_access_tier":"free","plan_type":"free","user_email":null},"ajax":{"url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin-ajax.php","nonce":"2d36c12e26"},"finder":{"data":{"edit":{"title":"Edit","dynamic":true,"name":"edit"},"general":{"title":"General","dynamic":false,"items":{"saved-templates":{"title":"Saved Templates","icon":"library-save","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?post_type=elementor_library&tabs_group=library","keywords":["template","section","page","library"]},"system-info":{"title":"System Info","icon":"info-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-system-info","keywords":["system","info","environment","elementor"]},"role-manager":{"title":"Role Manager","icon":"person","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-role-manager","keywords":["role","manager","user","elementor"]},"knowledge-base":{"title":"Knowledge Base","url":"https:\/\/go.elementor.com\/docs-admin-menu\/","keywords":["help","knowledge","docs","elementor"]},"theme-builder":{"title":"Theme Builder","icon":"library-save","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-app&ver=4.3.3#site-editor\/promotion","keywords":["template","header","footer","single","archive","search","404","library"]},"kit-library":{"title":"Website Templates","icon":"kit-parts","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-app&ver=4.3.3&source=finder#\/kit-library","keywords":["Website Templates","kit library","kit","library","site parts","parts","assets","templates"]}},"name":"general"},"create":{"title":"Create","dynamic":false,"items":{"wp-post":{"title":"Add New Post","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=post&template_type=wp-post&_wpnonce=add4b6f171","keywords":["Add New Post","post","page","template","new","create"]},"wp-page":{"title":"Add New Page","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=page&template_type=wp-page&_wpnonce=add4b6f171","keywords":["Add New Page","post","page","template","new","create"]},"page":{"title":"Add New Page Template","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=page&_wpnonce=add4b6f171","keywords":["Add New Page Template","post","page","template","new","create"]},"section":{"title":"Add New Section","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=section&_wpnonce=add4b6f171","keywords":["Add New Section","post","page","template","new","create"]},"container":{"title":"Add New Container","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=container&_wpnonce=add4b6f171","keywords":["Add New Container","post","page","template","new","create"]},"floating-buttons":{"title":"Add New Floating Element","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=e-floating-buttons&template_type=floating-buttons&_wpnonce=add4b6f171#library","keywords":["Add New Floating Element","post","page","template","new","create"]},"e-div-block":{"title":"Add New Div Block","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=e-div-block&_wpnonce=add4b6f171","keywords":["Add New Div Block","post","page","template","new","create"]},"e-flexbox":{"title":"Add New Flexbox","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=e-flexbox&_wpnonce=add4b6f171","keywords":["Add New Flexbox","post","page","template","new","create"]},"e-grid":{"title":"Add New Grid","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=e-grid&_wpnonce=add4b6f171","keywords":["Add New Grid","post","page","template","new","create"]},"e-form":{"title":"Add New Atomic Form","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=e-form&_wpnonce=add4b6f171","keywords":["Add New Atomic Form","post","page","template","new","create"]},"elementor_component":{"title":"Add New Component","icon":"plus-circle-o","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_component&template_type=elementor_component&_wpnonce=add4b6f171","keywords":["Add New Component","post","page","template","new","create"]}},"name":"create"},"site":{"title":"Site","dynamic":false,"items":{"homepage":{"title":"Homepage","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp","icon":"home-heart","keywords":["home","page"]},"wordpress-dashboard":{"title":"Dashboard","icon":"dashboard","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/","keywords":["dashboard","wordpress"]},"wordpress-menus":{"title":"Menus","icon":"wordpress","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/nav-menus.php","keywords":["menu","wordpress"]},"wordpress-themes":{"title":"Themes","icon":"wordpress","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/themes.php","keywords":["themes","wordpress"]},"wordpress-customizer":{"title":"Customizer","icon":"wordpress","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/customize.php","keywords":["customizer","wordpress"]},"wordpress-plugins":{"title":"Plugins","icon":"wordpress","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/plugins.php","keywords":["plugins","wordpress"]},"wordpress-users":{"title":"Users","icon":"wordpress","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/users.php","keywords":["users","profile","wordpress"]},"apps":{"title":"Add-ons","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-apps","icon":"apps","keywords":["apps","addon","plugin","extension","integration"]}},"name":"site"},"settings":{"title":"Settings","dynamic":false,"items":{"general-settings":{"title":"General Settings","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-settings#tab-general","keywords":["general","settings","elementor"]},"integrations":{"title":"Integrations","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-settings#tab-integrations","keywords":["integrations","settings","elementor"]},"advanced":{"title":"Advanced","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-settings#tab-advanced","keywords":["advanced","settings","elementor"]},"performance":{"title":"Performance","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-settings#tab-performance","keywords":["performance","settings","elementor"]},"experiments":{"title":"Experiments","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-settings#tab-experiments","keywords":["settings","elementor","experiments"]},"features":{"title":"Features","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-settings#tab-experiments","keywords":["settings","elementor","features"]},"element-manager":{"title":"Element Manager","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-element-manager","keywords":["settings","elements","widgets","manager"]}},"name":"settings"},"tools":{"title":"Tools","dynamic":false,"items":{"tools":{"title":"Tools","icon":"tools","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-tools","keywords":["tools","regenerate css","safe mode","debug bar","sync library","elementor"]},"replace-url":{"title":"Replace URL","icon":"tools","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-tools#tab-replace_url","keywords":["tools","replace url","domain","elementor"]},"maintenance-mode":{"title":"Maintenance Mode","icon":"tools","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-tools#tab-maintenance_mode","keywords":["tools","maintenance","coming soon","elementor"]},"import-export":{"title":"Import Export","icon":"import-export","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-tools#tab-import-export-kit","keywords":["tools","import export","import","export","kit"]},"version-control":{"title":"Version Control","icon":"time-line","url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-tools#tab-versions","keywords":["tools","version","control","rollback","beta","elementor"]}},"name":"tools"}}},"connect":[],"event-tracker":{"isUserDataShared":false},"events-manager":[]};
+//# sourceURL=elementor-common-js-before
+</script>
+<script id="elementor-common-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/common.min.js?ver=4.3.3"></script>
+<script id="elementor-app-loader-js-before">
+var elementorAppConfig = {"menu_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-app&ver=4.3.3#site-editor\/promotion","assets_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-content\/plugins\/elementor\/assets\/","pages_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?post_type=page","return_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/","hasPro":false,"admin_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/","login_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-login.php","base_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-app&ver=4.3.3","home_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp","promotion":{"upgrade_url":"https:\/\/go.elementor.com\/go-pro-theme-builder\/"},"cloud-library":{"library_connect_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-connect&#038;app=library&#038;action=authorize&#038;nonce=9ff925d665&#038;utm_source=template-library&#038;utm_medium=wp-dash&#038;utm_campaign=library-connect&#038;utm_content=cloud-library&#038;source=cloud-library","library_connect_title_copy":"Connect to your Elementor account","library_connect_sub_title_copy":"Then you can find all your templates in one convenient library.","library_connect_button_copy":"Connect"},"kit-library":{"has_access_to_module":true,"subscription_plans":{"free":{"label":null,"promotion_url":null,"color":null},"essential":{"label":"Pro","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&#038;utm_medium=wp-dash&#038;utm_campaign=gopro","color":"#92003B"},"essential-oct2023":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&#038;utm_medium=wp-dash&#038;utm_campaign=gopro","color":"#92003B"},"advanced":{"label":"Advanced","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&#038;utm_medium=wp-dash&#038;utm_campaign=gopro","color":"#92003B"},"expert":{"label":"Expert","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&#038;utm_medium=wp-dash&#038;utm_campaign=gopro","color":"#92003B"},"agency":{"label":"Agency","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=kit-library&#038;utm_medium=wp-dash&#038;utm_campaign=gopro","color":"#92003B"}},"is_pro":false,"is_library_connected":false,"library_connect_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-connect&app=library&action=authorize&nonce=9ff925d665&utm_source=kit-library&utm_medium=wp-dash&utm_campaign=library-connect&utm_term=%%page%%","access_level":0,"access_tier":"free","plan_type":"free","app_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor-app&ver=4.3.3#\/kit-library","urls":{"createNewPage":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=page&_wpnonce=add4b6f171"}},"site-editor":[],"import-export":[],"import-export-customization":[],"onboarding":[]};
+//# sourceURL=elementor-app-loader-js-before
+</script>
+<script id="elementor-app-loader-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/app-loader.min.js?ver=4.3.3"></script>
+<script id="heartbeat-js-extra">
+var heartbeatSettings = {"nonce":"395691de44"};
+//# sourceURL=heartbeat-js-extra
+</script>
+<script id="heartbeat-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/heartbeat.min.js?ver=7.1.3"></script>
+<script id="wp-auth-check-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/wp-auth-check.min.js?ver=7.1.3"></script>
+<script id="react-jsx-runtime-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/vendor/react-jsx-runtime.min.js?ver=18.3.1"></script>
+<script id="wp-deprecated-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/deprecated.min.js?ver=fe587bac92b7d0ef760e"></script>
+<script id="wp-dom-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/dom.min.js?ver=c95f94cbbc1ac3fde84f"></script>
+<script id="wp-escape-html-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/escape-html.min.js?ver=87ebe53e97bba59805a5"></script>
+<script id="wp-element-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/element.min.js?ver=4a4370b2b349066fd440"></script>
+<script id="wp-is-shallow-equal-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/is-shallow-equal.min.js?ver=7ad271045c1fe60f5496"></script>
+<script id="wp-keycodes-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/keycodes.min.js?ver=d0b4204e4bbeb412df6e"></script>
+<script id="wp-priority-queue-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/priority-queue.min.js?ver=6c0aa59b65d55dfd509b"></script>
+<script id="wp-private-apis-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/private-apis.min.js?ver=eb85f28c4c729bb4f002"></script>
+<script id="wp-undo-manager-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/undo-manager.min.js?ver=4554fce6276d8910a4ae"></script>
+<script id="wp-compose-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/compose.min.js?ver=0e8bde2a499ea6073b42"></script>
+<script id="moment-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/vendor/moment.min.js?ver=2.30.1"></script>
+<script id="moment-js-after">
+moment.updateLocale( 'en_US', {"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"week":{"dow":1},"longDateFormat":{"LT":"g:i a","LTS":null,"L":null,"LL":"F j, Y","LLL":"F j, Y g:i a","LLLL":null}} );
+//# sourceURL=moment-js-after
+</script>
+<script id="wp-date-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/date.min.js?ver=8173fc0fc12b7bb7eaf0"></script>
+<script id="wp-date-js-after">
+wp.date.setSettings( {"l10n":{"locale":"en_US","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"meridiem":{"am":"am","pm":"pm","AM":"AM","PM":"PM"},"relative":{"future":"%s from now","past":"%s ago","s":"a second","ss":"%d seconds","m":"a minute","mm":"%d minutes","h":"an hour","hh":"%d hours","d":"a day","dd":"%d days","M":"a month","MM":"%d months","y":"a year","yy":"%d years"},"startOfWeek":1},"formats":{"time":"g:i a","date":"F j, Y","datetime":"F j, Y g:i a","datetimeAbbreviated":"M j, Y g:i a"},"timezone":{"offset":0,"offsetFormatted":"0","string":"","abbr":""}} );
+//# sourceURL=wp-date-js-after
+</script>
+<script id="wp-html-entities-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/html-entities.min.js?ver=a976ff3a0f00bc2999a3"></script>
+<script id="wp-primitives-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/primitives.min.js?ver=44cc5a35c7b9fe07a838"></script>
+<script id="wp-redux-routine-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/redux-routine.min.js?ver=acca2b4857d83ad1790e"></script>
+<script id="wp-data-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/data.min.js?ver=14a216e0932d72c22976"></script>
+<script id="wp-data-js-after">
+( function() {
+	var userId = 1;
+	var storageKey = "WP_DATA_USER_" + userId;
+	wp.data
+		.use( wp.data.plugins.persistence, { storageKey: storageKey } );
+} )();
+//# sourceURL=wp-data-js-after
+</script>
+<script id="wp-rich-text-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/rich-text.min.js?ver=3e5852e42cee1c239bae"></script>
+<script id="wp-theme-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/theme.min.js?ver=56a75cc08ae66c1fcb7a"></script>
+<script id="wp-warning-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/warning.min.js?ver=a0978839debc564a6608"></script>
+<script id="wp-components-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/components.min.js?ver=9b751f17060211272a5c"></script>
+<script id="wp-keyboard-shortcuts-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/keyboard-shortcuts.min.js?ver=37da95806f2339bc80d0"></script>
+<script id="wp-url-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/url.min.js?ver=7b0de086d4ae11d55704"></script>
+<script id="wp-api-fetch-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/api-fetch.min.js?ver=6f2a4faeee3c722b1e57"></script>
+<script id="wp-api-fetch-js-after">
+wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "https://menjangansnorkelingtripanddiving.com/wp/wp-json/" ) );
+wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "579f412b8d" );
+wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
+wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
+wp.apiFetch.nonceEndpoint = "https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin-ajax.php?action=rest-nonce";
+//# sourceURL=wp-api-fetch-js-after
+</script>
+<script id="wp-preferences-persistence-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/preferences-persistence.min.js?ver=a34abbdacd8f50f9acb1"></script>
+<script id="wp-preferences-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/preferences.min.js?ver=5a169e3fc0e657f74172"></script>
+<script id="wp-preferences-js-after">
+( function() {
+				var serverData = {"core/commands":{"recentlyUsed":["edit.php?post_type=elementor_library","plugins.php-plugins.php","core/edit-site/open-templates"]},"_modified":"2026-10-06T05:13:00.083Z","core":{"isComplementaryAreaVisible":true,"enableChoosePatternModal":true},"core/edit-post":{"welcomeGuide":false},"core/edit-site":{"welcomeGuide":false}};
+				var userId = "1";
+				var persistenceLayer = wp.preferencesPersistence.__unstableCreatePersistenceLayer( serverData, userId );
+				var preferencesStore = wp.preferences.store;
+				wp.data.dispatch( preferencesStore ).setPersistenceLayer( persistenceLayer );
+			} ) ();
+//# sourceURL=wp-preferences-js-after
+</script>
+<script id="wp-commands-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/commands.min.js?ver=1a4910212c7ed2355300"></script>
+<script id="wp-blob-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/blob.min.js?ver=c7582a735ddd2edc9731"></script>
+<script id="wp-block-serialization-default-parser-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/block-serialization-default-parser.min.js?ver=4c6f3dd40077f7c17604"></script>
+<script id="wp-autop-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/autop.min.js?ver=4e10a18cb6f21a043fc0"></script>
+<script id="wp-shortcode-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/shortcode.min.js?ver=f6273476300cc5fad4cd"></script>
+<script id="wp-blocks-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/blocks.min.js?ver=c0e57a630a0b6f6c3bb5"></script>
+<script id="wp-notices-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/notices.min.js?ver=c09a068fdab0eb465e14"></script>
+<script id="wp-style-engine-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/style-engine.min.js?ver=914befb08774033e6265"></script>
+<script id="wp-token-list-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/token-list.min.js?ver=e86ab419d8302d57822c"></script>
+<script id="wp-upload-media-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/upload-media.min.js?ver=a2c026d433c295fd5145"></script>
+<script id="wp-block-editor-js-before">
+window.__clientSideMediaProcessing = true;
+//# sourceURL=wp-block-editor-js-before
+</script>
+<script id="wp-block-editor-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/block-editor.min.js?ver=37e58da384b2558bd479"></script>
+<script id="wp-core-data-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/core-data.min.js?ver=573f98dbff9f49ffeb0b"></script>
+<script id="wp-router-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/router.min.js?ver=dda75cd9ff9d7e0eb19f"></script>
+<script id="wp-core-commands-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/dist/core-commands.min.js?ver=426a33508599b7f31db3"></script>
+<script id="wp-core-commands-js-after">
+wp.coreCommands.initializeCommandPalette( {"is_network_admin":false,"menu_commands":[{"label":"Dashboard","url":"index.php","name":"index.php"},{"label":"Dashboard \u003E Home","url":"index.php","name":"index.php-index.php"},{"label":"Dashboard \u003E Updates","url":"update-core.php","name":"index.php-update-core.php"},{"label":"Elementor","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-home","name":"elementor-home"},{"label":"Elementor \u003E Home","url":"admin.php?page=elementor-home","name":"elementor-home-admin.php?page=elementor-home"},{"label":"Elementor \u003E Editor","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor","name":"elementor-home-elementor"},{"label":"Elementor \u003E Theme Builder","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app&ver=4.3.3&return_to=/wp/wp-admin/plugin-editor.php?plugin=menjangan-elementor%2Fmenjangan-elementor.php#site-editor/promotion","name":"elementor-home-https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app&ver=4.3.3&return_to=/wp/wp-admin/plugin-editor.php?plugin=menjangan-elementor%2Fmenjangan-elementor.php#site-editor/promotion"},{"label":"Elementor \u003E Submissions","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=e-form-submissions","name":"elementor-home-e-form-submissions"},{"label":"Elementor \u003E Elementor MCP","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-mcp","name":"elementor-home-elementor-mcp"},{"label":"Elementor \u003E Add New Template","url":"post-new.php?post_type=elementor_library","name":"elementor-home-post-new.php?post_type=elementor_library"},{"label":"Elementor \u003E Categories","url":"edit-tags.php?taxonomy=elementor_library_category&amp;post_type=elementor_library","name":"elementor-home-edit-tags.php?taxonomy=elementor_library_category&amp;post_type=elementor_library"},{"label":"Elementor \u003E Connect Account","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-connect-account","name":"elementor-home-elementor-connect-account"},{"label":"Elementor \u003E Upgrade","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-one-upgrade","name":"elementor-home-elementor-one-upgrade"},{"label":"Posts","url":"edit.php","name":"edit.php"},{"label":"Posts \u003E All Posts","url":"edit.php","name":"edit.php-edit.php"},{"label":"Posts \u003E Add Post","url":"post-new.php","name":"edit.php-post-new.php"},{"label":"Posts \u003E Categories","url":"edit-tags.php?taxonomy=category","name":"edit.php-edit-tags.php?taxonomy=category"},{"label":"Posts \u003E Tags","url":"edit-tags.php?taxonomy=post_tag","name":"edit.php-edit-tags.php?taxonomy=post_tag"},{"label":"HTTP2 Push Content","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=http2-push-content","name":"http2-push-content"},{"label":"Media","url":"upload.php","name":"upload.php"},{"label":"Media \u003E Library","url":"upload.php","name":"upload.php-upload.php"},{"label":"Media \u003E Add Media File","url":"media-new.php","name":"upload.php-media-new.php"},{"label":"Pages","url":"edit.php?post_type=page","name":"edit.php?post_type=page"},{"label":"Pages \u003E All Pages","url":"edit.php?post_type=page","name":"edit.php?post_type=page-edit.php?post_type=page"},{"label":"Pages \u003E Add Page","url":"post-new.php?post_type=page","name":"edit.php?post_type=page-post-new.php?post_type=page"},{"label":"Comments","url":"edit-comments.php","name":"edit-comments.php"},{"label":"Templates","url":"edit.php?post_type=elementor_library","name":"edit.php?post_type=elementor_library"},{"label":"Templates \u003E All Templates","url":"edit.php?post_type=elementor_library","name":"edit.php?post_type=elementor_library-edit.php?post_type=elementor_library"},{"label":"Templates \u003E Add New Template","url":"post-new.php?post_type=elementor_library","name":"edit.php?post_type=elementor_library-post-new.php?post_type=elementor_library"},{"label":"Templates \u003E Categories","url":"edit-tags.php?taxonomy=elementor_library_category&amp;post_type=elementor_library","name":"edit.php?post_type=elementor_library-edit-tags.php?taxonomy=elementor_library_category&amp;post_type=elementor_library"},{"label":"Elementor","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor","name":"elementor"},{"label":"Elementor \u003E Elementor","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor","name":"elementor-elementor"},{"label":"Elementor \u003E Settings","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-settings","name":"elementor-elementor-settings"},{"label":"Elementor \u003E Quick start","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor","name":"elementor-elementor"},{"label":"Elementor \u003E Tools","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-tools","name":"elementor-elementor-tools"},{"label":"Elementor \u003E Role Manager","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-role-manager","name":"elementor-elementor-role-manager"},{"label":"Elementor \u003E Custom Elements","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-custom-elements","name":"elementor-elementor-custom-elements"},{"label":"Elementor \u003E Fonts","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor_custom_fonts","name":"elementor-elementor_custom_fonts"},{"label":"Elementor \u003E Icons","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor_custom_icons","name":"elementor-elementor_custom_icons"},{"label":"Elementor \u003E Templates","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-templates","name":"elementor-elementor-templates"},{"label":"Elementor \u003E Popups","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=popup_templates","name":"elementor-popup_templates"},{"label":"Elementor \u003E System Info","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-system-info","name":"elementor-elementor-system-info"},{"label":"Elementor \u003E Saved Templates","url":"edit.php?post_type=elementor_library","name":"elementor-edit.php?post_type=elementor_library"},{"label":"Elementor \u003E Floating Elements","url":"edit.php?post_type=e-floating-buttons","name":"elementor-edit.php?post_type=e-floating-buttons"},{"label":"Elementor \u003E Website Templates","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app&ver=4.3.3&return_to=/wp/wp-admin/plugin-editor.php?plugin=menjangan-elementor%2Fmenjangan-elementor.php&source=wp_db_templates_menu#/kit-library","name":"elementor-https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app&ver=4.3.3&return_to=/wp/wp-admin/plugin-editor.php?plugin=menjangan-elementor%2Fmenjangan-elementor.php&source=wp_db_templates_menu#/kit-library"},{"label":"Elementor \u003E Theme Builder","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app","name":"elementor-elementor-app"},{"label":"Elementor \u003E System","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-system","name":"elementor-elementor-system"},{"label":"Elementor \u003E Element Manager","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-element-manager","name":"elementor-elementor-element-manager"},{"label":"Elementor \u003E Connect","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-connect","name":"elementor-elementor-connect"},{"label":"Appearance","url":"themes.php","name":"themes.php"},{"label":"Appearance \u003E Themes","url":"themes.php","name":"themes.php-themes.php"},{"label":"Appearance \u003E Editor","url":"site-editor.php","name":"themes.php-site-editor.php"},{"label":"Appearance \u003E Customize","url":"customize.php?return=%2Fwp%2Fwp-admin%2Fplugin-editor.php%3Fplugin%3Dmenjangan-elementor%252Fmenjangan-elementor.php","name":"themes.php-customize.php?return=%2Fwp%2Fwp-admin%2Fplugin-editor.php%3Fplugin%3Dmenjangan-elementor%252Fmenjangan-elementor.php"},{"label":"Appearance \u003E Fonts","url":"font-library.php","name":"themes.php-font-library.php"},{"label":"Appearance \u003E AMP","url":"customize.php?amp_preview=1&autofocus[panel]=amp_panel","name":"themes.php-customize.php?amp_preview=1&autofocus[panel]=amp_panel"},{"label":"Plugins","url":"plugins.php","name":"plugins.php"},{"label":"Plugins \u003E Installed Plugins","url":"plugins.php","name":"plugins.php-plugins.php"},{"label":"Plugins \u003E Add Plugin","url":"plugin-install.php","name":"plugins.php-plugin-install.php"},{"label":"Users","url":"users.php","name":"users.php"},{"label":"Users \u003E All Users","url":"users.php","name":"users.php-users.php"},{"label":"Users \u003E Add User","url":"user-new.php","name":"users.php-user-new.php"},{"label":"Users \u003E Profile","url":"profile.php","name":"users.php-profile.php"},{"label":"Tools","url":"tools.php","name":"tools.php"},{"label":"Tools \u003E Available Tools","url":"tools.php","name":"tools.php-tools.php"},{"label":"Tools \u003E Import","url":"import.php","name":"tools.php-import.php"},{"label":"Tools \u003E Export","url":"export.php","name":"tools.php-export.php"},{"label":"Tools \u003E Site Health","url":"site-health.php","name":"tools.php-site-health.php"},{"label":"Tools \u003E Export Personal Data","url":"export-personal-data.php","name":"tools.php-export-personal-data.php"},{"label":"Tools \u003E Erase Personal Data","url":"erase-personal-data.php","name":"tools.php-erase-personal-data.php"},{"label":"Tools \u003E Menjangan Import","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/tools.php?page=menjangan-import","name":"tools.php-menjangan-import"},{"label":"Tools \u003E Theme File Editor","url":"theme-editor.php","name":"tools.php-theme-editor.php"},{"label":"Tools \u003E Plugin File Editor","url":"plugin-editor.php","name":"tools.php-plugin-editor.php"},{"label":"Settings","url":"options-general.php","name":"options-general.php"},{"label":"Settings \u003E General","url":"options-general.php","name":"options-general.php-options-general.php"},{"label":"Settings \u003E Connectors","url":"options-connectors.php","name":"options-general.php-options-connectors.php"},{"label":"Settings \u003E Writing","url":"options-writing.php","name":"options-general.php-options-writing.php"},{"label":"Settings \u003E Reading","url":"options-reading.php","name":"options-general.php-options-reading.php"},{"label":"Settings \u003E Discussion","url":"options-discussion.php","name":"options-general.php-options-discussion.php"},{"label":"Settings \u003E Media","url":"options-media.php","name":"options-general.php-options-media.php"},{"label":"Settings \u003E Permalinks","url":"options-permalink.php","name":"options-general.php-options-permalink.php"},{"label":"Settings \u003E Privacy","url":"options-privacy.php","name":"options-general.php-options-privacy.php"},{"label":"Settings \u003E Google Tag Manager","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/options-general.php?page=gtm4wp-settings","name":"options-general.php-gtm4wp-settings"},{"label":"Clarity","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=microsoft-clarity","name":"microsoft-clarity"},{"label":"AMP","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=amp-options","name":"amp-options"},{"label":"AMP \u003E Settings","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=amp-options","name":"amp-options-amp-options"},{"label":"AMP \u003E Analytics","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=amp-options#analytics-options","name":"amp-options-amp-options#analytics-options"},{"label":"Performance","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dashboard","name":"w3tc_dashboard"},{"label":"Performance \u003E Dashboard","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dashboard","name":"w3tc_dashboard-w3tc_dashboard"},{"label":"Performance \u003E Feature Showcase","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_feature_showcase","name":"w3tc_dashboard-w3tc_feature_showcase"},{"label":"Performance \u003E General Settings","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_general","name":"w3tc_dashboard-w3tc_general"},{"label":"Performance \u003E Page Cache","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_pgcache","name":"w3tc_dashboard-w3tc_pgcache"},{"label":"Performance \u003E Minify","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_minify","name":"w3tc_dashboard-w3tc_minify"},{"label":"Performance \u003E Database Cache","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_dbcache","name":"w3tc_dashboard-w3tc_dbcache"},{"label":"Performance \u003E Object Cache","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_objectcache","name":"w3tc_dashboard-w3tc_objectcache"},{"label":"Performance \u003E Browser Cache","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_browsercache","name":"w3tc_dashboard-w3tc_browsercache"},{"label":"Performance \u003E Cache Groups","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_cachegroups","name":"w3tc_dashboard-w3tc_cachegroups"},{"label":"Performance \u003E ","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_cdn","name":"w3tc_dashboard-w3tc_cdn"},{"label":"Performance \u003E FAQ","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_faq","name":"w3tc_dashboard-w3tc_faq"},{"label":"Performance \u003E Support","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_support","name":"w3tc_dashboard-w3tc_support"},{"label":"Performance \u003E Google PageSpeed","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_pagespeed","name":"w3tc_dashboard-w3tc_pagespeed"},{"label":"Performance \u003E User Experience","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_userexperience","name":"w3tc_dashboard-w3tc_userexperience"},{"label":"Performance \u003E Install","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_install","name":"w3tc_dashboard-w3tc_install"},{"label":"Performance \u003E Setup Guide","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_setup_guide","name":"w3tc_dashboard-w3tc_setup_guide"},{"label":"Performance \u003E About","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_about","name":"w3tc_dashboard-w3tc_about"},{"label":"Performance \u003E Extensions","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_extensions","name":"w3tc_dashboard-w3tc_extensions"},{"label":"Performance \u003E Statistics","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=w3tc_stats","name":"w3tc_dashboard-w3tc_stats"},{"label":"Loginizer Security","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer","name":"loginizer"},{"label":"Loginizer Security \u003E Dashboard","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer","name":"loginizer-loginizer"},{"label":"Loginizer Security \u003E Brute Force","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_brute_force","name":"loginizer-loginizer_brute_force"},{"label":"Loginizer Security \u003E Country Block","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_firewall","name":"loginizer-loginizer_firewall"},{"label":"Loginizer Security \u003E PasswordLess","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_passwordless","name":"loginizer-loginizer_passwordless"},{"label":"Loginizer Security \u003E Two Factor Auth","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_2fa","name":"loginizer-loginizer_2fa"},{"label":"Loginizer Security \u003E reCAPTCHA","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_recaptcha","name":"loginizer-loginizer_recaptcha"},{"label":"Loginizer Security \u003E Single Sign On","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_sso","name":"loginizer-loginizer_sso"},{"label":"Loginizer Security \u003E Social Login","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_social_login","name":"loginizer-loginizer_social_login"},{"label":"Loginizer Security \u003E Security Settings","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_security","name":"loginizer-loginizer_security"},{"label":"Loginizer Security \u003E File Checksums","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=loginizer_checksums","name":"loginizer-loginizer_checksums"}]} );
+//# sourceURL=wp-core-commands-js-after
+</script>
+<script id="w3tc-feature-counter-js-extra">
+var W3TCFeatureShowcaseData = {"unseenCount":"4"};
+//# sourceURL=w3tc-feature-counter-js-extra
+</script>
+<script id="w3tc-feature-counter-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/w3-total-cache/pub/js/feature-counter.js?ver=2.10.7"></script>
+<script id="elementor-one-admin-common-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/vendor/elementor/wp-one-package/assets/build/common.js?ver=1f031a48279dd8a7d4bd"></script>
+<script id="elementor-one-admin-common-js-after">
+window.elementorOneSettingsData = {"wpRestNonce":"579f412b8d","wpRestUrl":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-json\/","pluginEnv":"production","packageVersion":"1.0.72","canUserManageOptions":true,"elementorNewPostNonce":"add4b6f171","elementorSiteSettingsRedirectNonce":"7f649f000f","elementorEditSiteNonce":"1dd9cfe7ba","manageSiteOverviewRedirectNonce":"549ca6d873","shareUsageData":false,"assetsUIRootUrl":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-content\/plugins\/elementor\/vendor\/elementor\/wp-one-package\/assets\/elementor-home\/"};
+//# sourceURL=elementor-one-admin-common-js-after
+</script>
+<script id="editor-one-menu-js-extra">
+var editorOneMenuConfig = {"editorFlyout":{"parent_slug":"elementor-editor","items":[{"slug":"elementor","label":"Quick Start","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor","icon":"home","group_id":"","priority":10,"has_divider_before":false,"event_id":"elementor"},{"slug":"elementor-settings","label":"Settings","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-settings","icon":"settings","group_id":"","priority":20,"has_divider_before":false,"event_id":"settings"},{"slug":"elementor-mcp","label":"Elementor MCP","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-mcp","icon":"extension","group_id":"","priority":25,"has_divider_before":false,"event_id":"mcp"},{"slug":"elementor-tools","label":"Tools","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-tools","icon":"tool","group_id":"","priority":30,"has_divider_before":false,"event_id":"tools"},{"slug":"elementor-templates","label":"Templates","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/edit.php?post_type=elementor_library&tabs_group=library","icon":"folder","group_id":"elementor-editor-templates","priority":40,"has_divider_before":false,"event_id":"templates"},{"slug":"elementor-role-manager","label":"Role Manager","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-role-manager","icon":"users","group_id":"","priority":60,"has_divider_before":false,"event_id":"role_manager"},{"slug":"elementor-custom-elements","label":"Custom Elements","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor_custom_fonts","icon":"adjustments","group_id":"elementor-editor-custom-elements","priority":80,"has_divider_before":false,"event_id":"custom_elements"},{"slug":"elementor-system","label":"System","url":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-system-info","icon":"file-settings","group_id":"elementor-editor-system","priority":90,"has_divider_before":false,"event_id":"system"}]}};
+//# sourceURL=editor-one-menu-js-extra
+</script>
+<script id="editor-one-menu-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/editor-one-menu.min.js?ver=4.3.3"></script>
+<script id="elementor-import-export-admin-js-extra">
+var elementorImportExport = {"lastImportedSession":[],"appUrl":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app&ver=4.3.3#/kit-library"};
+var elementorImportExport = {"lastImportedSession":[],"appUrl":"https://menjangansnorkelingtripanddiving.com/wp/wp-admin/admin.php?page=elementor-app&ver=4.3.3#/kit-library"};
+//# sourceURL=elementor-import-export-admin-js-extra
+</script>
+<script id="elementor-import-export-admin-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/import-export-admin.min.js?ver=4.3.3"></script>
+<script id="import-export-customization-admin-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/import-export-customization-admin.min.js?ver=4.3.3"></script>
+<script id="elementor-admin-modules-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/admin-modules.min.js?ver=4.3.3"></script>
+<script id="elementor-admin-js-before">
+var elementorAdminConfig = {"home_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp","settings_url":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/admin.php?page=elementor","user":{"introduction":{"conversion_banner_go_pro":true,"upload_json_warning_generic_message":true},"restrictions":[],"is_administrator":true},"beta_tester":{"beta_tester_signup":"beta_tester_signup","has_email":"","option_enabled":false,"signup_dismissed":false},"experiments":{"e_font_icon_svg":{"name":"e_font_icon_svg","title":"Inline Font Icons","state":"default","default":"active","dependencies":[],"messages":[]},"additional_custom_breakpoints":{"name":"additional_custom_breakpoints","title":"Additional Custom Breakpoints","state":"default","default":"active","dependencies":[],"messages":[]},"container":{"name":"container","title":"Container","state":"default","default":"active","dependencies":[],"messages":{"on_deactivate":"Container-based content will be hidden from your site and may not be recoverable in all cases. <a target=\"_blank\" href=\"https:\/\/go.elementor.com\/wp-dash-deactivate-container\/\">Learn more<\/a>"}},"e_optimized_markup":{"name":"e_optimized_markup","title":"Optimized Markup","state":"default","default":"active","dependencies":[],"messages":[]},"e_optimized_css_files":{"name":"e_optimized_css_files","title":"Optimized CSS Files","state":"default","default":"inactive","dependencies":[],"messages":[]},"nested-elements":{"name":"nested-elements","title":"Nested Elements","state":"default","default":"active","dependencies":["container"],"messages":[]},"pages_panel":{"name":"pages_panel","title":"Pages Panel","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_atomic_elements":{"name":"e_atomic_elements","title":"Atomic Widgets","state":"default","default":"active","dependencies":[],"messages":[]},"e_list":{"name":"e_list","title":"List","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_icon_button":{"name":"e_icon_button","title":"Icon Button","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_accordion":{"name":"e_accordion","title":"Accordion","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_svg_library":{"name":"e_svg_library","title":"SVG Library","state":"default","default":"inactive","dependencies":[],"messages":[]},"launchpad-checklist":{"name":"launchpad-checklist","title":"Launchpad Checklist","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_page_audit":{"name":"e_page_audit","title":"Page Audit","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_opt_in_v4":{"name":"e_opt_in_v4","title":"Editor V4","state":"default","default":"active","dependencies":[],"messages":[]},"e_component_variants":{"name":"e_component_variants","title":"Component Variants","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_angie_in_panels":{"name":"e_angie_in_panels","title":"Angie in editor panels","state":"default","default":"inactive","dependencies":[],"messages":[]},"markdown_rendering":{"name":"markdown_rendering","title":"Generate website markdown","state":"default","default":"inactive","dependencies":[],"messages":[]},"agents_llms_txt":{"name":"agents_llms_txt","title":"Agents llms.txt","state":"default","default":"inactive","dependencies":[],"messages":[]},"e_assets_manager":{"name":"e_assets_manager","title":"Dynamic Assets Management","state":"default","default":"inactive","dependencies":[],"messages":[]},"import-export-customization":{"name":"import-export-customization","title":"Import\/Export Customization","state":"default","default":"active","dependencies":[],"messages":[]},"e_onboarding":{"name":"e_onboarding","title":"New Onboarding","state":"default","default":"inactive","dependencies":[],"messages":[]},"editor_events":{"name":"editor_events","title":"Elementor Editor Events","state":"default","default":"active","dependencies":[],"messages":[]},"in_editor_feedback":{"name":"in_editor_feedback","title":"In-Editor Feedback","state":"default","default":"inactive","dependencies":[],"messages":[]}},"urls":{"addNewLinkUrlContact":"https:\/\/menjangansnorkelingtripanddiving.com\/wp\/wp-admin\/edit.php?action=elementor_new_post&post_type=e-floating-buttons&template_type=floating-buttons&_wpnonce=add4b6f171#library","viewContactPageUrl":"admin.php?page=e-floating-buttons"},"contactPages":{"hasPages":false},"feedback":[],"admin-notices":[]};
+//# sourceURL=elementor-admin-js-before
+</script>
+<script id="elementor-admin-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/admin.min.js?ver=4.3.3"></script>
+<script id="media-hints-js-extra">
+var elementorAdminHints = {"mediaHint":{"display":true,"type":"info","content":"\u003Cstrong\u003ESpeed up your website with Image Optimization\u003C/strong\u003E\u003Cbr\u003EOptimize your images to enhance site performance by using Image Optimization. \u003Ca class='e-btn-1' href='https://menjangansnorkelingtripanddiving.com/wp/wp-admin/update.php?action=install-plugin&amp;plugin=image-optimization&amp;_wpnonce=d0d5dce51f' target='_blank'\u003EInstall now\u003C/a\u003E!","icon":true,"dismissible":"image_optimizer_hint","dismiss":"Dismiss this notice.","button_event":"image_optimizer_hint","button_data":"eyJhY3Rpb25fdXJsIjoiaHR0cHM6XC9cL21lbmphbmdhbnNub3JrZWxpbmd0cmlwYW5kZGl2aW5nLmNvbVwvd3BcL3dwLWFkbWluXC91cGRhdGUucGhwP2FjdGlvbj1pbnN0YWxsLXBsdWdpbiZhbXA7cGx1Z2luPWltYWdlLW9wdGltaXphdGlvbiZhbXA7X3dwbm9uY2U9ZDBkNWRjZTUxZiJ9"}};
+//# sourceURL=media-hints-js-extra
+</script>
+<script id="media-hints-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/media-hints.min.js?ver=4.3.3"></script>
+<script id="thickbox-js-extra">
+var thickboxL10n = {"next":"Next \u003E","prev":"\u003C Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/thickbox/loadingAnimation.gif"};
+//# sourceURL=thickbox-js-extra
+</script>
+<script id="thickbox-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105"></script>
+<script id="elementor-v2-schema-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/packages/schema/schema.min.js?ver=4.3.3"></script>
+<script id="elementor-v2-editor-mcp-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/packages/editor-mcp/editor-mcp.min.js?ver=4.3.3"></script>
+<script id="elementor-v2-elementor-mcp-common-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/packages/elementor-mcp-common/elementor-mcp-common.min.js?ver=4.3.3"></script>
+<script id="elementor-v2-elementor-capabilities-mcp-js" src="https://menjangansnorkelingtripanddiving.com/wp/wp-content/plugins/elementor/assets/js/packages/elementor-capabilities-mcp/elementor-capabilities-mcp.min.js?ver=4.3.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/wp-emoji-release.min.js?ver=7.1.3"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://menjangansnorkelingtripanddiving.com/wp/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+<div class="clear"></div></div><!-- wpwrap -->
+<script>if(typeof wpOnload==='function')wpOnload();</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"14e7a764cf2c4829abb1f744f125b4cf","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/?utm_source=w3tc&utm_medium=footer_comment&utm_campaign=free_plugin
+
+Object Caching 4/19 objects using Redis
+Page Caching using Disk{w3tc_pagecache_reject_reason}
+Database Caching using Memcached (Request-wide modification query)
+
+Served from: menjangansnorkelingtripanddiving.com @ 2026-10-12 07:24:43 by W3 Total Cache
+-->

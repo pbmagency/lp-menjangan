@@ -1,3 +1,5 @@
+import { execFile } from 'node:child_process';
+import { resolve } from 'node:path';
 import inertia from '@inertiajs/vite';
 import { wayfinder } from '@laravel/vite-plugin-wayfinder';
 import tailwindcss from '@tailwindcss/vite';
@@ -10,7 +12,13 @@ import { compression } from 'vite-plugin-compression2';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.tsx', 'resources/js/lp-app.tsx', 'resources/js/landing-app.tsx'],
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.tsx',
+                'resources/js/lp-app.tsx',
+                'resources/js/landing-app.tsx',
+                'resources/js/c2-enhance.ts',
+            ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
             fonts: [
@@ -19,6 +27,27 @@ export default defineConfig({
                 }),
             ],
         }),
+        {
+            name: 'c2-prerender-refresh',
+            configureServer(server) {
+                const source = resolve('resources/js/pages/c2-lp.tsx');
+                server.watcher.add(source);
+                server.watcher.on('change', (changed) => {
+                    if (changed !== source) return;
+                    execFile(
+                        process.execPath,
+                        ['scripts/prerender-c2.mjs'],
+                        (error) => {
+                            if (error) {
+                                console.error(error);
+                                return;
+                            }
+                            server.ws.send({ type: 'full-reload' });
+                        },
+                    );
+                });
+            },
+        },
         inertia(),
         react({
             babel: {
@@ -26,20 +55,31 @@ export default defineConfig({
             },
         }),
         tailwindcss(),
-        ...(process.env.CI !== 'true' ? [wayfinder({
-            formVariants: true,
-            phpBinary: 'C:\\Users\\User\\.config\\herd\\bin\\php84\\php.exe',
-            generateTypes: true,
-        })] : []),
+        ...(process.env.CI !== 'true'
+            ? [
+                  wayfinder({
+                      formVariants: true,
+                      phpBinary:
+                          'C:\\Users\\User\\.config\\herd\\bin\\php84\\php.exe',
+                      generateTypes: true,
+                  }),
+              ]
+            : []),
         compression({ algorithm: 'gzip', exclude: [/\.(br)$/, /\.(gz)$/] }),
-        compression({ algorithm: 'brotliCompress', exclude: [/\.(br)$/, /\.(gz)$/] }),
+        compression({
+            algorithm: 'brotliCompress',
+            exclude: [/\.(br)$/, /\.(gz)$/],
+        }),
     ],
     build: {
         rollupOptions: {
             output: {
                 manualChunks(id) {
                     // React core — always needed, long-lived cache
-                    if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+                    if (
+                        id.includes('node_modules/react/') ||
+                        id.includes('node_modules/react-dom/')
+                    ) {
                         return 'react-vendor';
                     }
                     // Lucide icons — shared across pages

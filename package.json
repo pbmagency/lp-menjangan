@@ -3,9 +3,10 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "build:ssr": "vite build && vite build --ssr",
-        "dev": "vite",
+        "build": "node scripts/prerender-c2.mjs && vite build",
+        "build:ssr": "npm run build && vite build --ssr",
+        "dev": "node scripts/prerender-c2.mjs && vite",
+        "serve:fast": "php -d opcache.enable_cli=1 artisan serve --host=127.0.0.1 --port=8000 --no-reload",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",

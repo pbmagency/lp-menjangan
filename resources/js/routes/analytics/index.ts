@@ -1,6 +1,6 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
- * @see routes/web.php:13
+ * @see routes/web.php:14
  * @route '/analytics/csrf'
  */
 export const csrf = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -14,7 +14,7 @@ csrf.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/web.php:13
+ * @see routes/web.php:14
  * @route '/analytics/csrf'
  */
 csrf.url = (options?: RouteQueryOptions) => {
@@ -22,7 +22,7 @@ csrf.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/web.php:13
+ * @see routes/web.php:14
  * @route '/analytics/csrf'
  */
 csrf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -30,7 +30,7 @@ csrf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/web.php:13
+ * @see routes/web.php:14
  * @route '/analytics/csrf'
  */
 csrf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -39,7 +39,7 @@ csrf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/web.php:13
+ * @see routes/web.php:14
  * @route '/analytics/csrf'
  */
     const csrfForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -48,7 +48,7 @@ csrf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/web.php:13
+ * @see routes/web.php:14
  * @route '/analytics/csrf'
  */
         csrfForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -56,7 +56,7 @@ csrf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/web.php:13
+ * @see routes/web.php:14
  * @route '/analytics/csrf'
  */
         csrfForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

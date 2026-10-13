@@ -444,3 +444,74 @@ c1Lp.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
     
     c1Lp.form = c1LpForm
+/**
+ * @see routes/web.php:38
+ * @route '/c2-lp'
+ */
+export const c2Lp = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: c2Lp.url(options),
+    method: 'get',
+})
+
+c2Lp.definition = {
+    methods: ["get","head"],
+    url: '/c2-lp',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+ * @see routes/web.php:38
+ * @route '/c2-lp'
+ */
+c2Lp.url = (options?: RouteQueryOptions) => {
+    return c2Lp.definition.url + queryParams(options)
+}
+
+/**
+ * @see routes/web.php:38
+ * @route '/c2-lp'
+ */
+c2Lp.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: c2Lp.url(options),
+    method: 'get',
+})
+/**
+ * @see routes/web.php:38
+ * @route '/c2-lp'
+ */
+c2Lp.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: c2Lp.url(options),
+    method: 'head',
+})
+
+    /**
+ * @see routes/web.php:38
+ * @route '/c2-lp'
+ */
+    const c2LpForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: c2Lp.url(options),
+        method: 'get',
+    })
+
+            /**
+ * @see routes/web.php:38
+ * @route '/c2-lp'
+ */
+        c2LpForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: c2Lp.url(options),
+            method: 'get',
+        })
+            /**
+ * @see routes/web.php:38
+ * @route '/c2-lp'
+ */
+        c2LpForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: c2Lp.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    c2Lp.form = c2LpForm

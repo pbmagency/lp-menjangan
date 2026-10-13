@@ -1,0 +1,178 @@
+
+> build
+> node scripts/prerender-c2.mjs && vite build
+
+Pre-rendered c2-lp (122 KB)
+vite v8.0.13 building client environment for production...
+[2K
+
+/fonts/montserrat-latin.woff2 referenced in /fonts/montserrat-latin.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+transforming...✓ 3830 modules transformed.
+rendering chunks...
+computing gzip size...
+public/build/assets/check-C095ZkrN.js.br                         0.10 kB
+public/build/assets/lp-app-EoPAVNZU.js.br                        0.15 kB
+public/build/assets/monitor-CXzH8U1D.js.br                       0.16 kB
+public/build/assets/lp-app-EoPAVNZU.js.gz                        0.17 kB
+public/build/assets/dist-2mYWLWe-.js.br                          0.18 kB
+public/build/assets/eye-C6QCwZnv.js.gz                           0.19 kB
+public/build/assets/confirm-BEAcyKwO.js.br                       0.19 kB
+public/build/assets/monitor-CXzH8U1D.js.gz                       0.19 kB
+public/build/assets/eye-C6QCwZnv.js.br                           0.20 kB
+public/build/assets/dist-2mYWLWe-.js.gz                          0.21 kB
+public/build/assets/confirm-BEAcyKwO.js.gz                       0.22 kB
+public/build/assets/input-error-BdqY8bki.js.br                   0.29 kB
+public/build/assets/spinner-CDsuDCQz.js.br                       0.30 kB
+public/build/assets/input-error-BdqY8bki.js.gz                   0.32 kB
+public/build/assets/spinner-CDsuDCQz.js.gz                       0.34 kB
+public/build/assets/text-link-DuUXOVrI.js.br                     0.37 kB
+public/build/assets/rolldown-runtime-C8aF4MgB.js.br              0.37 kB
+public/build/assets/rolldown-runtime-C8aF4MgB.js.gz              0.42 kB
+public/build/assets/text-link-DuUXOVrI.js.gz                     0.43 kB
+public/build/assets/verification-Clh_1tiQ.js.br                  0.46 kB
+public/build/assets/fonts-DkuEHybc.css.br                        0.46 kB
+public/build/assets/label-D6dAa8aA.js.br                         0.48 kB
+public/build/assets/verification-Clh_1tiQ.js.gz                  0.52 kB
+public/build/assets/fonts-DkuEHybc.css.gz                        0.54 kB
+public/build/assets/label-D6dAa8aA.js.gz                         0.56 kB
+public/build/assets/preload-helper-CTTryutC.js.br                0.56 kB
+public/build/assets/confirm-password-CMuvxPGo.js.br              0.58 kB
+public/build/assets/password-CGNJPH9i.js.br                      0.62 kB
+public/build/assets/verify-email-D1nNy3OY.js.br                  0.62 kB
+public/build/assets/preload-helper-CTTryutC.js.gz                0.68 kB
+public/build/assets/confirm-password-CMuvxPGo.js.gz              0.70 kB
+public/build/assets/password-CGNJPH9i.js.gz                      0.72 kB
+public/build/assets/landing-app-B5x8TWF7.js.br                   0.73 kB
+public/build/assets/verify-email-D1nNy3OY.js.gz                  0.73 kB
+public/build/assets/forgot-password-B7HvG3ad.js.br               0.80 kB
+public/build/assets/dashboard-gyioRzX-.js.br                     0.81 kB
+public/build/assets/reset-password-Crac0r4X.js.br                0.81 kB
+public/build/assets/landing-app-B5x8TWF7.js.gz                   0.82 kB
+public/build/fonts-manifest.json.br                              0.83 kB
+public/build/assets/routes-DyZU4iAo.js.br                        0.85 kB
+public/build/assets/password-input-BhV_wt32.js.br                0.87 kB
+public/build/assets/forgot-password-B7HvG3ad.js.gz               0.93 kB
+public/build/assets/alert-DHwU4Nes.js.br                         0.93 kB
+public/build/assets/dashboard-gyioRzX-.js.gz                     0.93 kB
+public/build/assets/reset-password-Crac0r4X.js.gz                0.94 kB
+public/build/fonts-manifest.json.gz                              0.95 kB
+public/build/assets/password-input-BhV_wt32.js.gz                0.97 kB
+public/build/assets/register-e1TTT7Lf.js.br                      0.97 kB
+public/build/assets/routes-DyZU4iAo.js.gz                        1.02 kB
+public/build/assets/alert-DHwU4Nes.js.gz                         1.05 kB
+public/build/assets/appearance-ZrGf9g-b.js.br                    1.06 kB
+public/build/assets/dialog-CuUO8X82.js.br                        1.09 kB
+public/build/assets/login-91n3b6XS.js.br                         1.10 kB
+public/build/assets/register-e1TTT7Lf.js.gz                      1.11 kB
+public/build/assets/two-factor-challenge-BVI6OoOa.js.br          1.11 kB
+public/build/assets/appearance-ZrGf9g-b.js.gz                    1.17 kB
+public/build/assets/dialog-CuUO8X82.js.gz                        1.24 kB
+public/build/assets/login-91n3b6XS.js.gz                         1.26 kB
+public/build/assets/two-factor-challenge-BVI6OoOa.js.gz          1.28 kB
+public/build/manifest.json.br                                    1.77 kB
+public/build/assets/profile-BAylyrr0.js.br                       2.04 kB
+public/build/manifest.json.gz                                    2.06 kB
+public/build/assets/c2-enhance-G-kydHwa.js.br                    2.13 kB
+public/build/assets/profile-BAylyrr0.js.gz                       2.36 kB
+public/build/assets/c2-enhance-G-kydHwa.js.gz                    2.44 kB
+public/build/assets/checkbox-DUALiLcP.js.br                      2.68 kB
+public/build/assets/checkbox-DUALiLcP.js.gz                      2.96 kB
+public/build/assets/use-two-factor-auth-s9PUqBfi.js.br           5.24 kB
+public/build/assets/security-1aJKdetZ.js.br                      5.54 kB
+public/build/assets/landing-CIHBvYcr.css.br                      5.91 kB
+public/build/assets/landing-BhHDhemi.js.br                       5.96 kB
+public/build/assets/use-two-factor-auth-s9PUqBfi.js.gz           6.03 kB
+public/build/assets/security-1aJKdetZ.js.gz                      6.38 kB
+public/build/assets/landing-CIHBvYcr.css.gz                      6.69 kB
+public/build/assets/instrument-sans-400-normal-Q_nF8v4l.woff2    6.85 kB
+public/build/assets/landing-BhHDhemi.js.gz                       6.89 kB
+public/build/assets/instrument-sans-600-normal-BsaQcF38.woff2    6.94 kB
+public/build/assets/instrument-sans-500-normal-CTEe1bJa.woff2    6.98 kB
+public/build/assets/c1-lp-dcEFwLqX.js.br                         7.13 kB
+public/build/assets/c1-lp-dcEFwLqX.js.gz                         8.17 kB
+public/build/assets/instrument-sans-400-normal-r32jotim.woff     8.96 kB
+public/build/assets/instrument-sans-500-normal-CAxz3nsc.woff     9.06 kB
+public/build/assets/instrument-sans-600-normal-DMks36a2.woff     9.10 kB
+public/build/fonts-manifest.json                                11.19 kB │ gzip:   0.97 kB
+public/build/assets/analytics-C6NKUSfI.js.br                    14.26 kB
+public/build/assets/c1-lp-below-BRJqfUfn.js.br                  15.06 kB
+public/build/assets/analytics-C6NKUSfI.js.gz                    16.82 kB
+public/build/manifest.json                                      16.83 kB │ gzip:   2.06 kB
+public/build/assets/instrument-sans-400-normal-DRC__1Mx.woff2   16.86 kB
+public/build/assets/c2-lp-D7_pWSTi.js.br                        17.08 kB
+public/build/assets/instrument-sans-500-normal-Dk9ku72i.woff2   17.23 kB
+public/build/assets/instrument-sans-600-normal-B7fBEWYG.woff2   17.40 kB
+public/build/assets/app-DNtUQkB_.css.br                         19.22 kB
+public/build/assets/c1-lp-below-BRJqfUfn.js.gz                  19.82 kB
+public/build/assets/landing-below-C_Y4omvh.js.br                20.90 kB
+public/build/assets/instrument-sans-400-normal-D1W7dsQl.woff    21.24 kB
+public/build/assets/instrument-sans-500-normal-Z6ESRlEs.woff    21.65 kB
+public/build/assets/instrument-sans-600-normal-B9e8oLYv.woff    21.67 kB
+public/build/assets/c2-lp-D7_pWSTi.js.gz                        22.64 kB
+public/build/assets/app-DNtUQkB_.css.gz                         24.18 kB
+public/build/assets/landing-below-C_Y4omvh.js.gz                28.05 kB
+public/build/assets/dist-CUk_GJVK.js.br                         33.61 kB
+public/build/assets/dist-CUk_GJVK.js.gz                         37.91 kB
+public/build/assets/labs-BWyw1oYL.js.br                         39.64 kB
+public/build/assets/labs-BWyw1oYL.js.gz                         45.28 kB
+public/build/assets/react-vendor-BUynkAsr.js.br                 50.94 kB
+public/build/assets/app-CVdRBwRl.js.br                          54.07 kB
+public/build/assets/react-vendor-BUynkAsr.js.gz                 59.10 kB
+public/build/assets/app-CVdRBwRl.js.gz                          66.38 kB
+public/build/assets/admin-layout-wYX7-Ez_.js.br                 93.19 kB
+public/build/assets/admin-layout-wYX7-Ez_.js.gz                111.63 kB
+public/build/assets/fonts-DkuEHybc.css                           4.76 kB │ gzip:   0.55 kB
+public/build/assets/landing-CIHBvYcr.css                        27.64 kB │ gzip:   6.76 kB
+public/build/assets/app-DNtUQkB_.css                           162.90 kB │ gzip:  24.57 kB
+public/build/assets/check-C095ZkrN.js                            0.11 kB │ gzip:   0.12 kB
+public/build/assets/loader-circle-CbdArYEL.js                    0.13 kB │ gzip:   0.14 kB
+public/build/assets/lp-app-EoPAVNZU.js                           0.18 kB │ gzip:   0.17 kB
+public/build/assets/eye-C6QCwZnv.js                              0.24 kB │ gzip:   0.19 kB
+public/build/assets/monitor-CXzH8U1D.js                          0.24 kB │ gzip:   0.19 kB
+public/build/assets/dist-2mYWLWe-.js                             0.30 kB │ gzip:   0.21 kB
+public/build/assets/confirm-BEAcyKwO.js                          0.36 kB │ gzip:   0.22 kB
+public/build/assets/input-error-BdqY8bki.js                      0.44 kB │ gzip:   0.32 kB
+public/build/assets/spinner-CDsuDCQz.js                          0.47 kB │ gzip:   0.34 kB
+public/build/assets/text-link-DuUXOVrI.js                        0.64 kB │ gzip:   0.42 kB
+public/build/assets/rolldown-runtime-C8aF4MgB.js                 0.69 kB │ gzip:   0.42 kB
+public/build/assets/label-D6dAa8aA.js                            0.88 kB │ gzip:   0.56 kB
+public/build/assets/preload-helper-CTTryutC.js                   1.19 kB │ gzip:   0.68 kB
+public/build/assets/verify-email-D1nNy3OY.js                     1.36 kB │ gzip:   0.73 kB
+public/build/assets/confirm-password-CMuvxPGo.js                 1.39 kB │ gzip:   0.70 kB
+public/build/assets/verification-Clh_1tiQ.js                     1.48 kB │ gzip:   0.52 kB
+public/build/assets/password-input-BhV_wt32.js                   1.70 kB │ gzip:   0.98 kB
+public/build/assets/landing-app-B5x8TWF7.js                      1.81 kB │ gzip:   0.82 kB
+public/build/assets/forgot-password-B7HvG3ad.js                  2.00 kB │ gzip:   0.93 kB
+public/build/assets/reset-password-Crac0r4X.js                   2.32 kB │ gzip:   0.95 kB
+public/build/assets/appearance-ZrGf9g-b.js                       2.43 kB │ gzip:   1.18 kB
+public/build/assets/dashboard-gyioRzX-.js                        2.60 kB │ gzip:   0.93 kB
+public/build/assets/password-CGNJPH9i.js                         2.74 kB │ gzip:   0.73 kB
+public/build/assets/two-factor-challenge-BVI6OoOa.js             2.81 kB │ gzip:   1.29 kB
+public/build/assets/login-91n3b6XS.js                            2.89 kB │ gzip:   1.26 kB
+public/build/assets/register-e1TTT7Lf.js                         2.90 kB │ gzip:   1.11 kB
+public/build/assets/alert-DHwU4Nes.js                            3.59 kB │ gzip:   1.06 kB
+public/build/assets/routes-DyZU4iAo.js                           3.70 kB │ gzip:   1.02 kB
+public/build/assets/dialog-CuUO8X82.js                           4.06 kB │ gzip:   1.25 kB
+public/build/assets/c2-enhance-G-kydHwa.js                       5.45 kB │ gzip:   2.45 kB
+public/build/assets/profile-BAylyrr0.js                          6.95 kB │ gzip:   2.37 kB
+public/build/assets/checkbox-DUALiLcP.js                         7.05 kB │ gzip:   2.97 kB
+public/build/assets/use-two-factor-auth-s9PUqBfi.js             16.76 kB │ gzip:   6.06 kB
+public/build/assets/security-1aJKdetZ.js                        18.28 kB │ gzip:   6.44 kB
+public/build/assets/landing-BhHDhemi.js                         21.11 kB │ gzip:   6.95 kB
+public/build/assets/c1-lp-dcEFwLqX.js                           24.68 kB │ gzip:   8.19 kB
+public/build/assets/analytics-C6NKUSfI.js                       55.61 kB │ gzip:  16.99 kB
+public/build/assets/dist-CUk_GJVK.js                           121.62 kB │ gzip:  38.33 kB
+public/build/assets/landing-below-C_Y4omvh.js                  149.79 kB │ gzip:  28.42 kB
+public/build/assets/c2-lp-D7_pWSTi.js                          150.20 kB │ gzip:  23.77 kB
+public/build/assets/c1-lp-below-BRJqfUfn.js                    158.02 kB │ gzip:  20.61 kB
+public/build/assets/labs-BWyw1oYL.js                           170.15 kB │ gzip:  45.72 kB
+public/build/assets/react-vendor-BUynkAsr.js                   190.38 kB │ gzip:  59.89 kB
+public/build/assets/app-CVdRBwRl.js                            232.03 kB │ gzip:  67.26 kB
+public/build/assets/admin-layout-wYX7-Ez_.js                   386.94 kB │ gzip: 112.95 kB
+
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - @inertiajs/vite (80%)
+  - laravel (12%)
+  - vite:react-babel (6%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
